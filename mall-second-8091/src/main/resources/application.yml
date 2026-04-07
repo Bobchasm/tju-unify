@@ -9,7 +9,7 @@ spring:
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/school_mall?useUnicode=true&characterEncoding=UTF-8
     username: root
-    password: GCzzbdzj126
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 mybatis:
   type-aliases-package: cdtu.mall.second.pojo
