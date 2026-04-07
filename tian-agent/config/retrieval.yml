@@ -1,0 +1,37 @@
+# 高级检索策略配置
+retrieval:
+  # 基础检索配置
+  base:
+    top_k: 8  # 最终返回结果数
+    # Chroma 距离：越小越相似。设为 null 表示不按距离过滤；若设值则为允许的最大距离
+    score_threshold: null
+
+  # 多查询扩展(MQE)配置（知识库仅两份政策时建议关闭，避免扩展查询偏离原文）
+  mqe:
+    enabled: false
+    expansions: 3  # 生成的扩展查询数量
+    prompt_path: "prompts/mqe_prompt.txt"
+
+  # 假设文档嵌入(HyDE)配置（易引入与原文不符的假设句，小库建议关闭）
+  hyde:
+    enabled: false
+    prompt_path: "prompts/hyde_prompt.txt"
+
+  # 扩展检索框架配置
+  expanded:
+    candidate_pool_multiplier: 4  # 候选池倍数
+    min_candidates: 20  # 最小候选数
+    enable_rerank: true  # 是否启用重排序
+
+  # 多轮对话增强配置
+  conversation:
+    enable_context: true  # 启用对话上下文
+    max_history: 3  # 最大历史轮次
+    context_window: 2  # 上下文窗口大小
+    rewrite_prompt_path: "prompts/query_rewrite_prompt.txt"
+
+  # 缓存配置
+  cache:
+    enable_query_cache: true  # 启用查询缓存
+    cache_ttl: 3600  # 缓存有效期(秒)
+    max_cache_size: 1000  # 最大缓存数

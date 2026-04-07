@@ -1,0 +1,11 @@
+collection_name: agent
+persist_directory: chroma_db
+k: 6
+data_path: data
+md5_hex_store: md5.text
+allow_knowledge_file_type: ["txt", "pdf", "csv", "json"]
+
+# 过小会把表格/条款切碎导致检索丢上下文；改大后需清空 chroma_db 与 md5.text 后重新 load_document
+chunk_size: 600
+chunk_overlap: 80
+separators: ["\n\n", "\n", ".", "!", "?", "。", "！", "？", " ", ""]

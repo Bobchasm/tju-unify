@@ -1,0 +1,1638 @@
+{
+  "file name" : "天津大学统计数据.pdf",
+  "number of pages" : 2,
+  "author" : null,
+  "title" : null,
+  "creation date" : "D:20260407141856Z",
+  "modification date" : null,
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 5,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 70.866, 754.974, 190.866, 774.429 ],
+    "heading level" : 1,
+    "font" : "FandolSong-Bold",
+    "font size" : 15.0,
+    "text color" : "[0.0]",
+    "content" : "天津大学基本数据"
+  }, {
+    "type" : "paragraph",
+    "id" : 6,
+    "page number" : 1,
+    "bounding box" : [ 70.866, 726.769, 142.866, 742.333 ],
+    "font" : "FandolSong-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "校区占地面积"
+  }, {
+    "type" : "table",
+    "id" : 7,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 199.541, 629.138, 395.734, 709.754 ],
+    "number of rows" : 4,
+    "number of columns" : 2,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 199.84, 689.5, 285.195, 709.355 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 1,
+          "bounding box" : [ 231.968, 692.362, 252.968, 705.981 ],
+          "font" : "FandolSong-Bold",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "校区"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 285.195, 689.5, 395.435, 709.355 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 3,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 291.173, 692.362, 396.173, 705.981 ],
+          "font" : "FandolSong-Bold",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "占地面积（万平方米）"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 199.84, 669.446, 285.195, 689.5 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 4,
+          "page number" : 1,
+          "bounding box" : [ 205.718, 672.644, 258.218, 685.811 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "卫津路校区"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 285.195, 669.446, 395.435, 689.5 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 6,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 291.173, 672.497, 320.342, 687.376 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "128.85"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 199.84, 649.391, 285.195, 669.446 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 7,
+          "page number" : 1,
+          "bounding box" : [ 205.718, 652.589, 258.218, 665.756 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "北洋园校区"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 285.195, 649.391, 395.435, 669.446 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 9,
+          "page number" : 1,
+          "bounding box" : [ 291.173, 652.442, 315.092, 667.32 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "243.6"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 199.84, 629.536, 285.195, 649.391 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 10,
+          "page number" : 1,
+          "bounding box" : [ 205.718, 632.535, 279.218, 645.702 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "滨海工业研究院"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 285.195, 629.536, 395.435, 649.391 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 12,
+          "page number" : 1,
+          "bounding box" : [ 291.173, 632.388, 309.842, 647.267 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "30.9"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 8,
+    "page number" : 1,
+    "bounding box" : [ 70.866, 582.026, 142.866, 597.59 ],
+    "font" : "FandolSong-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "全日制在校生"
+  }, {
+    "type" : "paragraph",
+    "id" : 10,
+    "page number" : 1,
+    "bounding box" : [ 70.866, 417.229, 130.866, 432.793 ],
+    "font" : "FandolSong-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "教职工情况"
+  }, {
+    "type" : "table",
+    "id" : 9,
+    "level" : "2",
+    "page number" : 1,
+    "bounding box" : [ 230.359, 464.329, 364.917, 564.999 ],
+    "number of rows" : 5,
+    "number of columns" : 2,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 230.658, 544.746, 326.513, 564.601 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 13,
+          "page number" : 1,
+          "bounding box" : [ 268.035, 547.607, 289.035, 561.226 ],
+          "font" : "FandolSong-Bold",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "类别"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 326.513, 544.746, 364.618, 564.601 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 15,
+          "page number" : 1,
+          "bounding box" : [ 335.115, 547.607, 356.115, 561.226 ],
+          "font" : "FandolSong-Bold",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "人数"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 230.658, 524.691, 326.513, 544.746 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 16,
+          "page number" : 1,
+          "bounding box" : [ 236.535, 527.889, 320.535, 541.056 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "全日制在校生总数"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 326.513, 524.691, 364.618, 544.746 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 18,
+          "page number" : 1,
+          "bounding box" : [ 332.49, 527.742, 358.74, 542.621 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "40277"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 230.658, 504.637, 326.513, 524.691 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 19,
+          "page number" : 1,
+          "bounding box" : [ 236.535, 507.835, 268.035, 521.002 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "本科生"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 326.513, 504.637, 364.618, 524.691 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 21,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 332.49, 507.688, 358.74, 522.567 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "19103"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 230.658, 484.582, 326.513, 504.637 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 22,
+          "page number" : 1,
+          "bounding box" : [ 236.535, 487.78, 268.035, 500.947 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "硕士生"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 326.513, 484.582, 364.618, 504.637 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 24,
+          "page number" : 1,
+          "bounding box" : [ 332.49, 487.633, 358.74, 502.512 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "14692"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 5,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 230.658, 464.727, 326.513, 484.582 ],
+        "row number" : 5,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 25,
+          "page number" : 1,
+          "bounding box" : [ 236.535, 467.726, 268.035, 480.893 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "博士生"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 326.513, 464.727, 364.618, 484.582 ],
+        "row number" : 5,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 27,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 332.49, 467.579, 353.49, 482.458 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "6482"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "table",
+    "id" : 11,
+    "level" : "3",
+    "page number" : 1,
+    "bounding box" : [ 196.234, 279.513, 399.042, 400.238 ],
+    "number of rows" : 6,
+    "number of columns" : 2,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 196.533, 379.984, 365.888, 399.839 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 28,
+          "page number" : 1,
+          "bounding box" : [ 270.66, 382.846, 291.66, 396.465 ],
+          "font" : "FandolSong-Bold",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "类别"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 365.888, 379.984, 398.743, 399.839 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 30,
+          "page number" : 1,
+          "bounding box" : [ 371.865, 382.846, 392.865, 396.465 ],
+          "font" : "FandolSong-Bold",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "人数"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 196.533, 359.929, 365.888, 379.984 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 31,
+          "page number" : 1,
+          "bounding box" : [ 202.41, 363.128, 254.91, 376.295 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "教职工总数"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 365.888, 359.929, 398.743, 379.984 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 33,
+          "page number" : 1,
+          "bounding box" : [ 371.865, 362.981, 392.865, 377.86 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "4871"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 196.533, 339.876, 365.888, 359.929 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 34,
+          "page number" : 1,
+          "bounding box" : [ 202.41, 343.073, 223.41, 356.24 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "教授"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 365.888, 339.876, 398.743, 359.929 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 36,
+          "page number" : 1,
+          "bounding box" : [ 371.865, 342.926, 392.865, 357.805 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "1019"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 196.533, 319.821, 365.888, 339.876 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 37,
+          "page number" : 1,
+          "bounding box" : [ 202.41, 323.019, 244.41, 336.186 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "两院院士"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 365.888, 319.821, 398.743, 339.876 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 39,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 371.865, 322.872, 382.365, 337.751 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "13"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 5,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 196.533, 299.767, 365.888, 319.821 ],
+        "row number" : 5,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 40,
+          "page number" : 1,
+          "bounding box" : [ 202.41, 302.964, 359.91, 316.131 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家“杰出青年科学基金”获得者"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 365.888, 299.767, 398.743, 319.821 ],
+        "row number" : 5,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 42,
+          "page number" : 1,
+          "bounding box" : [ 371.865, 302.817, 382.365, 317.696 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "68"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 6,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 196.533, 279.911, 365.888, 299.767 ],
+        "row number" : 6,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 43,
+          "page number" : 1,
+          "bounding box" : [ 202.41, 282.91, 359.91, 296.077 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家“优秀青年科学基金”获得者"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 365.888, 279.911, 398.743, 299.767 ],
+        "row number" : 6,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 45,
+          "page number" : 1,
+          "bounding box" : [ 371.865, 282.763, 387.615, 297.642 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "103"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 12,
+    "page number" : 1,
+    "bounding box" : [ 70.866, 232.378, 154.866, 247.942 ],
+    "font" : "FandolSong-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "教学与人才培养"
+  }, {
+    "type" : "footer",
+    "id" : 13,
+    "page number" : 1,
+    "bounding box" : [ 295.013, 37.933, 300.263, 52.811 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 3,
+      "page number" : 1,
+      "bounding box" : [ 295.013, 37.933, 300.263, 52.811 ],
+      "heading level" : 3,
+      "font" : "LMRoman10-Regular",
+      "font size" : 10.5,
+      "text color" : "[0.0]",
+      "content" : "1"
+    } ]
+  }, {
+    "type" : "table",
+    "id" : 14,
+    "level" : "4",
+    "page number" : 2,
+    "bounding box" : [ 173.349, 509.918, 421.927, 771.024 ],
+    "number of rows" : 13,
+    "number of columns" : 2,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 173.648, 750.77, 388.773, 770.625 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 2,
+          "bounding box" : [ 270.66, 753.632, 291.66, 767.251 ],
+          "font" : "FandolSong-Bold",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "类别"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 388.773, 750.77, 421.628, 770.625 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 3,
+          "page number" : 2,
+          "bounding box" : [ 394.75, 753.632, 415.75, 767.251 ],
+          "font" : "FandolSong-Bold",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "数量"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 173.648, 730.716, 388.773, 750.77 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 4,
+          "page number" : 2,
+          "bounding box" : [ 179.526, 733.914, 263.526, 747.081 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家级教学名师奖"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 388.773, 730.716, 421.628, 750.77 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 6,
+          "level" : "1",
+          "page number" : 2,
+          "bounding box" : [ 394.75, 733.767, 400.0, 748.646 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "9"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 173.648, 710.661, 388.773, 730.716 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 7,
+          "page number" : 2,
+          "bounding box" : [ 179.526, 713.859, 253.026, 727.026 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家级教学团队"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 388.773, 710.661, 421.628, 730.716 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 9,
+          "level" : "1",
+          "page number" : 2,
+          "bounding box" : [ 394.75, 713.712, 400.0, 728.59 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "9"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 173.648, 690.607, 388.773, 710.661 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 10,
+          "page number" : 2,
+          "bounding box" : [ 179.526, 693.805, 295.026, 706.972 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家级工程实践教育中心"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 388.773, 690.607, 421.628, 710.661 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 12,
+          "page number" : 2,
+          "bounding box" : [ 394.75, 693.658, 405.25, 708.536 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "12"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 5,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 173.648, 670.553, 388.773, 690.607 ],
+        "row number" : 5,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 13,
+          "page number" : 2,
+          "bounding box" : [ 179.526, 673.75, 295.026, 686.917 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家级实验教学示范中心"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 388.773, 670.553, 421.628, 690.607 ],
+        "row number" : 5,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 15,
+          "page number" : 2,
+          "bounding box" : [ 394.75, 673.603, 400.0, 688.482 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "7"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 6,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 173.648, 650.498, 388.773, 670.553 ],
+        "row number" : 6,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 16,
+          "page number" : 2,
+          "bounding box" : [ 179.526, 653.696, 316.026, 666.863 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家级虚拟仿真实验教学中心"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 388.773, 650.498, 421.628, 670.553 ],
+        "row number" : 6,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 18,
+          "level" : "1",
+          "page number" : 2,
+          "bounding box" : [ 394.75, 653.549, 400.0, 668.427 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "3"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 7,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 173.648, 630.444, 388.773, 650.498 ],
+        "row number" : 7,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 19,
+          "page number" : 2,
+          "bounding box" : [ 179.526, 633.642, 253.026, 646.809 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家级一流课程"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 388.773, 630.444, 421.628, 650.498 ],
+        "row number" : 7,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 21,
+          "page number" : 2,
+          "bounding box" : [ 394.75, 633.495, 405.25, 648.373 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "82"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 8,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 173.648, 610.389, 388.773, 630.444 ],
+        "row number" : 8,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 22,
+          "page number" : 2,
+          "bounding box" : [ 179.526, 613.587, 337.026, 626.754 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家级虚拟仿真实验教学一流课程"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 388.773, 610.389, 421.628, 630.444 ],
+        "row number" : 8,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 24,
+          "page number" : 2,
+          "bounding box" : [ 394.75, 613.44, 405.25, 628.319 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "16"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 9,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 173.648, 590.334, 388.773, 610.389 ],
+        "row number" : 9,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 25,
+          "page number" : 2,
+          "bounding box" : [ 179.526, 593.533, 295.026, 606.7 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家级双语教学示范课程"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 388.773, 590.334, 421.628, 610.389 ],
+        "row number" : 9,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 27,
+          "page number" : 2,
+          "bounding box" : [ 394.75, 593.386, 400.0, 608.265 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "6"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 10,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 173.648, 570.28, 388.773, 590.334 ],
+        "row number" : 10,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 28,
+          "page number" : 2,
+          "bounding box" : [ 179.526, 573.478, 274.026, 586.645 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家级一流本科专业"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 388.773, 570.28, 421.628, 590.334 ],
+        "row number" : 10,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 30,
+          "level" : "1",
+          "page number" : 2,
+          "bounding box" : [ 394.75, 573.331, 405.25, 588.209 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "54"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 11,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 173.648, 550.226, 388.773, 570.28 ],
+        "row number" : 11,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 31,
+          "page number" : 2,
+          "bounding box" : [ 179.526, 553.277, 388.937, 568.156 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "全国“基础学科拔尖学生培养计划 2.0 基地”"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 388.773, 550.226, 421.628, 570.28 ],
+        "row number" : 11,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 33,
+          "level" : "1",
+          "page number" : 2,
+          "bounding box" : [ 394.75, 553.277, 400.0, 568.156 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "5"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 12,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 173.648, 530.171, 388.773, 550.226 ],
+        "row number" : 12,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 34,
+          "page number" : 2,
+          "bounding box" : [ 179.526, 533.369, 284.526, 546.536 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "全国“强基计划”专业"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 388.773, 530.171, 421.628, 550.226 ],
+        "row number" : 12,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 36,
+          "page number" : 2,
+          "bounding box" : [ 394.75, 533.222, 400.0, 548.101 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "5"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 13,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 173.648, 510.316, 388.773, 530.171 ],
+        "row number" : 13,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 37,
+          "page number" : 2,
+          "bounding box" : [ 179.526, 513.315, 305.526, 526.482 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家级人才培养创新实验区"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 388.773, 510.316, 421.628, 530.171 ],
+        "row number" : 13,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 39,
+          "level" : "1",
+          "page number" : 2,
+          "bounding box" : [ 394.75, 513.168, 405.25, 528.046 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "10"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "heading",
+    "id" : 15,
+    "level" : "Subtitle",
+    "page number" : 2,
+    "bounding box" : [ 70.866, 476.334, 154.866, 491.898 ],
+    "heading level" : 2,
+    "font" : "FandolSong-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "学科与科研平台"
+  }, {
+    "type" : "table",
+    "id" : 16,
+    "level" : "5",
+    "page number" : 2,
+    "bounding box" : [ 159.484, 278.406, 435.792, 459.294 ],
+    "number of rows" : 9,
+    "number of columns" : 2,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 159.783, 439.041, 402.638, 458.896 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 40,
+          "page number" : 2,
+          "bounding box" : [ 270.66, 441.903, 291.66, 455.522 ],
+          "font" : "FandolSong-Bold",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "类别"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 402.638, 439.041, 435.493, 458.896 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 42,
+          "level" : "1",
+          "page number" : 2,
+          "bounding box" : [ 408.615, 441.903, 429.615, 455.522 ],
+          "font" : "FandolSong-Bold",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "数量"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 159.783, 418.986, 402.638, 439.041 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 43,
+          "page number" : 2,
+          "bounding box" : [ 165.66, 422.184, 207.66, 435.351 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "本科专业"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 402.638, 418.986, 435.493, 439.041 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 45,
+          "page number" : 2,
+          "bounding box" : [ 408.615, 422.037, 419.115, 436.916 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "76"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 159.783, 398.931, 402.638, 418.986 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 46,
+          "page number" : 2,
+          "bounding box" : [ 165.66, 402.13, 239.16, 415.297 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "一级学科硕士点"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 402.638, 398.931, 435.493, 418.986 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 48,
+          "page number" : 2,
+          "bounding box" : [ 408.615, 401.983, 419.115, 416.862 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "48"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 159.783, 378.877, 402.638, 398.931 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 49,
+          "page number" : 2,
+          "bounding box" : [ 165.66, 382.075, 239.16, 395.242 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "一级学科博士点"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 402.638, 378.877, 435.493, 398.931 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 51,
+          "page number" : 2,
+          "bounding box" : [ 408.615, 381.928, 419.115, 396.807 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "38"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 5,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 159.783, 358.823, 402.638, 378.877 ],
+        "row number" : 5,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 52,
+          "page number" : 2,
+          "bounding box" : [ 165.66, 362.021, 249.66, 375.188 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "博士后科研流动站"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 402.638, 358.823, 435.493, 378.877 ],
+        "row number" : 5,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 54,
+          "page number" : 2,
+          "bounding box" : [ 408.615, 361.874, 419.115, 376.753 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "37"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 6,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 159.783, 338.768, 402.638, 358.823 ],
+        "row number" : 6,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 55,
+          "page number" : 2,
+          "bounding box" : [ 165.66, 341.966, 239.16, 355.133 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "全国重点实验室"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 402.638, 338.768, 435.493, 358.823 ],
+        "row number" : 6,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 57,
+          "level" : "1",
+          "page number" : 2,
+          "bounding box" : [ 408.615, 341.819, 419.115, 356.698 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "11"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 7,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 159.783, 318.714, 402.638, 338.768 ],
+        "row number" : 7,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 58,
+          "page number" : 2,
+          "bounding box" : [ 165.66, 321.912, 291.66, 335.079 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家工程（技术）研究中心"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 402.638, 318.714, 435.493, 338.768 ],
+        "row number" : 7,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 60,
+          "level" : "1",
+          "page number" : 2,
+          "bounding box" : [ 408.615, 321.765, 413.865, 336.644 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "5"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 8,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 159.783, 298.66, 402.638, 318.714 ],
+        "row number" : 8,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 61,
+          "page number" : 2,
+          "bounding box" : [ 165.66, 301.857, 270.66, 315.024 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "国家国际科技合作基地"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 402.638, 298.66, 435.493, 318.714 ],
+        "row number" : 8,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 63,
+          "page number" : 2,
+          "bounding box" : [ 408.615, 301.71, 413.865, 316.589 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "3"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 9,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 159.783, 278.804, 402.638, 298.66 ],
+        "row number" : 9,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 64,
+          "page number" : 2,
+          "bounding box" : [ 165.66, 281.803, 396.66, 294.97 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "教育部、天津市重点实验室等省部级重点科研平台"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 2,
+        "bounding box" : [ 402.638, 278.804, 435.493, 298.66 ],
+        "row number" : 9,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 66,
+          "page number" : 2,
+          "bounding box" : [ 408.615, 281.656, 424.365, 296.535 ],
+          "font" : "LMRoman10-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "142"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "footer",
+    "id" : 17,
+    "page number" : 2,
+    "bounding box" : [ 295.013, 37.933, 300.263, 52.811 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 4,
+      "page number" : 2,
+      "bounding box" : [ 295.013, 37.933, 300.263, 52.811 ],
+      "heading level" : 3,
+      "font" : "LMRoman10-Regular",
+      "font size" : 10.5,
+      "text color" : "[0.0]",
+      "content" : "2"
+    } ]
+  } ]
+}

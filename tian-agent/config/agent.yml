@@ -1,0 +1,4 @@
+#external_data_path: data/external/records.csv
+
+# 传入模型的对话记忆窗口（按条数计：每条 user 或 assistant 各算 1 条）
+conversation_max_messages: 10

@@ -1,0 +1,5 @@
+chat_model_name: qwen3-max
+embedding_model_name: text-embedding-v2
+
+# 高级检索配置
+retrieval_config: config/retrieval.yml
