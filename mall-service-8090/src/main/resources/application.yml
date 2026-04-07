@@ -21,10 +21,19 @@ unit:
   secret_key: wOdO8Fs2cmweM9oLZyC6y19yk8Udw2Tu
   url: https://aip.baidubce.com/rpc/2.0/unit/bot/chat
 
-cdtu:
+# 天津大学新闻网栏目入口（列表页），爬虫由此抓取详情链接并入库
+tju:
   news:
     category:
-      - http://www.cdtu.edu.cn/xwzx1/ztxw.htm #校园活动
-      - http://www.cdtu.edu.cn/xwzx1/xyxw.htm #校园新闻
-      - http://www.cdtu.edu.cn/xwzx1/jyxx.htm #教育信息
-      - http://www.cdtu.edu.cn/xwzx1/cgzmt.htm #成工自媒体
+      - https://news.tju.edu.cn/xw/xsx.htm
+      - https://news.tju.edu.cn/xw/fmxw.htm
+      - https://news.tju.edu.cn/xw/zhxw.htm
+      - https://news.tju.edu.cn/xw/xsky.htm
+      - https://news.tju.edu.cn/xw/rcpy.htm
+      - https://news.tju.edu.cn/xw/xysx.htm
+    crawler:
+      enabled: true
+      # 应用启动后首次爬取延迟（毫秒），避免与 DB/Eureka 同时初始化
+      initial-delay-ms: 120000
+      # 两次爬取之间的间隔（毫秒），默认 1 小时
+      fixed-delay-ms: 3600000

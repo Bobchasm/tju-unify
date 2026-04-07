@@ -19,7 +19,7 @@ public class MyPipeLine implements Pipeline {
         //通过resultItems获取爬取的信息
         SchoolNews schoolNews=resultItems.get("snewsInfo");
         if (schoolNews != null) {
-            newsService.save(schoolNews);
+            newsService.saveIfNotExists(schoolNews);
         }
     }
 }
