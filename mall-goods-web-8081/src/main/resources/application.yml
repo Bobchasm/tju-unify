@@ -1,0 +1,26 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: mall-goods-web
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/school_mall?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 192.168.1.6:9300
+mybatis:
+  type-aliases-package: cdtu.mall.item.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:1010/eureka
+
+#  instance:
+#    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+#    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期

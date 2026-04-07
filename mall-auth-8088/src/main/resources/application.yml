@@ -1,0 +1,27 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: mall-auth
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/school_mall?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:1010/eureka
+mall:
+  jwt:
+    secret: 123456 # 登录校验的密钥mall@Login(Auth}*^31)&cdtu%
+    pubKeyPath: D:/cdtu/rsa/rsa.pub # 公钥地址
+    priKeyPath: D:/cdtu/rsa/rsa.pri # 私钥地址
+    expire: 30 # 过期时间,单位分钟
+    cookieMaxAge: 1800  #cookie过期时间
+    cookieName: CDTU_MALL_TOKAEN
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 6000
+  eureka:
+    enabled: true

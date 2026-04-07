@@ -1,0 +1,96 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: mall-gateway
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+        - id: goods
+          uri: lb://mall-goods-web
+          predicates:
+            - Path=/api/goods/**
+          filters:
+            - StripPrefix=2
+        - id: recommend
+          uri: lb://mall-recommend
+          predicates:
+            - Path=/api/recommend/**
+          filters:
+            - StripPrefix=2
+        - id: alipay
+          uri: lb://mall-alipay
+          predicates:
+            - Path=/api/alipay/**
+          filters:
+            - StripPrefix=2
+        - id: user
+          uri: lb://user-service
+          predicates:
+            - Path=/api/user/**
+          filters:
+            - StripPrefix=2
+        - id: auth
+          uri: lb://mall-auth
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=2
+        - id: cart
+          uri: lb://mall-cart
+          predicates:
+            - Path=/api/cart/**
+          filters:
+            - StripPrefix=2
+        - id: order
+          uri: lb://mall-alipay
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - StripPrefix=2
+        - id: service
+          uri: lb://mall-service
+          predicates:
+            - Path=/api/service/**
+          filters:
+            - StripPrefix=2
+        - id: second
+          uri: lb://mall-second
+          predicates:
+            - Path=/api/sec/**
+          filters:
+            - StripPrefix=2
+        - id: upload
+          uri: lb://mall-upload
+          predicates:
+            - Path=/api/upload/**
+          filters:
+            - StripPrefix=2
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://127.0.0.1:1010/eureka
+mall:
+  jwt:
+    pubKeyPath: D:/cdtu/rsa/rsa.pub # 公钥地址
+    cookieName: CDTU_MALL_TOKAEN   #cookie名字
+  filter:
+    allowPaths:
+      - /api/goods
+      - /api/recommend
+      - /api/user
+      - /api/auth
+      - /api/order
+      - /api/cart
+      - /api/service
+      - /api/sec
+      - /api/upload
+
+

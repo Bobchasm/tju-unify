@@ -1,0 +1,37 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: mall-second
+  servlet:
+    multipart:
+      max-file-size: 5MB
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/school_mall?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: GCzzbdzj126
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  type-aliases-package: cdtu.mall.second.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+# 打印sql
+logging:
+  level:
+    cdtu.mall.second: debug
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:1010/eureka
+mall:
+  jwt:
+    secret: 123456 # 登录校验的密钥mall@Login(Auth}*^31)&cdtu%
+    pubKeyPath: D:/cdtu/rsa/rsa.pub # 公钥地址
+    priKeyPath: D:/cdtu/rsa/rsa.pri # 私钥地址
+    expire: 30 # 过期时间,单位分钟
+    cookieMaxAge: 1800  #cookie过期时间
+    cookieName: CDTU_MALL_TOKAEN
+#  instance:
+#    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+#    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
