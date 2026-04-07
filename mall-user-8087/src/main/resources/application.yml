@@ -1,0 +1,44 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/school_mall?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#  rabbitmq:
+#    host: 192.168.204.131
+#    username: leyou
+#    password: leyou
+#    virtual-host: /
+  redis:
+    host: 192.168.1.6
+#    password: 123456
+  thymeleaf:
+    cache: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:1010/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 15
+
+mybatis:
+  type-aliases-package: cdtu.mall.user.pojo
+#   驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
+#ribbon:
+#  ReadTimeout: 60000
+#  ConnectTimeout: 6000
+#  eureka:
+#    enabled: true
+mall:
+  sms:
+    accessKeyId: YOUR_ACCESS_KEY_ID # 你自己的accessKeyId
+    accessKeySecret: YOUR_ACCESS_KEY_SECRET # 你自己的AccessKeySecret
+    signName: 成工商城 # 签名名称
+    verifyCodeTemplate: SMS_178765813 # 模板名称

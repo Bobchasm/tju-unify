@@ -1,0 +1,53 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: mall-alipay
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/school_mall?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+#  rabbitmq:
+#    host: 192.168.204.131
+#    username: admin
+#    password: admin
+#    virtual-host: /
+#    template:
+#      retry:
+#        enabled: true
+#        initial-interval: 10000ms
+#        max-interval: 300000ms
+#        multiplier: 2
+#      exchange: mall.item.exchange
+#    publisher-confirms: true
+#  redis:
+#    host: 192.168.204.131
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://127.0.0.1:1010/eureka
+mybatis:
+  type-aliases-package: cdtu.mall.order.order.pojo
+  mapper-locations: mapper/OrderMapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+mapper:
+  not-empty: false
+  identity: mysql
+mall:
+  worker:
+    workerId: 1
+    datacenterId: 1
+  jwt:
+    pubKeyPath: D:/cdtu/rsa/rsa.pub # 公钥地址
+    cookieName: CDTU_MALL_TOKAEN
+  pay:
+    appId: wx8397f8696b538317
+    mchId: 1473426802
+    key: T6m9iK73b0kn9g5v426MKfHQH7X8rKwb
+    connectTimeoutMs: 5000
+    readTimeoutMs: 10000
+
+

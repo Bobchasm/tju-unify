@@ -1,0 +1,19 @@
+server:
+  port: 1010
+eureka:
+  instance:
+    hostname: localhost #服务中心主机名
+  client:
+    register-with-eureka: false  #自己不注册进去
+    fetch-registry: false  #不拉取eureka服务信息，不检索自己
+    service-url:
+      defaultZone: http://127.0.0.1:1010/eureka/
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:${server.port}/eureka
+#    register-with-eureka: false # 不要把自己注册到eureka服务列表
+#    fetch-registry: false # 不拉取eureka服务信息，不检索自己
+#  server:
+#    enable-self-preservation: false # 关闭自我保护
+#    eviction-interval-timer-in-ms: 5000 # 每隔5秒钟，进行一次服务列表的清理

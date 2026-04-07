@@ -1,0 +1,30 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: mall-service
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/school_mall?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: GCzzbdzj126
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  type-aliases-package: cdtu.mall.service.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:1010/eureka
+unit:
+  api_key: 2XCoc0r7FQznjZs8vkaZgvhT
+  secret_key: wOdO8Fs2cmweM9oLZyC6y19yk8Udw2Tu
+  url: https://aip.baidubce.com/rpc/2.0/unit/bot/chat
+
+cdtu:
+  news:
+    category:
+      - http://www.cdtu.edu.cn/xwzx1/ztxw.htm #校园活动
+      - http://www.cdtu.edu.cn/xwzx1/xyxw.htm #校园新闻
+      - http://www.cdtu.edu.cn/xwzx1/jyxx.htm #教育信息
+      - http://www.cdtu.edu.cn/xwzx1/cgzmt.htm #成工自媒体
