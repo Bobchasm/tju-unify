@@ -5,7 +5,7 @@ from collections import defaultdict
 from datetime import datetime, timedelta
 
 from langchain_core.documents import Document
-from rag.vectore_store import VectorStoreService
+from vectore_store import VectorStoreService
 from model.factory import chat_model, embed_model
 from utils.logger_handler import logger
 from utils.config_handler import retrieval_conf, prompts_conf  #

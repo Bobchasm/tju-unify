@@ -1,0 +1,6 @@
+{
+  "include": ["."],
+  "exclude": ["chroma_db", "**/__pycache__", ".venv"],
+  "extraPaths": ["."],
+  "pythonVersion": "3.10"
+}
