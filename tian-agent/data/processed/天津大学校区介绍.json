@@ -1,0 +1,152 @@
+{
+  "file name" : "天津大学校区介绍.pdf",
+  "number of pages" : 1,
+  "author" : null,
+  "title" : null,
+  "creation date" : "D:20260407142327Z",
+  "modification date" : null,
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 1,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 70.866, 754.854, 190.866, 774.309 ],
+    "heading level" : 1,
+    "font" : "FandolSong-Bold",
+    "font size" : 15.0,
+    "text color" : "[0.0]",
+    "content" : "天津大学校区介绍"
+  }, {
+    "type" : "heading",
+    "id" : 2,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 70.866, 726.649, 142.866, 742.213 ],
+    "heading level" : 2,
+    "font" : "FandolSong-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "校区图片链接"
+  }, {
+    "type" : "paragraph",
+    "id" : 3,
+    "page number" : 1,
+    "bounding box" : [ 70.866, 687.479, 524.409, 717.845 ],
+    "font" : "LMMono10-Regular",
+    "font size" : 10.5,
+    "text color" : "[0.0]",
+    "content" : "卫津路校区图片链接：https://www.tju.edu.cn/system/_content/download.jsp?urltype= news.DownloadAttachUrl&owner=2111843594&wbfileid=CD6A3D3D3AE8ECA15DFD2AD46C1E3D41"
+  }, {
+    "type" : "paragraph",
+    "id" : 4,
+    "page number" : 1,
+    "bounding box" : [ 70.866, 654.719, 524.409, 685.085 ],
+    "font" : "LMMono10-Regular",
+    "font size" : 10.5,
+    "text color" : "[0.0]",
+    "content" : "北洋园校区图片链接：https://www.tju.edu.cn/system/_content/download.jsp?urltype= news.DownloadAttachUrl&owner=2111843594&wbfileid=4E5CF330D254B7C3245B4DFBA26256D5"
+  }, {
+    "type" : "heading",
+    "id" : 5,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 70.866, 620.913, 130.866, 636.477 ],
+    "heading level" : 2,
+    "font" : "FandolSong-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "卫津路校区"
+  }, {
+    "type" : "paragraph",
+    "id" : 6,
+    "page number" : 1,
+    "bounding box" : [ 70.866, 533.023, 524.411, 613.275 ],
+    "font" : "FandolSong-Regular",
+    "font size" : 10.5,
+    "text color" : "[0.0]",
+    "content" : "1952 年初，教育部决定对天津大学、南开大学和津沽大学进行调整，调整方案是：天津大学的 理学院并入南开大学，南开大学和津沽大学的工学院并入天津大学，同时作出了天津大学由西沽迁 往七里台另建新校舍的决定，即现在的卫津路校区。由当时土建系宋秉泽教授担任七里台卫津路新 校址建设的总工程师，学校自己组建了基建队伍，从勘测、设计到施工，仅用半年多时间就建成了 初具规模的高等学府。"
+  }, {
+    "type" : "paragraph",
+    "id" : 7,
+    "page number" : 1,
+    "bounding box" : [ 91.866, 516.496, 531.68, 531.374 ],
+    "font" : "FandolSong-Regular",
+    "font size" : 10.5,
+    "text color" : "[0.0]",
+    "content" : "天津大学卫津路校区占地总面积 182 万平方米，建筑面积 142.5 万平方米。学校校园环境整洁，"
+  }, {
+    "type" : "paragraph",
+    "id" : 8,
+    "page number" : 1,
+    "bounding box" : [ 70.866, 467.502, 524.415, 514.995 ],
+    "font" : "FandolSong-Regular",
+    "font size" : 10.5,
+    "text color" : "[0.0]",
+    "content" : "景色优美，被誉为花园式学校，每年 4 月中旬的海棠季吸引上万市民前来参观。学校有两座总建筑 面积为 2.6 万平方米的图书馆，馆藏书刊总量 260.34 万册，另有多种音像资料、微缩资料和各类光 盘数据库。"
+  }, {
+    "type" : "heading",
+    "id" : 9,
+    "level" : "Subtitle",
+    "page number" : 1,
+    "bounding box" : [ 70.866, 433.277, 130.866, 448.841 ],
+    "heading level" : 2,
+    "font" : "FandolSong-Bold",
+    "font size" : 12.0,
+    "text color" : "[0.0]",
+    "content" : "北洋园校区"
+  }, {
+    "type" : "paragraph",
+    "id" : 10,
+    "page number" : 1,
+    "bounding box" : [ 70.866, 377.999, 524.42, 425.638 ],
+    "font" : "FandolSong-Regular",
+    "font size" : 10.5,
+    "text color" : "[0.0]",
+    "content" : "天津大学北洋园校区总建筑面积 130 万平方米，按照“统一规划、分期建设、分步实施”的原 则建设。一期建设面积 90 万余平方米，包括主楼、行政楼、综合实验楼、图书馆、体育馆、教职工 活动中心、学生活动中心及各学科组团等 22 个组团，2015 年基本建成。"
+  }, {
+    "type" : "paragraph",
+    "id" : 11,
+    "page number" : 1,
+    "bounding box" : [ 70.866, 329.006, 524.403, 376.498 ],
+    "font" : "FandolSong-Regular",
+    "font size" : 10.5,
+    "text color" : "[0.0]",
+    "content" : "北洋园校区一期建成后，以学科组群的形式实现整体搬迁，在校学生规模将达到 21000 人，教 学科研主体功能将向津南新校区集中。卫津路校区将成为高端培训、新兴学科培育、重大科技攻关 和文化创意为主的特色基地。"
+  }, {
+    "type" : "paragraph",
+    "id" : 12,
+    "page number" : 1,
+    "bounding box" : [ 70.866, 279.719, 524.414, 325.793 ],
+    "font" : "FandolSong-Regular",
+    "font size" : 10.5,
+    "text color" : "[0.0]",
+    "content" : "天津大学北洋园校区选址于海河中游南岸，位于天津市中心城区和滨海新区之间，天津“双城 相向拓展”的中心区域——津南区海河教育园区中部、生态绿廊西侧，用地范围东至园区纬二路、南 至津港快速路、西至蓟汕联络线、北至园区纬六路。北洋园校区距离老校区约 23 公里。"
+  }, {
+    "type" : "paragraph",
+    "id" : 13,
+    "page number" : 1,
+    "bounding box" : [ 70.866, 197.966, 524.414, 278.218 ],
+    "font" : "FandolSong-Regular",
+    "font size" : 10.5,
+    "text color" : "[0.0]",
+    "content" : "天津大学北洋园校区与南开大学新校区比邻而建，两校之间有 1 平方公里共享景观绿化带，北 侧与多所高职院校临近，有利于资源共享，优势互补。北洋园校区地块有先锋河、卫津河等多条河 流，两校分别位于景观绿化带的东西两翼，周边河流围绕、绿荫环抱，自然环境优美。交通方面，未 来北洋园校区可通过地铁 M3、M6 实现与卫津路校区的联系，且北洋园校区周边有津晋、津港等多 条快速道路交织，交通便捷。"
+  }, {
+    "type" : "paragraph",
+    "id" : 14,
+    "page number" : 1,
+    "bounding box" : [ 70.866, 99.686, 524.414, 194.753 ],
+    "font" : "FandolSong-Regular",
+    "font size" : 10.5,
+    "text color" : "[0.0]",
+    "content" : "北洋园校区的规划建设将与学校的改革发展相结合，本着稳定规模、调整结构、提高质量的思 路，大幅提升学校高端人才的培养能力，增加博士生、硕士生、留学生培养数量，提升天津的国际 影响力。北洋园校区建设将与学校的办学理念、发展目标、历史文化风格及特色相适应，体现育人 为本、学科融合、厚重纯朴、生态和谐、开放便捷等理念，着力打造人文校园、绿色校园、和谐校 园、智慧校园。规划将体现“一个中心、三个融合”的理念，即以学生成长为中心，形成学科的集聚 与融合、教学和科研的融合、学生和教师的融合。"
+  }, {
+    "type" : "paragraph",
+    "id" : 15,
+    "page number" : 1,
+    "bounding box" : [ 295.013, 37.933, 300.263, 52.812 ],
+    "font" : "LMRoman10-Regular",
+    "font size" : 10.5,
+    "text color" : "[0.0]",
+    "content" : "1"
+  } ]
+}

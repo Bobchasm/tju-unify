@@ -1,0 +1,730 @@
+{
+  "file name" : "天津大学现任领导.pdf",
+  "number of pages" : 1,
+  "author" : null,
+  "title" : null,
+  "creation date" : "D:20260407141210Z",
+  "modification date" : null,
+  "kids" : [ {
+    "type" : "heading",
+    "id" : 1,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 70.866, 755.049, 190.866, 774.504 ],
+    "heading level" : 1,
+    "font" : "FandolSong-Bold",
+    "font size" : 15.0,
+    "text color" : "[0.0]",
+    "content" : "天津大学现任领导"
+  }, {
+    "type" : "table",
+    "id" : 2,
+    "level" : "1",
+    "page number" : 1,
+    "bounding box" : [ 101.734, 365.733, 493.542, 734.905 ],
+    "number of rows" : 17,
+    "number of columns" : 2,
+    "rows" : [ {
+      "type" : "table row",
+      "row number" : 1,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 713.014, 449.888, 734.507 ],
+        "row number" : 1,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 1,
+          "page number" : 1,
+          "bounding box" : [ 265.41, 716.367, 286.41, 729.986 ],
+          "font" : "FandolSong-Bold",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "职务"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 713.014, 493.243, 734.507 ],
+        "row number" : 1,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 3,
+          "page number" : 1,
+          "bounding box" : [ 461.115, 716.367, 482.115, 729.986 ],
+          "font" : "FandolSong-Bold",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "姓名"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 2,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 691.321, 449.888, 713.014 ],
+        "row number" : 2,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 4,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 695.01, 149.91, 708.177 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "党委书记"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 691.321, 493.243, 713.014 ],
+        "row number" : 2,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 6,
+          "page number" : 1,
+          "bounding box" : [ 455.865, 695.01, 487.365, 708.177 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "杨贤金"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 3,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 669.628, 449.888, 691.321 ],
+        "row number" : 3,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 7,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 673.318, 191.91, 686.485 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "校长、党委副书记"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 669.628, 493.243, 691.321 ],
+        "row number" : 3,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 9,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 455.865, 673.318, 487.365, 686.485 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "柴立元"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 4,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 647.936, 449.888, 669.628 ],
+        "row number" : 4,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 10,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 651.625, 181.41, 664.792 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "党委常务副书记"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 647.936, 493.243, 669.628 ],
+        "row number" : 4,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 12,
+          "page number" : 1,
+          "bounding box" : [ 455.865, 651.625, 476.865, 664.792 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "雷鸣"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 5,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 626.243, 449.888, 647.936 ],
+        "row number" : 5,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 13,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 629.933, 443.91, 643.1 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "党委副书记、纪委书记、国家监委驻天津大学监察专员、一级高级监察官"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 626.243, 493.243, 647.936 ],
+        "row number" : 5,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 15,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 455.865, 629.933, 476.865, 643.1 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "李炜"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 6,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 604.551, 449.888, 626.243 ],
+        "row number" : 6,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 16,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 608.24, 191.91, 621.407 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "党委常委、副校长"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 604.551, 493.243, 626.243 ],
+        "row number" : 6,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 18,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 455.865, 608.24, 476.865, 621.407 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "郑刚"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 7,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 582.858, 449.888, 604.551 ],
+        "row number" : 7,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 19,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 586.547, 191.91, 599.714 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "党委常委、副校长"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 582.858, 493.243, 604.551 ],
+        "row number" : 7,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 21,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 455.865, 586.547, 487.365, 599.714 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "王天友"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 8,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 561.166, 449.888, 582.858 ],
+        "row number" : 8,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 22,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 564.855, 139.41, 578.022 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "副校长"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 561.166, 493.243, 582.858 ],
+        "row number" : 8,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 24,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 455.865, 564.855, 476.865, 578.022 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "明东"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 9,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 539.473, 449.888, 561.166 ],
+        "row number" : 9,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 25,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 543.162, 160.41, 556.329 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "党委副书记"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 539.473, 493.243, 561.166 ],
+        "row number" : 9,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 27,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 455.865, 543.162, 487.365, 556.329 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "韩庆华"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 10,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 517.781, 449.888, 539.473 ],
+        "row number" : 10,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 28,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 521.47, 191.91, 534.637 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "党委常委、副校长"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 517.781, 493.243, 539.473 ],
+        "row number" : 10,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 30,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 455.865, 521.47, 476.865, 534.637 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "李斌"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 11,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 496.088, 449.888, 517.781 ],
+        "row number" : 11,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 31,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 499.777, 149.91, 512.944 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "校长助理"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 496.088, 493.243, 517.781 ],
+        "row number" : 11,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 33,
+          "page number" : 1,
+          "bounding box" : [ 455.865, 499.777, 487.365, 512.944 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "肖松山"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 12,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 474.395, 449.888, 496.088 ],
+        "row number" : 12,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 34,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 478.085, 212.91, 491.252 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "党委常委、宣传部部长"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 474.395, 493.243, 496.088 ],
+        "row number" : 12,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 36,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 455.865, 478.085, 476.865, 491.252 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "杨欢"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 13,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 452.703, 449.888, 474.395 ],
+        "row number" : 13,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 37,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 456.392, 212.91, 469.559 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "党委常委、统战部部长"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 452.703, 493.243, 474.395 ],
+        "row number" : 13,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 39,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 455.865, 456.392, 487.365, 469.559 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "张俊艳"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 14,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 431.01, 449.888, 452.703 ],
+        "row number" : 14,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 40,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 434.7, 149.91, 447.867 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "校长助理"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 431.01, 493.243, 452.703 ],
+        "row number" : 14,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 42,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 455.865, 434.7, 487.365, 447.867 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "刘秀国"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 15,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 409.318, 449.888, 431.01 ],
+        "row number" : 15,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 43,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 413.007, 212.91, 426.174 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "党委常委、组织部部长"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 409.318, 493.243, 431.01 ],
+        "row number" : 15,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 45,
+          "page number" : 1,
+          "bounding box" : [ 455.865, 413.007, 487.365, 426.174 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "赵金铎"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 16,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 387.625, 449.888, 409.318 ],
+        "row number" : 16,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 46,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 391.315, 212.91, 404.482 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "总会计师、财务处处长"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 387.625, 493.243, 409.318 ],
+        "row number" : 16,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 48,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 455.865, 391.315, 476.865, 404.482 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "张鹏"
+        } ]
+      } ]
+    }, {
+      "type" : "table row",
+      "row number" : 17,
+      "cells" : [ {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 102.033, 366.132, 449.888, 387.625 ],
+        "row number" : 17,
+        "column number" : 1,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 49,
+          "page number" : 1,
+          "bounding box" : [ 107.91, 369.622, 149.91, 382.789 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "校长助理"
+        } ]
+      }, {
+        "type" : "table cell",
+        "page number" : 1,
+        "bounding box" : [ 449.888, 366.132, 493.243, 387.625 ],
+        "row number" : 17,
+        "column number" : 2,
+        "row span" : 1,
+        "column span" : 1,
+        "kids" : [ {
+          "type" : "paragraph",
+          "id" : 51,
+          "level" : "1",
+          "page number" : 1,
+          "bounding box" : [ 455.865, 369.622, 476.865, 382.789 ],
+          "font" : "FandolSong-Regular",
+          "font size" : 10.5,
+          "text color" : "[0.0]",
+          "content" : "黄辉"
+        } ]
+      } ]
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 3,
+    "page number" : 1,
+    "bounding box" : [ 295.013, 37.933, 300.263, 52.811 ],
+    "font" : "LMRoman10-Regular",
+    "font size" : 10.5,
+    "text color" : "[0.0]",
+    "content" : "1"
+  } ]
+}

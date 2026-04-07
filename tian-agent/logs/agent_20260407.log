@@ -1,0 +1,46 @@
+2026-04-07 23:20:28 - agent - INFO - vectore_store.py:110 - [加载知识库] E:\cydd_own_products\tju-unify\tian-agent\data\combined_documents.json 内容加载成功
+2026-04-07 23:27:13 - agent - ERROR - vectore_store.py:113 - [加载知识库] E:\cydd_own_products\tju-unify\tian-agent\data\combined_documents.json 加载失败：status_code: 400 
+ code: Arrearage 
+ message: Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment
+Traceback (most recent call last):
+  File "E:\cydd_own_products\tju-unify\tian-agent\rag\vectore_store.py", line 106, in load_document
+    self.vector_store.add_documents(split_document)
+  File "D:\SoftWares\Miniconda\envs\tian\lib\site-packages\langchain_core\vectorstores\base.py", line 258, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+  File "D:\SoftWares\Miniconda\envs\tian\lib\site-packages\langchain_chroma\vectorstores.py", line 627, in add_texts
+    embeddings = self._embedding_function.embed_documents(texts)
+  File "D:\SoftWares\Miniconda\envs\tian\lib\site-packages\langchain_community\embeddings\dashscope.py", line 155, in embed_documents
+    embeddings = embed_with_retry(
+  File "D:\SoftWares\Miniconda\envs\tian\lib\site-packages\langchain_community\embeddings\dashscope.py", line 83, in embed_with_retry
+    return _embed_with_retry(**kwargs)
+  File "D:\SoftWares\Miniconda\envs\tian\lib\site-packages\tenacity\__init__.py", line 331, in wrapped_f
+    return copy(f, *args, **kw)
+  File "D:\SoftWares\Miniconda\envs\tian\lib\site-packages\tenacity\__init__.py", line 470, in __call__
+    do = self.iter(retry_state=retry_state)
+  File "D:\SoftWares\Miniconda\envs\tian\lib\site-packages\tenacity\__init__.py", line 371, in iter
+    result = action(retry_state)
+  File "D:\SoftWares\Miniconda\envs\tian\lib\site-packages\tenacity\__init__.py", line 393, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+  File "D:\SoftWares\Miniconda\envs\tian\lib\concurrent\futures\_base.py", line 451, in result
+    return self.__get_result()
+  File "D:\SoftWares\Miniconda\envs\tian\lib\concurrent\futures\_base.py", line 403, in __get_result
+    raise self._exception
+  File "D:\SoftWares\Miniconda\envs\tian\lib\site-packages\tenacity\__init__.py", line 473, in __call__
+    result = fn(*args, **kwargs)
+  File "D:\SoftWares\Miniconda\envs\tian\lib\site-packages\langchain_community\embeddings\dashscope.py", line 70, in _embed_with_retry
+    raise ValueError(
+ValueError: status_code: 400 
+ code: Arrearage 
+ message: Access denied, please make sure your account is in good standing. For details, see: https://help.aliyun.com/zh/model-studio/error-code#overdue-payment
+2026-04-07 23:29:44 - agent - INFO - vectore_store.py:110 - [加载知识库] E:\cydd_own_products\tju-unify\tian-agent\data\combined_documents.json 内容加载成功
+2026-04-07 23:31:24 - agent - INFO - middleware.py:35 - [log_before_model]: 即将调用模型，带有2条消息，消息如下：
+2026-04-07 23:31:24 - agent - INFO - middleware.py:38 - [log_before_model]: ----------省略已输出内容----------
+2026-04-07 23:31:24 - agent - INFO - middleware.py:39 - [log_before_model][HumanMessage]: 天津大学全日制在校生总数
+2026-04-07 23:31:28 - agent - INFO - middleware.py:18 - [tool monitor]执行工具: rag_summarize
+2026-04-07 23:31:28 - agent - INFO - middleware.py:19 - [tool monitor]参数: {'query': '天津大学 全日制在校生 总数'}
+2026-04-07 23:31:28 - agent - INFO - advanced_retrieval.py:346 - [ExpandedSearch] 原始查询: '天津大学 全日制在校生 总数', 扩展数: 1, 候选池: 32, 返回: 8 条
+2026-04-07 23:31:31 - agent - INFO - rag_service.py:198 - [RAG] 查询: '天津大学 全日制在校生 总数...', 策略: auto, 检索到: 8 篇文档
+2026-04-07 23:31:31 - agent - INFO - middleware.py:22 - [tool monitor]工具rag_summarize调用成功
+2026-04-07 23:31:33 - agent - INFO - middleware.py:35 - [log_before_model]: 即将调用模型，带有4条消息，消息如下：
+2026-04-07 23:31:33 - agent - INFO - middleware.py:38 - [log_before_model]: ----------省略已输出内容----------
+2026-04-07 23:31:33 - agent - INFO - middleware.py:39 - [log_before_model][ToolMessage]: 根据参考资料3《天津大学简介》中的内容，天津大学现有全日制在校生 **41755 人**，其中本科生 19422 人，硕士研究生 15162 人，博士研究生 7171 人。

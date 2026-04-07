@@ -1,0 +1,2236 @@
+{
+  "file name" : "天津大学章程.pdf",
+  "number of pages" : 26,
+  "author" : "李玲",
+  "title" : "天 津 大 学 文 件",
+  "creation date" : "D:20230308092236+01'00'",
+  "modification date" : "D:20230904154619+08'00'",
+  "kids" : [ {
+    "type" : "paragraph",
+    "id" : 53,
+    "page number" : 1,
+    "bounding box" : [ 79.44, 709.527, 111.349, 725.477 ],
+    "font" : "SimHei",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "附件"
+  }, {
+    "type" : "heading",
+    "id" : 54,
+    "level" : "Doctitle",
+    "page number" : 1,
+    "bounding box" : [ 234.48, 647.946, 366.468, 674.097 ],
+    "heading level" : 1,
+    "font" : "FZXBSJW--GB1-0",
+    "font size" : 21.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "天津大学章程"
+  }, {
+    "type" : "paragraph",
+    "id" : 55,
+    "page number" : 1,
+    "bounding box" : [ 111.359, 561.927, 521.623, 607.877 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（2014 年 7 月 21 日中华人民共和国教育部核准通过 根据 2023 年 1 月 17 日《教育部关于同意天津大学章程部分"
+  }, {
+    "type" : "paragraph",
+    "id" : 56,
+    "page number" : 1,
+    "bounding box" : [ 212.52, 531.927, 388.43, 547.877 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "条款修改的批复》修正）"
+  }, {
+    "type" : "paragraph",
+    "id" : 57,
+    "page number" : 1,
+    "bounding box" : [ 280.44, 471.927, 320.39, 487.877 ],
+    "font" : "SimHei",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "序 言"
+  }, {
+    "type" : "paragraph",
+    "id" : 58,
+    "page number" : 1,
+    "bounding box" : [ 79.44, 231.927, 521.629, 457.877 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "天津大学的前身为北洋大学，始建于 1895 年 10 月 2 日，是 我国近代高等教育史上建校最早的高等学府。1937 年抗日战争 全面爆发后，学校迁往陕西，联合组建国立西北联合大学。抗战 胜利后，1946 年 1 月迁回天津。1951 年 9 月，经全国高等学校 院系调整，由中央人民政府政务院批准，定名天津大学。1959 年，被中共中央确定为国家重点大学。2000 年，被确定为国家 “985 工程”重点建设的高水平研究型大学。2017 年，入选国家 “双一流”建设高校。"
+  }, {
+    "type" : "paragraph",
+    "id" : 59,
+    "page number" : 1,
+    "bounding box" : [ 79.44, 111.927, 521.625, 217.877 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "自强首在储才，储才必先兴学。在跨越三个世纪的办学历程 中，学校积淀传承了以兴学强国的使命、实事求是的校训、严谨 治学的校风、爱国奉献的传统和矢志创新的追求为内涵的“天大 品格”。学校始终致力于建设世界一流大学，努力为民族复兴和"
+  }, {
+    "type" : "footer",
+    "id" : 60,
+    "page number" : 1,
+    "bounding box" : [ 282.959, 43.915, 318.065, 57.965 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 27,
+      "page number" : 1,
+      "bounding box" : [ 282.959, 43.915, 318.065, 57.965 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 3 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 61,
+    "page number" : 2,
+    "bounding box" : [ 79.44, 707.967, 255.345, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "人类进步作出重要贡献。"
+  }, {
+    "type" : "paragraph",
+    "id" : 62,
+    "page number" : 2,
+    "bounding box" : [ 256.44, 647.967, 344.389, 663.917 ],
+    "font" : "SimHei",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第一章 总则"
+  }, {
+    "type" : "paragraph",
+    "id" : 63,
+    "page number" : 2,
+    "bounding box" : [ 79.44, 527.967, 529.55, 633.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第一条 为推进依法治校，完善现代大学治理体系，保障师 生员工基本权益，推动学校事业高质量发展，根据《中华人民共 和国教育法》《中华人民共和国高等教育法》等法律法规和规章， 结合学校实际，制定本章程。"
+  }, {
+    "type" : "paragraph",
+    "id" : 64,
+    "page number" : 2,
+    "bounding box" : [ 79.44, 466.76, 519.47, 513.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第二条 学校中文名称为天津大学，简称天大；英文名称为 TianjinUniversity，缩写为 TJU。"
+  }, {
+    "type" : "paragraph",
+    "id" : 65,
+    "page number" : 2,
+    "bounding box" : [ 79.44, 407.967, 521.504, 453.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第三条 学校由国家举办，由国务院教育行政部门主管，并 由国务院教育行政部门和天津市人民政府共建。"
+  }, {
+    "type" : "paragraph",
+    "id" : 66,
+    "page number" : 2,
+    "bounding box" : [ 79.44, 347.967, 521.504, 393.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第四条 学校是非营利性事业单位，具有独立法人资格，校 长是法定代表人。"
+  }, {
+    "type" : "paragraph",
+    "id" : 67,
+    "page number" : 2,
+    "bounding box" : [ 111.359, 316.76, 521.629, 334.423 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第五条 学校法定住所为天津市南开区卫津路 92 号，设有卫"
+  }, {
+    "type" : "paragraph",
+    "id" : 68,
+    "page number" : 2,
+    "bounding box" : [ 79.44, 227.967, 521.509, 303.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "津路校区、北洋园校区和滨海工业研究院校区。 学校网址是 http://www.tju.edu.cn。 学校根据发展需要，经主管部门批准，可变更住所地，调整"
+  }, {
+    "type" : "paragraph",
+    "id" : 69,
+    "page number" : 2,
+    "bounding box" : [ 79.44, 197.967, 127.429, 213.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "校区。"
+  }, {
+    "type" : "paragraph",
+    "id" : 70,
+    "page number" : 2,
+    "bounding box" : [ 79.44, 107.967, 529.55, 183.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第六条 学校坚持和加强党的全面领导，高举中国特色社会 主义伟大旗帜，以马克思列宁主义、毛泽东思想、邓小平理论、 “三个代表”重要思想、科学发展观、习近平新时代中国特色社"
+  }, {
+    "type" : "footer",
+    "id" : 71,
+    "page number" : 2,
+    "bounding box" : [ 282.959, 51.715, 318.065, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 28,
+      "page number" : 2,
+      "bounding box" : [ 282.959, 51.715, 318.065, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 4 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 72,
+    "page number" : 3,
+    "bounding box" : [ 79.44, 557.967, 521.629, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "会主义思想为指导，增强“四个意识”、坚定“四个自信”、做到 “两个维护”，全面贯彻党的基本理论、基本路线、基本方略， 全面贯彻党的教育方针，坚持教育为人民服务、为中国共产党治 国理政服务、为巩固和发展中国特色社会主义制度服务、为改革 开放和社会主义现代化建设服务，坚守为党育人、为国育才，培 养德智体美劳全面发展的社会主义建设者和接班人。"
+  }, {
+    "type" : "paragraph",
+    "id" : 73,
+    "page number" : 3,
+    "bounding box" : [ 79.44, 467.967, 521.508, 543.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第七条 学校按照“形上形下、达材成德”的理念，致力于 培养具有家国情怀、全球视野、创新精神和实践能力，并能引领 未来的卓越人才。"
+  }, {
+    "type" : "paragraph",
+    "id" : 74,
+    "page number" : 3,
+    "bounding box" : [ 79.44, 377.967, 521.508, 453.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第八条 学校遵循人才培养规律，不断调整优化学科结构， 强化工学优势，协同发展理学、人文社会科学和医学，形成优势 突出、特色鲜明、交叉融合、协调发展的综合性学科布局。"
+  }, {
+    "type" : "paragraph",
+    "id" : 75,
+    "page number" : 3,
+    "bounding box" : [ 111.359, 347.967, 521.504, 363.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第九条 学校实行中国共产党天津大学委员会（以下简称学"
+  }, {
+    "type" : "paragraph",
+    "id" : 76,
+    "page number" : 3,
+    "bounding box" : [ 79.44, 317.967, 527.39, 333.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "校党委）领导下的校长负责制，保障教授治学，实行民主管理。"
+  }, {
+    "type" : "paragraph",
+    "id" : 77,
+    "page number" : 3,
+    "bounding box" : [ 79.44, 197.967, 521.506, 303.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第十条 举办者及政府主管部门依法对学校办学活动进行宏 观指导，核准学校章程，监督学校办学行为，评价考核学校办学 质量，并提供稳定的办学资金，保障学校基本办学条件和办学自 主权，支持学校改革与发展，按照有关规定任免学校负责人。"
+  }, {
+    "type" : "paragraph",
+    "id" : 78,
+    "page number" : 3,
+    "bounding box" : [ 79.44, 107.967, 521.506, 183.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第十一条 学校依法享有人才培养、科学研究、队伍建设、 内部管理、校园规划建设等方面的办学自主权，独立承担法律责 任，不受任何组织和个人的非法干涉。"
+  }, {
+    "type" : "footer",
+    "id" : 79,
+    "page number" : 3,
+    "bounding box" : [ 282.959, 51.715, 318.065, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 29,
+      "page number" : 3,
+      "bounding box" : [ 282.959, 51.715, 318.065, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 5 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 80,
+    "page number" : 4,
+    "bounding box" : [ 111.359, 707.967, 527.39, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学校依法接受举办者及政府主管部门的管理、监督和评估。"
+  }, {
+    "type" : "paragraph",
+    "id" : 81,
+    "page number" : 4,
+    "bounding box" : [ 240.48, 647.967, 360.469, 663.917 ],
+    "font" : "SimHei",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第二章 学校功能"
+  }, {
+    "type" : "paragraph",
+    "id" : 82,
+    "page number" : 4,
+    "bounding box" : [ 79.44, 587.967, 529.55, 633.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第十二条 学校落实立德树人根本任务，以人才培养为中心， 开展科学研究、社会服务和国际交流合作，推进文化传承创新。"
+  }, {
+    "type" : "paragraph",
+    "id" : 83,
+    "page number" : 4,
+    "bounding box" : [ 79.44, 497.967, 521.51, 573.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第十三条 学校构建价值塑造、能力培养和知识传授“三位 一体”的人才培养模式，坚持“严谨治学、严格教学要求”，着 力提升育人质量，引导学生自主学习、终身学习。"
+  }, {
+    "type" : "paragraph",
+    "id" : 84,
+    "page number" : 4,
+    "bounding box" : [ 111.359, 467.967, 521.503, 483.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第十四条 学校的教育形式包括全日制本科教育、研究生教"
+  }, {
+    "type" : "paragraph",
+    "id" : 85,
+    "page number" : 4,
+    "bounding box" : [ 79.44, 377.967, 521.503, 453.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "育、非全日制教育以及非学历教育，并提供终身教育服务。 学校不断拓展来华留学生教育和中外合作办学。 第十五条 学校依法依规颁发学历证书，授予学士、硕士和"
+  }, {
+    "type" : "paragraph",
+    "id" : 86,
+    "page number" : 4,
+    "bounding box" : [ 79.44, 347.967, 159.348, 363.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "博士学位。"
+  }, {
+    "type" : "paragraph",
+    "id" : 87,
+    "page number" : 4,
+    "bounding box" : [ 79.44, 287.967, 521.504, 333.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学校依法依规向为社会发展和人类进步作出突出贡献的国 内外杰出人士授予名誉学位或者进行表彰。"
+  }, {
+    "type" : "paragraph",
+    "id" : 88,
+    "page number" : 4,
+    "bounding box" : [ 79.44, 197.967, 521.629, 273.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第十六条 学校坚持面向世界科技前沿、面向经济主战场、 面向国家重大需求、面向人民生命健康，促进人才培养，推动学 术进步、科技发展和成果转化。"
+  }, {
+    "type" : "paragraph",
+    "id" : 89,
+    "page number" : 4,
+    "bounding box" : [ 79.44, 137.967, 521.503, 183.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第十七条 学校健全社会服务体系，提供人才和智力支持， 服务国家战略和区域经济社会发展重大需求，推动社会进步。"
+  }, {
+    "type" : "paragraph",
+    "id" : 90,
+    "page number" : 4,
+    "bounding box" : [ 111.359, 107.967, 521.503, 123.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第十八条 学校注重文化育人，教育师生践行社会主义核心"
+  }, {
+    "type" : "footer",
+    "id" : 91,
+    "page number" : 4,
+    "bounding box" : [ 282.959, 51.715, 318.065, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 30,
+      "page number" : 4,
+      "bounding box" : [ 282.959, 51.715, 318.065, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 6 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 92,
+    "page number" : 5,
+    "bounding box" : [ 79.44, 677.967, 521.509, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "价值观，积淀和传承体现时代特征、学校特色的校园文化，服务 社会主义文化强国建设。"
+  }, {
+    "type" : "paragraph",
+    "id" : 93,
+    "page number" : 5,
+    "bounding box" : [ 79.44, 587.967, 521.506, 663.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第十九条 学校坚持国际化发展战略，引进优质国际教育资 源，深化与战略合作伙伴之间的全方位合作，提升学校的国际影 响力和竞争力。"
+  }, {
+    "type" : "paragraph",
+    "id" : 94,
+    "page number" : 5,
+    "bounding box" : [ 256.44, 527.967, 344.389, 543.917 ],
+    "font" : "SimHei",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第三章 学生"
+  }, {
+    "type" : "paragraph",
+    "id" : 95,
+    "page number" : 5,
+    "bounding box" : [ 79.44, 467.967, 521.503, 513.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第二十条 学生是指被天津大学依法依规录取、取得入学资 格，具有天津大学学籍的受教育者。"
+  }, {
+    "type" : "paragraph",
+    "id" : 96,
+    "page number" : 5,
+    "bounding box" : [ 79.44, 347.967, 527.39, 453.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学校依据国家招生政策和招生计划开展招生工作。本科生招 生可依据学生的普通高考成绩和普通高中学业水平考试成绩实 行综合评价、择优录取，亦可选拔具有特殊才能和创新潜质的人 才；研究生招生可采取全国统考、“申请-考核”制等多种方式。"
+  }, {
+    "type" : "paragraph",
+    "id" : 97,
+    "page number" : 5,
+    "bounding box" : [ 111.359, 287.967, 521.508, 333.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第二十一条 学生依法享有下列权利： （一）参加学校教育教学计划安排的各项活动，使用学校提"
+  }, {
+    "type" : "paragraph",
+    "id" : 98,
+    "page number" : 5,
+    "bounding box" : [ 79.44, 257.967, 223.426, 273.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "供的教育教学资源；"
+  }, {
+    "type" : "paragraph",
+    "id" : 99,
+    "page number" : 5,
+    "bounding box" : [ 79.44, 167.967, 521.509, 243.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（二）参加社会实践、志愿服务、勤工助学、文娱体育、交 流访学、科技文化创新等活动，获得就业创业、交流访学指导和 服务；"
+  }, {
+    "type" : "paragraph",
+    "id" : 100,
+    "page number" : 5,
+    "bounding box" : [ 111.359, 107.967, 521.509, 153.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（三）申请奖学金、助学金及助学贷款； （四）在思想品德、学业成绩等方面获得公正评价，完成学"
+  }, {
+    "type" : "footer",
+    "id" : 101,
+    "page number" : 5,
+    "bounding box" : [ 282.959, 51.715, 318.065, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 31,
+      "page number" : 5,
+      "bounding box" : [ 282.959, 51.715, 318.065, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 7 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 102,
+    "page number" : 6,
+    "bounding box" : [ 79.44, 617.967, 529.55, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "校规定学业后获得相应的学历证书、学位证书； （五）在校内组织、参加学生团体，参与学校民主管理，对 学校与学生权益相关事务享有知情权、参与权、表达权和监督权； （六）对学校给予的处理或者处分合法表达异议或者提出申"
+  }, {
+    "type" : "paragraph",
+    "id" : 103,
+    "page number" : 6,
+    "bounding box" : [ 79.44, 467.967, 521.506, 603.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "诉，对其合法权益受到侵犯提出申诉或者依法提起诉讼； （七）法律法规和规章以及学校规定的其他权利。 第二十二条 学生应当履行下列义务： （一）遵守宪法、法律法规和规章； （二）遵守学校规章制度和学生行为规范，自觉维护学校的"
+  }, {
+    "type" : "paragraph",
+    "id" : 104,
+    "page number" : 6,
+    "bounding box" : [ 79.44, 347.967, 527.39, 453.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "教学和管理秩序； （三）诚信友善，尊敬师长，尊重他人； （四）按照学校要求主动学习、勤于实践，完成规定学业； （五）按照规定缴纳学费及相关费用，履行获得贷学金及助"
+  }, {
+    "type" : "paragraph",
+    "id" : 105,
+    "page number" : 6,
+    "bounding box" : [ 79.44, 287.967, 495.338, 333.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学金后的相应义务； （六）爱护学校财产，珍惜学校声誉，维护学校利益。"
+  }, {
+    "type" : "paragraph",
+    "id" : 106,
+    "page number" : 6,
+    "bounding box" : [ 79.44, 167.967, 521.506, 273.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第二十三条 学校为学生在校生活、学习、发展提供必要条 件，公正评价学生的品行和学业成绩：对取得突出成绩和为学校 争得荣誉的学生集体或者个人进行表彰奖励；对违纪学生给予相 应的纪律处分。"
+  }, {
+    "type" : "paragraph",
+    "id" : 107,
+    "page number" : 6,
+    "bounding box" : [ 79.44, 107.967, 521.628, 153.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第二十四条 学生在规定的学习年限内，修满规定的学分并 达到毕业要求的，学校为其颁发相应的毕业证书。对符合相应学"
+  }, {
+    "type" : "footer",
+    "id" : 108,
+    "page number" : 6,
+    "bounding box" : [ 282.959, 51.715, 318.065, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 32,
+      "page number" : 6,
+      "bounding box" : [ 282.959, 51.715, 318.065, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 8 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 109,
+    "page number" : 7,
+    "bounding box" : [ 79.44, 677.967, 521.628, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "位授予条件的，学校依照规定程序分别授予学士、硕士或者博士 学位。"
+  }, {
+    "type" : "paragraph",
+    "id" : 110,
+    "page number" : 7,
+    "bounding box" : [ 111.359, 647.967, 521.503, 663.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "对未达到毕业要求的学生，学校依据相关规定为其颁发结业"
+  }, {
+    "type" : "paragraph",
+    "id" : 111,
+    "page number" : 7,
+    "bounding box" : [ 79.44, 557.967, 521.503, 633.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "证书。 对退学的学生，学校发给肄业证书或者写实性学习证明。 第二十五条 学校建立学生权利保障机制，成立学生申诉处"
+  }, {
+    "type" : "paragraph",
+    "id" : 112,
+    "page number" : 7,
+    "bounding box" : [ 79.44, 527.967, 303.343, 543.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "理委员会，维护学生合法权益。"
+  }, {
+    "type" : "paragraph",
+    "id" : 113,
+    "page number" : 7,
+    "bounding box" : [ 79.44, 467.967, 521.506, 513.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学校鼓励和支持学生参与学校民主管理，对学校工作提出意 见和建议。"
+  }, {
+    "type" : "paragraph",
+    "id" : 114,
+    "page number" : 7,
+    "bounding box" : [ 248.52, 407.967, 352.429, 423.917 ],
+    "font" : "SimHei",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第四章 教职工"
+  }, {
+    "type" : "paragraph",
+    "id" : 115,
+    "page number" : 7,
+    "bounding box" : [ 111.359, 377.967, 529.55, 393.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第二十六条 学校教职工由教师、管理人员、教学辅助人员、"
+  }, {
+    "type" : "paragraph",
+    "id" : 116,
+    "page number" : 7,
+    "bounding box" : [ 79.44, 227.967, 521.508, 363.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "其他专业技术人员和工勤人员等组成。 第二十七条 教职工依法享有下列权利： （一）依法享有学术自由，可自主选择学术方向； （二）按照相关规定合理使用学校公共资源； （三）在品德、能力和业绩等方面获得公正评价，公平获得"
+  }, {
+    "type" : "paragraph",
+    "id" : 117,
+    "page number" : 7,
+    "bounding box" : [ 79.44, 107.967, 521.499, 213.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "各种奖励和荣誉称号; （四）公平获得自身职业发展所需要的机会和条件； （五）获取工资报酬，享受国家和学校规定的福利待遇； （六）对学校改革和发展以及涉及切身利益的重大事项的知"
+  }, {
+    "type" : "footer",
+    "id" : 118,
+    "page number" : 7,
+    "bounding box" : [ 282.959, 51.715, 318.065, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 33,
+      "page number" : 7,
+      "bounding box" : [ 282.959, 51.715, 318.065, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 9 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 119,
+    "page number" : 8,
+    "bounding box" : [ 79.44, 707.967, 495.337, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "情权，参与民主管理和监督，对学校工作提出意见和建议；"
+  }, {
+    "type" : "paragraph",
+    "id" : 120,
+    "page number" : 8,
+    "bounding box" : [ 79.44, 647.967, 521.506, 693.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（七）就职务聘用、福利待遇、评优评奖、纪律处分等事项 表达异议或者提出申诉；"
+  }, {
+    "type" : "paragraph",
+    "id" : 121,
+    "page number" : 8,
+    "bounding box" : [ 111.359, 617.967, 521.499, 633.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（八）法律法规和规章以及学校规定的或者相关合同约定的"
+  }, {
+    "type" : "paragraph",
+    "id" : 122,
+    "page number" : 8,
+    "bounding box" : [ 79.44, 437.967, 521.509, 603.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "其他权利。 第二十八条 教职工应当履行下列义务： （一）遵守宪法、法律法规和规章； （二）遵守学校规章制度和职业行为准则； （三）敬业爱生，严慈相济，为人师表，尊重学生人格； （四）履行岗位职责，教书育人，管理育人，服务育人，按"
+  }, {
+    "type" : "paragraph",
+    "id" : 123,
+    "page number" : 8,
+    "bounding box" : [ 79.44, 287.967, 521.503, 423.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "岗位要求完成规定工作； （五）遵守职业道德，珍惜学校声誉，维护学校利益； （六）终身学习，不断提高自身素质和履职能力； （七）相关合同约定的其他义务。 第二十九条 学校依法建立和完善人事人才管理制度，依规"
+  }, {
+    "type" : "paragraph",
+    "id" : 124,
+    "page number" : 8,
+    "bounding box" : [ 79.44, 257.967, 479.378, 273.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "对教职工进行聘用、培训、管理、考核、晋升、奖惩等。"
+  }, {
+    "type" : "paragraph",
+    "id" : 125,
+    "page number" : 8,
+    "bounding box" : [ 79.44, 167.967, 521.628, 243.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第三十条 学校为教职工开展工作提供必要的条件。学校建 立教职工权利保障机制，成立教职工申诉委员会，维护教职工合 法权益。"
+  }, {
+    "type" : "paragraph",
+    "id" : 126,
+    "page number" : 8,
+    "bounding box" : [ 111.359, 137.967, 521.503, 153.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第三十一条 教职工可以通过教职工代表大会、工会、教授"
+  }, {
+    "type" : "paragraph",
+    "id" : 127,
+    "page number" : 8,
+    "bounding box" : [ 79.44, 107.967, 529.55, 123.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "会和其他民主形式参与学校管理，监督学校工作，维护自身权益。"
+  }, {
+    "type" : "footer",
+    "id" : 128,
+    "page number" : 8,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 34,
+      "page number" : 8,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 10 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 129,
+    "page number" : 9,
+    "bounding box" : [ 79.44, 617.967, 521.628, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第三十二条 在站博士后研究人员、访问学者、进修教师以 及其他形式聘用的工作人员，在校学习工作期间，依据法律法规 和学校规定以及相关合同约定，享受相应的权利，履行相应的义 务，学校为其开展学习和工作提供必要的条件和帮助。"
+  }, {
+    "type" : "paragraph",
+    "id" : 130,
+    "page number" : 9,
+    "bounding box" : [ 256.44, 557.967, 344.389, 573.917 ],
+    "font" : "SimHei",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第五章 校友"
+  }, {
+    "type" : "paragraph",
+    "id" : 131,
+    "page number" : 9,
+    "bounding box" : [ 79.44, 497.967, 521.503, 543.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第三十三条 校友包括曾经在学校发展的各个阶段学习、工 作、进修的人员和获得名誉学衔、荣誉学衔的人员等。"
+  }, {
+    "type" : "paragraph",
+    "id" : 132,
+    "page number" : 9,
+    "bounding box" : [ 79.44, 407.967, 527.39, 483.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第三十四条 校友既是学校办学质量和人才培养质量的重要 标志，又是学校教育质量的监督者、学校服务社会的助力者、学 校事业发展的支持者、学校声誉的传播者，是学校的宝贵财富。"
+  }, {
+    "type" : "paragraph",
+    "id" : 133,
+    "page number" : 9,
+    "bounding box" : [ 79.44, 317.967, 521.509, 393.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第三十五条 校友对学校发展规划、人才培养、科学研究、 学科建设等重大事项有知情权、建议权。学校为校友发展、建功 立业、报效国家提供服务。"
+  }, {
+    "type" : "paragraph",
+    "id" : 134,
+    "page number" : 9,
+    "bounding box" : [ 79.44, 197.967, 521.509, 303.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第三十六条 学校设立校友总会，校友总会是非营利性社团 组织。学校设立校友工作机构，以多种方式联系和服务校友，定 期向校友通报学校发展情况，听取校友意见和建议。学校欢迎和 鼓励校友以各种形式参与学校建设和发展。"
+  }, {
+    "type" : "paragraph",
+    "id" : 135,
+    "page number" : 9,
+    "bounding box" : [ 216.48, 107.967, 416.506, 153.917 ],
+    "font" : "SimHei",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第六章 管理体制和组织结构 第一节 管理体制"
+  }, {
+    "type" : "footer",
+    "id" : 136,
+    "page number" : 9,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 35,
+      "page number" : 9,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 11 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 137,
+    "page number" : 10,
+    "bounding box" : [ 79.44, 647.967, 521.509, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第三十七条 学校党委全面领导学校工作，支持校长按照《中 华人民共和国高等教育法》的规定积极主动、独立负责地行使职 权，保证教学、科研、行政管理等各项任务的完成。"
+  }, {
+    "type" : "paragraph",
+    "id" : 138,
+    "page number" : 10,
+    "bounding box" : [ 79.44, 557.967, 521.508, 633.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第三十八条 学校党委承担管党治党、办学治校主体责任， 把方向、管大局、作决策、抓班子、带队伍、保落实。其主要职 责是："
+  }, {
+    "type" : "paragraph",
+    "id" : 139,
+    "page number" : 10,
+    "bounding box" : [ 79.44, 437.967, 521.629, 543.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（一）宣传和执行党的路线方针政策，宣传和执行党中央以 及上级党组织和本组织的决议，坚持社会主义办学方向，依法治 校，依靠全校师生员工推动学校科学发展，培养德智体美劳全面 发展的社会主义建设者和接班人；"
+  }, {
+    "type" : "paragraph",
+    "id" : 140,
+    "page number" : 10,
+    "bounding box" : [ 79.44, 287.967, 527.39, 423.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（二）坚持马克思主义指导地位，组织党员认真学习马克思 列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想、 科学发展观、习近平新时代中国特色社会主义思想，学习党的路 线方针政策和决议，学习党的基本知识，学习业务知识和科学、 历史、文化、法律等各方面知识；"
+  }, {
+    "type" : "paragraph",
+    "id" : 141,
+    "page number" : 10,
+    "bounding box" : [ 79.44, 227.967, 521.505, 273.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（三）审议确定学校基本管理制度，讨论决定学校改革发展 稳定以及教学、科研、行政管理中的重大事项；"
+  }, {
+    "type" : "paragraph",
+    "id" : 142,
+    "page number" : 10,
+    "bounding box" : [ 79.44, 137.967, 521.509, 213.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（四）讨论决定学校内部组织机构的设置及其负责人的人 选，按照干部管理权限，负责干部的教育、培训、选拔、考核和 监督，加强领导班子建设、干部队伍建设和人才队伍建设；"
+  }, {
+    "type" : "paragraph",
+    "id" : 143,
+    "page number" : 10,
+    "bounding box" : [ 111.359, 107.967, 521.506, 123.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（五）按照党要管党、全面从严治党要求，加强学校党组织"
+  }, {
+    "type" : "footer",
+    "id" : 144,
+    "page number" : 10,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 36,
+      "page number" : 10,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 12 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 145,
+    "page number" : 11,
+    "bounding box" : [ 79.44, 677.967, 521.503, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "建设，落实基层党建工作责任制，发挥学校基层党组织战斗堡垒 作用和党员先锋模范作用；"
+  }, {
+    "type" : "paragraph",
+    "id" : 146,
+    "page number" : 11,
+    "bounding box" : [ 79.44, 587.967, 521.508, 663.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（六）履行学校党风廉政建设主体责任，领导、支持内设纪 检组织履行监督执纪问责职责，接受同级纪检组织和上级纪委监 委及其派驻纪检监察机构的监督；"
+  }, {
+    "type" : "paragraph",
+    "id" : 147,
+    "page number" : 11,
+    "bounding box" : [ 111.359, 557.967, 521.506, 573.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（七）领导学校思想政治工作和德育工作，落实意识形态工"
+  }, {
+    "type" : "paragraph",
+    "id" : 148,
+    "page number" : 11,
+    "bounding box" : [ 79.44, 317.967, 527.39, 543.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "作责任制，维护学校安全稳定，促进和谐校园建设； （八）领导学校群团组织、学术组织和教职工代表大会； （九）做好统一战线工作，对学校内民主党派的基层组织实 行政治领导，支持其依照各自章程开展活动；支持无党派人士等 统一战线成员参加统一战线相关活动，发挥积极作用；加强党外 知识分子工作和党外代表人士队伍建设；加强民族和宗教工作， 深入开展铸牢中华民族共同体意识教育，坚决防范和抵御各类非 法传教、渗透活动。"
+  }, {
+    "type" : "paragraph",
+    "id" : 149,
+    "page number" : 11,
+    "bounding box" : [ 79.44, 227.967, 521.503, 303.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第三十九条 学校党委设立常务委员会（以下简称党委常委 会），党委常委会主持党委经常工作，对党委负责并定期报告工 作。"
+  }, {
+    "type" : "paragraph",
+    "id" : 150,
+    "page number" : 11,
+    "bounding box" : [ 79.44, 107.967, 521.623, 213.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第四十条 学校党委常委会按照“集体领导、民主集中、个 别酝酿、会议决定”的原则对学校重大决策、重要人事任免、重 大项目安排和大额度资金使用等事项进行决策。特别重大的事 项，可以提请学校党委全体会议讨论。"
+  }, {
+    "type" : "footer",
+    "id" : 151,
+    "page number" : 11,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 37,
+      "page number" : 11,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 13 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 152,
+    "page number" : 12,
+    "bounding box" : [ 111.359, 677.967, 521.503, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学校党委常委会依其议事规则履行职责。 第四十一条 学校党委设立教师工作委员会，在学校党委领"
+  }, {
+    "type" : "paragraph",
+    "id" : 153,
+    "page number" : 12,
+    "bounding box" : [ 79.44, 617.967, 521.623, 663.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "导下，研究审议学校教师思想政治和师德师风建设工作重大事 项，指导相关部门开展工作。"
+  }, {
+    "type" : "paragraph",
+    "id" : 154,
+    "page number" : 12,
+    "bounding box" : [ 79.44, 527.967, 527.39, 603.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第四十二条 校长在学校党委领导下，贯彻党的教育方针， 组织实施学校党委有关决议，行使高等教育法等规定的各项职 权，全面负责学校教学、科研、行政管理工作。其主要职权是："
+  }, {
+    "type" : "paragraph",
+    "id" : 155,
+    "page number" : 12,
+    "bounding box" : [ 79.44, 437.967, 529.55, 513.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（一）组织拟订和实施学校发展规划、基本管理制度、重要 行政规章制度、重大教学科研改革措施、重要办学资源配置方案， 组织制定和实施具体规章制度、年度工作计划；"
+  }, {
+    "type" : "paragraph",
+    "id" : 156,
+    "page number" : 12,
+    "bounding box" : [ 79.44, 347.967, 521.509, 423.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（二）组织拟订和实施学校内部组织机构的设置方案，按照 国家法律和干部选拔任用工作有关规定，推荐副校长人选，任免 内部组织机构的负责人；"
+  }, {
+    "type" : "paragraph",
+    "id" : 157,
+    "page number" : 12,
+    "bounding box" : [ 79.44, 257.967, 521.506, 333.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（三）组织拟订和实施学校人才发展规划、重要人才政策和 重大人才工程计划，负责教师队伍建设，依据有关规定聘任与解 聘教师以及内部其他工作人员；"
+  }, {
+    "type" : "paragraph",
+    "id" : 158,
+    "page number" : 12,
+    "bounding box" : [ 79.44, 197.967, 521.506, 243.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（四）组织拟订和实施学校重大基本建设、年度经费预算等 方案，加强财务管理和审计监督，管理和保护学校资产；"
+  }, {
+    "type" : "paragraph",
+    "id" : 159,
+    "page number" : 12,
+    "bounding box" : [ 79.44, 107.967, 527.39, 183.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（五）组织开展教学活动和科学研究，创新人才培养机制， 提高人才培养质量，推进文化传承创新，服务国家和地方经济社 会发展，把学校办出特色、争创一流；"
+  }, {
+    "type" : "footer",
+    "id" : 160,
+    "page number" : 12,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 38,
+      "page number" : 12,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 14 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 161,
+    "page number" : 13,
+    "bounding box" : [ 111.359, 707.967, 521.625, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（六）组织开展思想品德教育，负责学生学籍管理并实施奖"
+  }, {
+    "type" : "paragraph",
+    "id" : 162,
+    "page number" : 13,
+    "bounding box" : [ 79.44, 617.967, 521.626, 693.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "励或者处分，开展招生和就业工作； （七）做好学校安全稳定和后勤保障工作； （八）组织开展学校对外交流与合作，依法代表学校与各级"
+  }, {
+    "type" : "paragraph",
+    "id" : 163,
+    "page number" : 13,
+    "bounding box" : [ 79.44, 587.967, 511.417, 603.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "政府、社会各界和境外机构等签署合作协议，接受社会捐赠；"
+  }, {
+    "type" : "paragraph",
+    "id" : 164,
+    "page number" : 13,
+    "bounding box" : [ 79.44, 467.967, 521.626, 573.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（九）向党委报告重大决议执行情况，向教职工代表大会报 告工作，组织处理教职工代表大会、学生代表大会、工会会员代 表大会和团员代表大会有关行政工作的提案，支持学校各级党组 织、民主党派基层组织、群众组织和学术组织开展工作；"
+  }, {
+    "type" : "paragraph",
+    "id" : 165,
+    "page number" : 13,
+    "bounding box" : [ 111.359, 407.967, 521.504, 453.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（十）履行法律法规和学校规定的其他职权。 校长按照相关规定对学校行政或者学术事务中的个别事项"
+  }, {
+    "type" : "paragraph",
+    "id" : 166,
+    "page number" : 13,
+    "bounding box" : [ 79.44, 377.967, 191.387, 393.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "有酌情处理权。"
+  }, {
+    "type" : "paragraph",
+    "id" : 167,
+    "page number" : 13,
+    "bounding box" : [ 79.44, 287.967, 521.626, 363.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第四十三条 校长办公会议是学校行政议事决策机构，定期 由校长或者由校长委托副校长召集并主持，校长在广泛听取与会 人员意见建议的基础上对研究讨论的事项作出决定。"
+  }, {
+    "type" : "paragraph",
+    "id" : 168,
+    "page number" : 13,
+    "bounding box" : [ 111.359, 257.967, 383.261, 273.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "校长办公会议依其议事规则履行职责。"
+  }, {
+    "type" : "paragraph",
+    "id" : 169,
+    "page number" : 13,
+    "bounding box" : [ 79.44, 107.967, 521.626, 243.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第四十四条 中国共产党天津大学纪律检查委员会（以下简 称学校纪委）是学校的党内监督专责机关。国家监委向天津大学 派驻监察专员，设立监察专员办公室，与学校纪委合署办公。学 校纪检监察机构在学校党委和上级纪委监委的双重领导下，一体 履行党的纪律检查、国家监察职责，协助学校党委推进全面从严"
+  }, {
+    "type" : "footer",
+    "id" : 170,
+    "page number" : 13,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 39,
+      "page number" : 13,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 15 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 171,
+    "page number" : 14,
+    "bounding box" : [ 79.44, 677.967, 521.506, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "治党、加强党风建设和组织协调反腐败工作，保障和促进学校事 业健康发展。"
+  }, {
+    "type" : "paragraph",
+    "id" : 172,
+    "page number" : 14,
+    "bounding box" : [ 79.44, 557.967, 529.55, 663.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第四十五条 学校设立独立内部审计机构，在校长直接领导 下开展工作，负责对国家重大政策、学校发展规划、年度重点工 作的落实情况，公共资金、国有资产管理使用的合规和效益情况， 履行审计监督职责，促进完善内部控制，保障事业发展目标实现。"
+  }, {
+    "type" : "paragraph",
+    "id" : 173,
+    "page number" : 14,
+    "bounding box" : [ 79.44, 407.967, 527.39, 543.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第四十六条 学校根据实际需要和精简、效能的原则，可以 设立、变更或者撤销专项工作委员会、领导小组或者工作小组等 议事协调机构，可以设立、变更或者撤销教学科研、党政管理、 保障服务等内设机构，并可以根据实际情况合理调整其职能。各 机构根据学校授权履行相应职责。"
+  }, {
+    "type" : "paragraph",
+    "id" : 174,
+    "page number" : 14,
+    "bounding box" : [ 79.44, 197.967, 521.628, 363.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第二节 学术组织 第四十七条 学校坚持教授治学，强化学术权力，保障学术 自由，鼓励教师、科研人员把论文写在祖国大地上。学校依法设 立天津大学学术委员会（以下简称学术委员会），并以此作为校 内最高学术机构，健全学术管理体系与组织架构，提升学术治理 能力。"
+  }, {
+    "type" : "paragraph",
+    "id" : 175,
+    "page number" : 14,
+    "bounding box" : [ 79.44, 107.967, 521.509, 183.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第四十八条 学术委员会可以就学科建设、教师聘任、教学 指导、科学研究、学术道德等事项设立若干专门委员会。根据需 要在学院（学部）设置学术分委员会，也可以委托基层学术组织"
+  }, {
+    "type" : "footer",
+    "id" : 176,
+    "page number" : 14,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 40,
+      "page number" : 14,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 16 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 177,
+    "page number" : 15,
+    "bounding box" : [ 79.44, 707.967, 191.387, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "承担相应职责。"
+  }, {
+    "type" : "paragraph",
+    "id" : 178,
+    "page number" : 15,
+    "bounding box" : [ 79.44, 647.967, 521.503, 693.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第四十九条 学术委员会统筹履行学术事务的决策、审议、 评定和咨询等职责。其主要职责是："
+  }, {
+    "type" : "paragraph",
+    "id" : 179,
+    "page number" : 15,
+    "bounding box" : [ 79.44, 587.967, 521.509, 633.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（一）审议学校发展规划，包括学科、教学、科研、队伍建 设、对外学术交流合作等规划；"
+  }, {
+    "type" : "paragraph",
+    "id" : 180,
+    "page number" : 15,
+    "bounding box" : [ 111.359, 557.967, 521.503, 573.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（二）审议学校学科、专业、重要学术机构的设置以及其他"
+  }, {
+    "type" : "paragraph",
+    "id" : 181,
+    "page number" : 15,
+    "bounding box" : [ 79.44, 467.967, 521.509, 543.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学术发展的重大措施； （三）审议其他学术组织的人员组成原则和议事规则； （四）评定人才培养、科学研究成果，对外推荐教学、科学"
+  }, {
+    "type" : "paragraph",
+    "id" : 182,
+    "page number" : 15,
+    "bounding box" : [ 79.44, 437.967, 175.428, 453.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "研究成果奖；"
+  }, {
+    "type" : "paragraph",
+    "id" : 183,
+    "page number" : 15,
+    "bounding box" : [ 79.44, 377.967, 521.509, 423.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（五）评定引进人才、拟聘任或者推荐人选的学术水平，审 核批准名誉教授；"
+  }, {
+    "type" : "paragraph",
+    "id" : 184,
+    "page number" : 15,
+    "bounding box" : [ 79.44, 317.967, 521.499, 363.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（六）审定学校教学科研的学术评价标准和专业技术职务聘 任、岗位设置与考核等学术条件；"
+  }, {
+    "type" : "paragraph",
+    "id" : 185,
+    "page number" : 15,
+    "bounding box" : [ 79.44, 257.967, 529.55, 303.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（七）审定学校学术道德规范，调查、裁决学术纠纷，调查、 认定学术不端行为；"
+  }, {
+    "type" : "paragraph",
+    "id" : 186,
+    "page number" : 15,
+    "bounding box" : [ 79.44, 197.967, 521.508, 243.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（八）组织开展学校学术发展战略和政策研究，为学校学术 发展提供决策咨询与建议；"
+  }, {
+    "type" : "paragraph",
+    "id" : 187,
+    "page number" : 15,
+    "bounding box" : [ 79.44, 137.967, 521.506, 183.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（九）指导、促进学科交叉和学术交流，建设和倡导自由创 新的学术文化；"
+  }, {
+    "type" : "paragraph",
+    "id" : 188,
+    "page number" : 15,
+    "bounding box" : [ 111.359, 107.967, 521.508, 123.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（十）受学校委托，对全局性重大发展规划、国内外重大合"
+  }, {
+    "type" : "footer",
+    "id" : 189,
+    "page number" : 15,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 41,
+      "page number" : 15,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 17 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 190,
+    "page number" : 16,
+    "bounding box" : [ 79.44, 647.967, 521.503, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "作办学项目等提供咨询意见； （十一）校长委托的其他学术事务。 第五十条 凡属学术委员会应当审议的重要事务，学校决策"
+  }, {
+    "type" : "paragraph",
+    "id" : 191,
+    "page number" : 16,
+    "bounding box" : [ 79.44, 587.967, 521.629, 633.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "前应当先提交学术委员会审议，或者由学校党委常委会、校长办 公会委托学术委员会审议并决定。"
+  }, {
+    "type" : "paragraph",
+    "id" : 192,
+    "page number" : 16,
+    "bounding box" : [ 79.44, 467.967, 527.39, 573.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第五十一条 学校设立学位评定委员会，负责拟订学位授予 标准及规则，作出是否批准授予学士、硕士、博士学位的决定， 通过授予名誉博士学位的提名，作出撤销已授学位的决定，审议 学位、研究生指导教师评聘考核等相关工作。"
+  }, {
+    "type" : "paragraph",
+    "id" : 193,
+    "page number" : 16,
+    "bounding box" : [ 79.44, 407.967, 521.504, 453.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学位评定委员会成员依据法律和国务院学位委员会的相关 规定聘任。"
+  }, {
+    "type" : "paragraph",
+    "id" : 194,
+    "page number" : 16,
+    "bounding box" : [ 79.44, 317.967, 527.63, 393.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第五十二条 学校设立教学指导委员会（或者专门委员会）， 成员由具有较高学术水平和丰富教学经验的专家学者组成，负责 对教学工作进行指导、研究、评估、咨询和督导。"
+  }, {
+    "type" : "paragraph",
+    "id" : 195,
+    "page number" : 16,
+    "bounding box" : [ 79.44, 227.967, 521.503, 303.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第五十三条 学校设立专业技术职务评聘委员会（或者专门 委员会），成员由学校主要负责人和校内各学科领域专家学者组 成，负责评议、审定专业技术职务评聘资格。"
+  }, {
+    "type" : "paragraph",
+    "id" : 196,
+    "page number" : 16,
+    "bounding box" : [ 79.44, 107.967, 521.509, 213.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第五十四条 学校设立教材建设与管理工作领导小组，指导 建立健全校内教材管理制度和工作机制，成员由学校领导和校内 各学科领域专家学者组成，负责教材整体规划、建设、选用、监 督等工作。"
+  }, {
+    "type" : "footer",
+    "id" : 197,
+    "page number" : 16,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 42,
+      "page number" : 16,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 18 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 198,
+    "page number" : 17,
+    "bounding box" : [ 79.44, 617.967, 521.506, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第三节 民主管理制度 第五十五条 学校坚持民主管理，建立民主协商机制，支持 和保障师生员工参与学校决策、执行和监督，依靠师生员工推动 事业发展。"
+  }, {
+    "type" : "paragraph",
+    "id" : 199,
+    "page number" : 17,
+    "bounding box" : [ 79.44, 527.967, 521.628, 603.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第五十六条 学校设立教职工代表大会。教职工代表大会是 教职工参与学校民主管理和监督的重要组织形式，按照相关规定 行使职权、履行职责。其主要职权是："
+  }, {
+    "type" : "paragraph",
+    "id" : 200,
+    "page number" : 17,
+    "bounding box" : [ 79.44, 467.967, 521.628, 513.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（一）听取学校章程的制定和修订情况报告，提出修改意见 和建议；"
+  }, {
+    "type" : "paragraph",
+    "id" : 201,
+    "page number" : 17,
+    "bounding box" : [ 79.44, 377.967, 529.55, 453.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（二）听取学校发展规划、教职工队伍建设、教育教学改革、 校园建设以及其他重大改革和重大问题解决方案的报告，提出意 见和建议；"
+  }, {
+    "type" : "paragraph",
+    "id" : 202,
+    "page number" : 17,
+    "bounding box" : [ 79.44, 317.967, 521.626, 363.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（三）听取学校年度工作、财务工作、工会工作报告以及其 他专项工作报告，提出意见和建议；"
+  }, {
+    "type" : "paragraph",
+    "id" : 203,
+    "page number" : 17,
+    "bounding box" : [ 79.44, 257.967, 527.39, 303.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（四）讨论通过学校提出的与教职工利益直接相关的福利、 校内分配实施方案以及相应的教职工聘任、考核、奖惩办法；"
+  }, {
+    "type" : "paragraph",
+    "id" : 204,
+    "page number" : 17,
+    "bounding box" : [ 111.359, 227.967, 521.503, 243.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（五）审议学校上一届（次）教职工代表大会提案的办理情"
+  }, {
+    "type" : "paragraph",
+    "id" : 205,
+    "page number" : 17,
+    "bounding box" : [ 79.44, 137.967, 521.508, 213.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "况报告； （六）按照有关工作规定和安排评议学校领导干部； （七）通过多种方式对学校工作提出意见和建议，监督学校"
+  }, {
+    "type" : "paragraph",
+    "id" : 206,
+    "page number" : 17,
+    "bounding box" : [ 79.44, 107.967, 463.419, 123.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "章程、规章制度和决策的落实，提出整改意见和建议；"
+  }, {
+    "type" : "footer",
+    "id" : 207,
+    "page number" : 17,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 43,
+      "page number" : 17,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 19 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 208,
+    "page number" : 18,
+    "bounding box" : [ 79.44, 677.967, 521.499, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（八）讨论法律法规和规章规定的以及学校与学校工会商定 的其他事项。"
+  }, {
+    "type" : "paragraph",
+    "id" : 209,
+    "page number" : 18,
+    "bounding box" : [ 79.44, 587.967, 527.39, 663.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第五十七条 学校教职工代表大会设立执行委员会，成员从 教职工代表大会代表中选举产生。在教职工代表大会闭会期间， 由执行委员会代行其职。"
+  }, {
+    "type" : "paragraph",
+    "id" : 210,
+    "page number" : 18,
+    "bounding box" : [ 79.44, 527.967, 521.504, 573.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学校可以在院级单位建立院级教职工代表大会制度或者教 职工大会制度。"
+  }, {
+    "type" : "paragraph",
+    "id" : 211,
+    "page number" : 18,
+    "bounding box" : [ 79.44, 407.967, 529.55, 513.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第五十八条 学校设立学生代表大会、研究生代表大会。学 生代表大会、研究生代表大会是全校学生依法行使民主权利、参 与学校治理的重要组织形式，按照有关规定行使职权、履行职责。 其主要职权是："
+  }, {
+    "type" : "paragraph",
+    "id" : 212,
+    "page number" : 18,
+    "bounding box" : [ 79.44, 317.967, 521.508, 393.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（一）团结和引导学生提高思想道德修养，刻苦学习科学文 化知识，不断提高身心健康水平，积极投身社会实践，努力成长 成才；"
+  }, {
+    "type" : "paragraph",
+    "id" : 213,
+    "page number" : 18,
+    "bounding box" : [ 79.44, 257.967, 527.39, 303.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（二）弘扬良好的校风、学风，倡导积极向上的精神风貌， 营造多元文化交融互动的校园文化氛围；"
+  }, {
+    "type" : "paragraph",
+    "id" : 214,
+    "page number" : 18,
+    "bounding box" : [ 79.44, 137.967, 521.623, 243.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（三）代表全体学生参与涉及学生的学校事务民主管理，听 取学校工作报告，讨论学生培养总体方案、学位授予办法、学生 奖惩办法、奖学金评定方案等涉及全校学生切身利益的重大事 项，提出意见和建议，维护学生的正当权益；"
+  }, {
+    "type" : "paragraph",
+    "id" : 215,
+    "page number" : 18,
+    "bounding box" : [ 111.359, 107.967, 521.508, 123.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（四）分别听取学生会、研究生会工作报告，提出意见和建"
+  }, {
+    "type" : "footer",
+    "id" : 216,
+    "page number" : 18,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 44,
+      "page number" : 18,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 20 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 217,
+    "page number" : 19,
+    "bounding box" : [ 79.44, 707.967, 111.349, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "议；"
+  }, {
+    "type" : "paragraph",
+    "id" : 218,
+    "page number" : 19,
+    "bounding box" : [ 111.359, 677.967, 529.55, 693.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "（五）倡导和鼓励学生进行自我服务、自我管理、自我教育，"
+  }, {
+    "type" : "paragraph",
+    "id" : 219,
+    "page number" : 19,
+    "bounding box" : [ 79.44, 587.967, 521.504, 663.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "协助学校解决学生在学习生活中遇到的问题和困难； （六）制定、修订学生会（研究生会）委员会章程； （七）讨论法律法规和规章规定的以及学校与学生会委员"
+  }, {
+    "type" : "paragraph",
+    "id" : 220,
+    "page number" : 19,
+    "bounding box" : [ 79.44, 557.967, 351.342, 573.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "会、研究生会委员会商定的其他事项。"
+  }, {
+    "type" : "paragraph",
+    "id" : 221,
+    "page number" : 19,
+    "bounding box" : [ 79.44, 467.967, 521.503, 543.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第五十九条 学生代表大会、研究生代表大会选举产生学生 会（研究生会）委员会，在大会闭会期间代表全体同学帮助和监 督学生会（研究生会）的工作。"
+  }, {
+    "type" : "paragraph",
+    "id" : 222,
+    "page number" : 19,
+    "bounding box" : [ 79.44, 347.967, 529.55, 453.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学生代表大会、研究生代表大会选举产生学生会（研究生会） 主席团，负责学生会（研究生会）的日常工作，对学生代表大会、 研究生代表大会及学生会（研究生会）委员会负责，并定期向其 报告工作。"
+  }, {
+    "type" : "paragraph",
+    "id" : 223,
+    "page number" : 19,
+    "bounding box" : [ 79.44, 287.967, 521.504, 333.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第六十条 学校分立、合并、终止及更名应当征求师生员工 和校友意见，并报举办者批准。"
+  }, {
+    "type" : "paragraph",
+    "id" : 224,
+    "page number" : 19,
+    "bounding box" : [ 79.44, 167.967, 521.503, 243.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第四节 咨询监督组织 第六十一条 学校建立健全咨询机制和监督机制，促进科学 决策和民主管理，提升办学水平。"
+  }, {
+    "type" : "paragraph",
+    "id" : 225,
+    "page number" : 19,
+    "bounding box" : [ 79.44, 107.967, 521.503, 153.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第六十二条 学校设立董事会，作为面向社会开放式办学的 咨询监督机构。"
+  }, {
+    "type" : "footer",
+    "id" : 226,
+    "page number" : 19,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 45,
+      "page number" : 19,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 21 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 227,
+    "page number" : 20,
+    "bounding box" : [ 79.44, 647.967, 529.55, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "董事会参与学校重大事项的咨询审议，监督学校办学质量， 促进学校科学民主决策；推动学校与社会的协同合作，促进学校 提升办学水平；通过各种方式争取办学资源，支持学校事业发展。"
+  }, {
+    "type" : "paragraph",
+    "id" : 228,
+    "page number" : 20,
+    "bounding box" : [ 79.44, 587.967, 521.506, 633.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "董事会的组成、运行、议事规则等事项，按照董事会章程执 行。"
+  }, {
+    "type" : "paragraph",
+    "id" : 229,
+    "page number" : 20,
+    "bounding box" : [ 79.44, 497.967, 521.509, 573.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第六十三条 学校设立招生委员会，作为招生录取工作的决 策咨询、民主管理和监督机构，主要职能是审议招生章程、重大 招生政策、招生工作报告及招生方案等。"
+  }, {
+    "type" : "paragraph",
+    "id" : 230,
+    "page number" : 20,
+    "bounding box" : [ 79.44, 317.967, 521.508, 453.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第五节 教学科研机构 第六十四条 学校根据需要设置若干学院，并可以根据发展 需要适时予以调整或者撤销；学校根据学科交叉集成、资源配置 或者体制机制改革需要成立学部，并可根据发展需要适时予以调 整或者撤销。学校依法对学院（学部）进行管理和评估。"
+  }, {
+    "type" : "paragraph",
+    "id" : 231,
+    "page number" : 20,
+    "bounding box" : [ 79.44, 227.967, 529.55, 303.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第六十五条 学院（学部）依法自主开展人才培养、科学研 究、社会服务、文化传承创新和国际交流合作等活动。学校在人、 财、物等方面赋予学院（学部）相应的管理和使用权力。"
+  }, {
+    "type" : "paragraph",
+    "id" : 232,
+    "page number" : 20,
+    "bounding box" : [ 111.359, 167.967, 521.509, 213.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第六十六条 学院（学部）的主要职权是： （一）制定学院（学部）发展规划、学科建设计划、师资队"
+  }, {
+    "type" : "paragraph",
+    "id" : 233,
+    "page number" : 20,
+    "bounding box" : [ 79.44, 107.967, 521.629, 153.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "伍建设计划、课程建设和教学计划，并组织实施； （二）组织开展教学、科学研究、国际交流与合作、社会服"
+  }, {
+    "type" : "footer",
+    "id" : 234,
+    "page number" : 20,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 46,
+      "page number" : 20,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 22 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 235,
+    "page number" : 21,
+    "bounding box" : [ 79.44, 647.967, 521.509, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "务等活动和思想品德教育； （三）设置内部机构，制定内部工作规则和管理办法； （四）负责学院（学部）教职工的聘用、管理和考核，负责"
+  }, {
+    "type" : "paragraph",
+    "id" : 236,
+    "page number" : 21,
+    "bounding box" : [ 79.44, 527.967, 521.503, 633.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学院（学部）学生的教育和管理； （五）管理使用学校核拨的办学经费和资产； （六）学校赋予的其他职权。 第六十七条 学院（学部）通过党政联席会讨论和决定本单"
+  }, {
+    "type" : "paragraph",
+    "id" : 237,
+    "page number" : 21,
+    "bounding box" : [ 79.44, 467.967, 521.508, 513.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "位的重要事项。党政联席会一般由院长（主任）主持，根据议题 也可由书记主持。"
+  }, {
+    "type" : "paragraph",
+    "id" : 238,
+    "page number" : 21,
+    "bounding box" : [ 111.359, 437.967, 367.302, 453.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "党政联席会依其议事规则履行职责。"
+  }, {
+    "type" : "paragraph",
+    "id" : 239,
+    "page number" : 21,
+    "bounding box" : [ 79.44, 317.967, 521.509, 423.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第六十八条 院长（主任）是学院（学部）的主要行政负责 人，在学校领导下，全面负责学院（学部）的学科建设、教学科 研、队伍建设、行政管理、对外交流与合作等工作，每年向学院 （学部）教职工代表大会或者教职工大会报告工作。"
+  }, {
+    "type" : "paragraph",
+    "id" : 240,
+    "page number" : 21,
+    "bounding box" : [ 79.44, 197.967, 529.55, 303.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第六十九条 学院（学部）党组织在学校党委的领导下开展 工作，全面负责学院（学部）党的建设，履行政治责任，保证教 学科研管理等各项任务完成，支持本单位行政领导班子和负责人 开展工作，健全集体领导、党政分工合作、协调运行的工作机制。"
+  }, {
+    "type" : "paragraph",
+    "id" : 241,
+    "page number" : 21,
+    "bounding box" : [ 79.44, 137.967, 529.55, 183.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "涉及办学方向、教师队伍建设、师生员工切身利益等事项的， 应当经学院（学部）党组织研究讨论后，再提交党政联席会决定。"
+  }, {
+    "type" : "paragraph",
+    "id" : 242,
+    "page number" : 21,
+    "bounding box" : [ 111.359, 107.967, 521.503, 123.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第七十条 学院（学部）根据教授治学原则和学校相关规定"
+  }, {
+    "type" : "footer",
+    "id" : 243,
+    "page number" : 21,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 47,
+      "page number" : 21,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 23 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 244,
+    "page number" : 22,
+    "bounding box" : [ 79.44, 677.967, 521.629, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "成立院级学术委员会，就教师聘任、专业技术职务评聘、教学指 导、学科建设等学术事务发挥咨询、评定、审议作用。"
+  }, {
+    "type" : "paragraph",
+    "id" : 245,
+    "page number" : 22,
+    "bounding box" : [ 79.44, 587.967, 521.503, 663.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第七十一条 依托学校建设的全国重点实验室、国家工程中 心以及研究院（所、中心）等研究机构根据有关规定或者学校授 权承担相应的人才培养、科学研究、社会服务等任务。"
+  }, {
+    "type" : "paragraph",
+    "id" : 246,
+    "page number" : 22,
+    "bounding box" : [ 79.44, 527.967, 521.623, 573.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学校按照国家有关规定，积极落实扩大和保障科研机构和科 研人员享有相应的科研自主权，增强创新活力。"
+  }, {
+    "type" : "paragraph",
+    "id" : 247,
+    "page number" : 22,
+    "bounding box" : [ 79.44, 437.967, 521.508, 513.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第七十二条 学校根据学科发展规划或者重大研究任务需 要，可以设立交叉学科研究中心或者直属科研机构，统筹组织科 学研究等工作。"
+  }, {
+    "type" : "paragraph",
+    "id" : 248,
+    "page number" : 22,
+    "bounding box" : [ 192.48, 377.967, 408.466, 393.917 ],
+    "font" : "SimHei",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第七章 经费、资产与校园管理"
+  }, {
+    "type" : "paragraph",
+    "id" : 249,
+    "page number" : 22,
+    "bounding box" : [ 111.359, 347.967, 529.55, 363.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第七十三条 学校经费来源以财政拨款为主、其他渠道为辅，"
+  }, {
+    "type" : "paragraph",
+    "id" : 250,
+    "page number" : 22,
+    "bounding box" : [ 79.44, 257.967, 521.629, 333.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "主要来源包括财政补助收入、事业收入、上级补助收入、附属单 位上缴收入、经营收入和其他收入。学校依法多渠道筹措事业发 展资金，鼓励和支持校内各单位面向社会筹措办学经费。"
+  }, {
+    "type" : "paragraph",
+    "id" : 251,
+    "page number" : 22,
+    "bounding box" : [ 79.44, 137.967, 521.508, 243.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第七十四条 学校建立健全财务管理制度、经济责任制度、 内部审计制度和内部控制制度，规范学校及校内各单位的经济行 为，防范和管控各类经济风险，保障资金运行安全，提高经费使 用效率与效益。"
+  }, {
+    "type" : "paragraph",
+    "id" : 252,
+    "page number" : 22,
+    "bounding box" : [ 111.359, 107.967, 521.629, 123.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学校财务工作坚持“统一领导、分级管理”的原则。学校单"
+  }, {
+    "type" : "footer",
+    "id" : 253,
+    "page number" : 22,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 48,
+      "page number" : 22,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 24 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 254,
+    "page number" : 23,
+    "bounding box" : [ 79.44, 677.967, 521.629, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "独设置一级财务机构，根据需要可以设置二级财务机构。二级财 务机构接受一级财务机构的统一领导、监督和检查。"
+  }, {
+    "type" : "paragraph",
+    "id" : 255,
+    "page number" : 23,
+    "bounding box" : [ 79.44, 557.967, 521.508, 663.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第七十五条 学校坚持勤俭办学，建立健全资产管理制度， 依法对取得或者形成的国有资产进行自主管理和使用，根据相关 规定和办学成本合理确定学费收取标准、方式和用途，优化资源 配置，提高资源使用效益。"
+  }, {
+    "type" : "paragraph",
+    "id" : 256,
+    "page number" : 23,
+    "bounding box" : [ 79.44, 467.967, 521.62, 543.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第七十六条 学校保护并合理利用校名、校誉和校有知识产 权等无形资产，依法依规自主处置学校所有的科技成果等无形资 产。"
+  }, {
+    "type" : "paragraph",
+    "id" : 257,
+    "page number" : 23,
+    "bounding box" : [ 79.44, 407.967, 521.503, 453.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第七十七条 学校统筹校内外资源，不断改善基础设施条件 和校园环境，合理定位校区功能，注重保护历史风貌建筑。"
+  }, {
+    "type" : "paragraph",
+    "id" : 258,
+    "page number" : 23,
+    "bounding box" : [ 79.44, 317.967, 521.628, 393.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第七十八条 学校不断完善后勤管理和服务体系，提高管理 水平与服务质量，努力打造方便师生学习、工作、生活的可持续 发展校园。"
+  }, {
+    "type" : "paragraph",
+    "id" : 259,
+    "page number" : 23,
+    "bounding box" : [ 79.44, 197.967, 521.503, 273.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第八章 外部关系 第七十九条 学校重视外部关系，广泛开展国内外交流与合 作，积极承担社会责任，努力争取社会各界支持。"
+  }, {
+    "type" : "paragraph",
+    "id" : 260,
+    "page number" : 23,
+    "bounding box" : [ 79.44, 107.967, 521.506, 183.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第八十条 学校设立教育发展基金会，依法依规吸引和接受 校友和社会各界的捐赠与资助，拓展办学资源，助力学校事业发 展。"
+  }, {
+    "type" : "footer",
+    "id" : 261,
+    "page number" : 23,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 49,
+      "page number" : 23,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 25 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 262,
+    "page number" : 24,
+    "bounding box" : [ 111.359, 677.967, 521.503, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学校本着节俭高效的原则使用捐赠，保证捐赠目的实现。 第八十一条 学校设立附属幼儿园、附属小学和直属、附属"
+  }, {
+    "type" : "paragraph",
+    "id" : 263,
+    "page number" : 24,
+    "bounding box" : [ 79.44, 617.967, 521.506, 663.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "医院等机构，面向师生员工和社会提供服务，按照相关法律法规 管理和运行。"
+  }, {
+    "type" : "paragraph",
+    "id" : 264,
+    "page number" : 24,
+    "bounding box" : [ 79.44, 527.967, 521.629, 603.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第八十二条 学校设立资产经营有限公司，依法依规对校属 企业行使股东权利，履行股东义务，承担相应管理责任，维护国 有资本权益。"
+  }, {
+    "type" : "paragraph",
+    "id" : 265,
+    "page number" : 24,
+    "bounding box" : [ 79.44, 407.967, 527.63, 513.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第八十三条 学校可以与政府、国内外高校、科研院（所）、 行业、企业、公民个人等进行交流与合作，共同开展人才培养、 科学研究、技术开发等活动；也可以共同设立合作办学机构，建 立联合研究中心、研究院、实验室等机构。"
+  }, {
+    "type" : "paragraph",
+    "id" : 266,
+    "page number" : 24,
+    "bounding box" : [ 79.44, 347.967, 521.503, 393.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第八十四条 学校依法依规主动公开办学信息，接受社会各 界监督。"
+  }, {
+    "type" : "paragraph",
+    "id" : 267,
+    "page number" : 24,
+    "bounding box" : [ 79.44, 136.76, 521.629, 303.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第九章 学校标识 第八十五条 学校校庆日为每年公历 10 月 2 日。 第八十六条 学校校徽为圆形。校徽中间为盾形主体，主体 上部为篆书“北洋”，底部为数字“1895”。盾形外侧为 “TIANJINUNIVERSITY(PEIYANGUNIVERSITY)”和“天津大 学”均匀排列。校徽边沿为 51 个齿状修饰。"
+  }, {
+    "type" : "paragraph",
+    "id" : 268,
+    "page number" : 24,
+    "bounding box" : [ 111.359, 107.967, 367.67, 123.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第八十七条 学校校色为“北洋蓝”。"
+  }, {
+    "type" : "footer",
+    "id" : 269,
+    "page number" : 24,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 50,
+      "page number" : 24,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 26 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 270,
+    "page number" : 25,
+    "bounding box" : [ 79.44, 646.76, 529.55, 724.423 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第八十八条 学校校旗为长方形，长宽比为 3∶2，“北洋蓝” 色 。 中 间 上 为 白 色 校 徽 ， 下 为 白 色 “ 天 津 大 学 ” 及 “TianjinUniversity”字样。"
+  }, {
+    "type" : "paragraph",
+    "id" : 271,
+    "page number" : 25,
+    "bounding box" : [ 79.44, 467.967, 529.55, 634.423 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第八十九条 学校沿用 1935 年 9 月 23 日确立的校歌，词作 者廖辅叔、曲作者萧友梅。歌词内容为：“花堤蔼蔼，北运滔滔， 巍巍学府北洋高。悠长称历史，建设为同胞。不从纸上逞空谈， 要实地把中华改造。穷学理，振科工，重实验，薄雕虫。望前驱 之英华卓荦，应后起之努力追踪；念过去之艰难缔造，愿一心一 德共扬校誉于无穷。”"
+  }, {
+    "type" : "paragraph",
+    "id" : 272,
+    "page number" : 25,
+    "bounding box" : [ 79.44, 317.967, 521.508, 423.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第十章 附则 第九十条 学校章程的制定和修改需经学校教职工代表大会 讨论，校长办公会讨论通过，由学校党委会讨论审定，并报国务 院教育行政部门核准。"
+  }, {
+    "type" : "paragraph",
+    "id" : 273,
+    "page number" : 25,
+    "bounding box" : [ 79.44, 197.967, 527.39, 303.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "学校章程的修改由校长或者教职工代表大会提出建议，校长 办公会议收到修改建议后一个月内决定是否启动章程修改程序。 校长办公会议决定启动章程修改程序的，章程修改审议程序按本 条第一款规定执行。"
+  }, {
+    "type" : "paragraph",
+    "id" : 274,
+    "page number" : 25,
+    "bounding box" : [ 111.359, 137.967, 521.629, 183.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第九十一条 本章程由学校党委常委会负责解释。 党委办公室、校长办公室负责监督章程的实施情况，依据章"
+  }, {
+    "type" : "paragraph",
+    "id" : 275,
+    "page number" : 25,
+    "bounding box" : [ 79.44, 107.967, 521.502, 123.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "程审查学校内部规章制度，受理对违反章程的管理行为和活动的"
+  }, {
+    "type" : "footer",
+    "id" : 276,
+    "page number" : 25,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 51,
+      "page number" : 25,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 27 -"
+    } ]
+  }, {
+    "type" : "paragraph",
+    "id" : 277,
+    "page number" : 26,
+    "bounding box" : [ 79.44, 707.967, 175.428, 723.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "举报和投诉。"
+  }, {
+    "type" : "paragraph",
+    "id" : 278,
+    "page number" : 26,
+    "bounding box" : [ 79.44, 617.967, 521.507, 693.917 ],
+    "font" : "FangSong_GB2312",
+    "font size" : 15.95,
+    "text color" : "[0.0, 0.0, 0.0]",
+    "content" : "第九十二条 本章程自国务院教育行政部门核准之日起生效 施行。学校原有规章制度内容与本章程规定不一致的，以本章程 为准。"
+  }, {
+    "type" : "footer",
+    "id" : 279,
+    "page number" : 26,
+    "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+    "kids" : [ {
+      "type" : "heading",
+      "id" : 52,
+      "page number" : 26,
+      "bounding box" : [ 279.48, 51.715, 321.545, 65.765 ],
+      "heading level" : 2,
+      "font" : "SimSun",
+      "font size" : 14.05,
+      "text color" : "[0.0, 0.0, 0.0]",
+      "content" : "- 28 -"
+    } ]
+  } ]
+}

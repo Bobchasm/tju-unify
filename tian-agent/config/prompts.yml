@@ -1,0 +1,8 @@
+rag_summarize_prompt_path: prompts/rag_summarize.txt
+main_prompt_path: prompts/main_prompt.txt
+report_prompt_path: prompts/report_prompt.txt
+
+# 新增提示词路径
+mqe_prompt_path: prompts/mqe_prompt.txt
+hyde_prompt_path: prompts/hyde_prompt.txt
+query_rewrite_prompt_path: prompts/query_rewrite_prompt.txt
