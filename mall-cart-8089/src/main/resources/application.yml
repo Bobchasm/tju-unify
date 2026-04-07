@@ -1,0 +1,26 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: mall-cart
+  redis:
+    host: 192.168.1.6
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:1010/eureka
+    registry-fetch-interval-seconds: 5
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${eureka.instance.ip-address}.${server.port}
+    lease-renewal-interval-in-seconds: 3
+    lease-expiration-duration-in-seconds: 10
+mall:
+  jwt:
+    secret: 123456 # 登录校验的密钥mall@Login(Auth}*^31)&cdtu%
+    pubKeyPath: D:/cdtu/rsa/rsa.pub # 公钥地址
+    priKeyPath: D:/cdtu/rsa/rsa.pri # 私钥地址
+    expire: 30 # 过期时间,单位分钟
+    cookieMaxAge: 1800  #cookie过期时间
+    cookieName: CDTU_MALL_TOKAEN

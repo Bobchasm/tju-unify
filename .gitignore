@@ -1,3 +1,9 @@
 # IDE
 .idea/
 .vscode/
+
+# Maven / build outputs
+**/target/
+
+# IntelliJ project files
+*.iml
