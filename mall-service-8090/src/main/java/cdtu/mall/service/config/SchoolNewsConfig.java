@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Component
-@ConfigurationProperties(prefix ="cdtu.news")
+@ConfigurationProperties(prefix = "tju.news")
 public class SchoolNewsConfig {
 
     private List<String> category;

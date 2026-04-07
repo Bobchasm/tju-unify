@@ -4,6 +4,7 @@ import cdtu.mall.service.mapper.SchoolNewsMapper;
 import cdtu.mall.service.pojo.SchoolNews;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
@@ -23,6 +24,25 @@ public class SchoolNewsService {
         String id = UUID.randomUUID().toString();
         schoolNews.setId(id);
         schoolNewsMapper.insert(schoolNews);
+    }
+
+    public boolean existsByUrl(String url) {
+        if (StringUtils.isBlank(url)) {
+            return false;
+        }
+        Example ex = new Example(SchoolNews.class);
+        ex.createCriteria().andEqualTo("url", url.trim());
+        return schoolNewsMapper.selectCountByExample(ex) > 0;
+    }
+
+    public void saveIfNotExists(SchoolNews schoolNews) {
+        if (schoolNews == null || StringUtils.isBlank(schoolNews.getUrl())) {
+            return;
+        }
+        if (existsByUrl(schoolNews.getUrl().trim())) {
+            return;
+        }
+        save(schoolNews);
     }
 
     public List<SchoolNews> getAll()
