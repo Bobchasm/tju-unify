@@ -1,0 +1,19 @@
+2026-04-08 12:42:29 - agent - INFO - middleware.py:35 - [log_before_model]: 即将调用模型，带有2条消息，消息如下：
+2026-04-08 12:42:29 - agent - INFO - middleware.py:38 - [log_before_model]: ----------省略已输出内容----------
+2026-04-08 12:42:29 - agent - INFO - middleware.py:39 - [log_before_model][HumanMessage]: 天津大学有哪些校区
+2026-04-08 12:42:30 - agent - INFO - middleware.py:18 - [tool monitor]执行工具: rag_summarize
+2026-04-08 12:42:30 - agent - INFO - middleware.py:19 - [tool monitor]参数: {'query': '天津大学 校区'}
+2026-04-08 12:42:30 - agent - INFO - advanced_retrieval.py:342 - [ExpandedSearch] 原始查询: '天津大学 校区', 扩展数: 1, 候选池: 32, 返回: 8 条
+2026-04-08 12:42:36 - agent - INFO - rag_service.py:198 - [RAG] 查询: '天津大学 校区...', 策略: auto, 检索到: 8 篇文档
+2026-04-08 12:42:36 - agent - INFO - middleware.py:22 - [tool monitor]工具rag_summarize调用成功
+2026-04-08 12:42:40 - agent - INFO - middleware.py:35 - [log_before_model]: 即将调用模型，带有4条消息，消息如下：
+2026-04-08 12:42:40 - agent - INFO - middleware.py:38 - [log_before_model]: ----------省略已输出内容----------
+2026-04-08 12:42:40 - agent - INFO - middleware.py:39 - [log_before_model][ToolMessage]: 根据参考资料，天津大学设有以下三个校区：
+
+1. **卫津路校区**：法定住所为天津市南开区卫津路92号。根据《天津大学简介》，该校区占地总面积为128.85万平方米；而《天津大学校区介绍》中提到其占地总面积为182万平方米，建筑面积142.5万平方米。
+
+2. **北洋园校区**：根据《天津大学简介》，该校区占地总面积为243.6万平方米。
+
+3. **滨海工业研究院校区**：根据《天津大学简介》，该校区占地总面积为30.9万平方米。
+
+以上信息依据文件《天津大学简介》和《天津大学校区介绍》。

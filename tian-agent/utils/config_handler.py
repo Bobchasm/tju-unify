@@ -1,5 +1,5 @@
 import yaml
-from path_tools import get_abs_path
+from utils.path_tools import get_abs_path
 
 
 class ConfigHandler(object):
