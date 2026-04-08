@@ -4,7 +4,7 @@ import os
 import re
 from datetime import datetime
 from typing import Optional
-from path_tools import get_abs_path
+from utils.path_tools import get_abs_path
 
 # 日志保存根目录
 LOG_ROOT = get_abs_path("logs")
