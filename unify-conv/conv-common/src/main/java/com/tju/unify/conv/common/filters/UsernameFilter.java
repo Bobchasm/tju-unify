@@ -20,18 +20,11 @@ public class UsernameFilter implements Filter {
     private final AntPathMatcher matcher = new AntPathMatcher();
 
     private static final String[] EXCLUDE_PATHS = {
-            "/api/auth",
-            "/api/register",
+            "/api/**",
+            "/ws/**",
             "/**/v3/api-docs/**",
             "/**/swagger-ui/**",
-            "/**/swagger-ui.html",
-            "/upload",
-            "/ws/**",
-            "/api/ai/chat/health",
-            "/api/businesses/search",
-            "/api/businesses/carousel",
-            "/api/admin/countUser",
-            "/api/points/account/create"
+            "/**/swagger-ui.html"
     };
 
 

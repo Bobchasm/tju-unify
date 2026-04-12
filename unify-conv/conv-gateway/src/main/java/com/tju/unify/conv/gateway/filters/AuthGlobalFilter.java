@@ -25,6 +25,10 @@ import reactor.core.publisher.Mono;
 public class AuthGlobalFilter implements GlobalFilter, Ordered {
 
     public static final String AUTHORIZATION_HEADER = "Authorization";
+
+    // 电商集群接口前缀
+    private static final String[] COMMERCE_CLUSTER_URL_PREFIXES = {"/api/", "/ws/"};
+
     private final TokenProvider tokenProvider;
     private final AuthProperties authProperties;
     private final AntPathMatcher antPathMatcher = new AntPathMatcher();
@@ -32,10 +36,17 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
-        
+
         String uri = request.getURI().toString();
         String path = request.getPath().toString();
-        log.info("收到请求 URI: {}, Path: {}", uri, path);
+        log.info("网关收到请求 URI: {}, Path: {}", uri, path);
+
+        // 电商集群网关(跳过本网关鉴权)
+        if (shouldForwardToBGateway(path)) {
+            log.info("检测到电商集群接口路径: {}, 跳过鉴权", path);
+            // 直接放行,这里不鉴权,电商集群自己鉴权
+            return chain.filter(exchange);
+        }
 
         if (isExclude(path)) {
             log.info("路径 {} 在白名单中,跳过认证", path);
@@ -69,6 +80,18 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
                 .build();
 
         return chain.filter(swe);
+    }
+
+    /**
+     * 判断是否直接转发给电商集群
+     */
+    private boolean shouldForwardToBGateway(String path) {
+        for (String prefix : COMMERCE_CLUSTER_URL_PREFIXES) {
+            if (path.startsWith(prefix)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

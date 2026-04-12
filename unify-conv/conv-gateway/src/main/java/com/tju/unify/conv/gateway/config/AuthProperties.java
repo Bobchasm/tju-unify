@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Component
-@ConfigurationProperties(prefix = "elm.auth")
+@ConfigurationProperties(prefix = "unify.auth")
 public class AuthProperties {
     private List<String> excludePaths;
     private List<String> includePaths;
