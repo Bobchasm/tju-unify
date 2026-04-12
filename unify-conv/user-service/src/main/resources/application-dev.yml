@@ -1,0 +1,22 @@
+elm:
+  db:
+    host: 101.42.109.48
+    username: elm_app
+    pw: "ElmApp@2026!"
+    slave:
+      port: 3307
+      username: elm_app
+      pw: "ElmApp@2026!"
+
+  data:
+    redis:
+      host: 101.42.109.48
+      password:
+      database: 5
+
+  nacos:
+    server-addr: 101.42.109.48:8848
+    username: nacos
+    pw: 123456
+
+
