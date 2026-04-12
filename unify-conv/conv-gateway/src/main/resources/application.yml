@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+
+# JWT配置
+jwt:
+  secret: abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrstuvwxyz123456
+  token-validity-in-seconds: 86400
+  token-validity-in-seconds-for-remember-me: 1080000
+
+elm:
+  auth:
+    excludePaths:
+      - /api/auth
+      - /api/register
+      - /**/v3/api-docs/**
+      - /**/swagger-ui/**
+      - /**/swagger-ui.html
+      - /api/upload
+      - /ws/**
+      - /api/ai/chat/health
+      - /api/businesses/search
+      - /api/businesses/search_plus
+      - /api/businesses/carousel
+      - /api/admin/countUser
+      - /api/test
+
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 3000
+        response-timeout: 10s

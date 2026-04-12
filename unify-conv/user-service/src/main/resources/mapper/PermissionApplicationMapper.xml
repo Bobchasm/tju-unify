@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tju.elm.user.mapper.PermissionApplicationMapper">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO permission_application (userId, status, is_deleted, create_time, update_time) VALUES (#{userId}, #{status}, #{isDeleted},#{createTime},#{updateTime})
+    </insert>
+</mapper>

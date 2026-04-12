@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tju.elm.user.mapper.PersonMapper">
+    <!-- 结果集映射：person 表字段 → Person 实体 -->
+    <resultMap id="PersonBaseMap" type="com.tju.elm.user.zoo.pojo.entity.Person">
+        <id column="id" property="id"/>
+        <result column="email" property="email"/>
+        <result column="first_name" property="firstName"/> <!-- 表字段 first_name → 实体 firstName -->
+        <result column="last_name" property="lastName"/> <!-- 表字段 last_name → 实体 lastName -->
+        <result column="gender" property="gender"/>
+        <result column="phone" property="phone"/>
+        <result column="photo" property="photo"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.tju.elm.user.zoo.pojo.entity.Person" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO person (
+        id,
+        email,
+        first_name,
+        last_name,
+        gender,
+        phone,
+        photo
+        ) VALUES (
+        #{id},
+        #{email},
+        #{firstName},
+        #{lastName},
+        #{gender},
+        #{phone},
+        #{photo}
+        )
+    </insert>
+    <update id="updateById">
+        UPDATE person
+        <set>
+            <if test="email != null">email = #{email},</if>
+            <if test="firstName != null">first_name = #{firstName},</if>
+            <if test="lastName != null">last_name = #{lastName},</if>
+            <if test="photo != null">photo = #{photo},</if> <!-- 存储图片URL -->
+            <if test="phone != null">phone = #{phone},</if>
+            <if test="gender != null">gender = #{gender},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>

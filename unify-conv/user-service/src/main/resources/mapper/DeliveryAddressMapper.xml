@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tju.elm.user.mapper.DeliveryAddressMapper">
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO delivery_address (contact_name,contact_sex,contact_tel,address,user_id,creator,updater,is_deleted,create_time,update_time)
+        VALUES (#{contactName},#{contactSex},#{contactTel},#{address},#{userId},#{creator},#{updater},#{isDeleted},#{createTime},#{updateTime})
+    </insert>
+    <update id="updateDeliveryAddress">
+        UPDATE delivery_address
+        <set>
+            <if test="contactName != null">
+                contact_name = #{contactName},
+            </if>
+            <if test="contactSex != null">
+                contact_sex = #{contactSex},
+            </if>
+            <if test="contactTel != null">
+                contact_tel = #{contactTel},
+            </if>
+            <if test="address != null">
+                address = #{address},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="updater != null">
+                updater = #{updater}
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
+</mapper>
