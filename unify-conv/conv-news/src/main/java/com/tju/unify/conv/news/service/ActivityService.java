@@ -15,22 +15,23 @@ public class ActivityService {
     @Autowired
     private ActivityMapper activityMapper;
 
-    public void issue(Activity activity)
+    public boolean issue(Activity activity)
     {
         String s = UUID.randomUUID().toString();
         activity.setId(s);
         activityMapper.insert(activity);
+        return true;
     }
 
     public List<Activity> getActivities()
     {
-        List<Activity> activities = activityMapper.selectAll();
+        List<Activity> activities = activityMapper.selectList(null);
         return activities;
     }
 
     public Activity getOne(String id)
     {
-        Activity activity = activityMapper.selectByPrimaryKey(id);
+        Activity activity = activityMapper.selectById(id);
         return activity;
     }
 

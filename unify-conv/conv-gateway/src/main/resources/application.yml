@@ -17,6 +17,16 @@ spring:
           predicates:
             - Path=/api/**,/ws/**
 
+        - id: unify-news
+          uri: lb://unify-news
+          predicates:
+            - Path=/unify-api/news/**
+
+        - id: unify-transaction
+          uri: lb://unify-transaction
+          predicates:
+            - Path=/unify-api/transaction/**
+
 unify:
   auth:
     excludePaths:

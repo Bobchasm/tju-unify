@@ -1,5 +1,6 @@
 package com.tju.unify.conv.news.controller;
 
+import com.tju.unify.conv.common.result.HttpResult;
 import com.tju.unify.conv.news.pojo.Activity;
 import com.tju.unify.conv.news.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,29 +9,26 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/activity")
+@RequestMapping("/unify-api/news/activity")
 public class ActivityController {
 
     @Autowired
     private ActivityService activityService;
 
     @GetMapping("/get")
-    public List<Activity> getActivities()
-    {
+    public HttpResult<List<Activity>> getActivities() {
         List<Activity> activities = activityService.getActivities();
-        return activities;
+        return HttpResult.success(activities);
     }
 
     @PostMapping("/issue")
-    public void issue(@RequestBody Activity activity)
-    {
-        activityService.issue(activity);
+    public HttpResult<Boolean> issue(@RequestBody Activity activity) {
+        return HttpResult.success(activityService.issue(activity));
     }
 
-    @GetMapping("getOne")
-    public Activity getOne(@RequestParam("id") String id)
-    {
-        return activityService.getOne(id);
+    @GetMapping("/getOne")
+    public HttpResult<Activity> getOne(@RequestParam("id") String id) {
+        return HttpResult.success(activityService.getOne(id));
     }
 }
 

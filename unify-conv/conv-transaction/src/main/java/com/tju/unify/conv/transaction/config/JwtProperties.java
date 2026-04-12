@@ -1,6 +1,5 @@
 package com.tju.unify.conv.transaction.config;
 
-import cdtu.mall.common.utils.RsaUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;

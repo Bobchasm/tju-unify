@@ -1,25 +1,19 @@
 package com.tju.unify.conv.news.controller;
 
+import com.tju.unify.conv.common.result.HttpResult;
 import com.tju.unify.conv.news.service.UnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * @author 龙灵
- * 百度机器人服务
- * 提供天气查询，疫情信息查询，笑话讲解，
- */
-
 @RestController
+@RequestMapping("/unify-api/news/unit")
 public class UnitController {
 
     @Autowired
     private UnitService unitService;
 
     @PostMapping("/unit")
-    public String utterance(@RequestParam String query, @RequestParam String botId,@RequestParam String userId)
-    {
-        String utterance = unitService.utterance(query,botId,userId);
-        return utterance;
+    public HttpResult<String> utterance(@RequestParam String query, @RequestParam String botId, @RequestParam String userId) {
+        return HttpResult.success(unitService.utterance(query,botId,userId));
     }
 }

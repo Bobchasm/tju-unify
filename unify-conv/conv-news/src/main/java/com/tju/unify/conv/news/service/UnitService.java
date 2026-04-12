@@ -1,8 +1,8 @@
 package com.tju.unify.conv.news.service;
 
+import cn.hutool.json.JSONObject;
 import com.tju.unify.conv.news.config.UnitConfig;
 import com.tju.unify.conv.news.utils.HttpUtil;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -96,7 +96,7 @@ public class UnitService {
              */
             System.err.println("result:" + result);
             JSONObject jsonObject = new JSONObject(result);
-            String access_token = jsonObject.getString("access_token");
+            String access_token = jsonObject.getStr("access_token");
             return access_token;
         } catch (Exception e) {
             System.err.printf("获取token失败！");

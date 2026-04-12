@@ -1,7 +1,9 @@
 package com.tju.unify.conv.news.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.tju.unify.conv.news.pojo.Activity;
-import tk.mybatis.mapper.common.Mapper;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface ActivityMapper extends Mapper<Activity> {
+@Mapper
+public interface ActivityMapper extends BaseMapper<Activity> {
 }
