@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tju.elm.user.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.tju.elm.user.zoo.pojo.entity.User">
+        <id column="id" property="id"/>
+    </resultMap>
+
+    <resultMap id="UserWithAuthoritiesResultMap" type="com.tju.elm.user.zoo.pojo.entity.User" extends="BaseResultMap">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="activated" column="activated"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="creator" column="creator"/>
+        <result property="updater" column="updater"/>
+        <collection property="authorities" ofType="com.tju.elm.user.zoo.pojo.entity.Authority">
+            <id property="name" column="authority_name"/>
+        </collection>
+    </resultMap>
+
+    <select id="findByUsernameWithAuthorities" parameterType="String" resultMap="UserWithAuthoritiesResultMap">
+        SELECT
+            u.*,
+            a.name as authority_name
+        FROM users u
+                 LEFT JOIN user_authority ua ON u.id = ua.user_id
+                 LEFT JOIN authority a ON ua.authority_name = a.name
+        WHERE u.username = #{username} AND u.is_deleted = 0
+    </select>
+    <select id="findByUserIdWithAuthorities" resultMap="UserWithAuthoritiesResultMap">
+        SELECT
+            u.*,
+            a.name as authority_name
+        FROM users u
+                 LEFT JOIN user_authority ua ON u.id = ua.user_id
+                 LEFT JOIN authority a ON ua.authority_name = a.name
+        WHERE u.id = #{id} AND u.is_deleted = 0
+    </select>
+
+    <insert id="insert" parameterType="com.tju.elm.user.zoo.pojo.entity.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO users (
+            create_time, creator, is_deleted, update_time, updater,
+            activated, password, username
+        ) VALUES (
+                     #{createTime}, #{creator}, #{isDeleted}, #{updateTime}, #{updater},
+                     #{activated}, #{password}, #{username}
+                 )
+    </insert>
+
+    <update id="update" parameterType="com.tju.elm.user.zoo.pojo.entity.User">
+        UPDATE users
+        <set>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="creator != null">creator = #{creator},</if>
+            <if test="isDeleted != null">is_deleted = #{isDeleted},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="updater != null">updater = #{updater},</if>
+            <if test="activated != null">activated = #{activated},</if>
+            <if test="password != null">password = #{password},</if>
+            <if test="username != null">username = #{username}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+</mapper>
