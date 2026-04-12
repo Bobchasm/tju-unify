@@ -15,21 +15,22 @@ public class LoseService {
     @Autowired
     private LoseMapper loseMapper;
 
-    public void issue(Lose lose)
+    public boolean issue(Lose lose)
     {
         String s = UUID.randomUUID().toString();
         lose.setId(s);
         loseMapper.insert(lose);
+        return true;
     }
 
     public List<Lose> getLoses()
     {
-        return loseMapper.selectAll();
+        return loseMapper.selectList(null);
     }
 
     public Lose getOne(String id)
     {
-        Lose lose = loseMapper.selectByPrimaryKey(id);
+        Lose lose = loseMapper.selectById(id);
         return lose;
     }
 }

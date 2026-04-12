@@ -3,15 +3,10 @@ package com.tju.unify.conv.news.pojo;
 
 import lombok.Data;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Data
-@Table(name = "activity")
 public class Activity {
 
-    @Id
     private String id;
     private String name;
     private String time;

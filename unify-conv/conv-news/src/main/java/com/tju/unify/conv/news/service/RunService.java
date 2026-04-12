@@ -14,21 +14,22 @@ public class RunService {
     @Autowired
     private RunMapper runMapper;
 
-    public void issue(Run run)
+    public boolean issue(Run run)
     {
         String s = UUID.randomUUID().toString();
         run.setId(s);
         runMapper.insert(run);
+        return true;
     }
 
     public List<Run> getRuns()
     {
-        return runMapper.selectAll();
+        return runMapper.selectList(null);
     }
 
     public Run getOne(String id)
     {
-        Run activity = runMapper.selectByPrimaryKey(id);
+        Run activity = runMapper.selectById(id);
         return activity;
     }
 }

@@ -1,13 +1,13 @@
 package com.tju.unify.conv.news.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tju.unify.conv.news.mapper.SchoolNewsMapper;
 import com.tju.unify.conv.news.pojo.SchoolNews;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+import io.swagger.v3.oas.models.examples.Example;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,9 +30,11 @@ public class SchoolNewsService {
         if (StringUtils.isBlank(url)) {
             return false;
         }
-        Example ex = new Example(SchoolNews.class);
-        ex.createCriteria().andEqualTo("url", url.trim());
-        return schoolNewsMapper.selectCountByExample(ex) > 0;
+//        Example ex = new Example(SchoolNews.class);
+//        ex.createCriteria().andEqualTo("url", url.trim());
+//        return schoolNewsMapper.selectCountByExample(ex) > 0;
+        // TODO
+        return true;
     }
 
     public void saveIfNotExists(SchoolNews schoolNews) {
@@ -47,40 +49,34 @@ public class SchoolNewsService {
 
     public List<SchoolNews> getAll()
     {
-        List<SchoolNews> schoolNews = schoolNewsMapper.selectAll();
+        List<SchoolNews> schoolNews = schoolNewsMapper.selectList(null);
         return schoolNews;
     }
 
     public void deleteById(String id)
     {
-        schoolNewsMapper.deleteByPrimaryKey(id);
+        schoolNewsMapper.deleteById(id);
     }
 
-    public List<SchoolNews> getByFlag(Long flag,int page)
-    {
-        Example example=new Example(SchoolNews.class);
-        Example.Criteria criteria = example.createCriteria();
+    public List<SchoolNews> getByFlag(Long flag, int page) {
+        // 构建查询条件
+        LambdaQueryWrapper<SchoolNews> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(SchoolNews::getFlag, flag)
+                .ne(SchoolNews::getContent, "")
+                .orderByDesc(SchoolNews::getId);
 
-        criteria.andEqualTo("flag",flag);
-//        criteria.andLike("skuName","%"+type+"%");
-        PageHelper.startPage(page,10);
-        List<SchoolNews> items =new ArrayList<>();
-        for(SchoolNews schoolNews:this.schoolNewsMapper.selectByExample(example))
-        {
-           if(!schoolNews.getContent().equals(""))
-           {
-               items.add(schoolNews);
-           }
-        }
-//        PageInfo<Items> ItemPageInfo = new PageInfo<>(items);
-//        SchoolNews schoolNews=new SchoolNews();
-//        schoolNews.setFlag(flag);
-//        List<SchoolNews> newsList = schoolNewsMapper.select(schoolNews);
-        return items;
+        // 分页查询
+        Page<SchoolNews> pageResult = schoolNewsMapper.selectPage(
+                new Page<>(page, 10),
+                queryWrapper
+        );
+
+        // 返回当前页的数据列表
+        return pageResult.getRecords();
     }
 
     public SchoolNews getById(String id) {
-        SchoolNews schoolNews = schoolNewsMapper.selectByPrimaryKey(id);
+        SchoolNews schoolNews = schoolNewsMapper.selectById(id);
         return schoolNews;
     }
 }

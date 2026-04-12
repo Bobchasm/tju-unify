@@ -1,7 +1,10 @@
 package com.tju.unify.conv.news.mapper;
 
-import com.tju.unify.conv.news.pojo.Lose;
-import tk.mybatis.mapper.common.Mapper;
 
-public interface LoseMapper extends Mapper<Lose> {
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.tju.unify.conv.news.pojo.Lose;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface LoseMapper extends BaseMapper<Lose> {
 }
