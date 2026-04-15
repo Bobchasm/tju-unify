@@ -1,4 +1,13 @@
 #external_data_path: data/external/records.csv
 
-# 传入模型的对话记忆窗口（按条数计：每条 user 或 assistant 各算 1 条）
-conversation_max_messages: 10
+# 传入模型的对话记忆窗口（按轮次计：1轮通常为 1 条 user + 1 条 assistant）
+conversation_window_rounds: 10
+
+# 是否启用较早历史的摘要压缩
+conversation_summary_enabled: true
+
+# 是否将摘要记忆持久化到磁盘（跨刷新/重启保留）
+conversation_summary_persist_enabled: true
+
+# 摘要记忆存储目录（相对 tian-agent 工程根目录）
+conversation_summary_store_dir: data/conversation_memory
