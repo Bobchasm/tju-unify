@@ -32,7 +32,7 @@
 - **运行时历史与 RAG 摘要集成：** 新增runtime_history.py 模块，利用 contextvars 保存当前
 执行链路的完整对话历史。中间件在 before_model 阶段将本轮 state["messages"] 中的用户与助手消
 息写入运行时历史，rag_summarize 工具调用时从中读取历史内容并传递给 rag.rag_summarize
-(history=...)，确保摘要生成能够真正基于完整的对话上下文。  
+(history=...)，确保摘要生成能够真正基于完整的对话上下文。（原始版本仅仅针对当前query做拓展）
 
 <img src="img_2.png" alt="img_2.png" width="80%">  
 
@@ -54,7 +54,7 @@
 - 定时爬虫入库（WebMagic + MyBatis-Plus）模块的数据来源是定时爬虫 TjuNewsCrawlerTask（WebMagic），启动后按计划任务跑
 
 ### 四、校园电商平台微服务
-- **订单部分：**  
+- **订单模块**  
   - 根据id获取用户订单
   - 新增订单 
   - 根据商家和状态获取订单列表
@@ -69,7 +69,7 @@
   - 删除商品
   
 - **购物车模块**
-  - 向购物车添加商
+  - 向购物车添加商品
   - 获取用户在指定商家的购物车商品列表
   - 清空购物车，移除指定购物车商品
 
