@@ -30,11 +30,10 @@ public class SchoolNewsService {
         if (StringUtils.isBlank(url)) {
             return false;
         }
-//        Example ex = new Example(SchoolNews.class);
-//        ex.createCriteria().andEqualTo("url", url.trim());
-//        return schoolNewsMapper.selectCountByExample(ex) > 0;
-        // TODO
-        return true;
+        LambdaQueryWrapper<SchoolNews> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(SchoolNews::getUrl, url.trim());
+        Long count = schoolNewsMapper.selectCount(queryWrapper);
+        return count != null && count > 0;
     }
 
     public void saveIfNotExists(SchoolNews schoolNews) {
