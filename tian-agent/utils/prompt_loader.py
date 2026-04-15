@@ -35,3 +35,20 @@ def load_report_prompt():
     except Exception as e:
         logger.error(f"[report_prompt_path]解析报告提示词{report_prompt_path}失败. {str(e)}")
         raise e
+
+
+def load_conversation_summary_prompt():
+    try:
+        summary_prompt_path = get_abs_path(prompts_conf["conversation_summary_prompt_path"])
+    except KeyError as e:
+        logger.error("[conversation_summary_prompt_path]解析摘要提示词文件路径失败。")
+        raise e
+
+    try:
+        return open(summary_prompt_path, "r", encoding="utf-8").read()
+    except FileNotFoundError as e:
+        logger.error(f"[conversation_summary_prompt_path]摘要提示词文件{summary_prompt_path}不存在. {str(e)}")
+        raise e
+    except Exception as e:
+        logger.error(f"[conversation_summary_prompt_path]解析摘要提示词{summary_prompt_path}失败. {str(e)}")
+        raise e

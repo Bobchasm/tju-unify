@@ -8,6 +8,28 @@ from langgraph.types import Command
 # from utils.logger_handler import logger
 from utils.logger_handler import logger
 from utils.prompt_loader import load_system_prompt, load_report_prompt
+from utils.runtime_history import set_history
+
+
+def _extract_role_content_history(messages) -> list[dict[str, str]]:
+    out: list[dict[str, str]] = []
+    for m in messages or []:
+        role = None
+        content = getattr(m, "content", None)
+        if content is None or (isinstance(content, str) and content.strip() == ""):
+            continue
+
+        type_name = type(m).__name__
+        if type_name in ("HumanMessage",):
+            role = "user"
+        elif type_name in ("AIMessage",):
+            role = "assistant"
+        else:
+            continue
+
+        if isinstance(content, str):
+            out.append({"role": role, "content": content.strip()})
+    return out
 
 
 @wrap_tool_call
@@ -38,6 +60,11 @@ def log_before_model(state:AgentState, runtime: Runtime) -> dict[str, Any] | Non
     logger.info(f"[log_before_model]: ----------省略已输出内容----------")
     logger.info(f"[log_before_model][{type(state['messages'][-1]).__name__}]: {state['messages'][-1].content.strip()}")
 
+    # 将本次图执行中的对话历史写入运行时上下文，供工具（如 rag_summarize）读取
+    try:
+        set_history(_extract_role_content_history(state.get("messages")))
+    except Exception as e:
+        logger.warning(f"[log_before_model]写入history失败: {e}")
 
     return None
 

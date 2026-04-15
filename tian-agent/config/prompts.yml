@@ -6,3 +6,4 @@ report_prompt_path: prompts/report_prompt.txt
 mqe_prompt_path: prompts/mqe_prompt.txt
 hyde_prompt_path: prompts/hyde_prompt.txt
 query_rewrite_prompt_path: prompts/query_rewrite_prompt.txt
+conversation_summary_prompt_path: prompts/conversation_summary_prompt.txt

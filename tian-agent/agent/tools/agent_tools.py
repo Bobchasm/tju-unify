@@ -8,6 +8,7 @@ import random, os
 from utils.config_handler import agent_conf, retrieval_conf
 from utils.path_tools import get_abs_path
 from utils.logger_handler import logger
+from utils.runtime_history import get_history
 
 vector_store = VectorStoreService()
 rag = RagSummarizeService(vector_store)
@@ -41,12 +42,9 @@ def rag_summarize(
     :param strategy: 检索策略。小知识库建议 base；auto 受 config/retrieval.yml 约束
     :param use_history: 是否使用对话历史进行查询改写
     """
-    # 获取对话历史（需要从Agent状态中获取）
     history = None
     if use_history:
-        # 这里需要在Agent中通过middleware传递history
-        # 暂时先用空列表
-        history = []
+        history = get_history()
 
     return rag.rag_summarize(
         query=query,
