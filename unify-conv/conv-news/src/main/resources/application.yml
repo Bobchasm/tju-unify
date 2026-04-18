@@ -6,7 +6,7 @@ spring:
     name: unify-news
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://bobchasm.cn:3306/unify_transaction
+    url: jdbc:mysql://bobchasm.cn:3306/unify_news
     username: elm_app
     password: ElmApp@2026!
     hikari: # 配置连接池读已提交
