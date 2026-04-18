@@ -2,6 +2,7 @@ package com.tju.unify.conv.api.client.outer;
 
 import com.tju.unify.conv.api.po.User;
 import com.tju.unify.conv.common.result.HttpResult;
+import com.tju.unify.conv.common.utils.UserContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,10 +11,11 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
 
 
 /**
- * B 网关 HTTP 客户端
+ * 电商集群 网关 HTTP 客户端
  */
 @Slf4j
 @Component
@@ -27,13 +29,13 @@ public class ElmUserClient {
     }
 
     public User getUserByName(String username) {
-        String url = baseUrl + "/api/user/current";
+        String url = baseUrl + "/api/user/current" + "?username=" + username;
 
         try {
             // 设置请求头
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-            headers.set("username", username);
+            headers.set("Authorization", UserContext.getToken());
 
             HttpEntity<?> entity = new HttpEntity<>(headers);
 

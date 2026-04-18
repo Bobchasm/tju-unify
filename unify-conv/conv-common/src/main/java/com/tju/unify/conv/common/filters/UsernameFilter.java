@@ -43,10 +43,15 @@ public class UsernameFilter implements Filter {
         try {
             // 从请求头获取用户信息
             String username = httpRequest.getHeader("username");
+            String token = httpRequest.getHeader("Authorization");
             // 设置到 ThreadLocal
             if (username != null && !username.isEmpty()) {
                 UserContext.setUsername(username);
-                log.debug("设置用户上下文: username={}", username);
+                log.info("设置用户上下文: username={}", username);
+            }
+            if (token != null && !token.isEmpty()) {
+                UserContext.setToken(token);
+                log.info("设置用户上下文: token={}", token);
             }
 
             // 继续执行过滤器链

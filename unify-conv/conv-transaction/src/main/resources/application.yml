@@ -43,6 +43,10 @@ springdoc:
   swagger-ui:
     enabled: true
     path: /swagger-ui
+  packages-to-scan:
+    - com.tju.unify.conv.transaction.controller
+  paths-to-match:
+    - /unify-api/**
 
 logging:
   level:
