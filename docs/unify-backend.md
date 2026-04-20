@@ -91,7 +91,7 @@ User currentUser = userClient.getUserByName(UserContext.getUsername()).getData()
    服务名前缀最好是规范成 `unify-`
    
    端口：路由7070
-
+   
    配置文件就直接参考已有服务(nacos、数据库之类的)
 
 2. 依赖部分：
@@ -144,7 +144,15 @@ User currentUser = userClient.getUserByName(UserContext.getUsername()).getData()
    }
    ```
 
-4. 数据库暂时用bobchasm.cn服务器上部署的mysql，要新建数据库直接建就行，最好存下建库sql在路径`sql`下
+4. 网关接入
+   
+   在网关的配置文件 `application.yml` 中：
+   
+   - `spring.cloud.gateway.routes` 添加路由规则
+   
+   - 对于不需要鉴权的接口，加入 `unify.auth.excludePaths` 
+
+5. 数据库暂时用bobchasm.cn服务器上部署的mysql，要新建数据库直接建就行，最好存下建库sql在路径`sql`下
    
    然后把mybatis变成mybatis-plus了，基础增删改查可以不用写，然后我看新闻推送那里写了分页，可以改成使用mybatis-plus的更方便的分页
 
