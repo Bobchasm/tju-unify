@@ -7,6 +7,7 @@ import MarketPublish from '../views/MarketPublish.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Profile from '../views/Profile.vue'
+import { tradeRoute } from '../trade/tradeRoutes.js'
 
 const routes = [
   {
@@ -48,7 +49,8 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile
-  }
+  },
+  tradeRoute
 ]
 
 const router = createRouter({

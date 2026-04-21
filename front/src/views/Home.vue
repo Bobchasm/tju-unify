@@ -104,6 +104,8 @@ const goToMarket = () => {
 const handleToolClick = (tool) => {
   if (tool === 'market') {
     goToMarket()
+  } else if (tool === 'transaction') {
+    router.push('/trade')
   } else {
     alert(`${tool} 功能即将上线，敬请期待！`)
   }

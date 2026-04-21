@@ -1,0 +1,32 @@
+:root {
+  /* 主要颜色 */
+  --primary-color: #3a7bd5; /* 深蓝色 */
+  --secondary-color: #00d2ff; /* 浅蓝色 */
+  --tertiary-color:   #0097ff; /* 亮蓝色 */
+  --accent-color: #3498db; /* 强调蓝 */
+  --background-light: #f8f9fa; /* 浅灰色背景 */
+  --text-dark: #2c3e50;
+  --text-medium: #495057;
+  --text-light: #666;
+  --border-color: #e9ecef;
+
+  /* 阴影效果 */
+  --shadow-small: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.05);
+  --shadow-large: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-primary: 0 6px 20px rgba(0, 151, 255, 0.3);
+
+  /* 边框半径 */
+  --border-radius-small: 8px;
+  --border-radius-medium: 12px;
+  --border-radius-large: 16px;
+
+  /* 字体大小 */
+  --font-size-h1: 1.8rem;
+  --font-size-h2: 1.1rem;
+  --font-size-text: 0.95rem;
+  --font-size-small: 0.9rem;
+
+  /* 过渡效果 */
+  --transition-ease: all 0.3s ease;
+}
