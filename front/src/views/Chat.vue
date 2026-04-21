@@ -8,8 +8,13 @@
     <div class="chat-messages" ref="messagesContainer">
       <div v-for="(msg, index) in messages" :key="index" class="message" :class="msg.role">
         <div class="message-avatar">{{ msg.role === 'user' ? '👤' : '🤖' }}</div>
-        <div class="message-content">
-          {{ msg.content }}
+        <div class="message-content" :class="{ 'message-content--assistant': msg.role === 'assistant' }">
+          <template v-if="msg.role === 'assistant'">
+            <div class="md-body" v-html="assistantHtml(msg.content)"></div>
+          </template>
+          <template v-else>
+            <div class="plain-body">{{ msg.content }}</div>
+          </template>
           <span v-if="isLoading && index === messages.length - 1 && msg.role === 'assistant'" class="cursor-blink"></span>
         </div>
       </div>
@@ -50,8 +55,33 @@
 <script setup>
 import { ref, nextTick, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { marked } from 'marked'
+import DOMPurify from 'dompurify'
 import agentApi from '../api/agent'
 import auth from '../api/auth'
+
+marked.use({
+  gfm: true,
+  breaks: true
+})
+
+/** 助手消息转安全 HTML（Markdown），支持粗体、列表、换行等 */
+function assistantHtml(text) {
+  const raw = text || ''
+  if (!raw.trim()) return ''
+  try {
+    const unsafe = marked.parse(raw, { async: false })
+    return DOMPurify.sanitize(unsafe, {
+      ALLOWED_TAGS: [
+        'p', 'br', 'strong', 'em', 'u', 's', 'h1', 'h2', 'h3', 'h4', 'blockquote', 'code', 'pre',
+        'ul', 'ol', 'li', 'a', 'hr', 'table', 'thead', 'tbody', 'tr', 'th', 'td'
+      ],
+      ALLOWED_ATTR: ['href', 'title', 'target', 'rel']
+    })
+  } catch {
+    return DOMPurify.sanitize(raw.replace(/\n/g, '<br/>'))
+  }
+}
 
 const router = useRouter()
 const messagesContainer = ref(null)
@@ -90,10 +120,7 @@ const goToMarket = () => {
 
 const goToUser = () => {
   if (isLoggedIn.value) {
-    if (confirm('确定要退出登录吗？')) {
-      auth.logout()
-      alert('已退出登录')
-    }
+    router.push('/profile')
   } else {
     router.push('/login')
   }
@@ -216,10 +243,56 @@ const sendMessage = async () => {
   padding: 12px 16px;
   border-radius: 12px;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
   max-width: 75%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   word-break: break-word;
+}
+
+.message-content--assistant .md-body {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #1a1a1a;
+}
+
+.message-content--assistant .md-body :deep(p) {
+  margin: 0 0 0.65em;
+}
+
+.message-content--assistant .md-body :deep(p:last-child) {
+  margin-bottom: 0;
+}
+
+.message-content--assistant .md-body :deep(ul),
+.message-content--assistant .md-body :deep(ol) {
+  margin: 0.4em 0 0.65em;
+  padding-left: 1.35em;
+}
+
+.message-content--assistant .md-body :deep(li) {
+  margin: 0.25em 0;
+}
+
+.message-content--assistant .md-body :deep(strong) {
+  font-weight: 600;
+  color: #111;
+}
+
+.message-content--assistant .md-body :deep(hr) {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin: 0.75em 0;
+}
+
+.message-content--assistant .md-body :deep(blockquote) {
+  margin: 0.5em 0;
+  padding-left: 0.75em;
+  border-left: 3px solid #667eea;
+  color: #555;
+}
+
+.plain-body {
+  white-space: pre-wrap;
 }
 
 .message.user .message-content {

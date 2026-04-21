@@ -9,7 +9,7 @@ if __name__ == "__main__":
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 from langchain.agents import create_agent
-from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from agent.tools.middleware import monitor_tool, log_before_model, report_prompt_switch
 from agent.tools.agent_tools import (rag_summarize,
                                fetch_student_data, fill_context_for_report,
@@ -32,6 +32,25 @@ from utils.conversation_memory import build_memory_window
     用户输入 → 2. Agent处理 → 3. 工具调用 → 4. 响应生成
 
 """
+def _text_from_ai_message(msg: AIMessage) -> str:
+    """提取 AIMessage 的纯文本；兼容字符串与新版块列表结构。"""
+    content = getattr(msg, "content", None)
+    if content is None:
+        return ""
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        parts: List[str] = []
+        for block in content:
+            if isinstance(block, str):
+                parts.append(block)
+            elif isinstance(block, dict):
+                if block.get("type") == "text" and block.get("text"):
+                    parts.append(str(block["text"]))
+        return "".join(parts)
+    return str(content)
+
+
 class ReactAgent(object):
     def __init__(self):
         self.agent = create_agent(
@@ -125,13 +144,23 @@ class ReactAgent(object):
 
         input_dict = {"messages": prepared_messages}
 
+        last_sent = ""
+
         for chunk in self.agent.stream(
             input_dict, stream_mode="values", context={"report": False}
         ):
             latest_message = chunk["messages"][-1]
-            text = getattr(latest_message, "content", None) or ""
-            if text:
-                yield text.strip() + "\n"
+            # 不向用户流式透出 ToolMessage 等；仅输出模型最终自然语言，避免误传大段 JSON。
+            if not isinstance(latest_message, AIMessage):
+                continue
+            text = _text_from_ai_message(latest_message).strip()
+            if not text:
+                continue
+            # stream_mode=values 可能对同一轮次重复推送同一条 AIMessage，去重避免前端重复的整段文本。
+            if text == last_sent:
+                continue
+            last_sent = text
+            yield text + "\n"
 
 if __name__ == '__main__':
     agent = ReactAgent()

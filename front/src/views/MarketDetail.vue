@@ -357,17 +357,20 @@ onMounted(() => {
 <style scoped>
 .page {
   min-height: 100vh;
-  padding: 60px 8px 120px;
+  padding: 60px 0 120px;
   background: #f5f5f5;
-  max-width: 100vw;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .header-bar {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
   height: 60px;
   background: white;
   display: flex;
@@ -376,6 +379,7 @@ onMounted(() => {
   padding: 0 16px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   z-index: 100;
+  box-sizing: border-box;
 }
 
 .back-btn,
@@ -402,9 +406,7 @@ onMounted(() => {
 }
 
 .detail-image {
-  width: calc(100% + 32px);
-  margin-left: -16px;
-  margin-right: -16px;
+  width: 100%;
   height: 300px;
   background: #f0f0f0;
   display: flex;
@@ -451,11 +453,8 @@ onMounted(() => {
 
 .detail-info {
   background: white;
-  padding: 20px 30px;
+  padding: 20px 16px;
   margin-bottom: 8px;
-  margin-left: -16px;
-  margin-right: -16px;
-  width: calc(100% + 32px);
   box-sizing: border-box;
 }
 
@@ -515,21 +514,15 @@ onMounted(() => {
 .detail-desc,
 .seller-info {
   background: white;
-  padding: 20px 30px;
+  padding: 20px 16px;
   margin-bottom: 8px;
-  margin-left: -16px;
-  margin-right: -16px;
-  width: calc(100% + 32px);
   box-sizing: border-box;
 }
 
 .section-box {
   background: white;
-  padding: 16px,30px;
+  padding: 16px;
   margin-bottom: 8px;
-  margin-left: -16px;
-  margin-right: -16px;
-  width: calc(100% + 32px);
   box-sizing: border-box;
 }
 
@@ -561,12 +554,6 @@ onMounted(() => {
   font-size: 15px;
   font-weight: 500;
   color: #333;
-}
-
-.section-box {
-  background: white;
-  padding: 16px;
-  margin-bottom: 8px;
 }
 
 .request-list {
@@ -726,8 +713,11 @@ onMounted(() => {
 .bottom-action {
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
   background: white;
   padding: 12px 16px;
   padding-bottom: calc(12px + env(safe-area-inset-bottom));
@@ -735,7 +725,6 @@ onMounted(() => {
   gap: 12px;
   box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
   z-index: 100;
-  width: 100%;
   box-sizing: border-box;
 }
 

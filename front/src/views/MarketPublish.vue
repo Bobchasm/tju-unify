@@ -261,7 +261,7 @@ const uploadSingleFile = async (file) => {
   formData.append('file', file)
 
   try {
-    const response = await request.post('/upload', formData)
+    const response = await request.post('/api/upload', formData)
     if (response.success && response.data) {
       images.value.push(response.data)
     } else {

@@ -8,16 +8,28 @@ const request = axios.create({
   }
 })
 
+function shouldSkipAuthHeader(url) {
+  if (!url) return false
+  if (url.includes('/api/auth') || url.includes('/api/register')) return true
+  // 仅裸 /upload 跳过鉴权；/api/upload 需带 token（与 7070 网关实测一致）
+  if (url === '/upload' || url.startsWith('/upload?')) return true
+  return false
+}
+
+function isMultipartUpload(url) {
+  if (!url) return false
+  return url === '/api/upload' || url.startsWith('/api/upload?') || url === '/upload' || url.startsWith('/upload?')
+}
+
 request.interceptors.request.use(
   (config) => {
-    const excludePaths = ['/api/auth', '/api/register', '/upload']
-    if (!excludePaths.some(path => config.url.includes(path))) {
+    if (!shouldSkipAuthHeader(config.url)) {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token')
       if (token) {
         config.headers.Authorization = `Bearer ${token}`
       }
     }
-    if (config.url.includes('/upload')) {
+    if (isMultipartUpload(config.url)) {
       delete config.headers['Content-Type']
     }
     // axios 会自动把对象序列化为 JSON，不需要手动 JSON.stringify
