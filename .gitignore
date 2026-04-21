@@ -11,3 +11,5 @@
 **.env
 
 **/logs/
+/front/dist/
+/front/node_modules/
