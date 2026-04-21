@@ -1,11 +1,13 @@
 <template>
     <div class="wrapper">
-        <BackButton :show-back-button="true" style="margin-top: -10vw;"/>
+        <!-- <BackButton :show-back-button="true" style="margin-top: -10vw;"/> -->
         <!-- header部分 -->
-        <!-- 首页点进去后展示的内容 -->
-        <div class="header">
-            <p>商家信息</p>
+        <div class="fixed-top">
+          <div class="top-background">
+              <h1>商家信息</h1>
+          </div>
         </div>
+
         <!-- 商家logo部分 -->
         <div class="business-logo">
             <img :src="business.businessImg || '/trade-assets/business-default.png'" />
@@ -683,8 +685,10 @@ export default {
 /* 样式部分保持不变 */
 /****************** 总容器 ******************/
 .wrapper {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  background: #f5f7fa;
+  min-height: 100vh;
 }
 
 /****************** header部分 ******************/
@@ -727,7 +731,7 @@ export default {
     width: 100%;
     height: 50vw;
     /*使用上外边距避开header部分*/
-    margin-top: 12vw;
+    margin-top: 20vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -924,6 +928,47 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.top-background {
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to right, #3a7bd5, #00d2ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 16px 16px 0 0;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  overflow: hidden;
+  margin-bottom: 50px;
+  max-width: 600px;
+}
+
+.top-background::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: rotate(30deg);
+  animation: shine 6s infinite linear;
+}
+
+.top-background h1 {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  margin: 0;
+  z-index: 1;
 }
 </style>
 

@@ -25,7 +25,6 @@ export const tradeRoute = {
     { path: 'search', name: 'TradeSearch', component: () => import('@/trade/views/Search.vue') },
     { path: 'search-test', name: 'TradeSearchTest', component: () => import('@/trade/views/SearchTest.vue') },
     { path: 'cart', name: 'TradeCart', component: () => import('@/trade/views/Cart.vue') },
-    { path: 'ai-chat', name: 'TradeAiChat', component: () => import('@/trade/views/AiChat.vue') },
     { path: 'wallet', name: 'TradeWallet', component: () => import('@/trade/views/Wallet.vue') },
     { path: 'wallet/transactions', name: 'TradeWalletTransactions', component: () => import('@/trade/views/WalletTransactions.vue') },
     { path: 'wallet/loans', name: 'TradeWalletLoan', component: () => import('@/trade/views/WalletLoan.vue') },

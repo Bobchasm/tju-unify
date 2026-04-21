@@ -34,10 +34,6 @@
                 </div>
                 </div>
             <div class="card-button-section">
-                <button class="switch-btn" @click="switchToMerchant">
-                    <i class="fas fa-store"></i>
-                    {{ userInfo.authorities?.some(auth => auth.name === 'BUSINESS') ? '切换到商家端' : '申请成为商家' }}
-                </button>
                 <button class="logout-btn" @click="logout">
                     <i class="fas fa-sign-out-alt"></i>退出登录
                 </button>
@@ -61,20 +57,6 @@
                         <i class="fas fa-heart"></i>
                     </div>
                     <span class="menu-text">我的收藏</span>
-                    <i class="fas fa-chevron-right menu-arrow"></i>
-                </div>
-                <div class="menu-item" @click="navigateTo('points')">
-                    <div class="menu-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <span class="menu-text">我的积分：{{ userInfo.availablePoints || 0 }}</span>
-                    <i class="fas fa-chevron-right menu-arrow"></i>
-                </div>
-                <div class="menu-item" @click="navigateTo('wallet')">
-                    <div class="menu-icon">
-                        <i class="fas fa-wallet"></i>
-                    </div>
-                    <span class="menu-text">虚拟钱包</span>
                     <i class="fas fa-chevron-right menu-arrow"></i>
                 </div>
                 <div class="menu-item message-item" @click="navigateTo('notifications')">
