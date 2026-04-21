@@ -203,7 +203,7 @@ const register = async () => {
     if (uploadedFile.value) {
       const formData = new FormData()
       formData.append('file', uploadedFile.value)
-      const uploadRes = await request.post('/upload', formData)
+      const uploadRes = await request.post('/api/upload', formData)
       if (uploadRes?.success && uploadRes?.data) {
         userData.photo = uploadRes.data
       }

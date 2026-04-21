@@ -3,6 +3,8 @@ import uuid
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
+import json
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
@@ -123,7 +125,8 @@ async def chat_stream(request: ChatRequest):
         async def generate():
             with unify_api_context(request.bearer_token):
                 for chunk in agent_instance.execute_stream(agent_messages=agent_messages):
-                    yield f"data: {chunk}\n\n"
+                    # chunk 内可含换行；必须单行编码，否则会破坏 SSE，前端只能收到首行。
+                    yield "data: " + json.dumps(chunk, ensure_ascii=False) + "\n\n"
             yield f"data: [DONE]\n\n"
         
         return StreamingResponse(

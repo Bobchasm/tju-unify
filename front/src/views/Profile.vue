@@ -138,7 +138,7 @@ const handleFileUpload = async (event) => {
   formData.append('file', file)
 
   try {
-    const response = await request.post('/upload', formData)
+    const response = await request.post('/api/upload', formData)
     if (response.success && response.data) {
       userInfo.value.photo = response.data
       await updateUserProfile()

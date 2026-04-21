@@ -143,10 +143,7 @@ const goToChat = () => {
 
 const goToUser = () => {
   if (isLoggedIn.value) {
-    if (confirm('确定要退出登录吗？')) {
-      auth.logout()
-      alert('已退出登录')
-    }
+    router.push('/profile')
   } else {
     router.push('/login')
   }

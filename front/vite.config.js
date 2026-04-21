@@ -18,11 +18,6 @@ export default defineConfig({
         changeOrigin: true,
         secure: false
       },
-      '/upload': {
-        target: 'http://localhost:7070',
-        changeOrigin: true,
-        secure: false
-      },
       '/unify-api': {
         target: 'http://localhost:7070',
         changeOrigin: true,

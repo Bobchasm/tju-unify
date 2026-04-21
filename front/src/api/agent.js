@@ -56,12 +56,19 @@ export const sendMessageStream = async (messages, sessionId = null, onChunk, onD
       
       for (const line of lines) {
         if (line.startsWith('data: ')) {
-          const data = line.slice(6)
-          if (data === '[DONE]') {
+          const raw = line.slice(6)
+          if (raw === '[DONE]') {
             if (onDone) onDone()
             return
           }
-          if (onChunk) onChunk(data)
+          let text = raw
+          try {
+            // 与后端一致：每帧为 json.dumps 的单行字符串，可安全携带换行
+            text = JSON.parse(raw)
+          } catch {
+            // 兼容旧版未编码的纯文本
+          }
+          if (onChunk) onChunk(text)
         }
       }
     }
