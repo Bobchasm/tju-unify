@@ -51,3 +51,15 @@ logging:
     dateformat: HH:mm:ss:SSS
   file:
     path: "logs/${spring.application.name}"
+
+tju:
+  news:
+    category:
+      - https://news.tju.edu.cn/xw/xsx.htm
+      - https://news.tju.edu.cn/xw/fmxw.htm
+      - https://news.tju.edu.cn/xw/zhxw.htm
+      - https://news.tju.edu.cn/xw/xsky.htm
+    crawler:
+      enabled: true
+      initial-delay-ms: 5000
+      fixed-delay-ms: 600000
