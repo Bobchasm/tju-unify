@@ -4,7 +4,7 @@
 <mapper namespace="com.tju.unify.conv.transaction.mapper.PostMapper">
 
     <insert id="insertPost" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO post (title,description,price,status,user_id)
-        VALUES (#{title},#{description},#{price},#{status},#{userId})
+        INSERT INTO post (title,description,price,images,status,user_id)
+        VALUES (#{title},#{description},#{price},#{images},#{status},#{userId})
     </insert>
 </mapper>

@@ -4,14 +4,25 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Optional
 from agent.react_agent import ReactAgent
 from utils.config_handler import agent_conf
 from utils.conversation_summary_store import load_summary, save_summary
+from utils.unify_api_context import unify_api_context
 
 app = FastAPI(title="小智 · 天津大学校园生活助手 API")
+
+# 配置 CORS 中间件
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 允许所有来源，生产环境应该配置具体域名
+    allow_credentials=True,
+    allow_methods=["*"],  # 允许所有 HTTP 方法
+    allow_headers=["*"],  # 允许所有请求头
+)
 
 agent_instance = ReactAgent()
 
@@ -22,6 +33,10 @@ class Message(BaseModel):
 class ChatRequest(BaseModel):
     session_id: Optional[str] = Field(None, description="会话 ID，如果不传则自动生成")
     messages: List[Message] = Field(..., description="历史消息列表")
+    bearer_token: Optional[str] = Field(
+        None,
+        description="与前端一致的 JWT（可选），用于代登录用户调用 /unify-api 校园接口",
+    )
 
 class ChatResponse(BaseModel):
     session_id: str = Field(..., description="会话 ID")
@@ -66,8 +81,9 @@ async def chat(request: ChatRequest) -> ChatResponse:
             save_summary(sessions[session_id]["store_dir"], session_id, updated_summary)
         
         full_response = ""
-        for chunk in agent_instance.execute_stream(agent_messages=agent_messages):
-            full_response += chunk
+        with unify_api_context(request.bearer_token):
+            for chunk in agent_instance.execute_stream(agent_messages=agent_messages):
+                full_response += chunk
         
         return ChatResponse(
             session_id=session_id,
@@ -105,8 +121,9 @@ async def chat_stream(request: ChatRequest):
             save_summary(sessions[session_id]["store_dir"], session_id, updated_summary)
         
         async def generate():
-            for chunk in agent_instance.execute_stream(agent_messages=agent_messages):
-                yield f"data: {chunk}\n\n"
+            with unify_api_context(request.bearer_token):
+                for chunk in agent_instance.execute_stream(agent_messages=agent_messages):
+                    yield f"data: {chunk}\n\n"
             yield f"data: [DONE]\n\n"
         
         return StreamingResponse(

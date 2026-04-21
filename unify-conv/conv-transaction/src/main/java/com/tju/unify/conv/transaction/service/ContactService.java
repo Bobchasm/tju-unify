@@ -44,4 +44,10 @@ public class ContactService {
         }
         return contactMapper.updateById(contact);
     }
+
+    public List<Contact> findByUserId(Long userId) {
+        QueryWrapper<Contact> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id", userId);
+        return contactMapper.selectList(queryWrapper);
+    }
 }

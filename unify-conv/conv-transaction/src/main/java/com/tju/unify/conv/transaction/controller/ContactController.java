@@ -41,4 +41,10 @@ public class ContactController {
     public HttpResult<Integer> update(@RequestBody Contact contact) {
         return HttpResult.success(contactService.update(contact));
     }
+
+    @GetMapping("/getByUserId")
+    @Operation(summary = "根据用户ID获取联系方式")
+    public HttpResult<List<Contact>> getByUserId(@RequestParam Long userId) {
+        return HttpResult.success(contactService.findByUserId(userId));
+    }
 }

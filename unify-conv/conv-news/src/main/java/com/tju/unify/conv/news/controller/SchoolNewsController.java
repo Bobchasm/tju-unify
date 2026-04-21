@@ -27,4 +27,10 @@ public class SchoolNewsController {
     public HttpResult<SchoolNews> getDetail(@RequestParam("id")String id) {
         return HttpResult.success(schoolNewsService.getById(id));
     }
+
+    @RequestMapping("/crawler")
+    public HttpResult<String> triggerCrawler() {
+        schoolNewsService.triggerCrawler();
+        return HttpResult.success("爬虫任务已触发");
+    }
 }

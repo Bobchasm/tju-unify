@@ -54,4 +54,10 @@ public class PostController {
         return HttpResult.success(postService.searchPosts(keyword));
     }
 
+    @GetMapping("/detail")
+    @Operation(summary = "获取帖子详情")
+    HttpResult<Post> getPostDetail(@RequestParam Integer id) {
+        return HttpResult.success(postService.getPostDetail(id));
+    }
+
 }

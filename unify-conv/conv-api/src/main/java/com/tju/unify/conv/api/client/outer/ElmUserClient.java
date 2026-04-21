@@ -1,5 +1,6 @@
 package com.tju.unify.conv.api.client.outer;
 
+import com.tju.unify.conv.api.po.Person;
 import com.tju.unify.conv.api.po.User;
 import com.tju.unify.conv.common.result.HttpResult;
 import com.tju.unify.conv.common.utils.UserContext;
@@ -65,6 +66,47 @@ public class ElmUserClient {
 
         } catch (RestClientException e) {
             log.error("调用获取用户信息失败, username: {}", username, e);
+            return null;
+        }
+    }
+
+    public Person getPersonById(Long id) {
+        String url = baseUrl + "/api/personInfo" + "?id=" + id;
+
+        try {
+            // 设置请求头
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            headers.set("Authorization", UserContext.getToken());
+
+            HttpEntity<?> entity = new HttpEntity<>(headers);
+
+            // 发送请求
+            ResponseEntity<HttpResult<Person>> response = restTemplate.exchange(
+                    url,
+                    HttpMethod.GET,
+                    entity,
+                    new ParameterizedTypeReference<HttpResult<Person>>() {}
+            );
+
+            // 处理响应
+            HttpResult<Person> result = response.getBody();
+
+            if (result == null) {
+                log.error("Person信息响应为空, id: {}", id);
+                return null;
+            }
+
+            if (!result.getSuccess()) {
+                log.error("Person信息返回失败, id: {}, code: {}, message: {}",
+                        id, result.getCode(), result.getMessage());
+                return null;
+            }
+
+            return result.getData();
+
+        } catch (RestClientException e) {
+            log.error("调用获取Person信息失败, id: {}", id, e);
             return null;
         }
     }

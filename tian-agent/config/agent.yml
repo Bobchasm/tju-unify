@@ -11,3 +11,6 @@ conversation_summary_persist_enabled: true
 
 # 摘要记忆存储目录（相对 tian-agent 工程根目录）
 conversation_summary_store_dir: data/conversation_memory
+
+# unify-gateway 根地址（/unify-api 前缀与前端一致）。可被环境变量 UNIFY_API_BASE_URL 覆盖。
+unify_api_base_url: "http://127.0.0.1:7070"

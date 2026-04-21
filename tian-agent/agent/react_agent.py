@@ -14,6 +14,15 @@ from agent.tools.middleware import monitor_tool, log_before_model, report_prompt
 from agent.tools.agent_tools import (rag_summarize,
                                fetch_student_data, fill_context_for_report,
                                get_user_id, get_current_semester, calculate_score)
+from agent.tools.unify_campus_tools import (
+    unify_get_school_news,
+    unify_get_school_news_detail,
+    unify_search_secondhand_posts,
+    unify_list_secondhand_posts,
+    unify_get_secondhand_post_detail,
+    unify_submit_trade_request,
+    unify_list_trade_requests_for_post,
+)
 from model.factory import chat_model
 from utils.prompt_loader import load_conversation_summary_prompt, load_system_prompt
 from utils.config_handler import agent_conf
@@ -28,8 +37,21 @@ class ReactAgent(object):
         self.agent = create_agent(
             model=chat_model,
             system_prompt=load_system_prompt(),
-            tools=[rag_summarize, get_user_id, get_current_semester,
-                   fetch_student_data, calculate_score, fill_context_for_report],
+            tools=[
+                rag_summarize,
+                get_user_id,
+                get_current_semester,
+                fetch_student_data,
+                calculate_score,
+                fill_context_for_report,
+                unify_get_school_news,
+                unify_get_school_news_detail,
+                unify_search_secondhand_posts,
+                unify_list_secondhand_posts,
+                unify_get_secondhand_post_detail,
+                unify_submit_trade_request,
+                unify_list_trade_requests_for_post,
+            ],
             middleware=[monitor_tool, log_before_model, report_prompt_switch],
         )
         try:

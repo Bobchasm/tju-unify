@@ -6,16 +6,26 @@ spring:
     name: unify-gateway
   cloud:
     nacos:
+      # 必须与「电商 Spring Cloud Gateway」注册到的是同一个 Nacos（同一 server-addr / namespace / group）。
+      # 否则 lb://gateway 在本地拉不到实例，/upload、/api 转发会失败。
+      # 若 elm-gateway bootstrap 里是其它地址（如内网 IP），这里应改成同一套，或在 Nacos 控制台确认
+      # 「服务列表」里能看到 gateway、unify-gateway 两个服务且均为健康。
       server-addr: bobchasm.cn:8848
       username: nacos
       password: nacos
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+        # 电商侧若使用非 public 命名空间，在此填写与电商相同的 namespace（UUID），与 group 一致。
+        # namespace:
+        # group: DEFAULT_GROUP
     gateway:
       routes:
         # 电商服务集群
         - id: gateway
           uri: lb://gateway
           predicates:
-            - Path=/api/**,/ws/**
+            # /upload 与 /upload/** 都需匹配（仅 /** 时部分版本不匹配无前缀子路径的 /upload）
+            - Path=/api/**,/ws/**,/upload,/upload/**
 
         - id: unify-news
           uri: lb://unify-news
@@ -32,6 +42,8 @@ unify:
     excludePaths:
       - /api/**
       - /ws/**
+      - /upload
+      - /upload/**
 
 # JWT配置
 jwt:

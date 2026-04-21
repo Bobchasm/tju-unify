@@ -22,12 +22,12 @@ public interface PostMapper extends BaseMapper<Post> {
             <if test="null!=status">
                 and status = #{status}
             </if>
-            ordered by update_time desc
+            order by update_time desc
         </script>
     """)
     IPage<Post> getPosts(Page<Post> page, Long userId, Integer status);
 
-    @Update("update post set title=#{title},description=#{description},price=#{price},status=#{status} where id=#{id}")
+    @Update("update post set title=#{title},description=#{description},price=#{price},images=#{images},status=#{status} where id=#{id}")
     Integer updatePost(Post post);
 
     Integer insertPost(Post post);

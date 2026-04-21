@@ -65,4 +65,8 @@ public class PostService {
     public List<Post> searchPosts(String keyword) {
         return null;
     }
+
+    public Post getPostDetail(Integer id) {
+        return postMapper.selectById(id);
+    }
 }

@@ -2,11 +2,13 @@ package com.tju.unify.conv.news.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.tju.unify.conv.news.Task.TjuNewsCrawlerTask;
 import com.tju.unify.conv.news.mapper.SchoolNewsMapper;
 import com.tju.unify.conv.news.pojo.SchoolNews;
 import io.swagger.v3.oas.models.examples.Example;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,6 +20,10 @@ public class SchoolNewsService {
 
     @Autowired
     private SchoolNewsMapper schoolNewsMapper;
+
+    @Autowired
+    @Lazy
+    private TjuNewsCrawlerTask tjuNewsCrawlerTask;
 
     public void save(SchoolNews schoolNews)
     {
@@ -60,9 +66,14 @@ public class SchoolNewsService {
     public List<SchoolNews> getByFlag(Long flag, int page) {
         // 构建查询条件
         LambdaQueryWrapper<SchoolNews> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(SchoolNews::getFlag, flag)
-                .ne(SchoolNews::getContent, "")
-                .orderByDesc(SchoolNews::getId);
+        
+        // 如果 flag 为 null 或 0，则查询所有 flag 的新闻
+        if (flag != null && flag != 0) {
+            queryWrapper.eq(SchoolNews::getFlag, flag);
+        }
+        
+        // 只按 ID 倒序，不强制要求 content 不为空
+        queryWrapper.orderByDesc(SchoolNews::getId);
 
         // 分页查询
         Page<SchoolNews> pageResult = schoolNewsMapper.selectPage(
@@ -77,5 +88,9 @@ public class SchoolNewsService {
     public SchoolNews getById(String id) {
         SchoolNews schoolNews = schoolNewsMapper.selectById(id);
         return schoolNews;
+    }
+
+    public void triggerCrawler() {
+        tjuNewsCrawlerTask.triggerCrawler();
     }
 }

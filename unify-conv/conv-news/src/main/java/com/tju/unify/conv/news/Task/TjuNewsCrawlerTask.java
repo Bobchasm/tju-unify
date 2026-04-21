@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
@@ -24,7 +23,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 /**
- * 天津大学新闻网（news.tju.edu.cn）列表与正文解析，定时入库。
+ * 天津大学新闻网（news.tju.edu.cn）列表与正文解析，按需触发爬取。
  */
 @Slf4j
 @Component
@@ -149,11 +148,11 @@ public class TjuNewsCrawlerTask implements PageProcessor {
     }
 
     /**
-     * 首次启动后延迟再爬，避免与数据源、注册中心同时争抢；之后按固定间隔重复（单位：毫秒，见配置）。
+     * 手动触发天津大学新闻爬虫
      */
-    @Scheduled(initialDelayString = "${tju.news.crawler.initial-delay-ms:120000}", fixedDelayString = "${tju.news.crawler.fixed-delay-ms:3600000}")
-    public void runCrawler() {
+    public void triggerCrawler() {
         if (!crawlerEnabled || schoolNewsConfig.getCategory() == null || schoolNewsConfig.getCategory().isEmpty()) {
+            log.warn("爬虫未启用或分类配置为空，跳过爬取");
             return;
         }
         CompletableFuture.runAsync(() -> {
@@ -165,6 +164,7 @@ public class TjuNewsCrawlerTask implements PageProcessor {
                         .setScheduler(new QueueScheduler())
                         .addPipeline(myPipeLine)
                         .run();
+                log.info("天津大学新闻爬虫执行完成");
             } catch (Exception e) {
                 log.error("天津大学新闻爬虫执行失败", e);
             }

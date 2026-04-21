@@ -22,6 +22,8 @@ public class Post {
     private String description;
     @Schema(description = "价格")
     private Float price;
+    @Schema(description = "图片链接，多个用逗号分隔")
+    private String images;
     @Schema(description = "状态: 0-进行中 1-关闭 2-自己可见")
     private Integer status;
     @Schema(description = "最后更新时间")
