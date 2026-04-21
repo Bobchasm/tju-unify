@@ -235,49 +235,6 @@
             </div>
         </div>
 
-        <!-- 促销积分轮播部分 -->
-        <div class="points-promotion-carousel">
-            <!-- 固定的礼物图标 -->
-            <div class="promotion-icon-fixed">
-                <i class="fa fa-gift"></i>
-            </div>
-            
-            <div class="carousel-container">
-                <!-- 轮播项目，使用向上滚动动画 -->
-                <transition name="slide-up" mode="out-in">
-                    <div v-if="currentPointsRule" :key="currentPointsRule.id" class="promotion-item">
-                        <div class="promotion-content">
-                            <span class="promotion-text">{{ currentPointsRule.ruleName }}</span>
-                        </div>
-                        <div class="promotion-action">
-                            <button 
-                                v-if="currentPointsRule.hasPromotionLink"
-                                @click="navigateToPromotion(currentPointsRule.foodIds)"
-                                class="jump-button"
-                            >
-                                立即购买&gt;
-                            </button>
-                        </div>
-                    </div>
-                </transition>
-                
-                <!-- 空状态 -->
-                <div v-if="enabledPointsRules.length === 0" class="empty-promotion">
-                    <i class="fa fa-gift"></i>
-                    <span>暂无促销积分活动</span>
-                </div>
-                
-                <!-- 手动切换按钮 - 悬停时显示在中间上下 -->
-                <div class="carousel-controls" v-if="enabledPointsRules.length > 1">
-                    <button class="control-btn prev-btn" @click="prevPointsRule" title="上一条">
-                        <i class="fa fa-chevron-up"></i>
-                    </button>
-                    <button class="control-btn next-btn" @click="nextPointsRule" title="下一条">
-                        <i class="fa fa-chevron-down"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
 
         <!-- 推荐商家部分 -->
         <div class="recommend">
@@ -393,7 +350,6 @@
                 </div>
             </li>
         </ul>
-<ai-chatbot class="ai-chat"/>
         <!-- 底部菜单部分 -->
 
     </div>
@@ -402,7 +358,6 @@
 <script>
 import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue';
 import Footer from '../components/Footer.vue';
-import AiChatbot from '../components/AiChatbot.vue';
 import { useRouter } from 'vue-router';
 import axios from 'axios';
 import request from '@/trade/utils/tradeRequest';
@@ -1777,8 +1732,7 @@ const fetchPointsRules = async () => {
         };
     },
     components: {
-        Footer,
-        AiChatbot
+        Footer
     }
 }
 </script>
@@ -1794,13 +1748,15 @@ const fetchPointsRules = async () => {
 .wrapper header {
     width: 100%;
     height: 12vw;
-    background-color: #0097ff;
+    background: linear-gradient(to right, #3a7bd5, #00d2ff);
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 4vw;
     box-sizing: border-box;
 }
+
+
 
 /* 确保位置信息不会被挤压 */
 .wrapper header .icon-location-box {
@@ -1918,7 +1874,7 @@ const fetchPointsRules = async () => {
 .wrapper .search .search-fixed-top {
     width: 100%;
     height: 13vw;
-    background-color: #0097FF;
+    background: linear-gradient(to right, #3a7bd5, #00d2ff);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -3329,10 +3285,4 @@ const fetchPointsRules = async () => {
     transform: translateY(-1px);
 }
 
-.ai-chat {
-    position: fixed;
-  bottom: 100px; /* 距离底部40px */
-  right: 20px; /* 距离右边20px */
-  z-index: 9999;
-}
 </style>

@@ -1,10 +1,11 @@
 <template>
 
     <BackButton style="margin-top: 2vw;"/>
-    <div class="header">
-      <!-- <i class="fas fa-chevron-left back-icon" @click="goBack"></i> -->
-      <h1>我的收藏</h1>
-    </div>
+    <div class="fixed-top">
+          <div class="top-background">
+              <h1>我的收藏</h1>
+          </div>
+        </div>
     <div class="container">
       <div v-if="loading" class="loading-message">
         <i class="fas fa-spinner fa-spin"></i> 加载中...
@@ -202,7 +203,7 @@ body {
 
 .business-list {
   padding: 0px 15px; /* 增加左右内边距，使列表内容与页面两边有一定间隔 */
-  margin-top: 15px;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -272,5 +273,47 @@ body {
 .start-price {
   color: #ff5722;
   font-weight: 500;
+}
+
+.top-background {
+  width: 100%;
+  height: 90px;
+  background: linear-gradient(to right, #3a7bd5, #00d2ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 16px 16px 0 0;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  overflow: hidden;
+  margin-bottom: 50px;
+  max-width: 600px;
+}
+
+.top-background::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: rotate(30deg);
+  animation: shine 6s infinite linear;
+}
+
+
+.top-background h1 {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  margin: 0;
+  z-index: 1;
 }
 </style>

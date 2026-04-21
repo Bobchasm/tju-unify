@@ -2,11 +2,10 @@
 	<div class="wrapper">
 		<!-- 固定顶部栏 -->
 		<div class="fixed-top">
-			<BackButton :show-back-button="true" style="margin-top: 2vw;"/>
-			<div class="header">
-				<p>订单详情</p>
-			</div>
-		</div>
+          <div class="top-background">
+              <h1>订单详情</h1>
+          </div>
+      	</div>
 		
 		<!-- 内容区域 -->
 		<div class="content-area">
@@ -313,7 +312,7 @@ export default {
 
 /****************** 内容区域 ******************/
 .content-area {
-	margin-top: 50px; /* 固定顶部栏的高度 */
+	margin-top: 100px; /* 固定顶部栏的高度 */
 	padding-bottom: 20vw;
 }
 
@@ -518,5 +517,47 @@ export default {
 .pay-btn {
 	background: #409eff;
 	color: #fff;
+}
+
+.top-background {
+  width: 100%;
+  height: 90px;
+  background: linear-gradient(to right, #3a7bd5, #00d2ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 16px 16px 0 0;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  overflow: hidden;
+  margin-bottom: 50px;
+  max-width: 600px;
+}
+
+.top-background::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: rotate(30deg);
+  animation: shine 6s infinite linear;
+}
+
+
+.top-background h1 {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  margin: 0;
+  z-index: 1;
 }
 </style>
