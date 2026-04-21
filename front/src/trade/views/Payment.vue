@@ -3,9 +3,12 @@
         <BackButton style="margin-top: 2vw;"/>
     </div>
     <div class="wrapper">
-        <header>
-            <p>在线支付</p>
-        </header>
+
+        <div class="fixed-top">
+          <div class="top-background">
+              <h1>在线支付</h1>
+          </div>
+      	</div>
 
         <div v-if="loading" class="loading">
             <p>加载中...</p>
@@ -601,7 +604,7 @@ onMounted(() => {
 }
 
 .content {
-    padding-top: 14vw;
+    padding-top: 20vw;
     padding-bottom: 32vw;
 }
 
@@ -1152,5 +1155,47 @@ onMounted(() => {
 
 .points-deduct-section .fa-check-circle.active {
     color: #38CA73; 
+}
+
+.top-background {
+  width: 100%;
+  height: 90px;
+  background: linear-gradient(to right, #3a7bd5, #00d2ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 16px 16px 0 0;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  overflow: hidden;
+  margin-bottom: 50px;
+  max-width: 600px;
+}
+
+.top-background::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: rotate(30deg);
+  animation: shine 6s infinite linear;
+}
+
+
+.top-background h1 {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  margin: 0;
+  z-index: 1;
 }
 </style>

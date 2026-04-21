@@ -4,9 +4,11 @@
   </div>
 	<div class="wrapper">
 		<!-- header部分 -->
-		<header>
-			<p>购物车</p>
-		</header>
+		<div class="fixed-top">
+          <div class="top-background">
+              <h1>购物车</h1>
+          </div>
+        </div>
 
 		<!-- 购物车为空提示 -->
 		<div class="empty-cart" v-if="cartItems.length === 0">
@@ -160,7 +162,7 @@ export default {
 	padding: 3vw;
 	background-color: #f8f8f8;
 	border-bottom: 1px solid #eee;
-	margin-top: 12vw;
+	margin-top: 23vw;
 }
 
 .business-info h3 {
@@ -267,7 +269,7 @@ export default {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 14vw;
+	height: 20vw;
 	background-color: #fff;
 	border-top: 1px solid #ddd;
 	display: flex;
@@ -328,5 +330,46 @@ export default {
   left: 0vw; /* 距离左侧的距离，可根据需求调整 */
   top: 1vw; /* 距离顶部的距离，与 header 高度（12vw）适配，确保垂直居中 */
   z-index: 1001; /* 比 header 的 z-index:1000 高，避免被遮挡 */
+}
+
+.top-background {
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to right, #3a7bd5, #00d2ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 16px 16px 0 0;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  overflow: hidden;
+  margin-bottom: 50px;
+  max-width: 600px;
+}
+
+.top-background::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+  transform: rotate(30deg);
+  animation: shine 6s infinite linear;
+}
+
+.top-background h1 {
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  margin: 0;
+  z-index: 1;
 }
 </style>

@@ -1,14 +1,17 @@
 <template>
   <div class="wrapper">
     <!-- 顶部蓝色栏 -->
-    <div class="top-background">
-      <h1>订单</h1>
-    </div>
+      <div class="fixed-top">
+          <div class="top-background">
+              <h1>订单</h1>
+          </div>
+      </div>
 
-    <!-- 固定标题和筛选栏 -->
     <div class="fixed-header">
+
       <!-- 页面标题 -->
       <div class="page-title">订单中心</div>
+
 
       <!-- 筛选标签栏 -->
       <ul class="tabs">
@@ -333,8 +336,7 @@ export default {
       userId.value = userInfo.value.id;
       if (!userId.value) return;
 
-      // 连接WebSocket（假设后端地址是 ws://localhost:8080/ws/{userId}）
-      socket.value = new WebSocket(`ws://localhost:8086/ws/${userId.value}`);
+      socket.value = new WebSocket(`ws://localhost:7070/ws/${userId.value}`);
 
       socket.value.onopen = () => {
         console.log("WebSocket 连接成功");
@@ -511,6 +513,11 @@ export default {
   color: #333;
   font-weight: bold;
   background: white;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* 如果需要限制宽度，可以添加 width */
+  width: fit-content; /* 宽度适应内容，可选 */
 }
 
 /****************** 标签栏 ******************/
