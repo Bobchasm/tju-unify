@@ -352,6 +352,10 @@
         </ul>
         <!-- 底部菜单部分 -->
 
+        <!-- 返回助手首页悬浮按钮 -->
+        <div class="back-home-fab" @click="goToHome">
+            <i class="fa fa-home"></i>
+        </div>
     </div>
 </template>
 
@@ -1666,6 +1670,11 @@ const fetchPointsRules = async () => {
             hideFilter();
         };
 
+        const goToHome = () => {
+            router.push({ path: '/' });
+        };
+
+
         return {
             fixedBox,
             toBusinessList,
@@ -1728,7 +1737,8 @@ const fetchPointsRules = async () => {
             updateTopThreeBusinesses,
             startAutoPlay,
             stopAutoPlay,
-            restartAutoPlay
+            restartAutoPlay,
+            goToHome
         };
     },
     components: {
@@ -3283,6 +3293,33 @@ const fetchPointsRules = async () => {
 .btn-confirm:hover {
     background: linear-gradient(135deg, #0080e0, #0055aa);
     transform: translateY(-1px);
+}
+
+/****************** 返回助手首页悬浮按钮 ******************/
+.back-home-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 100px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(58, 123, 213, 0.4);
+    cursor: pointer;
+    z-index: 999;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.back-home-fab:active {
+    transform: scale(0.92);
+}
+
+.back-home-fab i {
+    color: white;
+    font-size: 22px;
 }
 
 </style>

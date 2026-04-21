@@ -24,13 +24,6 @@ export const tradeRoute = {
     { path: 'notifications', name: 'TradeNotifications', component: () => import('@/trade/views/Notifications.vue') },
     { path: 'search', name: 'TradeSearch', component: () => import('@/trade/views/Search.vue') },
     { path: 'search-test', name: 'TradeSearchTest', component: () => import('@/trade/views/SearchTest.vue') },
-    { path: 'cart', name: 'TradeCart', component: () => import('@/trade/views/Cart.vue') },
-    { path: 'wallet', name: 'TradeWallet', component: () => import('@/trade/views/Wallet.vue') },
-    { path: 'wallet/transactions', name: 'TradeWalletTransactions', component: () => import('@/trade/views/WalletTransactions.vue') },
-    { path: 'wallet/loans', name: 'TradeWalletLoan', component: () => import('@/trade/views/WalletLoan.vue') },
-    { path: 'points', name: 'TradePoints', component: () => import('@/trade/views/Points.vue') },
-    { path: 'points/lottery', name: 'TradePointsLottery', component: () => import('@/trade/views/PointsLottery.vue') },
-    { path: 'points/details', name: 'TradePointsDetails', component: () => import('@/trade/views/PointsDetails.vue') },
-    { path: 'points/expiring', name: 'TradePointsExpiring', component: () => import('@/trade/views/PointsExpiring.vue') }
+    { path: 'cart', name: 'TradeCart', component: () => import('@/trade/views/Cart.vue') }
   ]
 }

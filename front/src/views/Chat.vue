@@ -1,13 +1,26 @@
 <template>
   <div class="chat-page">
-    <div class="chat-header">
-      <button class="back-btn" @click="goBack">←</button>
-      <div class="chat-title">小智助手</div>
-    </div>
+    <!-- header部分 - 统一蓝色渐变风格 -->
+    <header>
+      <div class="header-content">
+        <div class="back-btn" @click="goBack">
+          <span>←</span>
+        </div>
+        <div class="chat-title">
+          <span class="title-icon">🤖</span>
+          <span>小智助手</span>
+        </div>
+        <div class="placeholder"></div>
+      </div>
+      <p class="subtitle">校园生活智能助手，随时为您解答</p>
+    </header>
 
+    <!-- 聊天消息区域 -->
     <div class="chat-messages" ref="messagesContainer">
       <div v-for="(msg, index) in messages" :key="index" class="message" :class="msg.role">
-        <div class="message-avatar">{{ msg.role === 'user' ? '👤' : '🤖' }}</div>
+        <div class="message-avatar">
+          {{ msg.role === 'user' ? '👤' : '🤖' }}
+        </div>
         <div class="message-content" :class="{ 'message-content--assistant': msg.role === 'assistant' }">
           <template v-if="msg.role === 'assistant'">
             <div class="md-body" v-html="assistantHtml(msg.content)"></div>
@@ -20,6 +33,7 @@
       </div>
     </div>
 
+    <!-- 输入区域 -->
     <div class="chat-input-area">
       <input
         type="text"
@@ -30,30 +44,19 @@
         :disabled="isLoading"
       />
       <button class="send-btn" @click="sendMessage" :disabled="isLoading || !inputMessage.trim()">
-        发送
+        <p>发送</p>
       </button>
     </div>
 
-    <!-- 底部导航 -->
-    <div class="bottom-nav">
-      <div class="nav-item" @click="goHome">
-        <div class="nav-icon">🏠</div>
-        <div>首页</div>
-      </div>
-      <div class="nav-item active">
-        <div class="nav-icon">💬</div>
-        <div>小智</div>
-      </div>
-      <div class="nav-item" @click="goToUser">
-        <div class="nav-icon">👤</div>
-        <div>我的</div>
-      </div>
+    <!-- 返回顶部悬浮按钮 -->
+    <div class="back-top-fab" @click="scrollToTop" v-show="showBackTop">
+      <span>↑</span>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted, computed } from 'vue'
+import { ref, nextTick, onMounted, onBeforeUnmount, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
@@ -88,11 +91,17 @@ const messagesContainer = ref(null)
 const inputMessage = ref('')
 const isLoading = ref(false)
 const sessionId = ref(null)
+const showBackTop = ref(false)
 const isLoggedIn = computed(() => auth.isAuthenticated())
 
 const messages = ref([
   { role: 'assistant', content: '你好，我是小智，天津大学校园生活助手。我可以结合学校公开资料，为你解答校园办事、校史校情、学习生活等常见问题。请问今天想了解什么？' }
 ])
+
+// 监听滚动显示返回顶部按钮
+const handleScroll = () => {
+  showBackTop.value = window.scrollY > 300
+}
 
 const scrollToBottom = () => {
   nextTick(() => {
@@ -102,27 +111,31 @@ const scrollToBottom = () => {
   })
 }
 
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+
 onMounted(() => {
   scrollToBottom()
+  window.addEventListener('scroll', handleScroll)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
 })
 
 const goBack = () => {
   router.push('/')
 }
 
-const goHome = () => {
-  router.push('/')
-}
-
-const goToMarket = () => {
-  router.push('/market')
-}
-
 const goToUser = () => {
   if (isLoggedIn.value) {
     router.push('/profile')
   } else {
-    router.push('/login')
+    router.push('/trade/login')
   }
 }
 
@@ -143,18 +156,15 @@ const sendMessage = async () => {
 
   try {
     await agentApi.sendMessageStream(
-      messages.value.slice(0, -1), // 不包含刚添加的空消息
+      messages.value.slice(0, -1),
       sessionId.value,
-      // 接收chunk回调
       (chunk) => {
         messages.value[assistantMessageIndex].content += chunk
         scrollToBottom()
       },
-      // 完成回调
       () => {
         isLoading.value = false
       },
-      // 错误回调
       (error) => {
         console.error('发送消息失败:', error)
         messages.value[assistantMessageIndex].content = '抱歉，我遇到了一些问题，请稍后再试。'
@@ -170,55 +180,97 @@ const sendMessage = async () => {
 </script>
 
 <style scoped>
+/****************** 全局样式 ******************/
 .chat-page {
+  width: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background: #f5f5f5;
-  padding-bottom: 80px;
+  background-color: #f8f9fa;
+  padding: 0;
+  padding-bottom: 14vw;  /* 为底部导航栏留出空间 */
 }
 
-.chat-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 16px;
+/****************** header部分 - 统一蓝色渐变 ******************/
+.chat-page header {
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  padding: 5vw 4vw 3vw;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(58, 123, 213, 0.3);
+}
+
+.chat-page header .header-content {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 12px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
 }
 
-.back-btn {
+.chat-page header .back-btn {
+  width: 10vw;
+  height: 10vw;
   background: rgba(255, 255, 255, 0.2);
   border: none;
-  color: white;
-  font-size: 20px;
-  padding: 8px;
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.chat-title {
+.chat-page header .back-btn span {
+  font-size: 6vw;
   color: white;
-  font-size: 18px;
-  font-weight: 600;
+  font-weight: bold;
 }
 
+.chat-page header .back-btn:active {
+  transform: scale(0.95);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.chat-page header .chat-title {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+
+.chat-page header .chat-title .title-icon {
+  font-size: 6vw;
+}
+
+.chat-page header .chat-title span:last-child {
+  font-size: 5vw;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chat-page header .placeholder {
+  width: 10vw;
+}
+
+.chat-page header .subtitle {
+  font-size: 3vw;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 2vw 0 0 0;
+  text-align: center;
+}
+
+/****************** 聊天消息区域 ******************/
 .chat-messages {
-  flex: 1;
-  padding: 80px 16px 100px;
+  padding: 4vw;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 4vw;
   overflow-y: auto;
+  min-height: 60vh;
 }
 
 .message {
   display: flex;
-  gap: 12px;
+  gap: 3vw;
   align-items: flex-start;
 }
 
@@ -227,36 +279,42 @@ const sendMessage = async () => {
 }
 
 .message-avatar {
-  width: 36px;
-  height: 36px;
+  width: 10vw;
+  height: 10vw;
   border-radius: 50%;
-  background: #e0e0e0;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 5vw;
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .message-content {
   background: white;
-  padding: 12px 16px;
-  border-radius: 12px;
-  font-size: 15px;
-  line-height: 1.6;
-  max-width: 75%;
+  padding: 3vw 4vw;
+  border-radius: 3vw;
+  font-size: 3.8vw;
+  line-height: 1.5;
+  max-width: 70%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   word-break: break-word;
 }
 
+.message.user .message-content {
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  color: white;
+}
+
 .message-content--assistant .md-body {
-  font-size: 15px;
-  line-height: 1.65;
-  color: #1a1a1a;
+  font-size: 3.8vw;
+  line-height: 1.6;
+  color: #333;
 }
 
 .message-content--assistant .md-body :deep(p) {
-  margin: 0 0 0.65em;
+  margin: 0 0 1em;
 }
 
 .message-content--assistant .md-body :deep(p:last-child) {
@@ -265,44 +323,44 @@ const sendMessage = async () => {
 
 .message-content--assistant .md-body :deep(ul),
 .message-content--assistant .md-body :deep(ol) {
-  margin: 0.4em 0 0.65em;
-  padding-left: 1.35em;
+  margin: 0.5em 0 1em;
+  padding-left: 1.5em;
 }
 
 .message-content--assistant .md-body :deep(li) {
-  margin: 0.25em 0;
+  margin: 0.3em 0;
 }
 
 .message-content--assistant .md-body :deep(strong) {
   font-weight: 600;
-  color: #111;
+  color: #3a7bd5;
 }
 
 .message-content--assistant .md-body :deep(hr) {
   border: none;
   border-top: 1px solid #e8e8e8;
-  margin: 0.75em 0;
+  margin: 1em 0;
 }
 
 .message-content--assistant .md-body :deep(blockquote) {
   margin: 0.5em 0;
-  padding-left: 0.75em;
-  border-left: 3px solid #667eea;
-  color: #555;
+  padding-left: 1em;
+  border-left: 0.5vw solid #3a7bd5;
+  color: #666;
 }
 
 .plain-body {
   white-space: pre-wrap;
 }
 
-.message.user .message-content {
-  background: #667eea;
-  color: #fff;
-}
-
 .cursor-blink {
-  animation: blink 1s infinite;
   display: inline-block;
+  width: 2vw;
+  height: 4vw;
+  background-color: #3a7bd5;
+  animation: blink 1s infinite;
+  margin-left: 0.5vw;
+  vertical-align: middle;
 }
 
 @keyframes blink {
@@ -310,39 +368,157 @@ const sendMessage = async () => {
   51%, 100% { opacity: 0; }
 }
 
+/****************** 输入区域 ******************/
 .chat-input-area {
   position: fixed;
-  bottom: 80px;
+  bottom: 0;
   left: 0;
   right: 0;
-  padding: 12px 16px;
+  padding: 3vw 4vw;
+  padding-bottom: calc(3vw + env(safe-area-inset-bottom, 0));
   background: white;
   display: flex;
-  gap: 12px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  gap: 3vw;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.06);
+  z-index: 99;
 }
 
 .chat-input {
   flex: 1;
-  padding: 12px 16px;
+  padding: 3vw 4vw;
   border: 1px solid #e0e0e0;
-  border-radius: 24px;
-  font-size: 15px;
+  border-radius: 8vw;
+  font-size: 3.8vw;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.chat-input:focus {
+  border-color: #3a7bd5;
+  box-shadow: 0 0 0 2px rgba(58, 123, 213, 0.2);
 }
 
 .send-btn {
-  padding: 12px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 3vw 8vw;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
   color: white;
   border: none;
-  border-radius: 24px;
-  font-size: 12px;
+  border-radius: 4vw;
+  font-size: 3.5vw;
   font-weight: 500;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;      /* 强制横向排列 */
+  align-items: center;
+  justify-content: center;  /* 居中 */
+  gap: 1.5vw;
+  white-space: nowrap;      /* 防止文字换行 */
+  transition: all 0.3s ease;
+}
+
+.send-btn:active {
+  transform: scale(0.95);
 }
 
 .send-btn:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
+  transform: none;
+}
+
+/****************** 返回顶部悬浮按钮 ******************/
+.chat-page .back-top-fab {
+  position: fixed;
+  right: 5vw;
+  bottom: 20vw;
+  width: 12vw;
+  height: 12vw;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(58, 123, 213, 0.4);
+  cursor: pointer;
+  z-index: 99;
+  transition: all 0.2s ease;
+}
+
+.chat-page .back-top-fab:active {
+  transform: scale(0.92);
+}
+
+.chat-page .back-top-fab span {
+  color: white;
+  font-size: 6vw;
+  font-weight: bold;
+}
+
+/****************** 响应式适配 - 大屏幕 ******************/
+@media (min-width: 768px) {
+  .chat-page {
+    padding-bottom: 70px;  /* PC端底部导航栏高度 */
+  }
+  
+  .chat-page header .back-btn {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .chat-page header .back-btn span {
+    font-size: 24px;
+  }
+  
+  .chat-page header .chat-title .title-icon {
+    font-size: 28px;
+  }
+  
+  .chat-page header .chat-title span:last-child {
+    font-size: 22px;
+  }
+  
+  .chat-page header .placeholder {
+    width: 44px;
+  }
+  
+  .chat-page header .subtitle {
+    font-size: 14px;
+  }
+  
+  .message-avatar {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+  }
+  
+  .message-content {
+    font-size: 16px;
+    padding: 12px 18px;
+  }
+  
+  .message-content--assistant .md-body {
+    font-size: 16px;
+  }
+  
+  .chat-input {
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+  
+  .send-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+    border-radius: 20px;  /* PC端对应圆角矩形 */
+  }
+  
+  .chat-page .back-top-fab {
+    width: 50px;
+    height: 50px;
+    bottom: 100px;
+  }
+  
+  .chat-page .back-top-fab span {
+    font-size: 24px;
+  }
 }
 </style>

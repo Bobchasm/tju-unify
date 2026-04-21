@@ -1,17 +1,23 @@
 <template>
-  <div class="page detail-page">
-    <div class="header-bar">
-      <button class="back-btn" @click="goBack">←</button>
-      <h1 class="page-title">详情</h1>
-      <button class="more-btn" @click="showMoreMenu">...</button>
-    </div>
+  <div class="detail-page">
+    <!-- header部分 -->
+    <header>
+      <div class="header-content">
+        <button class="back-btn" @click="goBack">←</button>
+        <div class="page-title">
+          <span>📦</span>
+          <span>商品详情</span>
+        </div>
+        <button class="more-btn" @click="showMoreMenu">⋯</button>
+      </div>
+    </header>
 
     <div v-if="post" class="detail-content">
       <!-- 图片区域 -->
-      <div class="detail-image">
+      <div class="image-section">
         <div v-if="imageList.length > 0" class="image-slider">
           <img :src="imageList[currentImageIndex]" alt="商品图片" />
-          <div v-if="imageList.length > 1" class="slider-dots">
+          <div v-if="imageList.length > 1" class="image-dots">
             <span 
               v-for="(url, index) in imageList" 
               :key="index"
@@ -20,60 +26,81 @@
             ></span>
           </div>
         </div>
-        <span v-else class="placeholder-icon">📦</span>
+        <div v-else class="image-placeholder">
+          <span>📦</span>
+        </div>
       </div>
 
-      <!-- 商品信息 -->
-      <div class="detail-info">
-        <div class="price-section">
-          <span class="price-symbol">¥</span>
-          <span class="price-value">{{ post.price }}</span>
-          <span class="post-status" :class="'status-' + post.status">
-            {{ getStatusText(post.status) }}
-          </span>
-        </div>
-        <h2 class="detail-title">{{ post.title }}</h2>
-        <p class="detail-time">更新于 {{ formatTime(post.updateTime) }}</p>
+      <!-- 价格和状态 -->
+      <div class="price-row">
+        <span class="price">¥{{ post.price }}</span>
+        <span class="status" :class="'status-' + post.status">
+          {{ getStatusText(post.status) }}
+        </span>
+      </div>
+
+      <!-- 标题 -->
+      <div class="title-row">
+        <h2>{{ post.title }}</h2>
+        <p class="update-time">更新于 {{ formatTime(post.updateTime) }}</p>
       </div>
 
       <!-- 商品描述 -->
-      <div class="detail-desc">
-        <h3 class="section-title">商品描述</h3>
+      <div class="desc-section">
+        <div class="section-title">
+          <span></span>
+          <h3>商品描述</h3>
+          <span></span>
+        </div>
         <p class="desc-text">{{ post.description || '暂无描述' }}</p>
       </div>
 
       <!-- 卖家信息 -->
-      <div class="seller-info">
-        <div class="seller-avatar">👤</div>
-        <div class="seller-name">天大学生</div>
+      <div class="seller-section">
+        <div class="section-title">
+          <span></span>
+          <h3>卖家信息</h3>
+          <span></span>
+        </div>
+        <div class="seller-card">
+          <div class="seller-avatar">👤</div>
+          <div class="seller-info">
+            <div class="seller-name">天大学生</div>
+            <div class="seller-id">ID: {{ post.userId || '未知' }}</div>
+          </div>
+        </div>
       </div>
 
-      <!-- 交易请求区域 -->
-      <div class="section-box" v-if="requests.length > 0">
-        <h3 class="section-title">交易请求</h3>
+      <!-- 交易请求列表 -->
+      <div v-if="requests.length > 0" class="request-section">
+        <div class="section-title">
+          <span></span>
+          <h3>交易请求</h3>
+          <span></span>
+        </div>
         <div class="request-list">
-          <div class="request-item" v-for="req in requests" :key="req.id">
-            <div class="request-info">
-              <span class="request-user">买家</span>
-              <span class="request-status" :class="'status-' + req.status">
+          <div class="request-card" v-for="req in requests" :key="req.id">
+            <div class="request-header">
+              <span class="buyer-name">买家</span>
+              <span class="request-status" :class="'req-status-' + req.status">
                 {{ getRequestStatusText(req.status) }}
               </span>
             </div>
             <div class="request-time">{{ formatTime(req.createTime) }}</div>
-            <div class="request-actions" v-if="req.status === 0">
+            <div v-if="req.status === 0" class="request-buttons">
               <button 
                 v-if="isSeller" 
-                class="request-btn agree-btn" 
+                class="btn-agree" 
                 @click="handleAgree(req.id)"
               >同意</button>
               <button 
                 v-if="isSeller" 
-                class="request-btn reject-btn" 
+                class="btn-reject" 
                 @click="handleReject(req.id)"
               >拒绝</button>
               <button 
                 v-if="isCurrentUser(req.buyerId)" 
-                class="request-btn cancel-btn" 
+                class="btn-cancel" 
                 @click="handleCancel(req.id)"
               >取消</button>
             </div>
@@ -82,44 +109,67 @@
       </div>
 
       <!-- 评论区域 -->
-      <div class="section-box comment-section">
-        <h3 class="section-title">评论</h3>
-        <div class="comment-input-box" v-if="showCommentInput">
+      <div class="comment-section">
+        <div class="section-title">
+          <span></span>
+          <h3>评论</h3>
+          <span></span>
+        </div>
+
+        <!-- 发表评论 -->
+        <div class="comment-form">
           <textarea 
-            class="comment-input" 
             v-model="newComment" 
             placeholder="写下你的评论..."
-            maxlength="200"
+            rows="3"
           ></textarea>
-          <button class="submit-comment-btn" @click="handleSubmitComment">发布</button>
+          <button class="submit-btn" @click="handleSubmitComment">发布评论</button>
         </div>
+
+        <!-- 评论列表 -->
         <div class="comment-list">
-          <div class="comment-item" v-for="cmt in comments" :key="cmt.id">
+          <div v-for="cmt in comments" :key="cmt.id" class="comment-card">
             <div class="comment-header">
-              <span class="comment-user">{{ cmt.username || '用户' + cmt.userId }}</span>
+              <span class="comment-user">👤 {{ cmt.username || '用户' + cmt.userId }}</span>
               <span class="comment-time">{{ formatTime(cmt.createTime) }}</span>
             </div>
-            <div class="comment-content">{{ cmt.content }}</div>
+            <div class="comment-body">{{ cmt.content }}</div>
           </div>
-          <div v-if="comments.length === 0" class="empty-tip">暂无评论</div>
+          <div v-if="comments.length === 0" class="empty-comment">
+            <span>💬</span>
+            <p>暂无评论，快来抢沙发～</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- 底部操作栏 -->
-    <div class="bottom-action">
-      <button class="action-btn comment-btn" @click="scrollToComments">
+    <!-- 加载中 -->
+    <div v-if="!post && !loading" class="empty-page">
+      <span>📭</span>
+      <p>商品不存在或已下架</p>
+    </div>
+
+    <!-- 底部按钮 -->
+    <div class="bottom-bar">
+      <button class="btn-comment" @click="scrollToComment">
+        <span>💬</span>
         <span>评论</span>
       </button>
-      <button class="action-btn buy-btn" @click="handleBuy" :disabled="cannotBuy">
+      <button class="btn-buy" @click="handleBuy" :disabled="cannotBuy">
+        <span>❤️</span>
         <span>我想要</span>
       </button>
+    </div>
+
+    <!-- 返回顶部 -->
+    <div v-show="showBackTop" class="back-top" @click="scrollToTop">
+      <span>↑</span>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import marketApi from '../api/market'
 import auth from '../api/auth'
@@ -131,8 +181,10 @@ const post = ref(null)
 const requests = ref([])
 const comments = ref([])
 const newComment = ref('')
-const showCommentInput = ref(false)
+const loading = ref(false)
+const showBackTop = ref(false)
 const currentImageIndex = ref(0)
+
 const imageList = computed(() => {
   if (!post.value || !post.value.images) return []
   return post.value.images.split(',').filter(url => url.trim())
@@ -147,9 +199,7 @@ const isSeller = computed(() => {
 
 const hasPendingRequest = computed(() => {
   if (!userInfo) return false
-  return requests.value.some(req => 
-    req.buyerId === userInfo.id && req.status === 0
-  )
+  return requests.value.some(req => req.buyerId === userInfo.id && req.status === 0)
 })
 
 const cannotBuy = computed(() => {
@@ -160,38 +210,48 @@ const isCurrentUser = (userId) => {
   return userInfo && userInfo.id === userId
 }
 
+const handleScroll = () => {
+  showBackTop.value = window.scrollY > 300
+}
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
 const loadPost = async () => {
   const id = route.params.id
-  if (id) {
-    try {
-      const response = await marketApi.getPost(id)
-      if (response && response.success && response.data) {
-        post.value = response.data
-        await loadRequests(id)
-        await loadComments(id)
-      }
-    } catch (error) {
-      console.error('获取帖子详情失败:', error)
+  if (!id) return
+  loading.value = true
+  try {
+    const res = await marketApi.getPost(id)
+    if (res && res.success && res.data) {
+      post.value = res.data
+      await loadRequests(id)
+      await loadComments(id)
     }
+  } catch (error) {
+    console.error('获取详情失败:', error)
+  } finally {
+    loading.value = false
   }
 }
 
 const loadRequests = async (postId) => {
   try {
-    const response = await marketApi.getRequests(postId)
-    if (response && response.success && response.data) {
-      requests.value = response.data
+    const res = await marketApi.getRequests(postId)
+    if (res && res.success && res.data) {
+      requests.value = res.data
     }
   } catch (error) {
-    console.error('获取交易请求失败:', error)
+    console.error('获取请求失败:', error)
   }
 }
 
 const loadComments = async (postId) => {
   try {
-    const response = await marketApi.getComments(postId)
-    if (response && response.success && response.data) {
-      comments.value = response.data
+    const res = await marketApi.getComments(postId)
+    if (res && res.success && res.data) {
+      comments.value = res.data
     }
   } catch (error) {
     console.error('获取评论失败:', error)
@@ -201,38 +261,35 @@ const loadComments = async (postId) => {
 const handleBuy = async () => {
   if (!isAuthenticated) {
     alert('请先登录')
-    router.push('/login')
+    router.push('/trade/login')
     return
   }
-  
-  if (isSeller) {
-    alert('您不能购买自己的商品')
+  if (isSeller.value) {
+    alert('不能购买自己的商品')
     return
   }
-  
   try {
-    const response = await marketApi.addRequest({
+    const res = await marketApi.addRequest({
       postId: post.value.id,
       sellerId: post.value.userId,
       status: 0
     })
-    
-    if (response && response.success) {
+    if (res && res.success) {
       alert('请求已发送')
       await loadRequests(post.value.id)
     } else {
-      alert('发送失败，请重试')
+      alert('发送失败')
     }
   } catch (error) {
-    console.error('发送请求失败:', error)
-    alert('发送失败，请重试')
+    console.error('发送失败:', error)
+    alert('发送失败')
   }
 }
 
 const handleAgree = async (id) => {
   try {
-    const response = await marketApi.updateRequestStatus(id, 1)
-    if (response && response.success) {
+    const res = await marketApi.updateRequestStatus(id, 1)
+    if (res && res.success) {
       alert('已同意')
       await loadRequests(post.value.id)
     }
@@ -244,8 +301,8 @@ const handleAgree = async (id) => {
 
 const handleReject = async (id) => {
   try {
-    const response = await marketApi.updateRequestStatus(id, 2)
-    if (response && response.success) {
+    const res = await marketApi.updateRequestStatus(id, 2)
+    if (res && res.success) {
       alert('已拒绝')
       await loadRequests(post.value.id)
     }
@@ -257,8 +314,8 @@ const handleReject = async (id) => {
 
 const handleCancel = async (id) => {
   try {
-    const response = await marketApi.updateRequestStatus(id, 3)
-    if (response && response.success) {
+    const res = await marketApi.updateRequestStatus(id, 3)
+    if (res && res.success) {
       alert('已取消')
       await loadRequests(post.value.id)
     }
@@ -273,64 +330,48 @@ const handleSubmitComment = async () => {
     alert('请输入评论内容')
     return
   }
-  
   if (!isAuthenticated) {
     alert('请先登录')
-    router.push('/login')
+    router.push('/trade/login')
     return
   }
-  
   try {
-    const response = await marketApi.addComment({
+    const res = await marketApi.addComment({
       postId: post.value.id,
       content: newComment.value
     })
-    
-    if (response && response.success) {
+    if (res && res.success) {
       newComment.value = ''
       alert('评论成功')
       await loadComments(post.value.id)
     } else {
-      alert('评论失败，请重试')
+      alert('评论失败')
     }
   } catch (error) {
     console.error('评论失败:', error)
-    alert('评论失败，请重试')
+    alert('评论失败')
   }
 }
 
-const scrollToComments = () => {
-  showCommentInput.value = true
-  // 滚动到评论区
-  setTimeout(() => {
-    const commentSection = document.querySelector('.comment-section')
-    if (commentSection) {
-      commentSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }, 100)
+const scrollToComment = () => {
+  const el = document.querySelector('.comment-section')
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 }
 
 const getStatusText = (status) => {
-  const map = {
-    0: '进行中',
-    1: '已关闭',
-    2: '仅自己可见'
-  }
+  const map = { 0: '进行中', 1: '已关闭', 2: '仅自己可见' }
   return map[status] || '未知'
 }
 
 const getRequestStatusText = (status) => {
-  const map = {
-    0: '待处理',
-    1: '已同意',
-    2: '已拒绝',
-    3: '已取消'
-  }
+  const map = { 0: '待处理', 1: '已同意', 2: '已拒绝', 3: '已取消' }
   return map[status] || '未知'
 }
 
 const showMoreMenu = () => {
-  alert('更多操作菜单（待实现）')
+  alert('举报')
 }
 
 const goBack = () => {
@@ -340,79 +381,91 @@ const goBack = () => {
 const formatTime = (timeStr) => {
   if (!timeStr) return ''
   const date = new Date(timeStr)
-  return date.toLocaleString('zh-CN', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit'
-  })
+  return `${date.getMonth() + 1}/${date.getDate()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`
 }
 
 onMounted(() => {
   loadPost()
+  window.addEventListener('scroll', handleScroll)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
 <style scoped>
-.page {
-  min-height: 100vh;
-  padding: 60px 0 120px;
-  background: #f5f5f5;
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
-.header-bar {
+.detail-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 80px;
+}
+
+/* ========== Header ========== */
+.detail-page header {
   position: fixed;
   top: 0;
-  left: 50%;
-  right: auto;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 480px;
-  height: 60px;
-  background: white;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  padding: 12px 16px;
+  z-index: 100;
+}
+
+.detail-page .header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  z-index: 100;
-  box-sizing: border-box;
 }
 
-.back-btn,
-.more-btn {
-  background: none;
+.detail-page .back-btn,
+.detail-page .more-btn {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
   border: none;
-  font-size: 28px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: white;
   cursor: pointer;
-  padding: 8px;
-  color: #333;
-}
-
-.page-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #333;
-  margin: 0;
-}
-
-.detail-content {
-  padding: 0;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.detail-image {
-  width: 100%;
-  height: 300px;
-  background: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.detail-page .back-btn:active,
+.detail-page .more-btn:active {
+  transform: scale(0.95);
+}
+
+.detail-page .page-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+/* ========== 内容区域 ========== */
+.detail-content {
+  margin-top: 64px;
+}
+
+/* 图片区域 */
+.image-section {
+  width: 100%;
+  height: 300px;
+  background: #e0e0e0;
   position: relative;
+  overflow: hidden;
 }
 
 .image-slider {
@@ -426,13 +479,16 @@ onMounted(() => {
   object-fit: cover;
 }
 
-.slider-dots {
+.image-dots {
   position: absolute;
   bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px 12px;
+  border-radius: 20px;
 }
 
 .dot {
@@ -447,113 +503,133 @@ onMounted(() => {
   background: white;
 }
 
-.placeholder-icon {
-  font-size: 80px;
-}
-
-.detail-info {
-  background: white;
-  padding: 20px 16px;
-  margin-bottom: 8px;
-  box-sizing: border-box;
-}
-
-.price-section {
+.image-placeholder {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
+  justify-content: center;
+  font-size: 60px;
 }
 
-.price-symbol {
-  font-size: 18px;
+/* 价格行 */
+.price-row {
+  background: white;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.price-row .price {
+  font-size: 28px;
   font-weight: bold;
-  color: #e74c3c;
+  color: #ff6b6b;
 }
 
-.price-value {
-  font-size: 32px;
-  font-weight: bold;
-  color: #e74c3c;
-}
-
-.post-status {
+.status {
   padding: 4px 12px;
-  border-radius: 12px;
+  border-radius: 20px;
   font-size: 12px;
 }
 
-.status-0 {
-  background: #e8f5e9;
-  color: #43a047;
-}
+.status-0 { background: #e8f5e9; color: #43a047; }
+.status-1 { background: #ffebee; color: #e53935; }
+.status-2 { background: #fff3e0; color: #fb8c00; }
 
-.status-1 {
-  background: #ffebee;
-  color: #c62828;
-}
-
-.status-2 {
-  background: #fff3e0;
-  color: #fb8c00;
-}
-
-.detail-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #333;
-  margin: 0 0 8px;
-}
-
-.detail-time {
-  font-size: 13px;
-  color: #999;
-  margin: 0;
-}
-
-.detail-desc,
-.seller-info {
+/* 标题行 */
+.title-row {
   background: white;
-  padding: 20px 16px;
+  padding: 0 16px 16px;
   margin-bottom: 8px;
-  box-sizing: border-box;
 }
 
-.section-box {
+.title-row h2 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.update-time {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 通用 section 样式 */
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.section-title span {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+}
+
+.section-title h3 {
+  font-size: 16px;
+  color: #333;
+  margin: 0 16px;
+}
+
+/* 商品描述 */
+.desc-section {
   background: white;
   padding: 16px;
   margin-bottom: 8px;
-  box-sizing: border-box;
-}
-
-.section-title {
-  font-size: 15px;
-  font-weight: 600;
-  color: #333;
-  margin: 0 0 12px;
 }
 
 .desc-text {
-  font-size: 15px;
+  font-size: 14px;
   color: #666;
   line-height: 1.6;
-  margin: 0;
 }
 
-.seller-info {
+/* 卖家信息 */
+.seller-section {
+  background: white;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.seller-card {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
 .seller-avatar {
-  font-size: 40px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
 }
 
 .seller-name {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
   color: #333;
+  margin-bottom: 4px;
+}
+
+.seller-id {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 交易请求 */
+.request-section {
+  background: white;
+  padding: 16px;
+  margin-bottom: 8px;
 }
 
 .request-list {
@@ -562,20 +638,20 @@ onMounted(() => {
   gap: 12px;
 }
 
-.request-item {
+.request-card {
   background: #f8f9fa;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
-.request-info {
+.request-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 8px;
 }
 
-.request-user {
+.buyer-name {
   font-size: 14px;
   font-weight: 500;
   color: #333;
@@ -583,88 +659,73 @@ onMounted(() => {
 
 .request-status {
   font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 10px;
+  padding: 2px 10px;
+  border-radius: 12px;
 }
 
-.request-status.status-0 {
-  background: #fff3cd;
-  color: #856404;
-}
-
-.request-status.status-1 {
-  background: #d4edda;
-  color: #155724;
-}
-
-.request-status.status-2 {
-  background: #f8d7da;
-  color: #721c24;
-}
-
-.request-status.status-3 {
-  background: #e2e3e5;
-  color: #383d41;
-}
+.req-status-0 { background: #fff3cd; color: #856404; }
+.req-status-1 { background: #d4edda; color: #155724; }
+.req-status-2 { background: #f8d7da; color: #721c24; }
+.req-status-3 { background: #e2e3e5; color: #383d41; }
 
 .request-time {
   font-size: 12px;
   color: #999;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
-.request-actions {
+.request-buttons {
   display: flex;
   gap: 8px;
 }
 
-.request-btn {
+.request-buttons button {
   padding: 6px 16px;
   border: none;
-  border-radius: 16px;
-  font-size: 14px;
+  border-radius: 20px;
+  font-size: 12px;
   cursor: pointer;
 }
 
-.agree-btn {
-  background: #43a047;
-  color: white;
+.btn-agree { background: #43a047; color: white; }
+.btn-reject { background: #e53935; color: white; }
+.btn-cancel { background: #757575; color: white; }
+
+/* 评论区域 */
+.comment-section {
+  background: white;
+  padding: 16px;
+  margin-bottom: 8px;
 }
 
-.reject-btn {
-  background: #e53935;
-  color: white;
+.comment-form {
+  margin-bottom: 20px;
 }
 
-.cancel-btn {
-  background: #757575;
-  color: white;
-}
-
-.comment-input-box {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
-  align-items: flex-end;
-}
-
-.comment-input {
-  flex: 1;
+.comment-form textarea {
+  width: 100%;
   padding: 12px;
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 14px;
-  resize: none;
-  min-height: 80px;
+  resize: vertical;
+  font-family: inherit;
+  margin-bottom: 12px;
 }
 
-.submit-comment-btn {
-  padding: 12px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.comment-form textarea:focus {
+  outline: none;
+  border-color: #3a7bd5;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 24px;
+  padding: 10px 20px;
   font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -674,10 +735,10 @@ onMounted(() => {
   gap: 12px;
 }
 
-.comment-item {
-  padding: 12px;
+.comment-card {
   background: #f8f9fa;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 12px;
 }
 
 .comment-header {
@@ -697,67 +758,127 @@ onMounted(() => {
   color: #999;
 }
 
-.comment-content {
+.comment-body {
   font-size: 14px;
   color: #666;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-.empty-tip {
+.empty-comment {
   text-align: center;
+  padding: 30px;
   color: #999;
-  font-size: 14px;
-  padding: 20px;
 }
 
-.bottom-action {
+.empty-comment span {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* 空页面 */
+.empty-page {
+  text-align: center;
+  padding: 100px 20px;
+  color: #999;
+}
+
+.empty-page span {
+  font-size: 60px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+/* 底部按钮栏 */
+.bottom-bar {
   position: fixed;
   bottom: 0;
-  left: 50%;
-  right: auto;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 480px;
+  left: 0;
+  right: 0;
   background: white;
   padding: 12px 16px;
-  padding-bottom: calc(12px + env(safe-area-inset-bottom));
   display: flex;
   gap: 12px;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.06);
-  z-index: 100;
-  box-sizing: border-box;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
 }
 
-.action-btn {
+.bottom-bar button {
   flex: 1;
-  min-width: 0;
-  padding: 14px 8px;
+  padding: 12px;
   border: none;
-  border-radius: 24px;
+  border-radius: 30px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.comment-btn {
-  background: #f5f5f5;
-  color: #333;
+.btn-comment {
+  background: #f0f0f0;
+  color: #666;
 }
 
-.buy-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
+.btn-buy {
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  color: white;
 }
 
-.buy-btn:disabled {
+.btn-buy:disabled {
   background: #ccc;
   cursor: not-allowed;
+}
+
+/* 返回顶部 */
+.back-top {
+  position: fixed;
+  right: 16px;
+  bottom: 100px;
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.back-top span {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* 大屏幕适配 */
+@media (min-width: 768px) {
+  .detail-page {
+    max-width: 480px;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .detail-page header {
+    max-width: 480px;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+  }
+  
+  .bottom-bar {
+    max-width: 480px;
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+  }
+  
+  .back-top {
+    right: auto;
+    left: 50%;
+    transform: translateX(calc(240px - 22px));
+  }
 }
 </style>
