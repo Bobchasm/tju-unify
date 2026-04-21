@@ -1,6 +1,7 @@
 package com.tju.unify.conv.news.pojo;
 
 
+import jakarta.persistence.Column;
 import lombok.Data;
 
 

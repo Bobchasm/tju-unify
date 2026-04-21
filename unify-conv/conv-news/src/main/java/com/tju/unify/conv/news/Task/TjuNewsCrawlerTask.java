@@ -13,7 +13,6 @@ import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.processor.PageProcessor;
-import us.codecraft.webmagic.scheduler.BloomFilterDuplicateRemover;
 import us.codecraft.webmagic.scheduler.QueueScheduler;
 import us.codecraft.webmagic.selector.Html;
 
@@ -92,47 +91,56 @@ public class TjuNewsCrawlerTask implements PageProcessor {
     }
 
     private void parseDetail(Page page) {
-        Html html = page.getHtml();
-        String title = html.xpath("//div[@class='arc-tit']/h1/text()").toString();
-        if (StringUtils.isBlank(title)) {
-            title = html.xpath("//div[@class='arc-tit']/h1/allText()").toString();
-        }
-        if (StringUtils.isBlank(title)) {
+        try {
+            Html html = page.getHtml();
+            String title = html.xpath("//div[@class='arc-tit']/h1/text()").toString();
+            if (StringUtils.isBlank(title)) {
+                title = html.xpath("//div[@class='arc-tit']/h1/allText()").toString();
+            }
+            if (StringUtils.isBlank(title)) {
+                page.setSkip(true);
+                return;
+            }
+            String timeStr = html.xpath("//div[@class='arc-info']//time/text()").toString();
+            if (timeStr != null) {
+                timeStr = timeStr.trim();
+            }
+            String categoryName = html.xpath("//div[@class='ny-ba']//h3/text()").toString();
+            if (categoryName != null) {
+                categoryName = categoryName.trim().replaceAll("\\s+", "");
+            }
+            Long flag = CATEGORY_FLAG.getOrDefault(categoryName, 1L);
+
+            // WebMagic 的 contains XPath 在部分页面会触发 NPE，这里改成先取全部 span 文本再过滤
+            String origin = "";
+            List<String> infoSpans = html.xpath("//div[@class='arc-info']//span/text()").all();
+            for (String span : infoSpans) {
+                if (span != null && span.contains("来源")) {
+                    origin = span.replaceFirst("^来源[：:]\\s*", "").trim();
+                    break;
+                }
+            }
+
+            List<String> texts = html.xpath("//div[@class='v_news_content']//p//text()").all();
+            if (texts.isEmpty()) {
+                texts = html.xpath("//div[@id='vsb_content_500']//p//text()").all();
+            }
+            String content = texts.stream().map(String::trim).filter(s -> !s.isEmpty()).collect(Collectors.joining("\n"));
+
+            SchoolNews schoolNews = new SchoolNews();
+            schoolNews.setUrl(page.getRequest().getUrl());
+            schoolNews.setTitle(title.trim());
+            schoolNews.setTime(timeStr != null ? timeStr : "");
+            schoolNews.setFlag(flag);
+            schoolNews.setOrigin(origin);
+            schoolNews.setUnit("天津大学新闻网");
+            schoolNews.setContent(content);
+
+            page.putField("snewsInfo", schoolNews);
+        } catch (Exception e) {
+            log.warn("解析详情页失败，已跳过: {}", page.getRequest().getUrl(), e);
             page.setSkip(true);
-            return;
         }
-        String timeStr = html.xpath("//div[@class='arc-info']//time/text()").toString();
-        if (timeStr != null) {
-            timeStr = timeStr.trim();
-        }
-        String categoryName = html.xpath("//div[@class='ny-ba']//h3/text()").toString();
-        if (categoryName != null) {
-            categoryName = categoryName.trim().replaceAll("\\s+", "");
-        }
-        Long flag = CATEGORY_FLAG.getOrDefault(categoryName, 1L);
-
-        String originSpan = html.xpath("//div[@class='arc-info']//span[contains(.,'来源')]/text()").toString();
-        String origin = "";
-        if (originSpan != null) {
-            origin = originSpan.replaceFirst("^来源[：:]\\s*", "").trim();
-        }
-
-        List<String> texts = html.xpath("//div[@class='v_news_content']//p//text()").all();
-        if (texts.isEmpty()) {
-            texts = html.xpath("//div[@id='vsb_content_500']//p//text()").all();
-        }
-        String content = texts.stream().map(String::trim).filter(s -> !s.isEmpty()).collect(Collectors.joining("\n"));
-
-        SchoolNews schoolNews = new SchoolNews();
-        schoolNews.setUrl(page.getRequest().getUrl());
-        schoolNews.setTitle(title.trim());
-        schoolNews.setTime(timeStr != null ? timeStr : "");
-        schoolNews.setFlag(flag);
-        schoolNews.setOrigin(origin);
-        schoolNews.setUnit("天津大学新闻网");
-        schoolNews.setContent(content);
-
-        page.putField("snewsInfo", schoolNews);
     }
 
     @Override
@@ -154,8 +162,7 @@ public class TjuNewsCrawlerTask implements PageProcessor {
                 Spider.create(this)
                         .addUrl(seeds)
                         .thread(5)
-                        .setScheduler(new QueueScheduler()
-                                .setDuplicateRemover(new BloomFilterDuplicateRemover(1_000_000)))
+                        .setScheduler(new QueueScheduler())
                         .addPipeline(myPipeLine)
                         .run();
             } catch (Exception e) {
