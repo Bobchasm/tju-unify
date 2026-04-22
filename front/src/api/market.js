@@ -15,9 +15,10 @@ export const addPost = async (data) => {
   return await request.post('/unify-api/transaction/post/add', data)
 }
 
-// 搜索帖子
+// 搜索帖子（params 由 axios 编码，中文与特殊字符更安全）
 export const searchPosts = async (keyword) => {
-  return await request.get(`/unify-api/transaction/post/search?keyword=${keyword}`)
+  const kw = (keyword ?? '').trim()
+  return await request.get('/unify-api/transaction/post/search', { params: { keyword: kw } })
 }
 
 // 根据用户ID获取联系方式

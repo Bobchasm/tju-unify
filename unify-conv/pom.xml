@@ -26,6 +26,7 @@
         <module>conv-gateway</module>
         <module>conv-news</module>
         <module>conv-transaction</module>
+        <module>conv-memo</module>
         <module>conv-api</module>
     </modules>
 

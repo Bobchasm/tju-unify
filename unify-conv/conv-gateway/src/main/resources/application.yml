@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: unify-gateway
+  # 避免转发较大 JSON 时 in-memory buffer 过小（偶发表现为下游收到空 body）
+  codec:
+    max-in-memory-size: 10MB
   cloud:
     nacos:
       # 必须与「电商 Spring Cloud Gateway」注册到的是同一个 Nacos（同一 server-addr / namespace / group）。
@@ -37,6 +40,11 @@ spring:
           predicates:
             - Path=/unify-api/transaction/**
 
+        - id: unify-memo
+          uri: lb://unify-memo
+          predicates:
+            - Path=/unify-api/memo/**
+
 unify:
   auth:
     excludePaths:
@@ -44,6 +52,8 @@ unify:
       - /ws/**
       - /upload
       - /upload/**
+      # 校园新闻异步爬取：首页「刷新」触发，无需登录（若需管控可改为鉴权并去掉此项）
+      - /unify-api/news/schoolNews/crawler
 
 # JWT配置
 jwt:

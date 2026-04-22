@@ -41,6 +41,18 @@ def unify_http_post(path: str, json_body: Dict[str, Any]) -> str:
     return _request("POST", path, json_body=json_body)
 
 
+def unify_http_put(
+    path: str,
+    json_body: Optional[Dict[str, Any]] = None,
+    params: Optional[Dict[str, Any]] = None,
+) -> str:
+    return _request("PUT", path, params=params, json_body=json_body if json_body is not None else {})
+
+
+def unify_http_delete(path: str, params: Optional[Dict[str, Any]] = None) -> str:
+    return _request("DELETE", path, params=params, json_body=None)
+
+
 def _request(
     method: str,
     path: str,
@@ -54,13 +66,15 @@ def _request(
     url = base + path
     try:
         with httpx.Client(timeout=20.0, follow_redirects=True) as client:
-            r = client.request(
-                method,
-                url,
-                params=params,
-                json=json_body,
-                headers=_auth_headers(),
-            )
+            req_kw: Dict[str, Any] = {
+                "method": method,
+                "url": url,
+                "params": params,
+                "headers": _auth_headers(),
+            }
+            if json_body is not None:
+                req_kw["json"] = json_body
+            r = client.request(**req_kw)
     except httpx.RequestError as e:
         return f"校园接口请求失败（{method} {path}）：{e}"
 
