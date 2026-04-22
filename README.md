@@ -166,4 +166,39 @@ tju-unify/
   
   可以在`unify-api` 模块的`src/main/java/com/tju/unify/conv/api/client/outer` 中写调用的逻辑，当然也可以直接在模块里写
 
-# 3 智能体
+## 2.2 智能体
+
+
+
+---
+
+# 3 一些说明
+
+欢迎贡献代码、报告问题或提出建议！
+
+### 3.1 提交问题
+
+- 描述问题现象
+- 提供复现步骤
+- 附上错误日志
+- 说明环境信息
+
+### 3.2 提交代码
+
+1. Fork本仓库
+2. 创建功能分支
+3. 提交代码并编写测试
+4. 提交Pull Request
+
+### 3.3 联系方式
+
+如有问题或建议，请通过以下方式联系：
+
+- **邮箱**：  
+  zengyicydd@tju.edu.cn  
+  gaocan@tju.edu.cn  
+  daimingjing142857@tju.edu.cn
+  yxy641121@gmail.com  
+  jsyy@tju.edu.cn
+
+- **Gitee Issues**：提交问题到项目仓库

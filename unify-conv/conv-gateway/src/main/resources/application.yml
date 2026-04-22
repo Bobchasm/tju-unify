@@ -50,10 +50,8 @@ unify:
     excludePaths:
       - /api/**
       - /ws/**
-      - /upload
-      - /upload/**
       # 校园新闻异步爬取：首页「刷新」触发，无需登录（若需管控可改为鉴权并去掉此项）
-      - /unify-api/news/schoolNews/crawler
+      - /unify-api/news/schoolNews/**
 
 # JWT配置
 jwt:
