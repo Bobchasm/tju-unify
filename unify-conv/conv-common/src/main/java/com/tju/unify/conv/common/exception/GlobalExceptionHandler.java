@@ -29,9 +29,11 @@ public class GlobalExceptionHandler {
     public HttpResult<Object> apiExceptionHandler(MissingServletRequestParameterException paramException) {
         return HttpResult.failure(ResultCodeEnum.PARAM_NOT_MATCHED_GET);
     }
-    // body参数不全
+    // body 无法反序列化（空 body、非法 JSON、UTF-8 BOM 等）
     @ExceptionHandler
-    public HttpResult<Object> apiExceptionHandler(HttpMessageNotReadableException messageNotReadableException) {
+    public HttpResult<Object> apiExceptionHandler(HttpMessageNotReadableException ex) {
+        Throwable cause = ex.getMostSpecificCause();
+        log.warn("HttpMessageNotReadable: {} | cause: {}", ex.getMessage(), cause != null ? cause.getMessage() : "");
         return HttpResult.failure(ResultCodeEnum.PARAM_NOT_MATCHED_POST);
     }
     // 参数不匹配
