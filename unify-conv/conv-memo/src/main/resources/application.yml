@@ -1,0 +1,55 @@
+server:
+  port: 7773
+
+spring:
+  application:
+    name: unify-memo
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 本机库：可设环境变量 MEMO_DB_HOST=127.0.0.1（可选 MEMO_DB_USER / MEMO_DB_PASSWORD）
+    url: jdbc:mysql://${MEMO_DB_HOST:bobchasm.cn}:3306/unify_memo
+    username: ${MEMO_DB_USER:elm_app}
+    password: ${MEMO_DB_PASSWORD:ElmApp@2026!}
+    hikari:
+      transaction-isolation: TRANSACTION_READ_COMMITTED
+  cloud:
+    nacos:
+      discovery:
+        server-addr: bobchasm.cn
+        namespace: public
+        group: DEFAULT_GROUP
+        username: nacos
+        password: nacos
+        ip: 127.0.0.1
+        port: ${server.port}
+        enabled: true
+        register-enabled: true
+        metadata:
+          version: 1.0
+        heartbeat:
+          interval: 5000
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui
+  packages-to-scan:
+    - com.tju.unify.conv.memo.controller
+  paths-to-match:
+    - /unify-api/**
+
+logging:
+  level:
+    com.tju.elm: debug
+  pattern:
+    dateformat: HH:mm:ss:SSS
+  file:
+    path: "logs/${spring.application.name}"
