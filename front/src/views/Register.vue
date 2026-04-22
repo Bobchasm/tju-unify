@@ -163,31 +163,31 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const validate = () => {
   if (!userData.username.trim()) {
-    alert('请输入用户名')
+    toast.warning('请输入用户名')
     return false
   }
   if (!userData.firstName.trim()) {
-    alert('请输入姓')
+    toast.warning('请输入姓')
     return false
   }
   if (!userData.lastName.trim()) {
-    alert('请输入名')
+    toast.warning('请输入名')
     return false
   }
   if (!userData.email || !emailRegex.test(userData.email)) {
-    alert('请输入有效的邮箱')
+    toast.warning('请输入有效的邮箱')
     return false
   }
   if (!userData.phone) {
-    alert('请输入手机号')
+    toast.warning('请输入手机号')
     return false
   }
   if (!userData.password || !passwordRegex.test(userData.password)) {
-    alert('密码至少8位，需包含大小写字母和数字')
+    toast.warning('密码至少8位，需包含大小写字母和数字')
     return false
   }
   if (userData.password !== confirmPassword.value) {
-    alert('两次输入的密码不一致')
+    toast.warning('两次输入的密码不一致')
     return false
   }
   return true
@@ -221,15 +221,15 @@ const register = async () => {
     })
 
     if (response?.success) {
-      alert('注册成功！')
+      toast.warning('注册成功！')
       router.push('/login')
     } else {
-      alert(response?.message || '注册失败，请重试')
+      toast.warning(response?.message || '注册失败，请重试')
     }
   } catch (error) {
     console.error('注册错误:', error)
     const errorMsg = error.response?.data?.message || '注册失败，请检查网络'
-    alert(errorMsg)
+    toast.warning(errorMsg)
   } finally {
     loading.value = false
   }

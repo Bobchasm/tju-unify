@@ -4,7 +4,7 @@
     <header>
       <div class="header-content">
         <div class="back-btn" @click="goBack">
-          <span>←</span>
+          <i class="fa-solid fa-backward"></i>
         </div>
         <div class="page-title">
           <span class="title-icon">🛒</span>
@@ -71,7 +71,7 @@
 
     <!-- 发布按钮 -->
     <div class="fab-btn" @click="goToPublish">
-      <span class="fab-icon">+</span>
+      <i class="fa-solid fa-plus" style="color: rgb(251, 251, 252);"></i>
     </div>
 
     <!-- 返回顶部悬浮按钮 -->

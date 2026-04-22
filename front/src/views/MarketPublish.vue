@@ -3,7 +3,9 @@
     <!-- header部分 - 统一蓝色渐变风格 -->
     <header>
       <div class="header-content">
-        <button class="back-btn" @click="goBack">←</button>
+        <div class="back-btn" @click="goBack">
+          <i class="fa-solid fa-backward"></i>
+        </div>
         <div class="page-title">
           <span>📝</span>
           <span>发布闲置</span>
@@ -174,27 +176,27 @@ const loadContact = async () => {
 
 const handleSubmit = async () => {
   if (!form.value.title?.trim()) {
-    alert('请输入标题')
+    toast.warning('请输入标题')
     return
   }
   
   if (form.value.price === null || form.value.price === '' || form.value.price < 0) {
-    alert('请输入有效价格')
+    toast.warning('请输入有效价格')
     return
   }
 
   if (!contact.value.contact?.trim()) {
-    alert('请输入联系方式')
+    toast.warning('请输入联系方式')
     return
   }
 
   if (contact.value.type === '2' && !contact.value.other?.trim()) {
-    alert('请说明是什么联系方式')
+    toast.warning('请说明是什么联系方式')
     return
   }
 
   if (!auth.isAuthenticated()) {
-    alert('请先登录')
+    toast.warning('请先登录')
     router.push('/trade/login')
     return
   }
@@ -226,14 +228,14 @@ const handleSubmit = async () => {
     })
 
     if (response && response.success) {
-      alert('发布成功！')
+      toast.warning('发布成功！')
       router.back()
     } else {
-      alert(response?.message || '发布失败，请重试')
+      toast.warning(response?.message || '发布失败，请重试')
     }
   } catch (error) {
     console.error('发布失败:', error)
-    alert('发布失败，请重试')
+    toast.warning('发布失败，请重试')
   } finally {
     isSubmitting.value = false
   }
@@ -252,11 +254,11 @@ const handleFileUpload = async (event) => {
 
   for (const file of filesToUpload) {
     if (!file.type.startsWith('image/')) {
-      alert('请上传图片文件')
+      toast.warning('请上传图片文件')
       continue
     }
     if (file.size > 5 * 1024 * 1024) {
-      alert('文件大小不能超过5MB')
+      toast.warning('文件大小不能超过5MB')
       continue
     }
     await uploadSingleFile(file)
@@ -277,7 +279,7 @@ const uploadSingleFile = async (file) => {
     }
   } catch (error) {
     console.error('上传失败:', error)
-    alert('图片上传失败，请重试')
+    toast.warning('图片上传失败，请重试')
   }
 }
 

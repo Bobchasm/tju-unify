@@ -3,9 +3,11 @@
     <!-- header部分 -->
     <header>
       <div class="header-content">
-        <button class="back-btn" @click="goBack">←</button>
+        <div class="back-btn" @click="goBack">
+          <i class="fa-solid fa-backward"></i>
+        </div>
         <div class="page-title">
-          <span>📦</span>
+          
           <span>商品详情</span>
         </div>
         <button class="more-btn" @click="showMoreMenu">⋯</button>
@@ -163,7 +165,7 @@
 
     <!-- 返回顶部 -->
     <div v-show="showBackTop" class="back-top" @click="scrollToTop">
-      <span>↑</span>
+      <i class="fa-solid fa-arrow-up-from-bracket" style="color: rgb(251, 251, 252);"></i>
     </div>
   </div>
 </template>
@@ -173,6 +175,7 @@ import { ref, onMounted, onBeforeUnmount, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import marketApi from '../api/market'
 import auth from '../api/auth'
+import { toast } from '../utils/toast';
 
 const router = useRouter()
 const route = useRoute()
@@ -260,12 +263,12 @@ const loadComments = async (postId) => {
 
 const handleBuy = async () => {
   if (!isAuthenticated) {
-    alert('请先登录')
+    toast.warning('请先登录')
     router.push('/trade/login')
     return
   }
   if (isSeller.value) {
-    alert('不能购买自己的商品')
+    toast.warning('不能购买自己的商品')
     return
   }
   try {
@@ -275,14 +278,14 @@ const handleBuy = async () => {
       status: 0
     })
     if (res && res.success) {
-      alert('请求已发送')
+      toast.warning('请求已发送')
       await loadRequests(post.value.id)
     } else {
-      alert('发送失败')
+      toast.warning('发送失败')
     }
   } catch (error) {
     console.error('发送失败:', error)
-    alert('发送失败')
+    toast.warning('发送失败')
   }
 }
 
@@ -290,12 +293,12 @@ const handleAgree = async (id) => {
   try {
     const res = await marketApi.updateRequestStatus(id, 1)
     if (res && res.success) {
-      alert('已同意')
+      toast.warning('已同意')
       await loadRequests(post.value.id)
     }
   } catch (error) {
     console.error('操作失败:', error)
-    alert('操作失败')
+    toast.warning('操作失败')
   }
 }
 
@@ -303,12 +306,12 @@ const handleReject = async (id) => {
   try {
     const res = await marketApi.updateRequestStatus(id, 2)
     if (res && res.success) {
-      alert('已拒绝')
+      toast.warning('已拒绝')
       await loadRequests(post.value.id)
     }
   } catch (error) {
     console.error('操作失败:', error)
-    alert('操作失败')
+    toast.warning('操作失败')
   }
 }
 
@@ -316,22 +319,22 @@ const handleCancel = async (id) => {
   try {
     const res = await marketApi.updateRequestStatus(id, 3)
     if (res && res.success) {
-      alert('已取消')
+      toast.warning('已取消')
       await loadRequests(post.value.id)
     }
   } catch (error) {
     console.error('操作失败:', error)
-    alert('操作失败')
+    toast.warning('操作失败')
   }
 }
 
 const handleSubmitComment = async () => {
   if (!newComment.value.trim()) {
-    alert('请输入评论内容')
+    toast.warning('请输入评论内容')
     return
   }
   if (!isAuthenticated) {
-    alert('请先登录')
+    toast.warning('请先登录')
     router.push('/trade/login')
     return
   }
@@ -342,14 +345,14 @@ const handleSubmitComment = async () => {
     })
     if (res && res.success) {
       newComment.value = ''
-      alert('评论成功')
+      toast.warning('评论成功')
       await loadComments(post.value.id)
     } else {
-      alert('评论失败')
+      toast.warning('评论失败')
     }
   } catch (error) {
     console.error('评论失败:', error)
-    alert('评论失败')
+    toast.warning('评论失败')
   }
 }
 
@@ -371,7 +374,7 @@ const getRequestStatusText = (status) => {
 }
 
 const showMoreMenu = () => {
-  alert('举报')
+  toast.warning('敬请期待!')
 }
 
 const goBack = () => {
@@ -447,7 +450,7 @@ onBeforeUnmount(() => {
 
 .detail-page .page-title {
   display: flex;
-  align-items: center;
+  /* justify-content: center; */
   gap: 8px;
   font-size: 18px;
   font-weight: bold;

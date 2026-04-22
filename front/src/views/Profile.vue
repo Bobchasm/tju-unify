@@ -4,7 +4,7 @@
     <header>
       <div class="header-content">
         <div class="back-btn" @click="goBack">
-          <span>←</span>
+          <i class="fa-solid fa-backward"></i>
         </div>
         <div class="page-title">
           <span>个人信息</span>
@@ -149,12 +149,12 @@ const handleFileUpload = async (event) => {
   if (!file) return
 
   if (!file.type.startsWith('image/')) {
-    alert('请上传图片文件')
+    toast.warning('请上传图片文件')
     return
   }
 
   if (file.size > 5 * 1024 * 1024) {
-    alert('文件大小不能超过5MB')
+    toast.warning('文件大小不能超过5MB')
     return
   }
 
@@ -166,13 +166,13 @@ const handleFileUpload = async (event) => {
     if (response.success && response.data) {
       userInfo.value.photo = response.data
       await updateUserProfile()
-      alert('头像上传成功')
+      toast.warning('头像上传成功')
     } else {
       throw new Error(response.message || '上传失败')
     }
   } catch (error) {
     console.error('上传失败:', error)
-    alert('上传失败，请重试')
+    toast.warning('上传失败，请重试')
   } finally {
     event.target.value = ''
   }
@@ -245,14 +245,14 @@ const submitEdits = async () => {
       userInfo.value.email = editForm.value.email
       userInfo.value.phone = editForm.value.phone
       auth.setUserInfo(userInfo.value)
-      alert('修改成功')
+      toast.warning('修改成功')
       closeEditModal()
     } else {
-      alert('修改失败，请重试')
+      toast.warning('修改失败，请重试')
     }
   } catch (error) {
     console.error('修改失败:', error)
-    alert('修改失败，请重试')
+    toast.warning('修改失败，请重试')
   }
 }
 

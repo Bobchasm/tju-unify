@@ -3,45 +3,136 @@
   <div class="page home-page">
     <!-- header部分 -->
     <header>
+      <div class="header-bg-decoration"></div>
       <div class="header-content">
+        <div class="logo-icon">
+          <img src="/tju.png" alt="校徽" class="logo-img" />
+          </div>
         <div class="logo-area">
-          <span class="logo-icon">🎓</span>
-          <h1>天大校园助手</h1>
+          
+          <div class="logo-text">
+            <h1>天大校园助手</h1>
+          </div>
         </div>
         <div class="user-area" @click="handleUserClick">
-          <div class="user-avatar" v-if="isLoggedIn">
-            <span>👤</span>
+          <div class="user-avatar" v-if="isLoggedIn && userInfo?.photo && !avatarLoadFailed">
+            <img 
+              :src="userInfo.photo" 
+              alt="头像"
+              class="avatar-img"
+              @error="avatarLoadFailed = true"
+            />
+          </div>
+          <div class="user-avatar user-icon" v-else-if="isLoggedIn">
+            <i class="fa-solid fa-circle-user"></i>
           </div>
           <div class="login-btn" v-else>
-            <span>🔑</span>
+            <i class="fa-solid fa-right-to-bracket"></i>
             <span>登录</span>
           </div>
         </div>
       </div>
-      <p class="subtitle">让校园生活更美好</p>
+      <div class="header-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+          <path fill="#f8f9fa" fill-opacity="1" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+        </svg>
+      </div>
     </header>
 
     <!-- 工具集部分 -->
     <div class="section">
       <div class="section-header">
         <div class="section-line"></div>
-        <h2 class="section-title">常用工具</h2>
+        <h2 class="section-title">校园工具</h2>
         <div class="section-line"></div>
       </div>
+      
+      <!-- 工具网格 - 横排布局 -->
       <div class="tools-grid">
+        <!-- 二手市场 -->
         <div class="tool-card" @click="handleToolClick('market')">
-          <div class="tool-icon">🛒</div>
+          <i class="fa-solid fa-cart-shopping" style="color: rgb(46, 116, 172);"></i>
           <div class="tool-name">二手市场</div>
         </div>
+        <!-- 交易平台 -->
         <div class="tool-card" @click="handleToolClick('transaction')">
-          <div class="tool-icon">💱</div>
+          <i class="fa-solid fa-bag-shopping" style="color: rgb(46, 116, 172);"></i>
           <div class="tool-name">交易平台</div>
         </div>
+        <!-- 备忘录 -->
         <div class="tool-card" @click="handleToolClick('memo')">
-          <div class="tool-icon">📝</div>
+          <i class="fa-solid fa-table" style="color: rgb(46, 116, 172);"></i>
           <div class="tool-name">备忘录</div>
         </div>
+        <!-- 课程表 -->
+        <div class="tool-card tool-placeholder" @click="handleToolClick('comingSoon')">
+          <i class="fa-solid fa-table" style="color: rgb(46, 116, 172);"></i>
+          <div class="tool-name">课程表*</div>
+        </div>
+        <!-- 一卡通 -->
+        <div class="tool-card tool-placeholder" @click="handleToolClick('comingSoon')">
+          <i class="fa-regular fa-id-card" style="color: rgb(46, 116, 172);"></i>
+          <div class="tool-name">一卡通*</div>
+        </div>
+        <!-- 更多按钮 -->
+        <div class="tool-card tool-more" @click="openMoreModal">
+          <i class="fa-solid fa-ellipsis" style="color: rgb(46, 116, 172);"></i>
+          <div class="tool-name">更多</div>
+        </div>
       </div>
+
+      <!-- 更多应用弹窗 - 居中显示 -->
+      <transition name="modal-fade">
+        <div v-if="showMoreModal" class="more-modal" @click.self="closeMoreModal">
+          <div class="more-modal-container">
+            <div class="more-modal-header">
+              <h3>
+                <i class="fa-solid fa-grid-2"></i>
+                全部应用
+              </h3>
+              <button class="more-modal-close" @click="closeMoreModal">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <div class="more-modal-body">
+              <div class="more-apps-grid">
+                <div class="more-app-item" @click="handleToolClick('lost')">
+                  <div class="more-app-icon">🔍</div>
+                  <div class="more-app-name">失物招领*</div>
+                </div>
+                <div class="more-app-item" @click="handleToolClick('activity')">
+                  <div class="more-app-icon">🎉</div>
+                  <div class="more-app-name">校园活动*</div>
+                </div>
+                <div class="more-app-item" @click="handleToolClick('dorm')">
+                  <div class="more-app-icon">🏠</div>
+                  <div class="more-app-name">宿舍报修*</div>
+                </div>
+                <div class="more-app-item" @click="handleToolClick('exam')">
+                  <div class="more-app-icon">📊</div>
+                  <div class="more-app-name">成绩查询*</div>
+                </div>
+                <div class="more-app-item" @click="handleToolClick('map')">
+                  <div class="more-app-icon">🗺️</div>
+                  <div class="more-app-name">校园地图*</div>
+                </div>
+                <div class="more-app-item" @click="handleToolClick('calendar')">
+                  <div class="more-app-icon">📆</div>
+                  <div class="more-app-name">校历*</div>
+                </div>
+                <div class="more-app-item" @click="handleToolClick('library')">
+                  <div class="more-app-icon">📖</div>
+                  <div class="more-app-name">图书馆*</div>
+                </div>
+                <div class="more-app-item" @click="handleToolClick('canteen')">
+                  <div class="more-app-icon">🍜</div>
+                  <div class="more-app-name">食堂信息*</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
     </div>
 
     <!-- 校园新闻部分 -->
@@ -103,11 +194,11 @@
 
     <!-- 返回顶部悬浮按钮 -->
     <div class="back-top-fab" @click="scrollToTop" v-show="showBackTop">
-      <span>↑</span>
+      <i class="fa-solid fa-arrow-up-from-bracket" style="color: rgb(251, 251, 252);"></i>
     </div>
   </div>
 
-  <!-- 底部导航栏 - 移到外面，不受父容器 transform 影响 -->
+  <!-- 底部导航栏 -->
   <div class="bottom-nav">
     <div class="nav-item active">
       <div class="nav-icon">🏠</div>
@@ -129,8 +220,13 @@ import { ref, onMounted, computed, onBeforeUnmount, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import newsApi from '../api/news'
 import auth from '../api/auth'
+import request from '../api/request'
+import { toast } from '../utils/toast';
 
 const router = useRouter()
+
+// 头像占位URL - 请替换为实际图片地址
+const logoIconUrl = ref('/trade-assets/tju-logo.png')
 
 const newsList = ref([])
 const newsPage = ref(1)
@@ -143,6 +239,11 @@ const showBackTop = ref(false)
 const crawlLoading = ref(false)
 const crawlHint = ref('')
 const isLoggedIn = computed(() => auth.isAuthenticated())
+const userInfo = ref(null)
+const loading = ref(false)
+const errorMessage = ref('')
+const showMoreModal = ref(false)
+const avatarLoadFailed = ref(false)
 
 /** 接口未带 total 时的兜底，保证分页区可见且按钮状态正确 */
 const newsTotalDisplay = computed(() => {
@@ -202,7 +303,6 @@ const applyNewsPayload = (d, p) => {
     } else if (newsTotal.value > 0) {
       newsTotalPages.value = Math.max(1, Math.ceil(newsTotal.value / newsPageSize))
     } else {
-      // total 未返回时由前端保守估计至少一页，不阻塞翻页
       newsTotalPages.value = Math.max(1, Math.ceil((d.records.length || 0) / newsPageSize))
     }
     newsPage.value = !Number.isNaN(current) && current > 0 ? current : p
@@ -211,6 +311,16 @@ const applyNewsPayload = (d, p) => {
   newsList.value = []
   newsTotal.value = 0
   newsTotalPages.value = 1
+}
+
+// 打开更多弹窗
+const openMoreModal = () => {
+  showMoreModal.value = true
+}
+
+// 关闭更多弹窗
+const closeMoreModal = () => {
+  showMoreModal.value = false
 }
 
 const loadNews = async (page = newsPage.value) => {
@@ -279,14 +389,41 @@ const goToMarket = () => {
 }
 
 const handleToolClick = (tool) => {
+  closeMoreModal()  // 点击后关闭弹窗
   if (tool === 'market') {
     goToMarket()
   } else if (tool === 'transaction') {
     router.push('/trade')
   } else if (tool === 'memo') {
     router.push('/memo')
+  } else if (tool === 'comingSoon') {
+    toast.warning('功能开发中,敬请期待')
+  } else if (tool === 'lost') {
+    toast.warning('功能开发中,敬请期待')
+  } else if (tool === 'activity') {
+    toast.warning('功能开发中,敬请期待')
+  } else if (tool === 'dorm') {
+    toast.warning('功能开发中,敬请期待')
+  } else if (tool === 'exam') {
+    toast.warning('功能开发中,敬请期待')
+  } else if (tool === 'elective') {
+    toast.warning('功能开发中,敬请期待')
+  } else if (tool === 'map') {
+    toast.warning('功能开发中,敬请期待')
+  } else if (tool === 'weather') {
+    toast.warning('功能开发中,敬请期待')
+  } else if (tool === 'calendar') {
+    toast.warning('功能开发中,敬请期待')
+  } else if (tool === 'library') {
+    toast.warning('功能开发中,敬请期待')
+  } else if (tool === 'bus') {
+    toast.warning('功能开发中,敬请期待')
+  } else if (tool === 'canteen') {
+    toast.warning('功能开发中,敬请期待')
+  } else if (tool === 'repair') {
+    toast.warning('功能开发中,敬请期待')
   } else {
-    alert(`${tool} 功能即将上线，敬请期待！`)
+    toast.warning('功能开发中,敬请期待')
   }
 }
 
@@ -305,8 +442,28 @@ const scrollToTop = () => {
   })
 }
 
+const loadUserData = async () => {
+  loading.value = true
+  errorMessage.value = ''
+  try {
+    const response = await request.get('/api/person')
+    if (response.success) {
+      userInfo.value = response.data
+      auth.setUserInfo(response.data)
+    } else {
+      errorMessage.value = '获取用户信息失败'
+    }
+  } catch (error) {
+    console.error('获取用户信息失败:', error)
+    errorMessage.value = '获取用户信息失败，请重试'
+  } finally {
+    loading.value = false
+  }
+}
+
 onMounted(() => {
   loadNews()
+  loadUserData() 
   window.addEventListener('scroll', handleScroll)
 })
 
@@ -324,58 +481,147 @@ onBeforeUnmount(() => {
   padding: 0;
 }
 
-/****************** header部分 ******************/
+/****************** header部分 - 美化版 ******************/
 .home-page header {
+  position: relative;
   width: 100%;
   margin: 0;
   border-radius: 0;
-  margin-top: 0;
-  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
-  padding: 5vw 4vw 4vw;
+  background: linear-gradient(135deg, #1a5bbf, #00a8e8, #1a5bbf);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+  padding: 5vw 4vw 8vw;
   box-sizing: border-box;
-  box-shadow: 0 4px 12px rgba(58, 123, 213, 0.3);
+  overflow: hidden;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 背景装饰圆 */
+.home-page header .header-bg-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.home-page header .header-bg-decoration::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -20%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+  border-radius: 50%;
+}
+
+.home-page header .header-bg-decoration::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -15%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+  border-radius: 50%;
+}
+
+/* 波浪装饰 */
+.home-page header .header-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  line-height: 0;
+}
+
+.home-page header .header-wave svg {
+  width: 100%;
+  height: auto;
 }
 
 .home-page header .header-content {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 2;
 }
 
+/* Logo区域 - 标题居中 */
 .home-page header .logo-area {
   display: flex;
   align-items: center;
-  gap: 2vw;
+  gap: 3vw;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 
-.home-page header .logo-area .logo-icon {
-  font-size: 7vw;
+.home-page header .logo-icon {
+  width: 12vw;
+  height: 12vw;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.home-page header .logo-area h1 {
-  font-size: 5vw;
-  font-weight: bold;
-  color: #fff;
+.home-page header .logo-icon .logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.home-page header .logo-text {
+  text-align: left;
+}
+
+.home-page header .logo-text h1 {
+  font-family: "PingFang SC", "Microsoft YaHei", "宋体", "KaiTi", serif;
+  font-size: 5.5vw;
+  font-weight: 700;
+  color: white;
   margin: 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  letter-spacing: 2px;
 }
 
-.home-page header .subtitle {
-  font-size: 3.2vw;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 3vw 0 0 0;
-  text-align: center;
+.home-page header .logo-text p {
+  font-size: 2.5vw;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0.5vw 0 0;
+  letter-spacing: 1px;
 }
 
+/* 用户区域保持右侧 */
 .home-page header .user-area {
   cursor: pointer;
+  position: relative;
+  z-index: 2;
+  margin-left: auto;
 }
 
 .home-page header .login-btn {
   background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
   color: white;
   padding: 2vw 3.5vw;
-  border-radius: 5vw;
+  border-radius: 8vw;
   font-size: 3.2vw;
   display: flex;
   align-items: center;
@@ -390,16 +636,29 @@ onBeforeUnmount(() => {
 }
 
 .home-page header .user-avatar {
-  width: 10vw;
-  height: 10vw;
+  width: 12vw;
+  height: 12vw;
   background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 5vw;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.4);
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.home-page header .user-avatar .avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-page header .user-icon i {
+  font-size: 6vw;
+  color: white;
 }
 
 .home-page header .user-avatar:active {
@@ -436,134 +695,188 @@ onBeforeUnmount(() => {
   color: transparent;
 }
 
-.home-page .news-block-header {
-  margin-bottom: 2vw;
-}
-
-.home-page .news-block-header .section-header {
-  margin-bottom: 3vw;
-}
-
-.home-page .news-toolbar {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 3vw;
-}
-
-.home-page .news-refresh-btn {
-  padding: 1.6vw 3.6vw;
-  font-size: 3.2vw;
-  color: #3a7bd5;
-  background: #eef6ff;
-  border: 1px solid rgba(58, 123, 213, 0.25);
-  border-radius: 2vw;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.home-page .news-refresh-btn:disabled {
-  opacity: 0.65;
-  cursor: not-allowed;
-}
-
-.home-page .news-refresh-btn:active:not(:disabled) {
-  background: #e0eeff;
-}
-
-.home-page .news-crawl-hint {
-  font-size: 2.8vw;
-  color: #5a7a9a;
-  margin: 0 0 3vw;
-  padding: 0 0.5vw;
-}
-
-.home-page .news-loading-hint {
-  font-size: 3vw;
-  color: #999;
-  text-align: center;
-  margin-bottom: 2vw;
-}
-
-.home-page .news-pagination {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 2vw 3vw;
-  margin-top: 4vw;
-  padding: 3.5vw 2vw;
-  background: #fff;
-  border-radius: 2vw;
-  border: 1px solid rgba(58, 123, 213, 0.2);
-  box-shadow: 0 2px 12px rgba(58, 123, 213, 0.08);
-  margin-bottom: 80px;
-}
-
-.home-page .news-page-btn {
-  padding: 1.8vw 4vw;
-  font-size: 3.2vw;
-  color: #3a7bd5;
-  background: #eef6ff;
-  border: 1px solid rgba(58, 123, 213, 0.25);
-  border-radius: 2vw;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.home-page .news-page-btn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
-.home-page .news-page-info {
-  font-size: 2.8vw;
-  color: #666;
-  text-align: center;
-  flex: 1 1 100%;
-}
-
-@media (min-width: 480px) {
-  .home-page .news-page-info {
-    flex: 0 1 auto;
-  }
-}
-
 /****************** 工具网格 ******************/
 .home-page .tools-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4vw;
-  background: white;
+  gap: 3vw;
+  background: #f8f9fa;
   border-radius: 3vw;
-  padding: 5vw 3vw;
+  padding: 4vw 3vw;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
 
 .home-page .tool-card {
+  background: white;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 2vw;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 2vw;
+  padding: 2.5vw 2vw;
   border-radius: 2vw;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .home-page .tool-card:active {
-  transform: scale(0.95);
-  background-color: #f0f7ff;
+  transform: scale(0.96);
+  background-color: #e8f0fe;
 }
 
 .home-page .tool-icon {
-  font-size: 12vw;
-  margin-bottom: 2vw;
+  font-size: 5vw;
+  flex-shrink: 0;
 }
 
 .home-page .tool-name {
   font-size: 3.2vw;
   color: #555;
   font-weight: 500;
+  white-space: nowrap;
+}
+
+.home-page .tool-placeholder .tool-icon,
+.home-page .tool-more .tool-icon {
+  opacity: 0.7;
+}
+
+/****************** 更多应用弹窗 - 居中 ******************/
+.more-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.more-modal-container {
+  width: 85%;
+  max-width: 400px;
+  max-height: 80vh;
+  background: white;
+  border-radius: 5vw;
+  overflow: hidden;
+  animation: modalSlideUp 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.more-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4vw 5vw;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+}
+
+.more-modal-header h3 {
+  color: white;
+  font-size: 4.5vw;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+
+.more-modal-header h3 i {
+  font-size: 5vw;
+}
+
+.more-modal-close {
+  width: 8vw;
+  height: 8vw;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  font-size: 5vw;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.more-modal-close:active {
+  transform: scale(0.92);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.more-modal-body {
+  padding: 5vw;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* 弹窗内的网格布局 - 与工具网格风格一致 */
+.more-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3vw;
+}
+
+.more-app-item {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5vw;
+  cursor: pointer;
+  padding: 3vw 1vw;
+  border-radius: 3vw;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+}
+
+.more-app-item:active {
+  transform: scale(0.95);
+  background-color: #f0f7ff;
+}
+
+.more-app-icon {
+  font-size: 8vw;
+}
+
+.more-app-name {
+  font-size: 3vw;
+  color: #555;
+  text-align: center;
+  font-weight: 500;
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+
+.modal-fade-enter-from .more-modal-container,
+.modal-fade-leave-to .more-modal-container {
+  transform: translateY(30px);
 }
 
 /****************** 新闻列表 ******************/
@@ -621,6 +934,94 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   gap: 1vw;
+}
+
+/****************** 新闻分页 ******************/
+.home-page .news-block-header {
+  margin-bottom: 2vw;
+}
+
+.home-page .news-block-header .section-header {
+  margin-bottom: 3vw;
+}
+
+.home-page .news-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 3vw;
+}
+
+.home-page .news-refresh-btn {
+  padding: 1.6vw 3.6vw;
+  font-size: 3.2vw;
+  color: #3a7bd5;
+  background: #eef6ff;
+  border: 1px solid rgba(58, 123, 213, 0.25);
+  border-radius: 2vw;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.home-page .news-refresh-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.home-page .news-refresh-btn:active:not(:disabled) {
+  background: #e0eeff;
+}
+
+.home-page .news-crawl-hint {
+  font-size: 2.8vw;
+  color: #5a7a9a;
+  margin: 0 0 3vw;
+  padding: 0 0.5vw;
+}
+
+.home-page .news-loading-hint {
+  font-size: 3vw;
+  color: #999;
+  text-align: center;
+  margin-bottom: 2vw;
+}
+
+.home-page .news-pagination {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw 3vw;
+  margin-top: 4vw;
+  padding: 3.5vw 2vw;
+  background: #fff;
+  border-radius: 2vw;
+  border: 1px solid rgba(58, 123, 213, 0.2);
+  box-shadow: 0 2px 12px rgba(58, 123, 213, 0.08);
+  margin-bottom: 80px;
+}
+
+.home-page .news-page-btn {
+  padding: 1.8vw 4vw;
+  font-size: 3.2vw;
+  color: #3a7bd5;
+  background: #eef6ff;
+  border: 1px solid rgba(58, 123, 213, 0.25);
+  border-radius: 2vw;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.home-page .news-page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.home-page .news-page-info {
+  font-size: 2.8vw;
+  color: #666;
+  text-align: center;
+  flex: 1 1 100%;
 }
 
 /****************** 空状态样式 ******************/

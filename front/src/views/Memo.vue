@@ -3,7 +3,7 @@
     <header>
       <div class="header-content">
         <div class="back-btn" @click="goBack">
-          <span>←</span>
+          <i class="fa-solid fa-backward"></i>
         </div>
         <div class="page-title">
           <span class="title-icon">📝</span>
@@ -29,14 +29,11 @@
           @click="setFilter(c.id)"
         >
           <span>{{ c.name }}</span>
-          <span class="chip-del" @click.stop="removeCategory(c)">×</span>
+          <span class="chip-del" @click.stop="openConfirmModal(c)">×</span>
         </div>
-        <div class="chip chip-add" @click="addCategory">＋</div>
+        <div class="chip chip-add" @click="openCategoryModal"><span><i class="fa-solid fa-plus" style="color: rgb(251, 251, 252);"></i></span></div>
       </div>
       <div class="notif-tip">
-        <p class="notif-tip-text">
-          到点后会尝试弹出<strong>系统通知</strong>（需授权、保持登录；页面在后台时浏览器可能降频，建议重要事项用手机日历作备份）。
-        </p>
         <div class="notif-tip-actions">
           <button
             v-if="notifPerm === 'default'"
@@ -49,7 +46,13 @@
           <span v-else-if="notifPerm === 'granted'" class="notif-status ok">已开启系统通知</span>
           <span v-else-if="notifPerm === 'denied'" class="notif-status warn">浏览器已拒绝通知，可在地址栏「网站设置」中改为允许</span>
           <span v-else class="notif-status warn">当前环境不支持系统通知</span>
+          <p class="notif-tip-text">
+          到点后会尝试弹出<strong>系统通知</strong>（需授权、保持登录；页面在后台时浏览器可能降频，建议重要事项用手机日历作备份）。
+        </p>
         </div>
+        
+        
+        
       </div>
     </header>
 
@@ -81,7 +84,7 @@
     </div>
 
     <div class="fab-btn" @click="openNewMemo">
-      <span class="fab-icon">+</span>
+      <i class="fa-solid fa-plus" style="color: rgb(251, 251, 252);"></i>
     </div>
 
     <!-- 编辑抽屉 -->
@@ -165,6 +168,47 @@
       </div>
     </div>
   </div>
+
+  <!-- 自定义确认弹窗 -->
+<div v-if="showConfirmModal" class="confirm-modal" @click.self="closeConfirmModal">
+  <div class="confirm-modal-content">
+    <div class="confirm-modal-header">
+      <h3>确认删除</h3>
+    </div>
+    <div class="confirm-modal-body">
+      <p>删除分类「{{ deletingCategory?.name }}」？</p>
+      <p class="confirm-hint">下属备忘将变为未分类。</p>
+    </div>
+    <div class="confirm-modal-footer">
+      <button class="confirm-btn cancel" @click="closeConfirmModal">取消</button>
+      <button class="confirm-btn confirm" @click="confirmDeleteCategory">确认删除</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- 添加分类弹窗 -->
+<div v-if="showCategoryModal" class="confirm-modal" @click.self="closeCategoryModal">
+  <div class="confirm-modal-content">
+    <div class="confirm-modal-header">
+      <h3>新建分类</h3>
+    </div>
+    <div class="confirm-modal-body">
+      <p>请输入分类名称：</p>
+      <input 
+        v-model="newCategoryName" 
+        class="modal-input" 
+        type="text" 
+        placeholder="例如：工作、学习、生活"
+        autofocus
+      />
+    </div>
+    <div class="confirm-modal-footer">
+      <button class="confirm-btn cancel" @click="closeCategoryModal">取消</button>
+      <button class="confirm-btn confirm" @click="confirmAddCategory">确认添加</button>
+    </div>
+  </div>
+</div>
 </template>
 
 <script setup>
@@ -187,6 +231,35 @@ const filterCategoryId = ref(null)
 const loading = ref(false)
 const saving = ref(false)
 const newTaskTitle = ref('')
+const showConfirmModal = ref(false)
+const deletingCategory = ref(null)
+const showCategoryModal = ref(false)
+const newCategoryName = ref('')
+
+const openConfirmModal = (category) => {
+  deletingCategory.value = category
+  showConfirmModal.value = true
+}
+
+const closeConfirmModal = () => {
+  showConfirmModal.value = false
+  deletingCategory.value = null
+}
+
+const confirmDeleteCategory = async () => {
+  if (!deletingCategory.value) return
+  try {
+    await memoApi.categoryDelete(deletingCategory.value.id)
+    if (filterCategoryId.value === deletingCategory.value.id) filterCategoryId.value = null
+    await loadCategories()
+    await loadMemos()
+  } catch (e) {
+    console.error(e)
+    toast.warning('删除失败')
+  } finally {
+    closeConfirmModal()
+  }
+}
 
 const editor = reactive({
   show: false,
@@ -274,7 +347,7 @@ const togglePin = async (m) => {
     await loadMemos()
   } catch (e) {
     console.error(e)
-    alert('操作失败')
+    toast.warning('操作失败')
   }
 }
 
@@ -310,7 +383,7 @@ const openEditor = async (id) => {
     newTaskTitle.value = ''
   } catch (e) {
     console.error(e)
-    alert('加载失败')
+    toast.warning('加载失败')
   }
 }
 
@@ -320,7 +393,7 @@ const clearEditorRemind = () => {
 
 const saveMemo = async () => {
   if (!editor.title.trim()) {
-    alert('请填写标题')
+    toast.warning('请填写标题')
     return
   }
   saving.value = true
@@ -364,7 +437,7 @@ const saveMemo = async () => {
     await loadMemos()
   } catch (e) {
     console.error(e)
-    alert('保存失败')
+    toast.warning('保存失败')
   } finally {
     saving.value = false
   }
@@ -389,7 +462,7 @@ const onTaskToggle = async (t, checked) => {
     t.done = checked ? 1 : 0
   } catch (e) {
     console.error(e)
-    alert('更新子任务失败')
+    toast.warning('更新子任务失败')
   }
 }
 
@@ -408,7 +481,7 @@ const addTask = async () => {
     editor.tasks = data.tasks || []
   } catch (e) {
     console.error(e)
-    alert('添加子任务失败')
+    toast.warning('添加子任务失败')
   }
 }
 
@@ -419,7 +492,7 @@ const removeTask = async (t) => {
     editor.tasks = editor.tasks.filter((x) => x.id !== t.id)
   } catch (e) {
     console.error(e)
-    alert('删除失败')
+    toast.warning('删除失败')
   }
 }
 
@@ -430,7 +503,7 @@ const openReminders = async () => {
     reminderPanel.show = true
   } catch (e) {
     console.error(e)
-    alert('加载提醒失败')
+    toast.warning('加载提醒失败')
   }
 }
 
@@ -448,11 +521,11 @@ const enableDesktopNotify = async () => {
   refreshNotifPerm()
   if (r.ok) {
     startMemoReminderScheduler()
-    alert('已开启。到点后若本标签页仍打开，将弹出系统通知。')
+    toast.warning('已开启。到点后若本标签页仍打开，将弹出系统通知。')
   } else if (r.reason === 'denied') {
-    alert('未获得通知权限，请在浏览器里允许本站发送通知。')
+    toast.warning('未获得通知权限，请在浏览器里允许本站发送通知。')
   } else {
-    alert('未能开启通知，请重试或更换浏览器。')
+    toast.warning('未能开启通知，请重试或更换浏览器。')
   }
 }
 
@@ -465,9 +538,40 @@ onMounted(async () => {
     await loadMemos()
   } catch (e) {
     console.error(e)
-    alert('加载失败，请确认已登录且网关可用')
+    toast.warning('加载失败，请确认已登录且网关可用')
   }
 })
+
+
+
+// 打开添加分类弹窗
+const openCategoryModal = () => {
+  newCategoryName.value = ''
+  showCategoryModal.value = true
+}
+
+// 关闭添加分类弹窗
+const closeCategoryModal = () => {
+  showCategoryModal.value = false
+  newCategoryName.value = ''
+}
+
+// 确认添加分类
+const confirmAddCategory = async () => {
+  const name = newCategoryName.value.trim()
+  if (!name) {
+    alert('请输入分类名称')
+    return
+  }
+  try {
+    await memoApi.categoryAdd({ name: name.trim(), sortOrder: 0 })
+    await loadCategories()
+    closeCategoryModal()
+  } catch (e) {
+    console.error(e)
+    alert('添加失败')
+  }
+}
 </script>
 
 <style scoped>
@@ -475,14 +579,24 @@ onMounted(async () => {
   min-height: 100vh;
   background: #f8f9fa;
   padding-bottom: 24vw;
+  /* 添加强制重置 */
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
 }
 
 .memo-page header {
   background: linear-gradient(135deg, #3a7bd5, #00d2ff);
   padding: 4vw 4vw 3vw;
   box-shadow: 0 4px 12px rgba(58, 123, 213, 0.25);
+  border-radius: 0;
+  margin: 0;
+  width: 100%;
+  /* 确保没有负边距 */
+  margin-left: 0;
+  margin-right: 0;
 }
-
 .header-content {
   display: flex;
   align-items: center;
@@ -918,5 +1032,115 @@ onMounted(async () => {
   font-size: 3vw;
   color: #c45c26;
   margin-top: 1vw;
+}
+
+
+/* 自定义确认弹窗 */
+.confirm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.confirm-modal-content {
+  width: 70%;
+  max-width: 300px;
+  background: white;
+  border-radius: 4vw;
+  overflow: hidden;
+  animation: modalPop 0.2s ease;
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.confirm-modal-header {
+  padding: 4vw;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  text-align: center;
+}
+
+.confirm-modal-header h3 {
+  color: white;
+  font-size: 4.5vw;
+  margin: 0;
+  font-weight: 600;
+}
+
+.confirm-modal-body {
+  padding: 5vw 4vw;
+  text-align: center;
+}
+
+.confirm-modal-body p {
+  font-size: 3.8vw;
+  color: #333;
+  margin: 0 0 2vw;
+}
+
+.confirm-hint {
+  font-size: 3vw !important;
+  color: #999 !important;
+}
+
+.confirm-modal-footer {
+  display: flex;
+  gap: 3vw;
+  padding: 3vw 4vw 5vw;
+}
+
+.confirm-btn {
+  flex: 1;
+  padding: 3vw;
+  border: none;
+  border-radius: 3vw;
+  font-size: 3.6vw;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.confirm-btn.cancel {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.confirm-btn.confirm {
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+  color: white;
+}
+
+.confirm-btn:active {
+  transform: scale(0.97);
+}
+
+
+.modal-input {
+  width: 100%;
+  padding: 3vw;
+  border: 1px solid #ddd;
+  border-radius: 2vw;
+  font-size: 3.6vw;
+  margin-top: 2vw;
+  box-sizing: border-box;
+}
+
+.modal-input:focus {
+  outline: none;
+  border-color: #3a7bd5;
 }
 </style>

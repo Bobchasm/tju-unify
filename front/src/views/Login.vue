@@ -60,11 +60,11 @@ const loading = ref(false)
 
 const login = async () => {
   if (!username.value.trim()) {
-    alert('请输入用户名')
+    toast.warning('请输入用户名')
     return
   }
   if (!password.value.trim()) {
-    alert('请输入密码')
+    toast.warning('请输入密码')
     return
   }
 
@@ -82,7 +82,7 @@ const login = async () => {
       console.log('登录成功，跳转首页')
       router.push('/')
     } else {
-      alert('登录失败，未获取到 token，请重试')
+      toast.warning('登录失败，未获取到 token，请重试')
     }
   } catch (error) {
     console.error('登录错误:', error)
@@ -101,7 +101,7 @@ const login = async () => {
       router.push('/')
       return
     }
-    alert(errorMsg)
+    toast.warning(errorMsg)
   } finally {
     loading.value = false
   }

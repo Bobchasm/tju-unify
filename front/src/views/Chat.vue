@@ -4,7 +4,7 @@
     <header>
       <div class="header-content">
         <div class="back-btn" @click="goBack">
-          <span>←</span>
+          <i class="fa-solid fa-backward"></i>
         </div>
         <div class="chat-title">
           <span class="title-icon">🤖</span>
@@ -31,7 +31,18 @@
     <div class="chat-messages" ref="messagesContainer">
       <div v-for="(msg, index) in messages" :key="index" class="message" :class="msg.role">
         <div class="message-avatar">
-          {{ msg.role === 'user' ? '👤' : '🤖' }}
+            <!-- 用户消息且已登录且有头像 -->
+            <img 
+              v-if="msg.role === 'user' && userInfo?.photo && !avatarLoadFailed"
+              :src="userInfo.photo" 
+              alt="头像"
+              class="avatar-img"
+              @error="avatarLoadFailed = true"
+            />
+            <!-- 用户消息但无头像 -->
+            <span v-else-if="msg.role === 'user'">👤</span>
+            <!-- 机器人消息 -->
+            <span v-else>🤖</span>
         </div>
         <div class="message-content" :class="{ 'message-content--assistant': msg.role === 'assistant' }">
           <template v-if="msg.role === 'assistant'">
@@ -115,6 +126,7 @@ import DOMPurify from 'dompurify'
 import agentApi from '../api/agent'
 import auth from '../api/auth'
 import { memoAgentSnapshot } from '../api/memo'
+import request from '../api/request'
 
 marked.use({
   gfm: true,
@@ -152,6 +164,9 @@ const chatSessions = ref([])
 const historyListLoading = ref(false)
 const historyDetailLoading = ref(false)
 const sessionsError = ref('')
+const userInfo = ref(null)
+const avatarLoadFailed = ref(false)
+const loading = ref(false)
 
 function formatSessionTime(tsMs) {
   if (tsMs == null || Number.isNaN(Number(tsMs))) return ''
@@ -321,6 +336,17 @@ function buildWarmOpeningFromSnapshot(s) {
   return parts.join('\n\n')
 }
 
+const loadUserInfo = async () => {
+  try {
+    const response = await request.get('/api/person')
+    if (response.success) {
+      userInfo.value = response.data
+      auth.setUserInfo(response.data)
+    }
+  } catch (error) {
+    console.error('获取用户信息失败:', error)
+  }
+}
 const messages = ref([{ role: 'assistant', content: DEFAULT_ASSISTANT_OPENING }])
 
 // 监听滚动显示返回顶部按钮
@@ -355,6 +381,7 @@ function applyServerMessages(msgs) {
 
 onMounted(async () => {
   scrollToBottom()
+  loadUserInfo()
   window.addEventListener('scroll', handleScroll)
   let restored = false
   const sidFromLs = (() => {
@@ -733,6 +760,13 @@ const sendMessage = async () => {
   font-size: 5vw;
   flex-shrink: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.message-avatar .avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .message-content {
