@@ -195,10 +195,10 @@ tju-unify/
 如有问题或建议，请通过以下方式联系：
 
 - **邮箱**：  
-  zengyicydd@tju.edu.cn  
-  gaocan@tju.edu.cn  
-  daimingjing142857@tju.edu.cn
-  yxy641121@gmail.com  
+  zengyicydd@tju.edu.cn  <br>
+  gaocan@tju.edu.cn  <br>
+  daimingjing142857@tju.edu.cn  <br>
+  yxy641121@gmail.com  <br>
   jsyy@tju.edu.cn
 
 - **Gitee Issues**：提交问题到项目仓库
