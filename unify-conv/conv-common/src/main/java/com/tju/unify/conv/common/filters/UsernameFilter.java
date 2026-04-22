@@ -24,7 +24,8 @@ public class UsernameFilter implements Filter {
             "/ws/**",
             "/**/v3/api-docs/**",
             "/**/swagger-ui/**",
-            "/**/swagger-ui.html"
+            "/**/swagger-ui.html",
+            "/unify-api/news/schoolNews/**"
     };
 
 

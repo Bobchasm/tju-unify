@@ -431,7 +431,7 @@ const handleUserClick = () => {
   if (isLoggedIn.value) {
     router.push('/profile')
   } else {
-    router.push('/trade/login')
+    router.push('/login')
   }
 }
 
@@ -443,6 +443,12 @@ const scrollToTop = () => {
 }
 
 const loadUserData = async () => {
+  // 未登录用户不请求个人信息
+  if (!auth.isAuthenticated()) {
+    console.log('用户未登录，跳过获取个人信息')
+    return
+  }
+  
   loading.value = true
   errorMessage.value = ''
   try {
@@ -450,12 +456,13 @@ const loadUserData = async () => {
     if (response.success) {
       userInfo.value = response.data
       auth.setUserInfo(response.data)
-    } else {
-      errorMessage.value = '获取用户信息失败'
     }
   } catch (error) {
     console.error('获取用户信息失败:', error)
-    errorMessage.value = '获取用户信息失败，请重试'
+    // 401 表示 token 无效，清除登录状态
+    if (error.response?.status === 401) {
+      auth.logout()
+    }
   } finally {
     loading.value = false
   }
