@@ -5,13 +5,12 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.tju.unify.conv.news.Task.TjuNewsCrawlerTask;
 import com.tju.unify.conv.news.mapper.SchoolNewsMapper;
 import com.tju.unify.conv.news.pojo.SchoolNews;
-import io.swagger.v3.oas.models.examples.Example;
+import com.tju.unify.conv.news.pojo.dto.SchoolNewsPageVO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -63,26 +62,35 @@ public class SchoolNewsService {
         schoolNewsMapper.deleteById(id);
     }
 
-    public List<SchoolNews> getByFlag(Long flag, int page) {
-        // 构建查询条件
+    public SchoolNewsPageVO getByFlag(Long flag, int page, int size) {
+        if (page < 1) {
+            page = 1;
+        }
+        if (size < 1) {
+            size = 8;
+        }
+        if (size > 50) {
+            size = 50;
+        }
+
         LambdaQueryWrapper<SchoolNews> queryWrapper = new LambdaQueryWrapper<>();
-        
-        // 如果 flag 为 null 或 0，则查询所有 flag 的新闻
         if (flag != null && flag != 0) {
             queryWrapper.eq(SchoolNews::getFlag, flag);
         }
-        
-        // 只按 ID 倒序，不强制要求 content 不为空
         queryWrapper.orderByDesc(SchoolNews::getId);
 
-        // 分页查询
         Page<SchoolNews> pageResult = schoolNewsMapper.selectPage(
-                new Page<>(page, 10),
+                new Page<>(page, size),
                 queryWrapper
         );
 
-        // 返回当前页的数据列表
-        return pageResult.getRecords();
+        SchoolNewsPageVO vo = new SchoolNewsPageVO();
+        vo.setRecords(pageResult.getRecords());
+        vo.setTotal(pageResult.getTotal());
+        vo.setCurrent(pageResult.getCurrent());
+        vo.setSize(pageResult.getSize());
+        vo.setPages(pageResult.getPages());
+        return vo;
     }
 
     public SchoolNews getById(String id) {

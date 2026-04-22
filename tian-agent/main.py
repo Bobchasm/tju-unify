@@ -13,6 +13,7 @@ from typing import List, Dict, Any, Optional
 from agent.react_agent import ReactAgent
 from utils.config_handler import agent_conf
 from utils.conversation_summary_store import load_summary, save_summary
+from utils import chat_history_store
 from utils.unify_api_context import unify_api_context
 
 app = FastAPI(title="小智 · 天津大学校园生活助手 API")
@@ -45,6 +46,11 @@ class ChatResponse(BaseModel):
     response: str = Field(..., description="响应内容")
 
 sessions: Dict[str, Dict[str, Any]] = {}
+
+
+def _chat_history_dir() -> str:
+    return str((agent_conf or {}).get("chat_history_store_dir", "data/chat_history"))
+
 
 @app.get("/")
 async def root():
@@ -86,7 +92,13 @@ async def chat(request: ChatRequest) -> ChatResponse:
         with unify_api_context(request.bearer_token):
             for chunk in agent_instance.execute_stream(agent_messages=agent_messages):
                 full_response += chunk
-        
+
+        hist = list(messages) + [{"role": "assistant", "content": full_response}]
+        try:
+            chat_history_store.save_messages(_chat_history_dir(), session_id, hist)
+        except Exception:
+            pass
+
         return ChatResponse(
             session_id=session_id,
             response=full_response
@@ -122,17 +134,60 @@ async def chat_stream(request: ChatRequest):
         if sessions[session_id]["persist_enabled"]:
             save_summary(sessions[session_id]["store_dir"], session_id, updated_summary)
         
+        messages_snapshot = [dict(m) for m in messages]
+
         async def generate():
+            # 首帧下发 session_id，便于前端多轮与摘要续上同一会话
+            yield "data: " + json.dumps(
+                {"event": "session", "session_id": session_id}, ensure_ascii=False
+            ) + "\n\n"
+            parts: List[str] = []
             with unify_api_context(request.bearer_token):
                 for chunk in agent_instance.execute_stream(agent_messages=agent_messages):
+                    parts.append(chunk)
                     # chunk 内可含换行；必须单行编码，否则会破坏 SSE，前端只能收到首行。
                     yield "data: " + json.dumps(chunk, ensure_ascii=False) + "\n\n"
+            assistant_full = "".join(parts)
+            hist = messages_snapshot + [{"role": "assistant", "content": assistant_full}]
+            try:
+                chat_history_store.save_messages(_chat_history_dir(), session_id, hist)
+            except Exception:
+                pass
             yield f"data: [DONE]\n\n"
         
         return StreamingResponse(
             generate(), media_type="text/event-stream")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/chat/sessions")
+async def list_chat_sessions(limit: int = 50):
+    """列出本机 tian-agent 已持久化的会话（按最近更新时间倒序）。"""
+    lim = limit if 1 <= limit <= 200 else 50
+    sessions = chat_history_store.list_sessions(_chat_history_dir(), limit=lim)
+    return {"sessions": sessions}
+
+
+@app.get("/api/chat/history")
+async def get_chat_history(session_id: str = ""):
+    """按 session_id 拉取已持久化的完整对话（换浏览器/清缓存后仍可恢复）。"""
+    sid = (session_id or "").strip()
+    if not sid:
+        return {"session_id": "", "messages": []}
+    msgs = chat_history_store.load_messages(_chat_history_dir(), sid)
+    return {"session_id": sid, "messages": msgs}
+
+
+@app.delete("/api/chat/history")
+async def delete_chat_history(session_id: str = ""):
+    """删除某会话的完整对话记录文件。"""
+    sid = (session_id or "").strip()
+    if not sid:
+        return {"ok": False, "detail": "session_id required"}
+    chat_history_store.delete_messages(_chat_history_dir(), sid)
+    return {"ok": True, "session_id": sid}
+
 
 if __name__ == "__main__":
     import uvicorn

@@ -11,11 +11,9 @@ import com.tju.unify.conv.common.utils.UserContext;
 import com.tju.unify.conv.transaction.mapper.PostMapper;
 import com.tju.unify.conv.transaction.pojo.entity.Post;
 import lombok.extern.slf4j.Slf4j;
-import org.bouncycastle.cms.PasswordRecipientId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Wrapper;
 import java.util.List;
 import java.util.Objects;
 
@@ -63,7 +61,10 @@ public class PostService {
     }
 
     public List<Post> searchPosts(String keyword) {
-        return null;
+        if (keyword == null || keyword.isBlank()) {
+            return List.of();
+        }
+        return postMapper.searchPostsByKeyword(keyword.trim());
     }
 
     public Post getPostDetail(Integer id) {

@@ -37,20 +37,34 @@
           <div class="tool-icon">💱</div>
           <div class="tool-name">交易平台</div>
         </div>
-        <div class="tool-card" @click="handleToolClick('more')">
-          <div class="tool-icon">📋</div>
-          <div class="tool-name">更多功能</div>
+        <div class="tool-card" @click="handleToolClick('memo')">
+          <div class="tool-icon">📝</div>
+          <div class="tool-name">备忘录</div>
         </div>
       </div>
     </div>
 
     <!-- 校园新闻部分 -->
     <div class="section">
-      <div class="section-header">
-        <div class="section-line"></div>
-        <h2 class="section-title">校园新闻</h2>
-        <div class="section-line"></div>
+      <div class="news-block-header">
+        <div class="section-header">
+          <div class="section-line"></div>
+          <h2 class="section-title">校园新闻</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="news-toolbar">
+          <button
+            type="button"
+            class="news-refresh-btn"
+            :disabled="crawlLoading"
+            @click="onRefreshNews"
+          >
+            {{ crawlLoading ? '拉取中…' : '🔄 拉取最新' }}
+          </button>
+        </div>
       </div>
+      <p v-if="crawlHint" class="news-crawl-hint">{{ crawlHint }}</p>
+      <p v-if="newsLoading" class="news-loading-hint">加载中…</p>
       <div class="news-list">
         <div class="news-card" v-for="news in newsList" :key="news.id" @click="openNews(news)">
           <div class="news-title">{{ news.title }}</div>
@@ -59,10 +73,31 @@
             <span class="news-read">查看详情 ▶</span>
           </div>
         </div>
-        <div v-if="newsList.length === 0" class="empty-state">
+        <div v-if="newsList.length === 0 && !newsLoading" class="empty-state">
           <span>📰</span>
           <p>暂无新闻</p>
         </div>
+      </div>
+      <div v-if="newsList.length > 0" class="news-pagination">
+        <button
+          type="button"
+          class="news-page-btn"
+          :disabled="newsPage <= 1 || newsLoading"
+          @click="goNewsPage(newsPage - 1)"
+        >
+          上一页
+        </button>
+        <span class="news-page-info"
+          >第 {{ newsPage }} / {{ newsTotalPagesDisplay }} 页（共 {{ newsTotalDisplay }} 条）</span
+        >
+        <button
+          type="button"
+          class="news-page-btn"
+          :disabled="!canGoNewsNext"
+          @click="goNewsPage(newsPage + 1)"
+        >
+          下一页
+        </button>
       </div>
     </div>
 
@@ -90,7 +125,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed, onBeforeUnmount } from 'vue'
+import { ref, onMounted, computed, onBeforeUnmount, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import newsApi from '../api/news'
 import auth from '../api/auth'
@@ -98,23 +133,132 @@ import auth from '../api/auth'
 const router = useRouter()
 
 const newsList = ref([])
+const newsPage = ref(1)
+const newsPageSize = 8
+const newsTotal = ref(0)
+const newsTotalPages = ref(1)
+const newsModeLegacy = ref(false)
+const newsLoading = ref(false)
 const showBackTop = ref(false)
+const crawlLoading = ref(false)
+const crawlHint = ref('')
 const isLoggedIn = computed(() => auth.isAuthenticated())
+
+/** 接口未带 total 时的兜底，保证分页区可见且按钮状态正确 */
+const newsTotalDisplay = computed(() => {
+  const t = newsTotal.value
+  if (t > 0) return t
+  if (newsList.value.length > 0 && newsModeLegacy.value) {
+    return newsList.value.length
+  }
+  if (newsList.value.length > 0) {
+    return (newsPage.value - 1) * newsPageSize + newsList.value.length
+  }
+  return 0
+})
+
+const newsTotalPagesDisplay = computed(() => {
+  const p = newsTotalPages.value
+  if (p > 0) return p
+  const tot = newsTotalDisplay.value
+  if (tot <= 0) return 1
+  return Math.max(1, Math.ceil(tot / newsPageSize))
+})
+
+/** 是否还能点「下一页」：有 total 时按总页数；无 total 时本页条数=每页大小时允许再试（避免误拦截） */
+const canGoNewsNext = computed(() => {
+  if (newsLoading.value) return false
+  if (newsModeLegacy.value) return false
+  if (newsList.value.length < newsPageSize) return false
+  if (newsTotal.value > 0) {
+    return newsPage.value < newsTotalPagesDisplay.value
+  }
+  return true
+})
 
 // 监听滚动显示返回顶部按钮
 const handleScroll = () => {
   showBackTop.value = window.scrollY > 300
 }
 
-const loadNews = async () => {
+const applyNewsPayload = (d, p) => {
+  if (Array.isArray(d)) {
+    newsModeLegacy.value = true
+    newsList.value = d
+    newsTotal.value = d.length
+    newsTotalPages.value = 1
+    newsPage.value = 1
+    return
+  }
+  if (d && Array.isArray(d.records)) {
+    newsModeLegacy.value = false
+    newsList.value = d.records
+    const current = Number(d.current)
+    const rawTotal = Number(d.total)
+    newsTotal.value = !Number.isNaN(rawTotal) && rawTotal >= 0 ? rawTotal : 0
+    const rawPages = Number(d.pages)
+    if (!Number.isNaN(rawPages) && rawPages > 0) {
+      newsTotalPages.value = rawPages
+    } else if (newsTotal.value > 0) {
+      newsTotalPages.value = Math.max(1, Math.ceil(newsTotal.value / newsPageSize))
+    } else {
+      // total 未返回时由前端保守估计至少一页，不阻塞翻页
+      newsTotalPages.value = Math.max(1, Math.ceil((d.records.length || 0) / newsPageSize))
+    }
+    newsPage.value = !Number.isNaN(current) && current > 0 ? current : p
+    return
+  }
+  newsList.value = []
+  newsTotal.value = 0
+  newsTotalPages.value = 1
+}
+
+const loadNews = async (page = newsPage.value) => {
+  newsLoading.value = true
   try {
-    const response = await newsApi.getNews()
+    const p = page < 1 ? 1 : page
+    const response = await newsApi.getNews(p, 0, newsPageSize)
     console.log('新闻API响应:', response)
-    if (response && response.success && response.data) {
-      newsList.value = response.data || []
+    if (response && response.success && response.data != null) {
+      applyNewsPayload(response.data, p)
     }
   } catch (error) {
     console.error('加载新闻失败:', error)
+  } finally {
+    newsLoading.value = false
+  }
+}
+
+const goNewsPage = async (next) => {
+  if (next < 1) return
+  await loadNews(next)
+  nextTick(() => {
+    document.querySelector('.news-block-header')?.scrollIntoView({ block: 'start', behavior: 'smooth' })
+  })
+}
+
+/** 触发自有爬虫拉取最新新闻入库，并延时重新拉列表（爬虫为异步） */
+const onRefreshNews = async () => {
+  if (crawlLoading.value) return
+  crawlLoading.value = true
+  crawlHint.value = ''
+  try {
+    const res = await newsApi.triggerNewsCrawler()
+    if (res && res.success) {
+      crawlHint.value = res.data || '已开始更新，请稍候…'
+      setTimeout(() => loadNews(1), 2500)
+      setTimeout(() => loadNews(1), 6000)
+      setTimeout(() => {
+        crawlHint.value = ''
+      }, 8000)
+    } else {
+      crawlHint.value = res?.message || '更新失败，请稍后再试'
+    }
+  } catch (error) {
+    console.error('触发新闻爬取失败:', error)
+    crawlHint.value = '网络异常，请稍后再试'
+  } finally {
+    crawlLoading.value = false
   }
 }
 
@@ -139,6 +283,8 @@ const handleToolClick = (tool) => {
     goToMarket()
   } else if (tool === 'transaction') {
     router.push('/trade')
+  } else if (tool === 'memo') {
+    router.push('/memo')
   } else {
     alert(`${tool} 功能即将上线，敬请期待！`)
   }
@@ -288,6 +434,98 @@ onBeforeUnmount(() => {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.home-page .news-block-header {
+  margin-bottom: 2vw;
+}
+
+.home-page .news-block-header .section-header {
+  margin-bottom: 3vw;
+}
+
+.home-page .news-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 3vw;
+}
+
+.home-page .news-refresh-btn {
+  padding: 1.6vw 3.6vw;
+  font-size: 3.2vw;
+  color: #3a7bd5;
+  background: #eef6ff;
+  border: 1px solid rgba(58, 123, 213, 0.25);
+  border-radius: 2vw;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.home-page .news-refresh-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.home-page .news-refresh-btn:active:not(:disabled) {
+  background: #e0eeff;
+}
+
+.home-page .news-crawl-hint {
+  font-size: 2.8vw;
+  color: #5a7a9a;
+  margin: 0 0 3vw;
+  padding: 0 0.5vw;
+}
+
+.home-page .news-loading-hint {
+  font-size: 3vw;
+  color: #999;
+  text-align: center;
+  margin-bottom: 2vw;
+}
+
+.home-page .news-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw 3vw;
+  margin-top: 4vw;
+  padding: 3.5vw 2vw;
+  background: #fff;
+  border-radius: 2vw;
+  border: 1px solid rgba(58, 123, 213, 0.2);
+  box-shadow: 0 2px 12px rgba(58, 123, 213, 0.08);
+  margin-bottom: 80px;
+}
+
+.home-page .news-page-btn {
+  padding: 1.8vw 4vw;
+  font-size: 3.2vw;
+  color: #3a7bd5;
+  background: #eef6ff;
+  border: 1px solid rgba(58, 123, 213, 0.25);
+  border-radius: 2vw;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.home-page .news-page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.home-page .news-page-info {
+  font-size: 2.8vw;
+  color: #666;
+  text-align: center;
+  flex: 1 1 100%;
+}
+
+@media (min-width: 480px) {
+  .home-page .news-page-info {
+    flex: 0 1 auto;
+  }
 }
 
 /****************** 工具网格 ******************/

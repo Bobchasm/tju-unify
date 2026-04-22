@@ -22,6 +22,9 @@ from agent.tools.unify_campus_tools import (
     unify_get_secondhand_post_detail,
     unify_submit_trade_request,
     unify_list_trade_requests_for_post,
+    unify_memo_get_agent_snapshot,
+    unify_memo_create_with_reminder,
+    unify_memo_set_task_done,
 )
 from model.factory import chat_model
 from utils.prompt_loader import load_conversation_summary_prompt, load_system_prompt
@@ -70,6 +73,9 @@ class ReactAgent(object):
                 unify_get_secondhand_post_detail,
                 unify_submit_trade_request,
                 unify_list_trade_requests_for_post,
+                unify_memo_get_agent_snapshot,
+                unify_memo_create_with_reminder,
+                unify_memo_set_task_done,
             ],
             middleware=[monitor_tool, log_before_model, report_prompt_switch],
         )

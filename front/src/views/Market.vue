@@ -57,8 +57,10 @@
     <!-- 空状态 -->
     <div v-if="posts.length === 0 && !loading" class="empty-state">
       <span>📭</span>
-      <p>暂无闲置物品</p>
-      <p class="empty-hint">点击右下角按钮发布第一个商品吧</p>
+      <p>{{ searchKeyword.trim() ? '未找到相关物品' : '暂无闲置物品' }}</p>
+      <p class="empty-hint">
+        {{ searchKeyword.trim() ? '换个关键词试试，或清空搜索框浏览全部' : '点击右下角按钮发布第一个商品吧' }}
+      </p>
     </div>
 
     <!-- 加载更多 -->
@@ -134,13 +136,12 @@ const handleSearch = async () => {
     loadPosts()
     return
   }
-  
+
   loading.value = true
   try {
     const response = await marketApi.searchPosts(searchKeyword.value)
-    console.log('搜索结果响应:', response)
-    if (response && response.success && response.data) {
-      posts.value = response.data
+    if (response && response.success) {
+      posts.value = Array.isArray(response.data) ? response.data : []
       hasMore.value = false
     }
   } catch (error) {
