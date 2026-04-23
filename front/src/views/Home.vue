@@ -64,9 +64,9 @@
           <i class="fa-solid fa-table" style="color: rgb(46, 116, 172);"></i>
           <div class="tool-name">备忘录</div>
         </div>
-        <!-- 课程表 -->
-        <div class="tool-card tool-placeholder" @click="handleToolClick('comingSoon')">
-          <i class="fa-solid fa-table" style="color: rgb(46, 116, 172);"></i>
+        <!-- 跑腿 -->
+        <div class="tool-card" @click="handleToolClick('errand')">
+          <i class="fa-solid fa-person-running" style="color: rgb(46, 116, 172);"></i>
           <div class="tool-name">跑腿</div>
         </div>
         <!-- 一卡通 -->
@@ -396,6 +396,8 @@ const handleToolClick = (tool) => {
     router.push('/trade')
   } else if (tool === 'memo') {
     router.push('/memo')
+  } else if (tool === 'errand') {
+    router.push('/errand')
   } else if (tool === 'comingSoon') {
     toast.warning('功能开发中,敬请期待')
   } else if (tool === 'lost') {
