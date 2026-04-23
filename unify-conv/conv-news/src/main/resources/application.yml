@@ -9,7 +9,7 @@ spring:
     url: jdbc:mysql://bobchasm.cn:3306/unify_news
     username: elm_app
     password: ElmApp@2026!
-    hikari: # 配置连接池读已提交
+    hikari:
       transaction-isolation: TRANSACTION_READ_COMMITTED
   cloud:
     nacos:
@@ -20,22 +20,19 @@ spring:
         username: nacos
         password: nacos
         ip: 127.0.0.1
-        port: ${server.port}  # 服务端口
-        enabled: true  # 明确启用
-        register-enabled: true  # 允许注册
-        # 网络配置
+        port: ${server.port}
+        enabled: true
+        register-enabled: true
         metadata:
           version: 1.0
-        # 健康检查
         heartbeat:
-          interval: 5000  # 心跳间隔（毫秒）
+          interval: 5000
 
-mybatis-plus: # mp配置
-  mapper-locations: classpath:mapper/*.xml # xml文件路径
-  configuration: # 开启驼峰命名
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
     map-underscore-to-camel-case: true
 
-# swagger
 springdoc:
   api-docs:
     enabled: true

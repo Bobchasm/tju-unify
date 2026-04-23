@@ -6,9 +6,7 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 供小智 / 前端拉取的备忘录「生活协作者」上下文（不落库，由现有表聚合）。
- */
+
 @Data
 public class MemoAgentSnapshotVO {
     @Schema(description = "近7天勾选的子任务数")

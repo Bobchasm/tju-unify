@@ -130,32 +130,26 @@ export default {
     const avatar = ref(null);
     const uploadedFile = ref(null);
 
-    // 消息框状态
     const messageBoxVisible = ref(false);
     const messageBoxMessage = ref('');
 
-    // 显示消息框
     const showMessageBox = (message) => {
       messageBoxMessage.value = message;
       messageBoxVisible.value = true;
     };
 
-    // 关闭消息框
     const closeMessageBox = () => {
       messageBoxVisible.value = false;
     };
 
-    // 触发文件选择框
     const triggerFileInput = () => {
       document.getElementById('avatarFile').click();
     };
 
-// 处理头像文件选择
 const handleFileChange = (event) => {
   const file = event.target.files[0];
   
   if (file) {
-    // 有选择文件时处理
     uploadedFile.value = file;
     const reader = new FileReader();
     
@@ -163,7 +157,6 @@ const handleFileChange = (event) => {
       avatar.value = e.target.result;
     };
     
-    // 读取文件可能出错，用try/catch包裹
     try {
       reader.readAsDataURL(file);
     } catch (error) {
@@ -171,22 +164,18 @@ const handleFileChange = (event) => {
       toast.error("头像预览失败，请重试");
     }
   } else {
-    // 未选择文件时清空
     avatar.value = null;
     uploadedFile.value = null;
   }
 };
 
 
-    // 注册函数，包含所有校验和注册请求
     const register = async () => {
-      // 客户端校验
       user.username = user.username.trim();
       if (!user.username) {
         showMessageBox('用户名不能为空！');
         return;
       }
-      // 根据API文档，用户名长度应在1到20个字符之间
       if (user.username.length > 20) {
         showMessageBox('用户名过长，请勿超过20个字符！');
         return;
@@ -217,13 +206,11 @@ const handleFileChange = (event) => {
         return;
       }
 
-      // 检查头像文件是否已选择
       if (!uploadedFile.value) {
         showMessageBox('请先上传头像！');
         return;
       }
 
-      // 1. 先上传头像
       try {
         const formData = new FormData();
         formData.append('file', uploadedFile.value);
@@ -246,7 +233,6 @@ const handleFileChange = (event) => {
         return;
       }
 
-      // 2. 构建注册请求体并发送请求
       const registerPayload = {
         username: user.username,
         password: user.password,
@@ -301,7 +287,6 @@ const handleFileChange = (event) => {
 </script>
 
 <style scoped>
-/* -------------------- 基础样式重置 -------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -323,7 +308,6 @@ body {
   padding-bottom: 20px;
 }
 
-/* -------------------- header部分 -------------------- */
 header {
   width: 100%;
   height: 15vw;
@@ -341,7 +325,6 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* -------------------- 表单部分 -------------------- */
 .form-box {
   width: 90%;
   max-width: 400px;
@@ -389,7 +372,6 @@ header {
   border-color: #0097FF;
 }
 
-/* 添加一个额外的 li 来实现空格 */
 .form-box .gender-item {
   margin-top: 20px; /* 在性别选项上方增加外边距 */
   margin-bottom: 20px; /* 保持与下方按钮的距离 */
@@ -415,7 +397,6 @@ header {
   cursor: pointer;
 }
 
-/* -------------------- 新的头像上传样式 -------------------- */
 .image-upload-area {
   position: relative;
   width: 80px;
@@ -458,7 +439,6 @@ header {
   display: none; /* 隐藏原始文件输入框 */
 }
 
-/* -------------------- 字数提示样式 -------------------- */
 .word-count {
   font-size: 12px;
   color: #999;
@@ -466,7 +446,6 @@ header {
   margin-top: 4px;
 }
 
-/* -------------------- 注册按钮部分 -------------------- */
 .button-register {
   width: 90%;
   max-width: 400px;
@@ -496,7 +475,6 @@ header {
   transform: translateY(1px);
 }
 
-/* -------------------- 自定义消息框 -------------------- */
 .message-box-overlay {
   position: fixed;
   top: 0;

@@ -1,6 +1,5 @@
 import TradeLayout from '@/trade/TradeLayout.vue'
 
-/** 交易平台顾客端路由，统一前缀 /trade；名称均带 Trade 前缀，避免与校园助手主站路由重名 */
 export const tradeRoute = {
   path: '/trade',
   component: TradeLayout,

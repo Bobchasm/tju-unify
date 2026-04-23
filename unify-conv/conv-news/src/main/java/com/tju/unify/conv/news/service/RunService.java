@@ -29,7 +29,6 @@ public class RunService {
 
     public Run getOne(String id)
     {
-        Run activity = runMapper.selectById(id);
-        return activity;
+        return runMapper.selectById(id);
     }
 }

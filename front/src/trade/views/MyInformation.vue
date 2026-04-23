@@ -212,13 +212,11 @@ export default {
         });
 
         const initWebSocket = () => {
-            // 清除之前的连接
             if (webSocket.value) {
                 webSocket.value.close();
             }
 
             try {
-                // 使用userId作为WebSocket连接标识
                 const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
                 const wsUrl = `${wsProtocol}//localhost:8086/ws/${userInfo.value.id}`;
 
@@ -227,7 +225,6 @@ export default {
                 webSocket.value.onopen = () => {
                     console.log('WebSocket 连接成功');
                     isConnected.value = true;
-                    //toast.success('已连接消息通知');
                 };
 
                 webSocket.value.onmessage = (event) => {
@@ -276,19 +273,16 @@ export default {
         const handleNewMessage = (message) => {
             console.log('MyInformation收到WebSocket消息:', message);
             
-            // 处理订单相关消息(不显示toast,由订单页面处理)
             if (message.type === 'order_update' || message.type === 'new_order') {
                 console.log('订单消息,不在个人信息页面显示toast');
                 return; // 订单消息由OrderList/MerchantOrders页面处理
             }
             
-            // 处理钱包消息(不显示toast,由钱包页面处理)
             if (message.type === 'wallet_opened') {
                 console.log('钱包消息,不在个人信息页面显示toast');
                 return; // 钱包消息由Wallet页面处理
             }
             
-            // 处理通知消息(有content字段的消息)
             if (message.content) {
                 toast.info(`您有新消息啦`);
                 if (message.content.includes('您的成为商家申请已通过审核')) {
@@ -402,7 +396,6 @@ export default {
                 if (response.success) {
                     userInfo.value = response.data;
 
-                    // 获取积分信息
                     try {
                         const pointsResponse = await request.get('/api/points/account', {
                             headers: {
@@ -411,7 +404,6 @@ export default {
                         });
 
                         if (pointsResponse && pointsResponse.success) {
-                            // 确保使用 data 路径获取 totalPoints
                             userInfo.value.availablePoints = pointsResponse.data.availablePoints || 0;
                             console.log('积分已更新为:', userInfo.value.totalPoints); // 👈 保留检查点
                         }
@@ -491,7 +483,6 @@ export default {
                     toast.error(response.message);
                 }
             } catch (error) {
-                // console.error('申请成为商家失败:', error);
                 toast.error(error);
             }
         };
@@ -541,7 +532,6 @@ export default {
             };
             if (pageRoutes[page]) {
                 if (page === 'wallet') {
-                    // 检测钱包是否存在
                     await checkAndCreateWallet();
                 } else {
                     router.push({ path: pageRoutes[page] });
@@ -569,12 +559,8 @@ export default {
             }
         };
 
-        // 检测并创建钱包（后端优先；本地模拟保留为注释）
         const checkAndCreateWallet = async () => {
             try {
-                // 前端模拟备用：
-                // const savedWalletInfo = localStorage.getItem(getWalletInfoKey());
-                // if (savedWalletInfo) { router.push({ path: '/trade/wallet' }); return; }
 
                 const response = await request.get('/api/wallet/message');
                 if (response && response.success) {
@@ -592,15 +578,8 @@ export default {
             }
         };
 
-        // 激活钱包（后端；本地模拟保留为注释）
         const activateWallet = async () => {
             try {
-                // 前端模拟备用：
-                // await new Promise(r => setTimeout(r, 400));
-                // const newWalletInfo = { balance: 0, isVip: false, overdraftLimit: 0, usedOverdraft: 0 };
-                // localStorage.setItem(getWalletInfoKey(), JSON.stringify(newWalletInfo));
-                // addTransactionRecord({ transactionType: 'create', amount: 0, reason: '钱包开通成功' });
-                // toast.success('钱包开通成功'); showWalletActivateModal.value = false; router.push({ path: '/trade/wallet' }); return;
 
                 const response = await request.get('/api/wallet/open');
                 if (response && response.success) {
@@ -646,7 +625,6 @@ export default {
 </script>
 
 <style scoped>
-/* 保持原有的样式，只修改或新增以下部分 */
 .container {
     max-width: 600px;
     background: #fff;
@@ -660,7 +638,6 @@ export default {
     position: relative;
 }
 
-/****************** 固定顶部栏 ******************/
 .fixed-top {
     position: fixed;
     top: 0;
@@ -716,10 +693,8 @@ export default {
     z-index: 1;
 }
 
-/****************** 内容区域 ******************/
 .content-area {
     margin-top: 100px;
-    /* 固定顶部栏的高度 */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -741,20 +716,16 @@ export default {
     z-index: 2;
     transform: translateY(-50px);
     flex-wrap: wrap;
-    /* 允许元素换行 */
     justify-content: center;
     top: 21vw;
-    /* 居中对齐子元素 */
 }
 
-/* 新增：卡片内的按钮区域 */
 .card-button-section {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px;
     padding: 0 20px 20px;
-    /* 增加内边距，保持与卡片一致 */
     box-sizing: border-box;
 }
 
@@ -894,7 +865,6 @@ export default {
     font-size: 14px;
 }
 
-/* 移除 .button-section 样式，因为按钮已移动到 .user-card 中 */
 .loading {
     text-align: center;
     padding: 15px;
@@ -1191,13 +1161,11 @@ export default {
     z-index: 1000;
 }
 
-/* 修改按钮的渐变色 */
 .switch-btn {
     width: 100%;
     padding: 14px;
     text-align: center;
     background: linear-gradient(135deg, #2782dd, #61c8f4);
-    /* 修改为蓝紫色渐变 */
     color: white;
     font-weight: 600;
     border-radius: 12px;
@@ -1219,7 +1187,6 @@ export default {
     padding: 14px;
     text-align: center;
     background: linear-gradient(135deg, #3258cc, #71a3ff);
-    /* 修改为浅紫色渐变 */
     color: white;
     font-weight: 600;
     border-radius: 12px;
@@ -1232,7 +1199,6 @@ export default {
 
 .logout-btn:hover {
     background: linear-gradient(135deg, #8e80f0, #4c20a2);
-    /* 调整hover效果的颜色 */
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
@@ -1243,8 +1209,6 @@ export default {
 
 .address-manager {
     margin-top: -120px;
-    /* 向上移动 */
     transform: translateY(-20px);
-    /* 进一步调整位置 */
 }
 </style>

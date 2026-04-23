@@ -15,7 +15,6 @@
       const route = useRoute();
       const router = useRouter();
   
-      // 如果当前路径不是首页路径就显示返回键
       const excludedPaths = ['/trade', '/trade/', '/trade/myInformation'];
       const showBackButton = computed(() => !excludedPaths.includes(route.path));
       const goBack = () => {
@@ -43,7 +42,6 @@
   user-select: none;
   z-index: 1005; /* 确保在页面其他元素上面 */
 
-  /* 使用 flexbox 布局确保图标和内容的居中 */
   display: flex;
   justify-content: center;
   align-items: center;

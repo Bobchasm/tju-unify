@@ -22,10 +22,6 @@ export const sendMessage = async (messages, sessionId = null) => {
   return response.data
 }
 
-/**
- * 流式对话
- * @param onSessionId 收到首帧 meta 时回调（后端下发的 session_id，多轮必传）
- */
 export const sendMessageStream = async (
   messages,
   sessionId = null,
@@ -75,7 +71,6 @@ export const sendMessageStream = async (
           try {
             text = JSON.parse(raw)
           } catch {
-            // 兼容旧版未编码的纯文本
           }
           if (text && typeof text === 'object' && text.event === 'session' && text.session_id) {
             if (onSessionId) onSessionId(String(text.session_id))
@@ -96,13 +91,11 @@ export const sendMessageStream = async (
   }
 }
 
-/** 列出服务端已保存的会话摘要（本机 data/chat_history） */
 export const fetchChatSessions = async () => {
   const response = await apiClient.get('/api/chat/sessions', { params: { limit: 50 } })
   return response.data
 }
 
-/** 从 tian-agent 拉取某 session 的完整对话（需先通过流式首帧拿到 session_id） */
 export const fetchChatHistory = async (sessionId) => {
   if (!sessionId) return { session_id: '', messages: [] }
   const response = await apiClient.get('/api/chat/history', {
@@ -111,7 +104,6 @@ export const fetchChatHistory = async (sessionId) => {
   return response.data
 }
 
-/** 删除服务端该 session 的完整对话文件 */
 export const deleteChatHistory = async (sessionId) => {
   if (!sessionId) return { ok: false }
   const response = await apiClient.delete('/api/chat/history', {

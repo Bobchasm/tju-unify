@@ -119,7 +119,7 @@
 </template>
 
 <script setup>
-import { ref, nextTick, onMounted, onBeforeUnmount, computed } from 'vue'
+import { ref, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
@@ -134,7 +134,6 @@ marked.use({
   breaks: true
 })
 
-/** 助手消息转安全 HTML（Markdown），支持粗体、列表、换行等 */
 function assistantHtml(text) {
   const raw = text || ''
   if (!raw.trim()) return ''
@@ -158,8 +157,6 @@ const inputMessage = ref('')
 const isLoading = ref(false)
 const sessionId = ref(null)
 const showBackTop = ref(false)
-const isLoggedIn = computed(() => auth.isAuthenticated())
-
 const historyDrawerOpen = ref(false)
 const chatSessions = ref([])
 const historyListLoading = ref(false)
@@ -350,7 +347,6 @@ const loadUserInfo = async () => {
 }
 const messages = ref([{ role: 'assistant', content: DEFAULT_ASSISTANT_OPENING }])
 
-// 监听滚动显示返回顶部按钮
 const handleScroll = () => {
   showBackTop.value = window.scrollY > 300
 }
@@ -428,14 +424,6 @@ onBeforeUnmount(() => {
 
 const goBack = () => {
   router.push('/')
-}
-
-const goToUser = () => {
-  if (isLoggedIn.value) {
-    router.push('/profile')
-  } else {
-    router.push('/trade/login')
-  }
 }
 
 const sendMessage = async () => {

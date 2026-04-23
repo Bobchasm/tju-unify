@@ -208,10 +208,8 @@ import request from '@/trade/utils/tradeRequest';
 import { toast } from '@/trade/utils/toast';
 import BackButton from '../components/BackButton.vue';
 
-// --- 【常量】 ---
 const POINT_DEDUCTION_KEY = 'usePointsDeduction'; // 用于 sessionStorage 的 Key
 
-// --- 【积分逻辑相关的 API 方法】 ---
 const fetchPointsAccount = async () => {
     console.log('[DEBUG] 正在请求用户可用积分...');
     try {
@@ -246,7 +244,6 @@ const calculateDeductibleAmount = async (orderAmount) => {
     }
     return 0;
 };
-// --- 【积分逻辑相关的 API 方法 结束】 ---
 
 const orderDetail = ref(null);
 const isShowDetailet = ref(true);
@@ -262,14 +259,11 @@ const walletExists = ref(false);
 const showOverdraftConfirmModal = ref(false);
 const walletInfo = ref(null);
 
-// --- 【积分相关状态】 ---
 const availablePoints = ref(0);
 const maxDeductibleAmount = ref(0);
 const usePoints = ref(true); 
-// --- 【积分相关状态 结束】 ---
 
 
-// --- 【计算属性 - 订单金额】 ---
 const originalOrderTotal = computed(() => {
     return orderDetail.value?.orderTotal || 0;
 });
@@ -288,10 +282,8 @@ const finalPaymentAmount = computed(() => {
     return finalAmount;
 });
 
-// --- 【计算属性 结束】 ---
 
 
-// --- 【积分数据初始化逻辑】 ---
 const initPointsLogic = async (orderTotal) => {
     console.log(`[DEBUG] 开始初始化积分逻辑，订单总额: ¥${orderTotal.toFixed(2)}`);
     if (!orderTotal || orderTotal <= 0) {
@@ -305,7 +297,6 @@ const initPointsLogic = async (orderTotal) => {
     if (points > 0) {
         const deductible = await calculateDeductibleAmount(orderTotal);
         maxDeductibleAmount.value = deductible;
-        // 初始状态下，如果可以抵扣，则默认启用
         usePoints.value = deductible > 0;
     } else {
         maxDeductibleAmount.value = 0;
@@ -314,9 +305,7 @@ const initPointsLogic = async (orderTotal) => {
     loading.value = false; 
     console.log('[DEBUG] 积分逻辑初始化完成。');
 };
-// --- 【积分数据初始化逻辑 结束】 ---
 
-// 获取订单详情
 const fetchOrderDetails = async () => {
     console.log(`[DEBUG] 正在获取订单详情, OrderID: ${orderId.value}`);
     try {
@@ -340,7 +329,6 @@ const fetchOrderDetails = async () => {
     } 
 };
 
-// 检查钱包是否存在（后端）
 const checkWalletExists = async () => {
     console.log('[DEBUG] 正在检查钱包是否存在...');
     try {
@@ -366,7 +354,6 @@ const checkWalletExists = async () => {
     }
 };
 
-// 获取钱包余额信息
 const fetchWalletBalance = async () => {
     console.log('[DEBUG] 正在获取钱包余额信息...');
     try {
@@ -383,7 +370,6 @@ const fetchWalletBalance = async () => {
     }
 };
 
-// 创建钱包（后端）
 const handleCreateWallet = async () => {
     console.log('[ACTION] 尝试开通虚拟钱包...');
     try {
@@ -407,10 +393,6 @@ const handleCreateWallet = async () => {
     }
 };
 
-/**
- * 钱包支付（后端）
- * 成功后同时存储积分使用状态到 sessionStorage
- */
 const performWalletPayment = async (forcePay = false) => {
     console.log(`[ACTION] 钱包支付发起。订单ID: ${orderId.value}, 最终金额: ¥${finalPaymentAmount.value}, 抵扣金额: ¥${actualDiscount.value}, 强制支付: ${forcePay}`);
     try {
@@ -426,7 +408,6 @@ const performWalletPayment = async (forcePay = false) => {
 
         if (response && response.success) {
             console.log('[SUCCESS] 钱包支付成功！');
-            // 存储积分使用状态到 sessionStorage，作为辅助信息
             sessionStorage.setItem(POINT_DEDUCTION_KEY, String(usePoints.value)); 
             console.log(`[INFO] SessionStorage 写入积分状态: ${usePoints.value}`);
             
@@ -436,10 +417,8 @@ const performWalletPayment = async (forcePay = false) => {
             });
         } else {
             console.error('[FAIL] 钱包支付失败:', response?.message);
-            // 检查是否是余额不足/需要透支的错误码
             if (response?.code === 'VIRTUAL_WALLET_OVERDRAFT_LIMIT') {
                 if (!forcePay) {
-                    // 弹出透支确认框，不Toast错误
                     showOverdraftConfirmModal.value = true;
                     return; // 暂停流程，等待用户确认
                 } else {
@@ -453,14 +432,12 @@ const performWalletPayment = async (forcePay = false) => {
         console.error('[ERROR] 钱包支付请求失败:', error);
         toast.error("钱包支付失败，请重试！");
     } finally {
-        // 如果没有弹出透支框，则设置paying为false
         if (!showOverdraftConfirmModal.value) {
             paying.value = false;
         }
     }
 };
 
-// 检查余额是否足够 (此函数在实际的后端透支判断后可能不再是主要的，但保留其逻辑完整性)
 const checkBalanceSufficient = () => {
     if (!walletInfo.value || !orderDetail.value) {
         return false;
@@ -472,7 +449,6 @@ const checkBalanceSufficient = () => {
     return result;
 };
 
-// 处理钱包支付前的余额检查
 const handleWalletPayment = async () => {
     const walletData = await fetchWalletBalance();
     if (!walletData) {
@@ -480,19 +456,15 @@ const handleWalletPayment = async () => {
         return;
     }
 
-    // 直接发起支付，让后端来处理余额不足和透支逻辑
     await performWalletPayment();
 };
 
-// 确认透支支付
 const confirmOverdraftPayment = async () => {
     showOverdraftConfirmModal.value = false;
     console.log('[ACTION] 用户确认透支支付。');
-    // 再次调用支付函数，但这次是在用户确认后的流程，无需再次弹框
     await performWalletPayment(true);
 };
 
-// 取消透支支付
 const cancelOverdraftPayment = () => {
     showOverdraftConfirmModal.value = false;
     paying.value = false;
@@ -500,9 +472,6 @@ const cancelOverdraftPayment = () => {
     toast.info("已取消支付");
 };
 
-/**
- * 支付处理
- */
 const handlePayment = async () => {
     if (paying.value) return;
 
@@ -515,19 +484,15 @@ const handlePayment = async () => {
             showWalletCreateModal.value = true; 
             return; 
         }
-        // 直接进入钱包支付流程，由其内部处理余额/透支问题
         await handleWalletPayment(); 
     } else {
-        // 第三方支付逻辑
         try {
             paying.value = true;
             console.log(`[ACTION] 第三方支付发起（模拟）。订单ID: ${orderId.value}, 最终金额: ¥${finalPaymentAmount.value}, 抵扣金额: ¥${actualDiscount.value}`);
             
-            // 构造包含 orderState=1, orderId, usePoints 的查询字符串
             const queryParams = new URLSearchParams();
             queryParams.append('orderState', 1);
             queryParams.append('orderId', orderId.value);
-            // 只有当明确不使用积分时，才需要传递 usePoints=false
             if (!usePoints.value) {
                 queryParams.append('usePoints', false); 
             }
@@ -535,7 +500,6 @@ const handlePayment = async () => {
             const url = `/api/orders/status?${queryParams.toString()}`;
             console.log(`[DEBUG] 第三方支付请求URL: ${url}`);
 
-            // 根据 API 文档，仅传递 orderState 和 usePoints，移除 Body
             const response = await request.put(url, {}); 
 
             if (response && response.success) {
@@ -577,17 +541,14 @@ onMounted(() => {
     checkWalletExists();
 });
 
-// 变量和函数自动暴露给模板
 </script>
  
 <style scoped>
-/****************** 总容器 ******************/
 .wrapper {
     min-height: 100vh;
     background-color: #f5f7fa;
 }
 
-/****************** header部分 ******************/
 .wrapper header {
     width: 100%;
     height: 12vw;
@@ -636,7 +597,6 @@ onMounted(() => {
     font-weight: bold;
 }
 
-/* 配送信息样式 */
 .delivery-info {
     margin-bottom: 4vw;
     padding-bottom: 3vw;
@@ -816,7 +776,6 @@ onMounted(() => {
     font-size: 4vw;
     color: #666;
 }
-/* 1. 给 BackButton 父容器加固定定位，与 header 对齐 */
 .back-btn-container {
     position: fixed; /* 固定定位，不随滚动移动 */
     left: 0vw; /* 距离左侧的距离，可根据需求调整 */
@@ -824,7 +783,6 @@ onMounted(() => {
     z-index: 1001; /* 比 header 的 z-index:1000 高，避免被遮挡 */
 }
 
-/* 钱包开通对话框样式 */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -924,7 +882,6 @@ onMounted(() => {
     cursor: not-allowed;
 }
 
-/* 透支确认对话框样式 */
 .overdraft-modal {
     background: white;
     border-radius: 4vw;
@@ -1057,7 +1014,6 @@ onMounted(() => {
 }
 
 
-/* 【积分抵扣区域样式】 */
 .points-deduct-section {
     display: flex;
     justify-content: space-between;
@@ -1068,7 +1024,6 @@ onMounted(() => {
     cursor: pointer; 
 }
 
-/* 禁用的积分抵扣区域，移除点击效果 */
 .points-deduct-section.static-deduct-section {
     cursor: default;
 }
@@ -1086,7 +1041,6 @@ onMounted(() => {
     margin: 0;
 }
 
-/* 积分标签禁用时的颜色 */
 .points-label.disabled-label {
     color: #999 !important;
 }
@@ -1097,7 +1051,6 @@ onMounted(() => {
     margin-left: 2vw;
 }
 
-/* 可用积分为 0 时的颜色 */
 .points-unavailable {
     color: #ccc !important;
 }
@@ -1117,7 +1070,6 @@ onMounted(() => {
     text-decoration: line-through;
 }
 
-/* 积分不足时的提示信息样式 */
 .discount-message.text-disabled {
     font-size: 3.8vw;
     color: #999; 
@@ -1125,7 +1077,6 @@ onMounted(() => {
     white-space: nowrap;
 }
 
-/* 最终支付金额/合计区域样式 */
 .final-amount-section {
     padding-top: 0;
     margin-top: 0;
@@ -1146,7 +1097,6 @@ onMounted(() => {
     font-weight: bold;
 }
 
-/* 【积分抵扣勾选图标样式】 */
 .points-deduct-section .fa-check-circle {
     font-size: 5vw;
     color: #ddd; 

@@ -1,7 +1,3 @@
-/**
- * 交易平台路由守卫：与 elm 顾客端一致，除首页/商家列表/商家详情/登录/注册等外需登录。
- * 仅作用于 path 以 /trade 开头的路由。
- */
 export function registerTradeRouterGuard(router) {
   const publicPaths = new Set([
     '/trade',

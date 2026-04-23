@@ -1,10 +1,5 @@
 import axios from 'axios'
 
-/**
- * 交易平台 API：与校园助手主站一致走 7070 网关（开发环境经 Vite `/api` 代理）。
- * 见 docs/unify-backend.md：以 `/api/`、`/ws/` 开头的请求由 unify 网关按规则转发，饿了吧（电商）侧由对应网关处理；用户与鉴权与主站共用。
- * 与 src/api/request.js 行为对齐，仅 401 时跳转到交易平台登录页。
- */
 const tradeRequest = axios.create({
   baseURL: '',
   timeout: 15000,

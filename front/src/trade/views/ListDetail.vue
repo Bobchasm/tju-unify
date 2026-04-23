@@ -83,12 +83,6 @@
 						</div>
 					</div>
 				</div>
-
-				<!-- 操作按钮
-				<div v-if="orderDetail.orderState === 0" class="action-buttons">
-					<button class="btn cancel-btn" @click="cancelOrder">取消订单</button>
-					<button class="btn pay-btn" @click="payOrder">立即支付</button>
-				</div> -->
 			</div>
 		</div>
 	</div>
@@ -96,7 +90,7 @@
 
 <script>
 import { ref, onMounted, computed } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import request from '@/trade/utils/tradeRequest';
 
 import BackButton from '../components/BackButton.vue';
@@ -105,16 +99,13 @@ export default {
 	components: { BackButton },
 	setup() {
 		const route = useRoute();
-		const router = useRouter();
 		const orderId = ref(null);
 		const orderDetail = ref({});
 		const loading = ref(true);
 		const error = ref('');
 		
-		// 配送费（这里假设固定值，实际应该从API获取）
 		const deliveryPrice = ref(5);
 
-		// 获取订单详情
 		const fetchOrderDetail = async () => {
 			loading.value = true;
 			error.value = '';
@@ -138,12 +129,10 @@ export default {
 			}
 		};
 
-		// 重新加载
 		const retry = () => {
 			fetchOrderDetail();
 		};
 
-		// 获取状态文本
 		const getStatusText = (state) => {
 			const statusMap = {
 				0: "待支付",
@@ -155,7 +144,6 @@ export default {
 			return statusMap[state] || "未知状态";
 		};
 
-		// 获取状态样式类
 		const getStatusClass = (state) => {
 			const classMap = {
 				0: "status-unpaid",
@@ -167,7 +155,6 @@ export default {
 			return classMap[state] || "status-unknown";
 		};
 
-		// 获取状态图标
 		const getStatusIcon = (state) => {
 			const iconMap = {
 				0: "fa-clock-o",
@@ -179,12 +166,10 @@ export default {
 			return iconMap[state] || "fa-question-circle";
 		};
 
-		// 获取性别文本
 		const getGenderText = (gender) => {
 			return gender === 1 ? '先生' : gender === 2 ? '女士' : '';
 		};
 
-		// 格式化时间
 		const formatTime = (timeString) => {
 			if (!timeString) return "-";
 			try {
@@ -195,7 +180,6 @@ export default {
 			}
 		};
 
-		// 计算商品总金额
 		const itemsTotal = computed(() => {
 			if (!orderDetail.value.foodList || !Array.isArray(orderDetail.value.foodList)) {
 				return 0;
@@ -204,40 +188,6 @@ export default {
 				return total + (item.foodPrice || 0) * (item.quantity || 0);
 			}, 0);
 		});
-
-		// 取消订单
-		const cancelOrder = async () => {
-			if (!confirm("确定要取消此订单吗？")) return;
-			
-			try {
-				const response = await request.post("/api/orders/cancel", { 
-					orderId: orderId.value 
-				});
-				
-				if (response.data && response.data.success) {
-					alert("订单取消成功");
-					// 重新加载订单详情
-					fetchOrderDetail();
-				} else {
-					// 显示后端返回的具体错误消息
-					const errorMessage = (response.data && response.data.message) || response.message || "取消失败,请重试";
-					alert(errorMessage);
-				}
-			} catch (err) {
-				console.error("取消订单失败:", err);
-				// 从错误响应中提取错误消息
-				const errorMessage = err.response?.data?.message || err.message || "取消订单失败，请稍后重试";
-				alert(errorMessage);
-			}
-		};
-
-		// 支付订单
-		const payOrder = () => {
-			router.push({ 
-				path: "/trade/payment", 
-				query: { orderId: orderId.value } 
-			});
-		};
 
 		onMounted(() => {
 			orderId.value = route.query.orderId;
@@ -263,9 +213,7 @@ export default {
 			getStatusClass,
 			getStatusIcon,
 			getGenderText,
-			formatTime,
-			cancelOrder,
-			payOrder
+			formatTime
 		};
 	}
 };
@@ -278,7 +226,6 @@ export default {
 	background: #f5f7fa;
 }
 
-/****************** 固定顶部栏 ******************/
 .fixed-top {
 	position: fixed;
 	top: 0;
@@ -310,7 +257,6 @@ export default {
 	color: white;
 }
 
-/****************** 内容区域 ******************/
 .content-area {
 	margin-top: 100px; /* 固定顶部栏的高度 */
 	padding-bottom: 20vw;
@@ -336,7 +282,6 @@ export default {
 	cursor: pointer;
 }
 
-/* 订单状态区域 */
 .order-status {
 	display: flex;
 	align-items: center;
@@ -399,7 +344,6 @@ export default {
 	margin: 0.5vw 0;
 }
 
-/* 信息区块 */
 .info-section {
 	background: white;
 	margin-bottom: 3vw;
@@ -428,7 +372,6 @@ export default {
 	min-width: 20vw;
 }
 
-/* 商品列表 */
 .items-list {
 	border-top: 1px solid #f0f0f0;
 }
@@ -462,7 +405,6 @@ export default {
 	font-weight: 500;
 }
 
-/* 价格明细 */
 .price-details {
 	border-top: 1px solid #f0f0f0;
 	padding-top: 3vw;
@@ -486,7 +428,6 @@ export default {
 	color: #ff6b00;
 }
 
-/* 操作按钮 */
 .action-buttons {
 	position: fixed;
 	bottom: 0;
