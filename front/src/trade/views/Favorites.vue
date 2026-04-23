@@ -70,10 +70,8 @@ export default {
           return;
         }
 
-        // 调用后端API获取收藏列表
         const response = await request.get(`/api/merchant/interaction/collections/${userInfo.id}`);
 
-        // 将后端返回的数据映射到前端需要的格式
         favoriteList.value = response.data.map(business => ({
           businessId: business.id,
           businessName: business.businessName,
@@ -120,13 +118,11 @@ export default {
 </script>
 
 <style scoped>
-/* 整个页面的基本样式，确保没有默认外边距 */
 body {
   margin: 0;
   padding: 0;
 }
 
-/* 顶部栏，不受 container 限制，贴近边缘 */
 .header {
   position: fixed;
   top: 0;
@@ -141,11 +137,8 @@ body {
   z-index: 100;
 }
 
-/* 主内容容器，保持居中和最大宽度 */
 .container {
-  /* max-width: 600px; */
   width:100%;
-  /* margin: 0 auto; */
   padding-bottom: 40px;
   background-color: #f0f2f5;
   min-height: 100vh;

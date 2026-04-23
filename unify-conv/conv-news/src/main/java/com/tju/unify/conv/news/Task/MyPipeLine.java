@@ -16,8 +16,8 @@ public class MyPipeLine implements Pipeline {
 
     @Override
     public void process(ResultItems resultItems, Task task) {
-        //通过resultItems获取爬取的信息
-        SchoolNews schoolNews=resultItems.get("snewsInfo");
+
+        SchoolNews schoolNews = resultItems.get("snewsInfo");
         if (schoolNews != null) {
             newsService.saveIfNotExists(schoolNews);
         }

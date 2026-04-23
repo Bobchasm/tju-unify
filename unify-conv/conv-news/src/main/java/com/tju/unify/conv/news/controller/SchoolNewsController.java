@@ -30,7 +30,6 @@ public class SchoolNewsController {
         return HttpResult.success(schoolNewsService.getById(id));
     }
 
-    /** 异步拉取天津大学新闻网最新内容入库，供前端「刷新」调用 */
     @PostMapping("/crawler")
     public HttpResult<String> triggerCrawler() {
         schoolNewsService.triggerCrawler();

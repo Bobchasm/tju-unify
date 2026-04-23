@@ -106,7 +106,6 @@ export default {
 		});
 
 		const listDeliveryAddressByUserId = () => {
-			// 查询送货地址
 			request.get('/api/addresses/listDeliveryAddressByUserId', {
 				params: { userId: user.value.id }
 			}).then(response => {
@@ -117,7 +116,6 @@ export default {
 		};
 
 		const setDeliveryAddress = (deliveryAddress) => {
-			// 把用户选择的默认送货地址存储到localStorage中
 			localStorage.setItem(user.value.id, JSON.stringify(deliveryAddress));
 			router.push({ path: '/trade/orders', query: { businessId: businessId.value } });
 		};
@@ -126,13 +124,10 @@ export default {
 			router.push({ path: '/trade/addUserAddress', query: { businessId: businessId.value } });
 		};
 
-		// 修改：切换地址选择状态
 		const toggleUserAddress = (id) => {
 			if (addressSelectedId.value === id) {
-				// 如果点击已选中的地址，则取消选择
 				addressSelectedId.value = 0;
 			} else {
-				// 否则选择该地址
 				addressSelectedId.value = id;
 			}
 		};
@@ -183,13 +178,11 @@ export default {
 			showConfirmModal.value = true;
 		};
 
-		// 关闭弹窗
 		const closeModal = () => {
 			showConfirmModal.value = false;
 			addressDeleteSelectId.value = 0;
 		};
 
-		// 确认删除
 		const confirmDelete = () => {
 			if (addressDeleteSelectId.value === 0) return;
 
@@ -198,7 +191,6 @@ export default {
 			}).then(response => {
 				console.log(response.data);
 				if (response.success) {
-					// 修复：使用 addressDeleteSelectId.value 而不是未定义的 id
 					let deliveryAddress = JSON.parse(localStorage.getItem(user.value.id.toString()));
 					if (deliveryAddress && deliveryAddress.id === addressDeleteSelectId.value) {
 						localStorage.removeItem(user.value.id.toString());
@@ -238,20 +230,15 @@ export default {
 			goBack
 		};
 	},
-	// components: {
-	// 	Footer
-	// }
 }
 </script>
 
 <style scoped>
-/*************** 总容器 ***************/
 .wrapper {
 	width: 100%;
 	height: 100%;
 }
 
-/*************** header ***************/
 .wrapper .header {
 	width: 100%;
   height: 12vw;
@@ -281,7 +268,6 @@ export default {
   padding: 5px;
 }
 
-/*************** addresslist ***************/
 .wrapper .addresslist {
 	width: 100%;
 	margin-top: 14vw;
@@ -298,7 +284,6 @@ export default {
 
 .wrapper .addresslist li .addresslist-left {
 	flex: 2.5;
-	/*左边这块区域是可以点击的*/
 	user-select: none;
 	cursor: pointer;
 }
@@ -422,7 +407,6 @@ export default {
   box-shadow: 0 4px 12px rgba(30, 128, 255, 0.3);
 }
 
-/*************** 新增地址部分 ***************/
 .wrapper .addbtn {
 	width: 100%;
 	height: 14vw;
@@ -443,17 +427,6 @@ export default {
 	margin-left: 2vw;
 }
 
-/* .wrapper .addresslist .addresslist-right .fa-select {
-	background-color: #0097ef;
-	color: #fff;
-	border: none;
-	padding: 2vw 3.5vw;
-	border-radius: 5px;
-	font-size: 3vw;
-	cursor: pointer;
-	margin-left: 2vw;
-	transition: background-color 0.3s;
-} */
 
 .wrapper .addresslist .addresslist-right .select-btn {
 	background-color: #0097ef;
@@ -470,7 +443,6 @@ export default {
 .wrapper .addresslist .addresslist-right .select-btn.selected {
     background-color: #0081e6;
     color: #fcfafa;
-    /* cursor: not-allowed; */
 	border: none;
 	padding: 2vw 3.5vw;
 	border-radius: 5px;
@@ -489,8 +461,6 @@ export default {
 }
 
 
-/*************** 底部结算栏 ***************/
- /* 底部结算栏 */
 .wrapper .order-bar {
   position: fixed;
   left: 0;   /* 左右设为0，让容器撑满宽度 */

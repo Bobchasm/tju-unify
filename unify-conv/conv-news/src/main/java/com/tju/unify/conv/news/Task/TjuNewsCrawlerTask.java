@@ -2,7 +2,6 @@ package com.tju.unify.conv.news.Task;
 
 import com.tju.unify.conv.news.config.SchoolNewsConfig;
 import com.tju.unify.conv.news.pojo.SchoolNews;
-import com.tju.unify.conv.news.controller.SchoolNewsController;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +21,7 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
-/**
- * 天津大学新闻网（news.tju.edu.cn）列表与正文解析，按需触发爬取。
- */
+
 @Slf4j
 @Component
 public class TjuNewsCrawlerTask implements PageProcessor {
@@ -46,7 +43,7 @@ public class TjuNewsCrawlerTask implements PageProcessor {
             .setRetrySleepTime(3000)
             .setRetryTimes(3);
 
-    /** 与详情页面包屑栏目名一致，供 {@link SchoolNewsController#getByFlag} 筛选 */
+
     private static final Map<String, Long> CATEGORY_FLAG = new HashMap<>();
 
     static {
@@ -110,7 +107,6 @@ public class TjuNewsCrawlerTask implements PageProcessor {
             }
             Long flag = CATEGORY_FLAG.getOrDefault(categoryName, 1L);
 
-            // WebMagic 的 contains XPath 在部分页面会触发 NPE，这里改成先取全部 span 文本再过滤
             String origin = "";
             List<String> infoSpans = html.xpath("//div[@class='arc-info']//span/text()").all();
             for (String span : infoSpans) {
@@ -147,9 +143,7 @@ public class TjuNewsCrawlerTask implements PageProcessor {
         return site;
     }
 
-    /**
-     * 手动触发天津大学新闻爬虫
-     */
+
     public void triggerCrawler() {
         if (!crawlerEnabled || schoolNewsConfig.getCategory() == null || schoolNewsConfig.getCategory().isEmpty()) {
             log.warn("爬虫未启用或分类配置为空，跳过爬取");

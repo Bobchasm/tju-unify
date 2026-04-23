@@ -58,13 +58,11 @@ export default {
     const password = ref('');
     const router = useRouter();
     const rememberMe = ref(false);
-    // 回显记住的用户名（从localStorage获取）
     const savedUserName = computed(() => {
       return localStorage.getItem('savedUserName') || '';
     });
 
     const login = async () => {
-      // 1. 表单校验
       if (!userName.value.trim()) {
         toast.error("用户名不能为空！");
         return;
@@ -75,20 +73,17 @@ export default {
       }
 
       try {
-        // 2. 调用登录接口：传 userName/password/rememberMe
         const res = await request.post('/api/auth', {
           username: userName.value.trim(),
           password: password.value.trim(),
           rememberMe: rememberMe.value
         });
 
-        // 3. 解析后端返回
         if (!res) {
           toast.error(res.message);
           return;
         }
 
-        // 4. 获取 id_token
         const idToken = res?.id_token;
         console.log(idToken);
         if (!idToken) {
@@ -96,13 +91,11 @@ export default {
           return;
         }
 
-        // 5. 根据“记住我”状态存储 token
         const storage = rememberMe.value ? localStorage : sessionStorage;
         storage.setItem('token', idToken); // 存储 token（key 为 token）
         console.log(storage.getItem('token'));
         let userRes;
 
-        // 获取用户信息
         try {
           userRes = await request.get('/api/user');
           if (userRes) {
@@ -114,7 +107,6 @@ export default {
         console.log(storage.getItem('userInfo'));
 
 
-        // 6. 记住用户名（仅勾选时存localStorage）
         if (rememberMe.value) {
           localStorage.setItem('savedUserName', userName.value.trim());
         } else {
@@ -132,7 +124,6 @@ export default {
         router.push({ path: targetPath });
 
       } catch (error) {
-        // 捕获网络错误或后端500等异常
         const errorMsg = error.response?.data?.message || '网络异常，登录失败！';
         toast.error(errorMsg);
         console.error('登录错误:', error);
@@ -156,7 +147,6 @@ export default {
 </script>
   
 <style scoped>
-/* -------------------- 基础样式重置 -------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -177,7 +167,6 @@ body {
   background-color: #f0f2f5;
 }
 
-/* -------------------- header部分 -------------------- */
 header {
   width: 100%;
   height: 15vw;
@@ -195,13 +184,11 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* -------------------- 表单部分 -------------------- */
 .form-box {
   width: 90%;
   max-width: 400px;
   background: #fff;
   margin-top: 25vw;
-  /* 调整顶部外边距以适应更大的 header */
   padding: 24px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -231,7 +218,6 @@ header {
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  /* 8px圆角 */
   font-size: 16px;
   color: #333;
   transition: border-color 0.3s;
@@ -258,10 +244,8 @@ header {
   height: 16px !important;
   margin-right: 6px;
   accent-color: #0097FF;
-  /* 改变复选框颜色 */
 }
 
-/* -------------------- 登录按钮部分 -------------------- */
 .button-login {
   width: 90%;
   max-width: 400px;
@@ -275,9 +259,7 @@ header {
   font-weight: 700;
   color: #fff;
   background-color: #0097FF;
-  /* 更改为蓝色 */
   border-radius: 8px;
-  /* 8px圆角 */
   border: none;
   outline: none;
   cursor: pointer;
@@ -293,8 +275,6 @@ header {
   transform: translateY(1px);
 }
 
-/* -------------------- 注册按钮部分 (保留原有样式作为参考) -------------------- */
-/* 你可以在此基础上进行类似优化 */
 .wrapper .button-register {
   width: 100%;
   box-sizing: border-box;
@@ -316,11 +296,7 @@ header {
 
 .back-btn-container {
   position: fixed;
-  /* 固定定位，不随滚动移动 */
   left: 0vw;
-  /* 距离左侧的距离，可根据需求调整 */
   top: 2vw;
-  /* 距离顶部的距离，与 header 高度（12vw）适配，确保垂直居中 */
   z-index: 1001;
-  /* 比 header 的 z-index:1000 高，避免被遮挡 */
 }</style>

@@ -1,6 +1,5 @@
 import time
 import sys
-import os
 import uuid
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
@@ -12,7 +11,7 @@ from utils.conversation_summary_store import load_summary, save_summary
 st.title("小智 · 天津大学校园生活助手")
 st.divider()
 
-if "message" not in st.session_state:  # 防止一直创建
+if "message" not in st.session_state:
     st.session_state["message"] = [{"role": "assistant", "content": "你好，我是小智，天津大学校园生活助手。我可以结合学校公开资料，为你解答校园办事、校史校情、学习生活等常见问题。请问今天想了解什么？"}]
 
 if "agent" not in st.session_state:
@@ -22,7 +21,6 @@ if "session_id" not in st.session_state:
     st.session_state["session_id"] = str(uuid.uuid4())
 
 if "conversation_summary" not in st.session_state:
-    # 可选：从磁盘恢复摘要记忆，实现跨刷新/重启保留
     persist_enabled = bool((agent_conf or {}).get("conversation_summary_persist_enabled", True))
     store_dir = (agent_conf or {}).get("conversation_summary_store_dir", "data/conversation_memory")
     st.session_state["conversation_summary"] = (
@@ -32,11 +30,9 @@ if "conversation_summary" not in st.session_state:
 for message in st.session_state["message"]:
     st.chat_message(message["role"]).write(message["content"])
 
-# 在页面最下方提供用户输入栏
 prompt = st.chat_input()
 
 if prompt:
-    # 在页面输出用户的提问
     st.chat_message("user").write(prompt)
     st.session_state["message"].append({"role": "user", "content": prompt})
 
