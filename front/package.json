@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.0",
+    "rollup": "npm:@rollup/wasm-node@4.60.2",
     "vite": "^5.0.0"
   }
 }

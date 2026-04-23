@@ -12,7 +12,7 @@
                 <i class="fa fa-caret-down"></i>
             </div>
 
-            <!-- 漂亮的位置选择弹窗 -->
+            
             <transition name="fade">
                 <div v-if="showPicker" class="location-modal" @click.self="hideLocationPicker">
                     <div class="modal-container">
@@ -98,50 +98,7 @@
         </div>
 
 
-        <!-- 点餐分类部分 -->
-        <ul class="foodtype">
-            <li @click="toBusinessList(1)">
-                <img src="/trade-assets/dcfl01.png" alt="美食">
-                <p>美食</p>
-            </li>
-            <li @click="toBusinessList(2)">
-                <img src="/trade-assets/dcfl02.png" alt="早餐">
-                <p>早餐</p>
-            </li>
-            <li @click="toBusinessList(3)">
-                <img src="/trade-assets/dcfl03.png" alt="跑腿代购">
-                <p>跑腿代购</p>
-            </li>
-            <li @click="toBusinessList(4)">
-                <img src="/trade-assets/dcfl04.png" alt="汉堡披萨">
-                <p>汉堡披萨</p>
-            </li>
-            <li @click="toBusinessList(5)">
-                <img src="/trade-assets/dcfl05.png" alt="甜品饮品">
-                <p>甜品饮品</p>
-            </li>
-            <li @click="toBusinessList(6)">
-                <img src="/trade-assets/dcfl06.png" alt="速食简餐">
-                <p>速食简餐</p>
-            </li>
-            <li @click="toBusinessList(7)">
-                <img src="/trade-assets/dcfl07.png" alt="地方小吃">
-                <p>地方小吃</p>
-            </li>
-            <li @click="toBusinessList(8)">
-                <img src="/trade-assets/dcfl08.png" alt="米粉面馆">
-                <p>米粉面馆</p>
-            </li>
-            <li @click="toBusinessList(9)">
-                <img src="/trade-assets/dcfl09.png" alt="包子粥铺">
-                <p>包子粥铺</p>
-            </li>
-            <li @click="toBusinessList(10)">
-                <img src="/trade-assets/dcfl10.png" alt="炸鸡炸串">
-                <p>炸鸡炸串</p>
-            </li>
-        </ul>
-
+        
         <!-- 销量冠军轮播图部分 -->
         <div class="top-businesses-carousel">
             <div class="carousel-header">
