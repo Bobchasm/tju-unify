@@ -86,7 +86,6 @@ export default {
   font-size: 5vw;
 }
 
-/* 类型样式 */
 .success {
   background: rgba(56, 202, 115, 0.9);
 }
@@ -103,7 +102,6 @@ export default {
   background: rgba(0, 151, 255, 0.9);
 }
 
-/* 动画效果 */
 .toast-fade-enter-active,
 .toast-fade-leave-active {
   transition: all 0.3s ease;

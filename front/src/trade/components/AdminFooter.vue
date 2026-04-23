@@ -37,7 +37,6 @@
 <script setup>
 import { useRoute } from 'vue-router';
 
-// 引入 useRoute 获取当前路由对象
 const $route = useRoute();
 </script>
 
@@ -52,7 +51,6 @@ const $route = useRoute();
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* 增加了 flex-wrap: nowrap; 确保不换行，虽然默认就是不换行 */
   flex-wrap: nowrap; 
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
   z-index: 100;
@@ -67,10 +65,8 @@ const $route = useRoute();
   text-decoration: none;
   font-size: 0.8rem;
   gap: 4px;
-  /* 每个 nav-item 占用等宽空间 */
   flex: 1; 
   height: 100%;
-  /* 增加 padding/min-width 避免内容过多时挤压，不过 flex: 1; 已经做了很好的分配 */
   min-width: 0; 
 }
 

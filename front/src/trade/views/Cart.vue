@@ -52,8 +52,6 @@
 			</div>
 		</div>
 
-		<!-- 底部菜单部分 -->
-		<!-- <Footer /> -->
 	</div>
 </template>
 
@@ -73,7 +71,6 @@ export default {
 		const route = useRoute();
 		const router = useRouter();
 		const businessId = ref(null);
-		// const businessId = ref(null);
 		const businessName = ref('');
 
 		onMounted(() => {
@@ -97,16 +94,13 @@ export default {
 			});
 		};
 
-		// 计算总价
 		const totalPrice = computed(() => {
 			return cartItems.value.reduce((total, item) => {
 				return total + (item.foodPrice * item.quantity);
 			}, 0);
 		});
 
-		// 结算
 		const checkout = () => {
-			// 跳转到结算页面
 			router.push({
 				path: '/trade/userAddress',
 				query: {
@@ -115,7 +109,6 @@ export default {
 			});
 		};
 
-		// 返回商家页面
 		const goBack = () => {
 			router.go(-1);
 		};
@@ -133,7 +126,6 @@ export default {
 </script>
 
 <style scoped>
-/****************** 总容器 ******************/
 .wrapper {
 	width: 100%;
 	height: 100%;
@@ -141,7 +133,6 @@ export default {
 	top: -4vw;
 }
 
-/****************** header部分 ******************/
 .wrapper header {
 	width: 100%;
 	height: 12vw;
@@ -157,7 +148,6 @@ export default {
 	align-items: center;
 }
 
-/****************** 商家信息 ******************/
 .business-info {
 	padding: 3vw;
 	background-color: #f8f8f8;
@@ -170,7 +160,6 @@ export default {
 	color: #333;
 }
 
-/****************** 购物车列表部分 ******************/
 .wrapper .cart {
 	width: 100%;
 	margin-bottom: 60px;
@@ -188,7 +177,6 @@ export default {
 }
 
 .wrapper .cart li .cart-img {
-	/*这里设置为相当定位，成为cart-img-quantity元素的父元素*/
 	position: relative;
 }
 
@@ -207,7 +195,6 @@ export default {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/*设置成绝对定位，不占文档流空间*/
 	position: absolute;
 	right: -1.5vw;
 	top: -1.5vw;
@@ -263,7 +250,6 @@ export default {
 	color: #555;
 }
 
-/****************** 结算栏 ******************/
 .checkout-bar {
 	position: fixed;
 	bottom: 0;
@@ -295,7 +281,6 @@ export default {
 	cursor: pointer;
 }
 
-/****************** 空购物车 ******************/
 .empty-cart {
 	display: flex;
 	flex-direction: column;

@@ -5,9 +5,7 @@ import lombok.Data;
 
 import java.util.List;
 
-/**
- * 校园新闻分页结果（与 MyBatis-Plus Page 字段对齐，便于前端展示）
- */
+
 @Data
 public class SchoolNewsPageVO {
 

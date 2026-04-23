@@ -56,13 +56,11 @@ export default {
     const searchResults = ref([]); // 搜索结果
     const user = ref(null); // 假设的用户ID，实际开发中可以从用户信息中获取
     const router = useRouter();
-    // 页面加载时获取用户的历史搜索
     onMounted(async () => {
       user.value = sessionStorage.getItem('user') ? JSON.parse(sessionStorage.getItem('user')) : null;
       await getSearchHistory();
     });
 
-    // 获取用户的搜索历史
     const getSearchHistory = async () => {
       try {
         const response = await axios.post('/SearchController/getHistoryByUserId', {
@@ -77,24 +75,19 @@ export default {
     const toBusinessInfo = (businessId) => {
       router.push({ path: '/trade/businessInfo', query: { businessId } });
     };
-    // 执行搜索的函数
     const performSearch = async () => {
       if (searchQuery.value.trim() !== '') {
         try {
-          // 调用搜索接口
           const response = await axios.post('/SearchController/listBusiness', {
             searchContent: searchQuery.value,
             userId: user.value.userId,
           });
 
-          // 更新搜索结果
           searchResults.value = response.data;
           console.log(searchResults.value);
           console.log(searchResults.value.length);
-          // 清空搜索框
           searchQuery.value = '';
 
-          // 清空搜索历史
           searchHistory.value = [];
 
         } catch (error) {
@@ -122,14 +115,12 @@ export default {
 </script>
 
 <style scoped>
-/* 容器样式 */
 .container {
   max-width: 600px;
   margin: 0 auto;
 
 }
 
-/* 顶部蓝色部分 */
 .header {
   background-color: #0097FF;
   padding: 10px;
@@ -138,14 +129,12 @@ export default {
   margin-bottom: 20px;
 }
 
-/* 搜索框容器样式 */
 .search-box-container {
   display: flex;
   justify-content: center; /* 水平居中 */
   margin-bottom: 20px;
 }
 
-/* 搜索框样式 */
 .search-box {
   display: flex;
 }
@@ -172,7 +161,6 @@ export default {
   background-color: #0097FF;
 }
 
-/* 搜索历史 */
 .history {
   margin: 20px 0;
 }
@@ -200,7 +188,6 @@ export default {
   background-color: #e0e0e0;
 }
 
-/* 搜索结果 */
 .results {
   margin: 20px 0;
 
@@ -226,7 +213,6 @@ export default {
 .business-item {
   display: flex;
   align-items: center;
-  /* 垂直居中对齐 */
   background-color: #e7f3ff;
   padding: 10px;
   border-radius: 4px;
@@ -235,14 +221,11 @@ export default {
 
 .business-img {
   margin-right: 10px;
-  /* 图片和文字之间的间距 */
 }
 
 .business-img img {
   width: 60px;
-  /* 图片宽度 */
   height: 60px;
-  /* 图片高度 */
   border-radius: 4px;
 }
 

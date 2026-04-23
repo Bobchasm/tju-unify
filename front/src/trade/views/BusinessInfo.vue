@@ -1,6 +1,5 @@
 <template>
     <div class="wrapper">
-        <!-- <BackButton :show-back-button="true" style="margin-top: -10vw;"/> -->
         <!-- header部分 -->
         <div class="fixed-top">
           <div class="top-background">
@@ -116,7 +115,6 @@ export default {
         const userInfo = ref(null);
         console.log("BusinessInfo组件初始化，路由参数:", route.query);
 
-        // 基础数据
         const businessId = ref(null);
         const business = ref({
             id: 0,
@@ -135,7 +133,6 @@ export default {
         const loadingFoods = ref(false);
         const loadingCart = ref(false);
 
-        // 用户交互状态
         const isLiked = ref(false);
         const isFavorited = ref(false);
         const interactionLoading = ref(false);
@@ -149,7 +146,6 @@ export default {
                 if (res) {
                     userInfo.value = res;
                     console.log(userInfo.value);
-                    // 保存用户信息到存储
                     const storage = localStorage.getItem('token') ? localStorage : sessionStorage;
                     storage.setItem('userInfo', JSON.stringify(res));
                 } else {
@@ -162,13 +158,11 @@ export default {
             }
         };
 
-        // 错误捕获
         onErrorCaptured((error) => {
             console.error('组件错误捕获:', error);
             return false;
         });
 
-        // 获取购物车列表
         const fetchCartList = async () => {
             if (!userInfo.value?.id || !businessId.value) {
                 console.log('用户未登录或商家ID为空，不获取购物车');
@@ -198,18 +192,15 @@ export default {
             }
         };
 
-        // 获取指定食品在购物车中的数量
         const getCartQuantity = (foodId) => {
             const cartItem = cartItems.value.find(item => item.foodId === foodId);
             return cartItem ? cartItem.quantity : 0;
         };
 
-        // 添加商品到购物车
         const addToCart = async (index) => {
             const food = foodArr.value[index];
             console.log(`添加商品到购物车: ${food.foodName}, foodId: ${food.id}`);
 
-            // 检查用户是否登录
             if (!userInfo.value?.id) {
                 toast.error('请先登录');
                 return;
@@ -222,14 +213,11 @@ export default {
                 console.log('当前数量:', currentQuantity, '新数量:', newQuantity);
 
                 if (currentQuantity > 0) {
-                    // 如果商品已在购物车中，更新数量
                     await updateCartItem(food.id, newQuantity);
                 } else {
-                    // 如果商品不在购物车中，添加新商品
                     await addNewCartItem(food.id);
                 }
 
-                // 重新获取购物车列表以更新显示
                 await fetchCartList();
                 console.log('添加商品成功');
             } catch (error) {
@@ -238,7 +226,6 @@ export default {
             }
         };
 
-        // 添加新商品到购物车
         const addNewCartItem = async (foodId) => {
             try {
                 console.log('添加新商品到购物车, foodId:', foodId);
@@ -261,12 +248,10 @@ export default {
             }
         };
 
-        // 更新购物车商品数量
         const updateCartItem = async (foodId, newQuantity) => {
             try {
                 console.log('更新购物车商品数量, foodId:', foodId, 'newQuantity:', newQuantity);
 
-                // 先找到对应的购物车项ID
                 const cartItem = cartItems.value.find(item => item.foodId === foodId);
                 if (!cartItem) {
                     throw new Error(`未找到foodId ${foodId}对应的购物车项`);
@@ -291,12 +276,10 @@ export default {
             }
         };
 
-        // 从购物车移除商品（减少数量）
         const removeFromCart = async (index) => {
             const food = foodArr.value[index];
             console.log(`从购物车移除商品: ${food.foodName}, foodId: ${food.id}`);
 
-            // 检查用户是否登录
             if (!userInfo.value?.id) {
                 toast.error('请先登录');
                 return;
@@ -312,14 +295,11 @@ export default {
                 const newQuantity = currentQuantity - 1;
 
                 if (newQuantity <= 0) {
-                    // 如果数量为0，从购物车中删除
                     await deleteCartItem(food.id);
                 } else {
-                    // 减少数量
                     await updateCartItem(food.id, newQuantity);
                 }
 
-                // 重新获取购物车列表以更新显示
                 await fetchCartList();
                 console.log('移除商品成功');
             } catch (error) {
@@ -328,7 +308,6 @@ export default {
             }
         };
 
-        // 从购物车删除商品
         const deleteCartItem = async (foodId) => {
             try {
                 console.log('从购物车删除商品, foodId:', foodId);
@@ -355,7 +334,6 @@ export default {
             }
         };
 
-        // 加载用户互动状态
         const loadReactions = async () => {
             try {
                 if (!businessId.value) {
@@ -385,7 +363,6 @@ export default {
 
                 console.log("互动状态API响应:", response);
 
-                // 根据实际API响应结构调整
                 if (response?.success) {
                     isLiked.value = Boolean(response.data?.liked);
                     isFavorited.value = Boolean(response.data?.collected);
@@ -401,10 +378,8 @@ export default {
                 isFavorited.value = false;
             }
         };
-        // 更新互动状态到后端
         const updateInteraction = async (type, newValue) => {
             try {
-                // 如果已经是目标状态，则不再执行
                 if ((type === 'like' && isLiked.value === newValue) ||
                     (type === 'favorite' && isFavorited.value === newValue)) {
                     console.log(`已经是目标状态，无需更新: ${type}=${newValue}`);
@@ -449,7 +424,6 @@ export default {
         };
 
 
-        // 修改切换函数，增加状态检查
         const toggleLike = async () => {
             if (interactionLoading.value) return;
             if (!userInfo.value?.id) {
@@ -470,7 +444,6 @@ export default {
 
 
 
-        // 获取商家信息
         const fetchBusinessInfo = async () => {
             loadingBusiness.value = true;
             console.log(`开始获取商家信息，businessId: ${businessId.value}`);
@@ -506,7 +479,6 @@ export default {
             }
         };
 
-        // 获取食品列表
         const fetchFoodList = async () => {
             loadingFoods.value = true;
             console.log(`开始获取食品列表，businessId: ${businessId.value}`);
@@ -518,7 +490,6 @@ export default {
                 console.log("食品列表API响应:", response);
 
                 if (response.success) {
-                    // 过滤掉下架商品（shelveStatus === 0）
                     const availableFoods = response.data.filter(food => food.shelveStatus === 1);
                     console.log("可用食品列表:", availableFoods);
 
@@ -543,7 +514,6 @@ export default {
                 console.error("获取食品列表失败:", error);
                 console.error("错误详情:", error.response || error.message);
 
-                // 开发环境使用模拟数据
                 if (import.meta.env.DEV) {
                     console.log("使用模拟食品数据");
                     foodArr.value = [
@@ -566,7 +536,6 @@ export default {
             }
         };
 
-        // 跳转到购物车页面
         const goToCart = () => {
             console.log("跳转到订单页面，当前购物车商品数量:", totalQuantity.value);
             if (totalQuantity.value === 0) {
@@ -581,14 +550,12 @@ export default {
             });
         };
 
-        // 跳转到订单页面
         const toOrder = () => {
             console.log("跳转到购物车页面，当前购物车商品数量:", totalQuantity.value);
             if (totalQuantity.value === 0) {
                 toast.error("购物车为空");
                 return;
             }
-            // 跳转到结算页面
 			router.push({
 				path: '/trade/userAddress',
 				query: {
@@ -597,7 +564,6 @@ export default {
 			});
         };
 
-        // 计算属性 - 基于后端购物车数据
         const totalPrice = computed(() => {
             const total = cartItems.value.reduce((total, item) => {
                 return total + (item.foodPrice || 0) * (item.quantity || 0);
@@ -618,14 +584,12 @@ export default {
             return settle;
         });
 
-        // 检查是否达到起送费
         const canOrder = computed(() => {
             const canOrder = totalPrice.value >= business.value.startPrice;
             console.log(`检查是否可下单: ${canOrder}`);
             return canOrder;
         });
 
-        // 初始化
         onMounted(async () => {
             console.log("组件挂载完成");
             businessId.value = parseInt(route.query.businessId);
@@ -643,7 +607,6 @@ export default {
             await loadReactions();
         });
 
-        // 监听businessId变化
         watch(() => route.query.businessId, (newId) => {
             console.log("路由businessId变化:", newId);
             if (newId && parseInt(newId) !== businessId.value) {
@@ -682,8 +645,6 @@ export default {
 </script>
 
 <style scoped>
-/* 样式部分保持不变 */
-/****************** 总容器 ******************/
 .wrapper {
   width: 100%;
   height: 100%;
@@ -691,21 +652,6 @@ export default {
   min-height: 100vh;
 }
 
-/****************** header部分 ******************/
-/* .wrapper header {
-    width: 100%;
-    height: 12vw;
-    background-color: #0097ff;
-    color: #fff;
-    font-size: 4.8vw;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 .wrapper .header {
 	width: 100%;
   height: 12vw;
@@ -726,11 +672,9 @@ export default {
   font-weight: 600;
   color:white;
 }
-/****************** 商家logo部分 ******************/
 .wrapper .business-logo {
     width: 100%;
     height: 50vw;
-    /*使用上外边距避开header部分*/
     margin-top: 20vw;
     display: flex;
     justify-content: center;
@@ -743,7 +687,6 @@ export default {
     border-radius: 5px;
 }
 
-/****************** 商家信息部分 ******************/
 .wrapper .business-info {
     width: 100%;
     height: 20vw;
@@ -785,10 +728,8 @@ export default {
     margin-top: 1vw;
 }
 
-/****************** 食品列表部分 ******************/
 .wrapper .food {
     width: 100%;
-    /*使用下外边距避开footer部分*/
     margin-bottom: 14vw;
 }
 
@@ -852,7 +793,6 @@ export default {
     cursor: pointer;
 }
 
-/****************** 购物车部分 ******************/
 .wrapper .cart {
     width: 100%;
     height: 14vw;
@@ -915,7 +855,6 @@ export default {
     flex: 1;
 }
 
-/*达到起送费时的样式*/
 .wrapper .cart .cart-right .cart-right-item {
     width: 100%;
     height: 100%;

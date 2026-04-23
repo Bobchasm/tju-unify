@@ -110,7 +110,6 @@ export default {
 					return;
 				}
 
-				// 获取配送地址
 				const savedAddress = localStorage.getItem(user.value.userId);
 				if (savedAddress) {
 					deliveryaddress.value = JSON.parse(savedAddress);
@@ -131,7 +130,6 @@ export default {
 					}
 				}
 
-				// 获取商家信息
 if (businessId.value) {
   try {
     const businessResponse = await axios.post('BusinessController/getBusinessById', 
@@ -153,7 +151,6 @@ if (businessId.value) {
   throw new Error('商家ID无效');
 }
 
-				// 获取购物车信息
 				const cartResponse = await axios.post('CartController/listCart', {
 					userId: user.value.userId,
 					businessId: businessId.value
@@ -183,34 +180,29 @@ if (businessId.value) {
 
 		const toPayment = async () => {
 			try {
-				// 检查用户登录状态
 				if (!user.value) {
 					toast.warning('请先登录！');
 					router.push({ path: '/trade/login' });
 					return;
 				}
 
-				// 检查配送地址
 				if (!deliveryaddress.value || !deliveryaddress.value.daId) {
 					toast.warning('请选择配送地址！');
 					router.push({ path: '/trade/userAddress', query: { businessId: businessId.value } });
 					return;
 				}
 
-				// 检查商家信息
 				if (!businessId.value || !business.value) {
 					toast.error('商家信息无效，请重试！');
 					return;
 				}
 
-				// 检查购物车
 				if (!cartArr.value.length) {
 					toast.warning('购物车为空，请先选择商品！');
 					router.push({ path: '/trade/businessInfo', query: { businessId: businessId.value } });
 					return;
 				}
 
-				// 准备订单数据
 				const orderData = {
 					userId: user.value.userId,
 					businessId: parseInt(businessId.value),
@@ -220,14 +212,12 @@ if (businessId.value) {
 
 				console.log('创建订单数据:', orderData);
 
-				// 创建订单
 				const response = await axios.post('OrdersController/createOrders', orderData);
 
 				console.log('订单创建响应:', response.data);
 
 				if (response.data > 0) {
 					const orderId = response.data;
-					// 清除本地购物车数据
 					try {
 						await axios.post('CartController/removeCart', {
 							userId: user.value.userId,
@@ -245,7 +235,6 @@ if (businessId.value) {
 			} catch (error) {
 				console.error('创建订单失败:', error);
 				if (error.response) {
-					// 服务器响应错误
 					console.error('服务器响应:', error.response);
 					if (error.response.status === 500) {
 						toast.error('服务器处理订单时出错，请稍后重试！');
@@ -253,10 +242,8 @@ if (businessId.value) {
 						toast.error(`创建订单失败: ${error.response.data.message || '未知错误'}`);
 					}
 				} else if (error.request) {
-					// 请求发送失败
 					toast.error('网络连接失败，请检查网络后重试！');
 				} else {
-					// 其他错误
 					toast.error('创建订单失败，请稍后重试！');
 				}
 			}
@@ -283,13 +270,11 @@ if (businessId.value) {
 </script>
 
 <style scoped>
-/****************** 总容器 ******************/
 .wrapper {
 	width: 100%;
 	height: 100%;
 }
 
-/****************** header部分 ******************/
 .wrapper header {
 	width: 100%;
 	height: 12vw;
@@ -305,9 +290,7 @@ if (businessId.value) {
 	align-items: center;
 }
 
-/****************** 订单信息部分 ******************/
 .wrapper .order-info {
-	/*注意这里，不设置高，靠内容撑开。因为地址有可能折行*/
 	width: 100%;
 	margin-top: 12vw;
 	background-color: #0097EF;
@@ -353,7 +336,6 @@ if (businessId.value) {
 	border-bottom: solid 1px #DDD;
 }
 
-/****************** 订单明细部分 ******************/
 .wrapper .order-detailed {
 	width: 100%;
 }
@@ -400,7 +382,6 @@ if (businessId.value) {
 	font-size: 3.5vw;
 }
 
-/****************** 订单合计部分 ******************/
 .wrapper .total {
 	width: 100%;
 	height: 14vw;

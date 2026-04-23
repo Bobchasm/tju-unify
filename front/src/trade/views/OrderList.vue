@@ -134,18 +134,15 @@ export default {
     const userInfo = ref({});
     const router = useRouter();
     const loading = ref(false);
-    // --- WebSocket 相关 ---
     const socket = ref(null);
     const userId = ref(null); // 存储当前用户ID
 
-    // 标签定义 - 与API状态对应
     const tabs = ["全部", "待支付", "待接单", "已接单", "已完成", "已取消"];
     const activeTab = ref(0);
     const showConfirmFinishedModal = ref(false);
     const showConfirmCanceledModal = ref(false);
     const selectId = ref(0);
 
-    // 标签对应的API状态值
     const tabStatusMap = {
       0: null,     // 全部
       1: 0,        // 待支付
@@ -155,7 +152,6 @@ export default {
       5: 4         // 已取消
     };
 
-    // 获取订单列表
     const fetchOrders = async (status = null) => {
       loading.value = true;
       try {
@@ -182,22 +178,16 @@ export default {
       }
     };
 
-    // 计算各状态订单数量 - 基于完整订单列表
     const orderCounts = computed(() => {
-      // 初始化一个数组，长度与tabs一致，初始值为0
       const counts = new Array(tabs.length).fill(0);
 
-      // 获取完整的订单列表（从后端API获取的所有订单）
       const allOrders = orderArr.value;
 
-      // 遍历所有订单进行统计
       allOrders.forEach(order => {
         const state = order.orderState;
 
-        // 全部订单数
         counts[0]++;
 
-        // 根据订单状态，增加对应标签的计数
         if (state === 0) counts[1]++;       // 待支付 -> 索引1
         else if (state === 1) counts[2]++;  // 待接单 -> 索引2
         else if (state === 2) counts[3]++;  // 已接单 -> 索引3
@@ -208,7 +198,6 @@ export default {
       return counts;
     });
 
-    // 计算显示的订单 - 基于当前选中的标签
     const displayedOrders = computed(() => {
       if (activeTab.value === 0) return orderArr.value; // 全部
 
@@ -216,13 +205,10 @@ export default {
       return orderArr.value.filter(order => order.orderState === targetStatus);
     });
 
-    // 切换标签 - 只需要改变activeTab，displayedOrders会自动更新
     const changeTab = (index) => {
       activeTab.value = index;
-      // 不再需要在这里调用fetchOrders，因为displayedOrders是计算属性
     };
 
-    // 获取状态文本
     const getStatusText = (state) => {
       const statusMap = {
         0: "待支付",
@@ -234,7 +220,6 @@ export default {
       return statusMap[state] || "未知状态";
     };
 
-    // 获取状态样式类
     const getStatusClass = (state) => {
       const classMap = {
         0: "unpaid",
@@ -246,20 +231,17 @@ export default {
       return classMap[state] || "";
     };
 
-    // 格式化时间
     const formatTime = (timeString) => {
       if (!timeString) return "";
       const date = new Date(timeString);
       return date.toLocaleString();
     };
 
-    // 取消订单
     const cancelOrder = (id) => {
       selectId.value = id;
       showConfirmCanceledModal.value = true;
     };
 
-    // 确认取消订单
     const confirmCanceled = async () => {
       if (selectId.value === 0) return;
 
@@ -268,15 +250,12 @@ export default {
 
         if (response.success) {
           toast.success("订单取消成功");
-          // 重新加载订单
           fetchOrders();
         } else {
-          // 显示后端返回的具体错误消息
           const errorMessage = response.message || "取消失败,请重试";
           toast.error(errorMessage);
         }
       } catch (error) {
-        // 从错误响应中提取错误消息
         const errorMessage = error.response?.data?.message || error.message || "取消失败,请重试";
         toast.error(errorMessage);
       } finally {
@@ -284,18 +263,15 @@ export default {
       }
     };
 
-    // 支付订单
     const payOrder = (orderId) => {
       router.push({ path: "/trade/payment", query: { orderId } });
     };
 
-    // 确认收货
     const confirmOrder = (id) => {
       selectId.value = id;
       showConfirmFinishedModal.value = true;
     };
 
-    // 确认完成订单
     const confirmFinished = async () => {
       if (selectId.value === 0) return;
 
@@ -304,7 +280,6 @@ export default {
 
         if (response.success) {
           toast.success("订单完成");
-          // 重新加载订单
           fetchOrders();
         } else {
           toast.error("确认完成失败,请重试");
@@ -316,7 +291,6 @@ export default {
       }
     };
 
-    // 查看订单详情
     const goDetail = (id) => {
       router.push({
         path: '/trade/listDetail',
@@ -324,14 +298,12 @@ export default {
       });
     };
 
-    // 关闭弹窗
     const closeModal = () => {
       showConfirmFinishedModal.value = false;
       showConfirmCanceledModal.value = false;
       selectId.value = 0;
     };
 
-    // 初始化WebSocket
     const initWebSocket = () => {
       userId.value = userInfo.value.id;
       if (!userId.value) return;
@@ -346,12 +318,9 @@ export default {
         const message = JSON.parse(event.data);
         console.log("收到WebSocket消息:", message);
         
-        // 处理订单状态更新消息
         if (message.type === 'order_update') {
           console.log("🔄 订单状态更新, 订单ID:", message.orderId, ", 新状态:", message.orderState);
           
-          // 根据订单状态显示不同提示
-          // 0-待支付,1-待接单,2-已接单,3-已完成,4-已取消
           const statusMessages = {
             0: '订单待支付',
             1: '订单已支付，等待商家接单',
@@ -363,10 +332,8 @@ export default {
           const statusMsg = statusMessages[message.orderState] || '订单状态已更新';
           toast.info(statusMsg);
           
-          // 刷新订单列表
           fetchOrders();
         }
-        // 其他消息也刷新列表
         else {
           fetchOrders();
         }
@@ -374,7 +341,6 @@ export default {
 
       socket.value.onclose = () => {
         console.log("WebSocket 连接关闭");
-        // 断线重连（可选，视需求添加）
         setTimeout(initWebSocket, 2000);
       };
 
@@ -383,7 +349,6 @@ export default {
       };
     };
 
-    // 关闭WebSocket（组件销毁时调用）
     const closeWebSocket = () => {
       if (socket.value && socket.value.readyState === WebSocket.OPEN) {
         socket.value.close();
@@ -391,7 +356,6 @@ export default {
     };
 
     onMounted(() => {
-      // 获取用户信息
       const userData = sessionStorage.getItem("userInfo") || localStorage.getItem("userInfo");
       userInfo.value = userData ? JSON.parse(userData) : null;
 
@@ -401,12 +365,10 @@ export default {
         return;
       }
       initWebSocket();
-      // 初始加载全部订单
       fetchOrders();
     });
 
     onUnmounted(() => {
-      // 组件销毁时关闭WebSocket
       closeWebSocket();
     });
 
@@ -437,7 +399,6 @@ export default {
 </script>
   
 <style scoped>
-/****************** 容器与顶部 ******************/
 .wrapper {
   width: 100%;
   height: 100%;
@@ -495,7 +456,6 @@ export default {
   z-index: 1;
 }
 
-/****************** 固定标题和筛选栏 ******************/
 .fixed-header {
   position: fixed;
   top: 100px; /* 在顶部背景下方 */
@@ -516,11 +476,9 @@ export default {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  /* 如果需要限制宽度，可以添加 width */
   width: fit-content; /* 宽度适应内容，可选 */
 }
 
-/****************** 标签栏 ******************/
 .tabs {
   display: flex;
   align-items: center;
@@ -556,7 +514,6 @@ export default {
   border-radius: 0.4vw;
 }
 
-/****************** 内容区域 ******************/
 .content-area {
   margin-top: calc(100px + 18vw); /* 顶部背景高度 + 固定标题和筛选栏高度 */
   padding: 0 4vw;
@@ -566,7 +523,6 @@ export default {
   margin-right: auto;
 }
 
-/****************** 加载和空状态 ******************/
 .loading,
 .empty-state {
   display: flex;
@@ -588,10 +544,8 @@ export default {
   opacity: 0.5;
 }
 
-/****************** 订单列表 ******************/
 .order-list {
   padding: 4vw 0;
-  /* 调整内边距 */
 }
 
 .order-item {
@@ -623,7 +577,6 @@ export default {
   font-weight: 500;
   position: relative;
   z-index: 10;
-  /* 确保在最上层 */
 }
 
 .status-badge.unpaid {

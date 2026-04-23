@@ -50,7 +50,6 @@ export default {
 			const orderTypeId = route.query.orderTypeId || 1; // 默认为类型1
 
 			try {
-				// 获取商家列表
         const response = await request.get(
             "/api/businesses/type",
             {
@@ -86,7 +85,6 @@ export default {
 </script>
   
 <style scoped>
-/* 保持原有的样式不变 */
 .wrapper {
 	width: 100%;
 	height: 100%;
@@ -148,7 +146,6 @@ export default {
 	border-radius: 2vw;
 	object-fit: cover;
 	background-color: #eee;
-	/* 图片加载前的背景色 */
 }
 
 .wrapper .business-details {

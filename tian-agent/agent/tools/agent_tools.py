@@ -1,27 +1,19 @@
 from langchain_core.tools import tool
-from typing import Optional, List, Dict
+import random
 
 from rag.vectore_store import VectorStoreService
 from rag.rag_service import RagSummarizeService
-from rag.advanced_retrieval import AdvancedRetrieval
-import random, os
-from utils.config_handler import agent_conf, retrieval_conf
-from utils.path_tools import get_abs_path
 from utils.logger_handler import logger
 from utils.runtime_history import get_history
 
 vector_store = VectorStoreService()
 rag = RagSummarizeService(vector_store)
-advanced_retrieval = AdvancedRetrieval(vector_store)
 
-# 模拟学号列表
-user_ids = ["2021301001", "2021301002", "2021301003", "2021301004", "2021301005", 
+user_ids = ["2021301001", "2021301002", "2021301003", "2021301004", "2021301005",
             "2021301006", "2021301007", "2021301008", "2021301009", "2021301010"]
 
-# 学期列表
 semester_arr = ["2023-2024-1", "2023-2024-2", "2024-2025-1", "2024-2025-2"]
 
-# 模拟学生综合素质记录（演示用）
 student_data = {}
 
 
@@ -36,12 +28,6 @@ def rag_summarize(
         strategy: str = "auto",
         use_history: bool = True
 ) -> str:
-    """
-    从向量存储中检索天大校园与校务相关参考资料
-    :param query: 用户查询
-    :param strategy: 检索策略。小知识库建议 base；auto 受 config/retrieval.yml 约束
-    :param use_history: 是否使用对话历史进行查询改写
-    """
     history = None
     if use_history:
         history = get_history()
@@ -55,64 +41,50 @@ def rag_summarize(
 
 @tool(description="高级检索（MQE）：多查询扩展，适合天大校园与校务类问题")
 def rag_search_mqe(query: str) -> str:
-    """使用多查询扩展(MQE)策略检索知识库内容"""
     return rag.rag_summarize(query, strategy="mqe")
 
 
 @tool(description="高级检索（HyDE）：假设文档嵌入，适合复杂或表述模糊的问题")
 def rag_search_hyde(query: str) -> str:
-    """使用假设文档嵌入(HyDE)策略检索知识库内容"""
     return rag.rag_summarize(query, strategy="hyde")
 
 
 @tool(description="扩展检索：同时启用MQE与HyDE，召回更全")
 def rag_search_expanded(query: str) -> str:
-    """使用扩展检索框架检索知识库内容"""
     return rag.rag_summarize(query, strategy="expanded")
 
 
 @tool(description="获取当前用户的学号，以纯字符形式返回")
 def get_user_id() -> str:
-    """获取当前用户的学号"""
     return random.choice(user_ids)
 
 
 @tool(description="获取当前学期，格式为YYYY-YYYY-N，以纯字符形式返回")
 def get_current_semester() -> str:
-    """获取当前学期，如2024-2025-1表示2024-2025学年第一学期"""
-    return "2024-2025-1"  # 返回当前学期
+    return "2024-2025-1"
 
 
 def generate_student_data():
-    """生成模拟的学生综合素质测评示例数据（非真实业务）"""
     if not student_data:
-        # 为每个学生生成模拟数据
         for user_id in user_ids:
             student_data[user_id] = {}
             for semester in semester_arr:
-                # 生成随机但合理的示例分数
                 base_score = random.uniform(85, 95)
-                moral_score = random.uniform(88, 98)  # 德育分
-                academic_score = random.uniform(80, 95)  # 智育分
-                physical_score = random.uniform(85, 95)  # 体育分
-                aesthetic_score = random.uniform(85, 95)  # 美育分
-                labor_score = random.uniform(88, 95)  # 劳育分
-                
-                # 加分项
-                competition_bonus = random.uniform(0, 5)  # 竞赛加分
-                research_bonus = random.uniform(0, 3)  # 科研加分
-                volunteer_bonus = random.uniform(0, 2)  # 志愿服务加分
-                leadership_bonus = random.uniform(0, 3)  # 学生干部加分
-                
-                # 扣分项
-                deduction = random.uniform(0, 1)  # 扣分
-                
-                total_score = (base_score * 0.2 + moral_score * 0.2 + academic_score * 0.3 + 
+                moral_score = random.uniform(88, 98)
+                academic_score = random.uniform(80, 95)
+                physical_score = random.uniform(85, 95)
+                aesthetic_score = random.uniform(85, 95)
+                labor_score = random.uniform(88, 95)
+                competition_bonus = random.uniform(0, 5)
+                research_bonus = random.uniform(0, 3)
+                volunteer_bonus = random.uniform(0, 2)
+                leadership_bonus = random.uniform(0, 3)
+                deduction = random.uniform(0, 1)
+                total_score = (base_score * 0.2 + moral_score * 0.2 + academic_score * 0.3 +
                              physical_score * 0.1 + aesthetic_score * 0.1 + labor_score * 0.1 +
-                             competition_bonus + research_bonus + volunteer_bonus + 
+                             competition_bonus + research_bonus + volunteer_bonus +
                              leadership_bonus - deduction)
-                
-                rank = random.randint(1, 150)  # 排名
+                rank = random.randint(1, 150)
                 
                 student_data[user_id][semester] = {
                     "基础分": f"{base_score:.2f}",
@@ -133,12 +105,6 @@ def generate_student_data():
 
 @tool(description="检索指定学号、学期的综合素质测评示例记录（演示数据），纯文本返回")
 def fetch_student_data(user_id: str, semester: str) -> str:
-    """
-    获取学生的综合素质测评示例数据
-    :param user_id: 学号
-    :param semester: 学期，格式为YYYY-YYYY-N
-    :return: 记录文本
-    """
     generate_student_data()
     try:
         data = student_data[user_id][semester]
@@ -176,22 +142,6 @@ def calculate_score(
     leadership_bonus: float = 0.0,
     deduction: float = 0.0
 ) -> str:
-    """
-    按示例公式计算综测总分（演示用）
-    :param base_score: 基础分
-    :param moral_score: 德育分
-    :param academic_score: 智育分
-    :param physical_score: 体育分
-    :param aesthetic_score: 美育分
-    :param labor_score: 劳育分
-    :param competition_bonus: 竞赛加分
-    :param research_bonus: 科研加分
-    :param volunteer_bonus: 志愿服务加分
-    :param leadership_bonus: 学生干部加分
-    :param deduction: 扣分
-    :return: 计算结果的字符串表示
-    """
-    # 示例权重，以学校当年文件为准
     total_score = (base_score * 0.2 + moral_score * 0.2 + academic_score * 0.3 + 
                   physical_score * 0.1 + aesthetic_score * 0.1 + labor_score * 0.1 +
                   competition_bonus + research_bonus + volunteer_bonus + 
@@ -216,8 +166,4 @@ def calculate_score(
 
 @tool(description="无入参；调用后触发中间件为「学生发展报告」场景注入专用提示词")
 def fill_context_for_report():
-    """为报告生成场景注入上下文"""
     return "fill_context_for_report已调用"
-
-
-# 工具集：天津大学校园生活助手 + RAG + 演示用学生数据

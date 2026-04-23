@@ -146,7 +146,6 @@
   </script>
   
   <style scoped>
-/* -------------------- 基础样式重置 -------------------- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -167,7 +166,6 @@ body {
   background-color: #f0f2f5;
 }
 
-/* -------------------- header部分 -------------------- */
 header {
   width: 100%;
   height: 15vw;
@@ -185,7 +183,6 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* -------------------- 返回按钮 -------------------- */
 .back-btn-container {
   position: fixed;
   left: 4vw;
@@ -209,7 +206,6 @@ header {
   cursor: pointer;
 }
 
-/* -------------------- 表单部分 -------------------- */
 .form-box {
   width: 90%;
   max-width: 400px;
@@ -254,7 +250,6 @@ header {
   border-color: #0097FF;
 }
 
-/* -------------------- 性别选择样式 -------------------- */
 .gender-selection {
   display: flex;
   gap: 20px;
@@ -304,7 +299,6 @@ header {
   transform: translate(-50%, -50%);
 }
 
-/* -------------------- 更新按钮部分 -------------------- */
 .button-add {
   width: 90%;
   max-width: 400px;
@@ -334,7 +328,6 @@ header {
   transform: translateY(1px);
 }
 
-/* -------------------- 响应式设计 -------------------- */
 @media (min-width: 768px) {
   header {
     height: 80px;

@@ -6,7 +6,6 @@
             <div class="icon-location-box">
                 <i class="fas fa-map-marker-alt"></i>
             </div>
-            <!-- <div class="location-text">天津大学北洋园校区<i class="fa fa-caret-down"></i></div> -->
             <div class="location-text" @click="showLocationPicker">
                 <span class="location-display">{{ displayLocation }}</span>
                 <i class="fa fa-caret-down"></i>
@@ -324,7 +323,6 @@ import axios from 'axios';
 import request from '@/trade/utils/tradeRequest';
 import AMapLoader from '@amap/amap-jsapi-loader';
 import { toast } from '@/trade/utils/toast';
-// 高德地图API key（请替换为你的实际key）
 const AMAP_KEY = '24cce1eb31aec79422f44af47428fc8a';
 
 export default {
@@ -337,12 +335,10 @@ export default {
         const originalBusinessList = ref([]); // 保存原始数据用于筛选和排序
         const ratingMap = ref({});
 
-        // 轮播图相关
         const currentSlide = ref(0);
         const topThreeBusinesses = ref([]);
         let autoPlayTimer = null;
 
-        //促销积分相关
         const pointsRules = ref([]); // 所有积分规则
         const enabledPointsRules = ref([]); // 启用的促销积分规则
         const currentPointsIndex = ref(0); // 当前显示的规则索引
@@ -367,54 +363,42 @@ export default {
             district: ''
         });
         const locationLevels = ref(['请选择省份', '请选择城市', '请选择区域']);
-        // 新增：临时存储选择过程中的地址，不直接影响显示
         const tempSelectedLocation = ref({
             province: '',
             city: '',
             district: ''
         });
 
-        // 计算显示的位置文本
         const displayLocation = computed(() => {
             const { province, city, district } = selectedLocation.value;
 
-            // 如果有区级信息，显示完整省市区
             if (district && province && city) {
-                // 如果是直辖市，省和市名相同，只显示一次省/市名
                 if (province === city) {
                     return `${province} ${district}`;
                 }
                 return `${province} ${city} ${district}`;
             }
 
-            // 只有省市信息
             if (province && city) {
                 return `${province} ${city}`;
             }
 
-            // 只有省信息
             if (province) {
                 return province;
             }
 
-            // 默认情况
             return currentLocation.value;
         });
 
-        // 获取当前位置
         const getCurrentLocation = async () => {
             try {
-                // 使用高德地图IP定位API
                 console.log('🌍 开始获取位置信息...');
-                // 直接使用axios而不是request，避免拦截器干扰
                 const response = await axios.get(`https://restapi.amap.com/v3/ip?key=${AMAP_KEY}`);
                 console.log('🌍 位置API响应:', response);
 
-                // 高德地图API返回的数据在response.data中
                 if (response && response.data && response.data.status === '1' && response.data.city) {
                     console.log('✅ 位置获取成功:', response.data.city);
                     currentLocation.value = response.data.city;
-                    // 初始化选择位置
                     selectedLocation.value = {
                         province: response.data.province,
                         city: response.data.city,
@@ -427,7 +411,6 @@ export default {
             } catch (error) {
                 console.error('❌ 获取位置失败:', error);
                 currentLocation.value = '天津大学北洋园校区';
-                // 设置默认位置信息
                 selectedLocation.value = {
                     province: '天津市',
                     city: '天津市',
@@ -436,20 +419,16 @@ export default {
             }
         };
 
-        // 显示位置选择器
         const showLocationPicker = () => {
             showPicker.value = true;
             loadProvinces();
         };
 
-        // 隐藏位置选择器
         const hideLocationPicker = () => {
             showPicker.value = false;
-            // 重置临时变量：恢复为当前已确认的最终地址
             tempSelectedLocation.value = { ...selectedLocation.value };
         };
 
-        // 加载省份数据
         const loadProvinces = async () => {
             loading.value = true;
             try {
@@ -465,7 +444,6 @@ export default {
             }
         };
 
-        // 加载城市数据
         const loadCities = async (provinceCode, provinceName) => {
             loading.value = true;
             try {
@@ -474,7 +452,6 @@ export default {
                     locationData.value = response.data.districts[0].districts;
                     currentLevel.value = 1;
                     tempSelectedLocation.value.province = provinceName;
-                    // 重置临时变量的城市/区域（避免之前的残留值）
                     tempSelectedLocation.value.city = '';
                     tempSelectedLocation.value.district = '';
                 }
@@ -485,7 +462,6 @@ export default {
             }
         };
 
-        // 加载区域数据
         const loadDistricts = async (cityCode, cityName) => {
             loading.value = true;
             try {
@@ -494,7 +470,6 @@ export default {
                     locationData.value = response.data.districts[0].districts;
                     currentLevel.value = 2;
                     tempSelectedLocation.value.city = cityName;
-                    // 重置临时变量的区域
                     tempSelectedLocation.value.district = '';
                 }
             } catch (error) {
@@ -504,24 +479,20 @@ export default {
             }
         };
 
-        // 切换级别
         const switchLevel = (level) => {
             if (level < currentLevel.value) {
                 currentLevel.value = level;
                 if (level === 0) {
-                    // 切换回省份级：重置临时变量的城市/区域
                     tempSelectedLocation.value.city = '';
                     tempSelectedLocation.value.district = '';
                     loadProvinces();
                 } else if (level === 1) {
                     loadCities(tempSelectedLocation.value.province, tempSelectedLocation.value.province);
-                    // 切换回城市级：重置临时变量的区域
                     tempSelectedLocation.value.district = '';
                 }
             }
         };
 
-        // 选择位置
         const selectLocation = (item) => {
             if (currentLevel.value === 0) {
                 loadCities(item.adcode, item.name);
@@ -532,10 +503,8 @@ export default {
             }
         };
 
-        // 确认选择
         const confirmLocation = () => {
             const { province, city, district } = tempSelectedLocation.value; // 校验临时变量
-            // 1. 严格校验：必须完整选择省、市、区
             if (!province) {
                 toast.error("请先选择省份");
                 return;
@@ -549,17 +518,13 @@ export default {
                 return;
             }
 
-            // 2. 校验通过：同步临时变量到最终变量
             selectedLocation.value = { ...tempSelectedLocation.value };
-            // 3. 保存到本地存储
             localStorage.setItem('userLocation', JSON.stringify(selectedLocation.value));
             const displayText = getDisplayText(selectedLocation.value);
             localStorage.setItem('userLocationDisplay', displayText);
 
-            // 4. 关闭弹窗
             hideLocationPicker();
         };
-        // 新增一个方法来生成显示文本
         const getDisplayText = (location) => {
             const { province, city, district } = location;
             if (district && province && city) {
@@ -577,7 +542,6 @@ export default {
             return '未知位置';
         };
 
-        // 检查是否选中
         const isSelected = (item) => {
             const { province, city, district } = tempSelectedLocation.value; // 关键：用临时变量
             if (currentLevel.value === 0) {
@@ -602,7 +566,6 @@ export default {
                 if (savedUserInfo) {
                     try {
                         const parsedUserInfo = JSON.parse(savedUserInfo);
-                        // 校验用户信息是否完整（避免存储的是无效数据）
                         if (parsedUserInfo.id && parsedUserInfo.username) { // 假设用户信息必须包含id和username
                             userInfo.value = parsedUserInfo;
                             console.log('从本地存储加载用户信息成功:', userInfo.value);
@@ -623,7 +586,6 @@ export default {
                 if (res && res.id && res.username) { // 校验接口返回的用户信息完整性
                     userInfo.value = res;
                     console.log('从接口加载用户信息成功:', userInfo.value);
-                    // 同步到本地存储（和token位置一致）
                     storage?.setItem('userInfo', JSON.stringify(res));
                 } else {
                     console.error('获取用户信息失败：接口返回数据不完整');
@@ -641,7 +603,6 @@ export default {
             }
         };
 
-        // 监听用户信息变化，重新获取积分规则
         watch(() => userInfo.value, (newUserInfo) => {
             console.log('👤 用户信息变化，重新获取积分规则:', newUserInfo ? '已登录' : '未登录');
             fetchPointsRules();
@@ -665,7 +626,6 @@ export default {
         };
 
         const guessCommentCount = (biz) => {
-            // 兼容不同后端字段命名，若不存在则为0
             return (
                 biz.commentCount ??
                 biz.comments ??
@@ -704,16 +664,13 @@ export default {
             return ratingMap.value[businessId] || '1.0';
         };
 
-// 新增的跳转函数（使用 foodIds 数组）
 const navigateToPromotion = (foodIds) => {
     if (Array.isArray(foodIds) && foodIds.length > 0) {
         
-        // 1. 将 foodIds 数组转换为逗号分隔的字符串
         const idsString = foodIds.join(',');
         
         console.log(`🔗 尝试跳转。关联的 Food IDs 列表: ${idsString}`);
         
-        // 2. ⭐ 修改点：通过 query 参数传递 ids 字符串
         router.push({ 
             path: '/trade/PromotionList',
             query: {
@@ -725,12 +682,10 @@ const navigateToPromotion = (foodIds) => {
     }
 };
 
-// 获取积分规则列表 (修改后的版本)
 const fetchPointsRules = async () => {
     try {
         console.log('🔍 开始获取积分规则列表...');
         
-        // 1. 检查 Token
         const tokenFromLocal = localStorage.getItem('token');
         const tokenFromSession = sessionStorage.getItem('token');
         const token = tokenFromLocal || tokenFromSession;
@@ -743,8 +698,6 @@ const fetchPointsRules = async () => {
             return;
         }
         
-        // 2. 调用接口获取积分规则
-        // ⭐ 修改点 A: 显式添加 Header 以解决 401 Unauthorized 问题
         const response = await request.get('/api/marketing/points/rules', {
             params: {
                 ruleType: 1, // 1-促销积分
@@ -753,17 +706,12 @@ const fetchPointsRules = async () => {
                 pageSize: 100
             },
             headers: {
-                // 根据您的 API 文档，同时尝试设置两种可能的认证头部
                 'Authorization': `Bearer ${token}`, // 标准 JWT/OAuth2 认证格式
-               // 'token': token // API 文档中提到的自定义 Header 格式
             },
-            // 允许所有响应进入 .then 块，让代码可以检查 status 和 response.data
             validateStatus: function (status) {
                 return status >= 200 && status < 600; 
             }
         }).catch(error => {
-            // 捕获纯网络错误 (如断网、请求超时、CORS预检失败等)
-            // ⭐ 优化日志，如果存在 HTTP 状态码，打印出来
             const status = error?.response?.status;
             console.warn(`⚠️ 获取积分规则请求失败 (状态码: ${status || '无'} 或网络错误):`, error?.message);
             
@@ -773,7 +721,6 @@ const fetchPointsRules = async () => {
             return null; // 返回 null，表示请求彻底失败
         });
         
-        // 如果请求彻底失败 (网络问题)
         if (!response) {
             console.log('📭 未获取到积分规则响应，可能是网络错误，已清空数据并停止轮播');
             return;
@@ -785,9 +732,7 @@ const fetchPointsRules = async () => {
         const responseData = response.data || response;
         const httpStatus = response.status;
 
-        // 3. 处理非 200 HTTP 状态码 (如 401, 403, 500)
         if (httpStatus && httpStatus !== 200) {
-            // ⭐ 优化 401 错误提示，避免误导
             let warningMsg = `⚠️ 积分规则接口返回非200 HTTP状态码: ${httpStatus}`;
             if (httpStatus === 401) {
                 warningMsg += '，权限认证失败 (Unauthorized)。请检查 Token 有效性或登录状态。';
@@ -802,7 +747,6 @@ const fetchPointsRules = async () => {
             return;
         }
 
-        // 4. 检查响应数据中的 success 字段 (处理业务错误)
         if (responseData && responseData.success !== undefined) {
             if (responseData.success) {
                 rulesData = Array.isArray(responseData.data) ? responseData.data : [];
@@ -815,7 +759,6 @@ const fetchPointsRules = async () => {
                 return;
             }
         } 
-        // 5. 处理直接返回数组或其他格式
         else if (Array.isArray(responseData)) {
             rulesData = responseData;
             console.log('✅ 使用直接数组格式获取积分规则');
@@ -827,7 +770,6 @@ const fetchPointsRules = async () => {
             return;
         }
 
-        // 6. 过滤、标记和排序数据 (成功逻辑)
         enabledPointsRules.value = rulesData
             .filter(rule => 
                 rule && 
@@ -835,10 +777,8 @@ const fetchPointsRules = async () => {
                 rule.ruleStatus === 1 && // 启用状态
                 rule.ruleName // 必须有规则名称
             )
-            // ⭐ 修改点 B: 检查 foodIds 数组并添加 hasPromotionLink 标记
             .map(rule => ({
                 ...rule,
-                // 如果 foodIds 存在且是长度大于 0 的数组，则标记为 true
                 hasPromotionLink: Array.isArray(rule.foodIds) && rule.foodIds.length > 0
             }))
             .sort((a, b) => {
@@ -850,8 +790,6 @@ const fetchPointsRules = async () => {
         console.log('🎯 已启用的促销积分规则:', enabledPointsRules.value.length, '条');
         
         if (enabledPointsRules.value.length > 0) {
-            // ... (设置当前规则和启动轮播)
-            // ...
             startPointsCarousel();
         } else {
             console.log('📭 没有可用的促销积分规则');
@@ -861,21 +799,17 @@ const fetchPointsRules = async () => {
         
     } catch (error) {
         console.error('❌ 获取积分规则异常:', error);
-        // 捕获所有未被内部处理的异常
         enabledPointsRules.value = [];
         currentPointsRule.value = null;
         stopPointsCarousel();
     }
 };
         
-        // 启动积分轮播
         const startPointsCarousel = () => {
-            // 清理现有定时器
             if (pointsCarouselTimer) {
                 clearInterval(pointsCarouselTimer);
             }
             
-            // 只有在有规则的情况下才启动轮播
             if (enabledPointsRules.value.length > 1) {
                 pointsCarouselTimer = setInterval(() => {
                     nextPointsRule();
@@ -884,7 +818,6 @@ const fetchPointsRules = async () => {
             }
         };
 
-        // 切换到下一条规则
         const nextPointsRule = () => {
             if (enabledPointsRules.value.length === 0) return;
             
@@ -893,11 +826,9 @@ const fetchPointsRules = async () => {
             
             console.log('🔄 切换到下一条积分规则:', currentPointsRule.value.ruleName);
             
-            // 重置轮播定时器
             restartPointsCarousel();
         };
 
-        // 切换到上一条规则
         const prevPointsRule = () => {
             if (enabledPointsRules.value.length === 0) return;
             
@@ -908,11 +839,9 @@ const fetchPointsRules = async () => {
             
             console.log('🔄 切换到上一条积分规则:', currentPointsRule.value.ruleName);
             
-            // 重置轮播定时器
             restartPointsCarousel();
         };
 
-        // 重启轮播定时器
         const restartPointsCarousel = () => {
             if (pointsCarouselTimer) {
                 clearInterval(pointsCarouselTimer);
@@ -920,7 +849,6 @@ const fetchPointsRules = async () => {
             startPointsCarousel();
         };
 
-        // 停止轮播
         const stopPointsCarousel = () => {
             if (pointsCarouselTimer) {
                 clearInterval(pointsCarouselTimer);
@@ -929,7 +857,6 @@ const fetchPointsRules = async () => {
             }
         };
 
-        // 获取销量前三的商家
         const updateTopThreeBusinesses = () => {
             request.get("/api/businesses/carousel")
                 .then(response => {
@@ -937,18 +864,15 @@ const fetchPointsRules = async () => {
                         topThreeBusinesses.value = response.data;
                         console.log('🏆 轮播图更新:', topThreeBusinesses.value.map(b => `${b.businessName}(销量${b.salesCount || 0})`).join(', '));
 
-                        // 关键修改：数据更新后重启自动播放
                         restartAutoPlay();
                     }
                 })
                 .catch(error => {
                     console.error('获取轮播图数据失败:', error);
-                    // 即使失败也要确保有自动播放
                     restartAutoPlay();
                 });
         };
 
-        // 轮播控制函数
         const goToSlide = (index) => {
             currentSlide.value = index;
             restartAutoPlay();
@@ -972,7 +896,6 @@ const fetchPointsRules = async () => {
             return currentSlide.value === 2 ? 0 : currentSlide.value + 1;
         };
 
-        // 自动轮播功能
         const startAutoPlay = () => {
             if (topThreeBusinesses.value.length > 1) {
                 autoPlayTimer = setInterval(() => {
@@ -993,7 +916,6 @@ const fetchPointsRules = async () => {
             startAutoPlay();
         };
 
-        // 排名相关函数
         const getRankClass = (index) => {
             const classes = ['champion', 'runner-up', 'third'];
             return classes[index] || 'other';
@@ -1005,13 +927,11 @@ const fetchPointsRules = async () => {
         };
 
 
-        // 排序商家列表
         const sortBusinessList = (list, sortType) => {
             console.log('=== 开始排序商家列表 ===');
             console.log('排序类型:', sortType);
             console.log('待排序商家数量:', list.length);
 
-            // 显示排序前有销量的商家
             const beforeSalesData = list.filter(b => (b.salesCount || 0) > 0);
             console.log('排序前有销量的商家:', beforeSalesData.map(b => ({
                 name: b.businessName,
@@ -1023,18 +943,15 @@ const fetchPointsRules = async () => {
 
             switch (sortType) {
                 case 'default':
-                    // 综合排序：评分优先，评分相同则按ID排序（ID大的在前，表示较新的商家）
                     sortedList.sort((a, b) => {
                         const scoreA = parseFloat(a.score || getBusinessRating(a.id || a.businessId));
                         const scoreB = parseFloat(b.score || getBusinessRating(b.id || b.businessId));
 
-                        // 评分比较（保留一位小数精度）
                         const scoreDiff = Math.round((scoreB - scoreA) * 10) / 10;
                         if (Math.abs(scoreDiff) >= 0.1) {
                             return scoreDiff; // 评分降序
                         }
 
-                        // 评分相同，按ID排序（ID越大表示越新）
                         const idA = parseInt(a.id || a.businessId || 0);
                         const idB = parseInt(b.id || b.businessId || 0);
                         return idB - idA; // ID降序（新的在前）
@@ -1042,13 +959,11 @@ const fetchPointsRules = async () => {
                     break;
 
                 case 'sales':
-                    // 销量排序：销量优先，销量相同则按ID排序（ID大的在前）
                     console.log('🔄 执行销量排序');
                     sortedList.sort((a, b) => {
                         const salesA = parseInt(a.salesCount || 0);
                         const salesB = parseInt(b.salesCount || 0);
 
-                        // 详细记录排序过程
                         if (salesA > 0 || salesB > 0) {
                             console.log(`比较: ${a.businessName}(销量${salesA}) vs ${b.businessName}(销量${salesB})`);
                         }
@@ -1061,7 +976,6 @@ const fetchPointsRules = async () => {
                             return result;
                         }
 
-                        // 销量相同，按ID排序（ID越大表示越新）
                         const idA = parseInt(a.id || a.businessId || 0);
                         const idB = parseInt(b.id || b.businessId || 0);
                         return idB - idA; // ID降序（新的在前）
@@ -1070,11 +984,9 @@ const fetchPointsRules = async () => {
                     break;
 
                 default:
-                    // 默认不排序，保持原有顺序
                     break;
             }
 
-            // 显示排序后的结果
             const afterSalesData = sortedList.filter(b => (b.salesCount || 0) > 0);
             console.log('排序后有销量的商家:', afterSalesData.map((b, index) => ({
                 排名: index + 1,
@@ -1103,11 +1015,9 @@ const fetchPointsRules = async () => {
                 search.style.position = 'static';
             }
         };
-        // 测试API接口连通性
         const testAPIConnection = async () => {
             console.log('🧪 === 测试API连通性 ===');
 
-            // 测试基础连接
             try {
                 console.log('🔄 测试基础连接...');
                 const healthResponse = await request.get('/api/businesses/search?keyword=&isScore=0&isSales=0');
@@ -1123,7 +1033,6 @@ const fetchPointsRules = async () => {
                 console.error('- 响应状态:', error.response?.status);
                 console.error('- 响应数据:', error.response?.data);
 
-                // 检查常见问题
                 if (error.code === 'ECONNREFUSED') {
                     console.error('🚨 后端服务器未启动或端口不正确');
                 } else if (error.response?.status === 404) {
@@ -1136,7 +1045,6 @@ const fetchPointsRules = async () => {
             }
         };
 
-        // 测试用硬编码数据
         const testWithHardcodedData = () => {
             console.log('🧪 === 使用硬编码数据测试 ===');
             const testData = [
@@ -1198,7 +1106,6 @@ const fetchPointsRules = async () => {
             console.log('🚀 === 页面加载开始 ===');
             console.log('Vue组件已挂载');
 
-            // 先从localStorage获取保存的位置
             const savedLocation = localStorage.getItem('userLocation');
             if (savedLocation) {
                 try {
@@ -1206,7 +1113,6 @@ const fetchPointsRules = async () => {
                     selectedLocation.value = location;
                     tempSelectedLocation.value = { ...location };
 
-                    // 如果有保存的显示文本，直接使用
                     const savedDisplay = localStorage.getItem('userLocationDisplay');
                     if (savedDisplay) {
                         currentLocation.value = savedDisplay;
@@ -1217,21 +1123,16 @@ const fetchPointsRules = async () => {
             } else {
                 getCurrentLocation();
             }
-            // 加载用户信息
             fetchUserInfo();
 
             window.addEventListener('scroll', handleScroll);
 
             console.log('📋 准备获取商家列表');
 
-            // 🧪 临时使用硬编码数据测试 - 先测试硬编码数据是否正常
-            // console.log('🧪 启用硬编码数据测试');
-            // testWithHardcodedData();
 
             getBusinessList(); // 恢复API调用
             startAutoPlay();
             
-            // 获取积分规则
             fetchPointsRules();
 
         });
@@ -1246,11 +1147,9 @@ const fetchPointsRules = async () => {
             router.push({ path: '/trade/businessList', query: { orderTypeId } });
         };
         const goToLChoose = () => {
-            // 跳转到登录页面
             router.push({ path: '/trade/login' });
         };
         const goToRChoose = () => {
-            // 跳转到注册页面
             console.log('111111');
             router.push({ path: '/trade/register' });
         }
@@ -1258,16 +1157,13 @@ const fetchPointsRules = async () => {
             router.push({ path: '/trade/search' });
         };
 
-        // 执行搜索
         const performSearch = async () => {
             if (searchKeyword.value.trim() !== '') {
                 try {
-                    // 构建查询参数
                     const params = {
                         keyword: searchKeyword.value.trim()
                     };
 
-                    // 根据排序方式添加参数
                     if (sortBy.value === 'score') {
                         params.isScore = 1;
                         params.isSales = 0;
@@ -1282,14 +1178,12 @@ const fetchPointsRules = async () => {
                     console.log('搜索参数:', params);
                     console.log('请求URL:', '/api/businesses/search');
 
-                    // 调用搜索接口
                     const response = await request.get('/api/businesses/search', { params });
 
                     console.log('111搜索响应:', response);
                     console.log('222响应状态:', response?.status);
                     console.log('333响应数据:', response?.data);
 
-                    // 统一处理搜索API响应数据
                     console.log('🔍 搜索API响应数据结构分析:');
                     console.log('- response类型:', typeof response);
                     console.log('- response.success:', response?.success);
@@ -1326,23 +1220,19 @@ const fetchPointsRules = async () => {
                     console.error('错误详情:', error.response?.data);
                     console.error('错误状态:', error.response?.status);
                     console.error('错误信息:', error.message);
-                    // 如果搜索失败，显示所有商家
                     getBusinessList();
                 }
             } else {
-                // 如果搜索关键词为空，显示所有商家
                 getBusinessList();
             }
         };
 
-        // 设置排序方式
         const setSortBy = (type) => {
             console.log('🔄 === 用户点击排序按钮 ===');
             console.log('从', sortBy.value, '切换到', type);
             console.log('当前原始数据数量:', originalBusinessList.value.length);
             console.log('当前显示数据数量:', businessList.value.length);
 
-            // 🔍 在排序前再次检查原始数据
             console.log('🔍 排序前最后检查 - originalBusinessList中的销量:');
             const preCheckSales = originalBusinessList.value.filter(b => (b.salesCount || 0) > 0);
             preCheckSales.forEach(business => {
@@ -1356,18 +1246,15 @@ const fetchPointsRules = async () => {
                 performSearch(); // 重新搜索以应用新的排序
             } else {
                 console.log('📋 无搜索关键词，直接排序筛选');
-                // 对当前列表进行排序和筛选
                 applyFiltersAndSort();
             }
         };
 
-        // 获取商家列表
         const getBusinessList = async () => {
             console.log('=== 开始获取商家列表 ===');
             console.log('🔄 使用search接口获取数据');
             console.log('请求URL: /api/businesses/search');
             console.log('请求参数:', { keyword: '', isScore: 0, isSales: 0 });
-            // 使用search接口获取所有商家数据
             request.get('/api/businesses/search', { params: { keyword: '', isScore: 0, isSales: 0 } })
                 .then(response => {
                     console.log('=== 商家列表API响应 ===');
@@ -1380,7 +1267,6 @@ const fetchPointsRules = async () => {
                         dataLength: response?.data?.length
                     });
 
-                    // 🔍 详细检查response.data的前3个元素
                     if (response?.data && Array.isArray(response.data)) {
                         console.log('🔍 response.data前3个元素的详细信息:');
                         response.data.slice(0, 3).forEach((item, index) => {
@@ -1390,7 +1276,6 @@ const fetchPointsRules = async () => {
                             console.log(`  - id: ${item.id} (类型: ${typeof item.id})`);
                         });
 
-                        // 🔍 特别检查有销量的商家
                         const withSales = response.data.filter(item => item.salesCount > 0);
                         console.log('🏆 API返回的有销量商家:', withSales.map(item => ({
                             name: item.businessName,
@@ -1399,7 +1284,6 @@ const fetchPointsRules = async () => {
                         })));
                     }
 
-                    // 统一处理API响应数据
                     console.log('🔍 API响应数据结构分析:');
                     console.log('- response类型:', typeof response);
                     console.log('- response.success:', response?.success);
@@ -1408,13 +1292,10 @@ const fetchPointsRules = async () => {
 
                     let businessData = null;
 
-                    // 处理不同的响应格式
                     if (response && response.success && Array.isArray(response.data)) {
-                        // 标准格式: { success: true, data: [...] }
                         businessData = response.data;
                         console.log('✅ 使用标准响应格式 response.data');
                     } else if (Array.isArray(response)) {
-                        // 直接返回数组格式
                         businessData = response;
                         console.log('✅ 使用直接数组格式 response');
                     } else {
@@ -1425,7 +1306,6 @@ const fetchPointsRules = async () => {
                     if (businessData && businessData.length > 0) {
                         console.log('📊 获取到商家数据:', businessData.length, '个');
 
-                        // 显示前3个商家的基本信息
                         console.log('🔍 前3个商家预览:');
                         businessData.slice(0, 3).forEach((business, index) => {
                             console.log(`${index + 1}. ${business.businessName}:`, {
@@ -1435,7 +1315,6 @@ const fetchPointsRules = async () => {
                             });
                         });
 
-                        // 统计有销量的商家
                         const businessesWithSales = businessData.filter(b => (b.salesCount || 0) > 0);
                         console.log('🏆 有销量的商家:', businessesWithSales.length, '个');
                         if (businessesWithSales.length > 0) {
@@ -1472,12 +1351,10 @@ const fetchPointsRules = async () => {
                     console.error('错误状态:', error.response?.status);
                     console.error('错误消息:', error.message);
 
-                    // 设置空数据
                     originalBusinessList.value = [];
                     businessList.value = [];
                     topThreeBusinesses.value = [];
 
-                    // 如果是网络错误，可以考虑重试
                     if (error.code === 'NETWORK_ERROR' || error.code === 'ECONNREFUSED') {
                         console.log('🔄 网络错误，3秒后自动重试...');
                         setTimeout(() => {
@@ -1488,12 +1365,10 @@ const fetchPointsRules = async () => {
                 });
         };
 
-        // 处理图片加载失败
         const handleImageError = (e) => {
             e.target.src = '/trade-assets/default-business.png';
         };
 
-        // 跳转到商家详情页
         const toBusinessInfo = (businessId) => {
             router.push({
                 path: '/trade/businessInfo',
@@ -1501,7 +1376,6 @@ const fetchPointsRules = async () => {
             });
         };
 
-        // 筛选功能
         const toggleFilter = () => {
             showFilter.value = !showFilter.value;
         };
@@ -1510,14 +1384,12 @@ const fetchPointsRules = async () => {
             showFilter.value = false;
         };
 
-        // 应用筛选和排序的统一函数
         const applyFiltersAndSort = () => {
             console.log('🔧 === 开始应用筛选和排序 ===');
             console.log('筛选条件:', filters.value);
             console.log('排序方式:', sortBy.value);
             console.log('原始数据数量:', originalBusinessList.value.length);
 
-            // 检查原始数据中的销量情况
             const originalSalesData = originalBusinessList.value.filter(b => (b.salesCount || 0) > 0);
             console.log('📈 原始数据中有销量的商家:', originalSalesData.map(b => ({
                 name: b.businessName,
@@ -1525,18 +1397,15 @@ const fetchPointsRules = async () => {
                 sales: b.salesCount
             })));
 
-            // 从原始数据开始筛选
             console.log('🔄 开始筛选 - 复制原始数据');
             let filteredList = [...originalBusinessList.value];
 
-            // 🔍 检查复制后的数据
             console.log('🔍 复制后的数据检查:');
             const copiedWithSales = filteredList.filter(b => (b.salesCount || 0) > 0);
             copiedWithSales.forEach(business => {
                 console.log(`- ${business.businessName}: salesCount=${business.salesCount} (类型: ${typeof business.salesCount})`);
             });
 
-            // 免配送费筛选
             if (filters.value.freeDelivery) {
                 const beforeCount = filteredList.length;
                 filteredList = filteredList.filter(business =>
@@ -1545,7 +1414,6 @@ const fetchPointsRules = async () => {
                 console.log(`免配送费筛选: ${beforeCount} -> ${filteredList.length}`);
             }
 
-            // 起送价筛选
             if (filters.value.startPrice !== '0') {
                 const maxPrice = parseInt(filters.value.startPrice);
                 const beforeCount = filteredList.length;
@@ -1558,13 +1426,11 @@ const fetchPointsRules = async () => {
 
             console.log('筛选后数量:', filteredList.length);
 
-            // 应用排序
             const sortedList = sortBusinessList(filteredList, sortBy.value);
 
             businessList.value = sortedList;
             console.log('筛选和排序后的商家列表:', sortedList.length, '个商家');
 
-            // 输出前5个商家的排序信息用于调试
             if (sortedList.length > 0) {
                 const debugInfo = sortedList.slice(0, 5).map(business => ({
                     name: business.businessName || '未命名',
@@ -1575,7 +1441,6 @@ const fetchPointsRules = async () => {
                 }));
                 console.log(`排序后前5个商家 (${sortBy.value}排序):`, debugInfo);
 
-                // 如果是销量排序，特别显示销量信息
                 if (sortBy.value === 'sales') {
                     const salesInfo = sortedList.map(business => ({
                         name: business.businessName || '未命名',
@@ -1586,7 +1451,6 @@ const fetchPointsRules = async () => {
                     console.log('销量排序详情（前8名）:', salesInfo);
                 }
 
-                // 检查最终显示的数据
                 console.log('🎯 === 最终显示数据检查 ===');
                 console.log('最终businessList总数量:', businessList.value.length);
                 console.log('最终businessList前5个商家详情:');
@@ -1600,7 +1464,6 @@ const fetchPointsRules = async () => {
                     });
                 });
 
-                // 特别检查模板绑定的数据
                 console.log('🎭 模板显示检查 - 前5个商家的销量显示值:');
                 businessList.value.slice(0, 5).forEach((business, index) => {
                     const displayValue = business.salesCount || 0;
@@ -1674,13 +1537,11 @@ const fetchPointsRules = async () => {
             sortBusinessList,
             testWithHardcodedData,
             testAPIConnection,
-            // 轮播图相关
             currentSlide,
             topThreeBusinesses,
             goToSlide,
             nextSlide,
             prevSlide,
-            // 促销积分相关
             enabledPointsRules,
             currentPointsIndex,
             currentPointsRule,
@@ -1705,13 +1566,11 @@ const fetchPointsRules = async () => {
 </script>
 
 <style scoped>
-/****************** 总容器 ******************/
 .wrapper {
     width: 100%;
     height: 100%;
 }
 
-/****************** header ******************/
 .wrapper header {
     width: 100%;
     height: 12vw;
@@ -1725,7 +1584,6 @@ const fetchPointsRules = async () => {
 
 
 
-/* 确保位置信息不会被挤压 */
 .wrapper header .icon-location-box {
     width: 3.5vw;
     height: 3.5vw;
@@ -1752,7 +1610,6 @@ const fetchPointsRules = async () => {
 
 .user-info {
     width: 150px;
-    /* 你可以根据右上角区域宽度调整 */
     overflow: hidden;
     white-space: nowrap;
     position: relative;
@@ -1761,7 +1618,6 @@ const fetchPointsRules = async () => {
 .scroll-text {
     display: inline-block;
     padding-left: 100%;
-    /* 给动画留出空白 */
     animation: scroll-text 10s linear infinite;
 }
 
@@ -1776,7 +1632,6 @@ const fetchPointsRules = async () => {
 }
 
 
-/****************** 登录、注册部分 ******************/
 .wrapper .login-register {
     display: flex;
     gap: 2vw;
@@ -1784,34 +1639,23 @@ const fetchPointsRules = async () => {
     margin-left: 5vw;
     flex-grow: 1;
     justify-content: flex-end;
-    /* 关键修改：此属性是解决 Flexbox 布局中子元素溢出问题的关键 */
     min-width: 0;
 }
 
 .wrapper .login-register .user-info {
-    /* 删除 max-width: 100%，以确保容器可以根据内容宽度进行溢出 */
     font-size: 4vw;
     font-weight: 500;
     color: #fff;
     white-space: nowrap;
-    /* 强制文本不换行 */
 
-    /* 核心修改：允许水平滚动 */
     overflow-x: auto;
-    /* 在水平方向上允许滚动 */
     overflow-y: hidden;
-    /* 隐藏垂直方向的滚动条 */
     -webkit-overflow-scrolling: touch;
-    /* 针对 iOS 设备实现更流畅的滚动 */
 
-    /* 隐藏滚动条但保留滚动功能，让界面更美观 */
     scrollbar-width: none;
-    /* 针对 Firefox */
     -ms-overflow-style: none;
-    /* 针对 Internet Explorer 和 Edge */
 }
 
-/* 针对 Chrome, Safari 等 Webkit 内核浏览器隐藏滚动条 */
 .wrapper .login-register .user-info::-webkit-scrollbar {
     display: none;
 }
@@ -1832,7 +1676,6 @@ const fetchPointsRules = async () => {
     background-color: #f0f0f0;
 }
 
-/****************** search ******************/
 .wrapper .search {
     width: 100%;
     height: 13vw;
@@ -1847,7 +1690,6 @@ const fetchPointsRules = async () => {
     align-items: center;
     position: relative;
     z-index: 20;
-    /* 确保搜索框在轮播图之上 */
 }
 
 .wrapper .search .search-fixed-top .search-box {
@@ -1864,7 +1706,6 @@ const fetchPointsRules = async () => {
     font-size: 3.5vw;
     color: #AEAEAE;
     font-family: "宋体";
-    /*此样式是让文本选中状态无效*/
     user-select: none;
 }
 
@@ -1901,7 +1742,6 @@ const fetchPointsRules = async () => {
     margin-right: 1vw;
 }
 
-/* 排序选项样式 */
 .sort-options {
     width: 100%;
     padding: 3vw;
@@ -1939,7 +1779,6 @@ const fetchPointsRules = async () => {
     border-color: #0097ff;
 }
 
-/****************** 点餐分类部分 ******************/
 .wrapper .foodtype {
     width: 100%;
     height: 48vw;
@@ -1947,17 +1786,14 @@ const fetchPointsRules = async () => {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    /*要使用align-content。10个子元素将自动换行为两行，而且两行作为一个整体垂直居中*/
     align-content: center;
 }
 
 .wrapper .foodtype li {
-    /*一共10个子元素，通过计算，子元素宽度在16.7 ~ 20 之间，才能保证换两行*/
     width: 18vw;
     height: 20vw;
 
     display: flex;
-    /*弹性盒子主轴方向设为column，然后仍然是垂直水平方向居中*/
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -1968,7 +1804,6 @@ const fetchPointsRules = async () => {
 
 .wrapper .foodtype li img {
     width: 12vw;
-    /*视频讲解时高度设置为12vw，实际上设置为10.3vw更佳*/
     height: 10.3vw;
 }
 
@@ -1977,31 +1812,25 @@ const fetchPointsRules = async () => {
     color: #666;
 }
 
-/****************** 销量冠军3D轮播图部分 ******************/
 .wrapper .top-businesses-carousel {
     width: 95%;
     margin: 1.5vw auto;
-    /* 进一步减少上下外边距 */
     background: white;
     border-radius: 2vw;
     padding: 1.5vw 2vw;
-    /* 进一步减少上下内边距 */
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 10;
-    /* 确保在搜索框之下 */
 }
 
 .wrapper .top-businesses-carousel .carousel-header {
     text-align: center;
     margin-bottom: 1.5vw;
-    /* 减少标题下方间距 */
     color: #333;
 }
 
 .wrapper .top-businesses-carousel .carousel-header h3 {
     font-size: 6vw;
-    /* 增大字体大小 */
     margin: 0 0 1vw 0;
     font-weight: 700;
     text-shadow: none;
@@ -2017,16 +1846,12 @@ const fetchPointsRules = async () => {
 .wrapper .top-businesses-carousel .carousel-3d-container {
     position: relative;
     height: 50vw;
-    /* 减少整体高度，让占位更小 */
     min-height: 320px;
-    /* 减少最小高度 */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 3vw 12vw;
-    /* 减少内边距，让占位更小 */
     margin: -3vw -12vw;
-    /* 调整负边距 */
 }
 
 .wrapper .top-businesses-carousel .carousel-3d-item {
@@ -2036,21 +1861,18 @@ const fetchPointsRules = async () => {
     transform-style: preserve-3d;
 }
 
-/* 中间激活状态 */
 .wrapper .top-businesses-carousel .carousel-3d-item.active {
     z-index: 13;
     transform: translateX(0) scale(1);
     opacity: 1;
 }
 
-/* 左边状态 */
 .wrapper .top-businesses-carousel .carousel-3d-item.left {
     z-index: 12;
     transform: translateX(-20vw) scale(0.75);
     opacity: 0.6;
 }
 
-/* 右边状态 */
 .wrapper .top-businesses-carousel .carousel-3d-item.right {
     z-index: 12;
     transform: translateX(20vw) scale(0.75);
@@ -2059,13 +1881,10 @@ const fetchPointsRules = async () => {
 
 .wrapper .top-businesses-carousel .business-card-3d {
     width: 38vw;
-    /* 减少卡片宽度 */
     min-width: 240px;
-    /* 减少最小宽度 */
     background: white;
     border-radius: 2vw;
     padding: 2.5vw;
-    /* 减少内边距 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     position: relative;
     overflow: hidden;
@@ -2103,13 +1922,10 @@ const fetchPointsRules = async () => {
 .wrapper .top-businesses-carousel .business-image {
     width: 100%;
     height: 25vw;
-    /* 调整图片高度，在更小的卡片中保持比例 */
     min-height: 160px;
-    /* 调整最小高度 */
     border-radius: 1.5vw;
     overflow: hidden;
     margin-bottom: 1.5vw;
-    /* 减少底部间距 */
 }
 
 .wrapper .top-businesses-carousel .business-image img {
@@ -2129,11 +1945,9 @@ const fetchPointsRules = async () => {
 
 .wrapper .top-businesses-carousel .business-info h4 {
     font-size: 3.2vw;
-    /* 稍微减少字体大小 */
     font-weight: 700;
     color: #333;
     margin: 0 0 1vw 0;
-    /* 减少底部间距 */
     line-height: 1.2;
 }
 
@@ -2203,7 +2017,6 @@ const fetchPointsRules = async () => {
     font-weight: 600;
 }
 
-/* 轮播箭头按钮 */
 .wrapper .top-businesses-carousel .carousel-arrow {
     position: absolute;
     top: 50%;
@@ -2239,12 +2052,10 @@ const fetchPointsRules = async () => {
 
 .wrapper .top-businesses-carousel .carousel-arrow-left {
     left: 8vw;
-    /* 调整到扩大的悬停区域内 */
 }
 
 .wrapper .top-businesses-carousel .carousel-arrow-right {
     right: 8vw;
-    /* 调整到扩大的悬停区域内 */
 }
 
 .wrapper .top-businesses-carousel .carousel-indicators {
@@ -2252,7 +2063,6 @@ const fetchPointsRules = async () => {
     justify-content: center;
     gap: 1.5vw;
     margin-top: 1.5vw;
-    /* 减少指示器上方间距 */
 }
 
 .wrapper .top-businesses-carousel .indicator {
@@ -2269,9 +2079,7 @@ const fetchPointsRules = async () => {
     transform: scale(1.2);
 }
 
-/****************** 超级会员部分 ******************/
 .wrapper .supermember {
-    /*这里也设置容器宽度95%，不能用padding，因为背景色也会充满padding*/
     width: 95%;
     margin: 0 auto;
     height: 11.5vw;
@@ -2313,12 +2121,10 @@ const fetchPointsRules = async () => {
     cursor: pointer;
 }
 
-/****************** 促销积分轮播部分 ******************/
 .wrapper .points-promotion-carousel {
     width: 97%;
     margin: 2vw auto;
     
-    /* 使用金色渐变背景，彰显价值和吸引力 */
     background: linear-gradient(135deg, #FFC107 0%, #FF8F00 100%);
     position: relative;
     overflow: visible;
@@ -2327,7 +2133,6 @@ const fetchPointsRules = async () => {
     height: 14vw;
     min-height: 14vw;
     
-    /* 精美的金色阴影效果 */
     box-shadow: 0 8px 24px rgba(255, 193, 7, 0.4), 
                 0 4px 8px rgba(255, 143, 0, 0.3);
     
@@ -2336,7 +2141,6 @@ const fetchPointsRules = async () => {
     justify-content: space-between;
 }
 
-/* 添加背景装饰 */
 .wrapper .points-promotion-carousel::before {
     content: '';
     position: absolute;
@@ -2372,13 +2176,11 @@ const fetchPointsRules = async () => {
     overflow: visible;
 }
 
-/* 悬停时显示控制按钮 */
 .wrapper .points-promotion-carousel:hover .carousel-controls {
     opacity: 1;
     visibility: visible;
 }
 
-/* 固定的礼物图标容器 */
 .wrapper .points-promotion-carousel .promotion-icon-fixed {
     position: absolute;
     left: 3vw;
@@ -2419,7 +2221,6 @@ const fetchPointsRules = async () => {
     z-index: 1;
 }
 
-/* 轮播项样式 - 重新设计为卡片风格 */
 .wrapper .points-promotion-carousel .promotion-item {
     display: flex;
     align-items: center;
@@ -2445,7 +2246,6 @@ const fetchPointsRules = async () => {
 }
 
 
-/* 内容区域 */
 .wrapper .points-promotion-carousel .promotion-content {
     margin-right: 15vw; /* 为右下角按钮留出空间，避免重叠 */
     flex: 1;
@@ -2466,7 +2266,6 @@ const fetchPointsRules = async () => {
     letter-spacing: 0.5px;
 }
 
-/* 按钮容器 - 定位到右下角 */
 .wrapper .points-promotion-carousel .promotion-action {
     position: absolute;
     bottom: 1vw;
@@ -2474,7 +2273,6 @@ const fetchPointsRules = async () => {
     z-index: 5;
 }
 
-/* 立即购买按钮 - 简化设计，避免与文字重叠 */
 .wrapper .points-promotion-carousel .promotion-action .jump-button {
     font-size: 2.2vw;
     font-weight: 500;
@@ -2500,7 +2298,6 @@ const fetchPointsRules = async () => {
     opacity: 0.8;
 }
 
-/* 空状态样式 */
 .wrapper .points-promotion-carousel .empty-promotion {
     display: flex;
     align-items: center;
@@ -2518,7 +2315,6 @@ const fetchPointsRules = async () => {
     opacity: 0.8;
 }
 
-/* 轮播控制按钮 - 悬停时显示在文字上下方 */
 .wrapper .points-promotion-carousel .carousel-controls {
     position: absolute;
     left: 50%;
@@ -2574,7 +2370,6 @@ const fetchPointsRules = async () => {
     opacity: 0.7;
 }
 
-/* 轮播动画 - 优化动画效果 */
 @keyframes slideInUp {
     from {
         opacity: 0;
@@ -2586,7 +2381,6 @@ const fetchPointsRules = async () => {
     }
 }
 
-/* Vue transition 动画 - 更流畅的过渡 */
 .slide-up-enter-active,
 .slide-up-leave-active {
     transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -2608,7 +2402,6 @@ const fetchPointsRules = async () => {
     transform: translateY(-40px) scale(0.9);
 }
 
-/* 响应式调整 */
 @media (max-width: 768px) {
     .wrapper .points-promotion-carousel {
         padding: 3vw 4vw;
@@ -2664,7 +2457,6 @@ const fetchPointsRules = async () => {
 
 }
 
-/****************** 推荐商家部分 ******************/
 .wrapper .recommend {
     width: 100%;
     height: 14vw;
@@ -2684,7 +2476,6 @@ const fetchPointsRules = async () => {
     margin: 0 4vw;
 }
 
-/****************** 推荐方式部分 ******************/
 .wrapper .recommendtype {
     width: 100%;
     height: 5vw;
@@ -2700,12 +2491,10 @@ const fetchPointsRules = async () => {
     color: #555;
 }
 
-/****************** 推荐商家列表部分 ******************/
 .wrapper .business-list {
     width: 100%;
     padding: 0;
     margin: 0 0 15vh 0;
-    /* 添加底部边距，避免被 Footer 遮挡 */
     list-style: none;
 }
 
@@ -2807,7 +2596,6 @@ const fetchPointsRules = async () => {
     margin: 0;
 }
 
-/* 位置显示样式 */
 .location-text {
     cursor: pointer;
     transition: color 0.3s;
@@ -2827,7 +2615,6 @@ const fetchPointsRules = async () => {
     white-space: nowrap;
 }
 
-/* 模态框样式 */
 .location-modal {
     position: fixed;
     top: 0;
@@ -2895,7 +2682,6 @@ const fetchPointsRules = async () => {
     overflow-y: auto;
 }
 
-/* 位置导航样式 */
 .location-nav {
     display: flex;
     margin-bottom: 20px;
@@ -2925,7 +2711,6 @@ const fetchPointsRules = async () => {
     color: #0097ff;
 }
 
-/* 位置列表样式 */
 .location-list-container {
     min-height: 200px;
     max-height: 300px;
@@ -2984,7 +2769,6 @@ const fetchPointsRules = async () => {
     font-size: 14px;
 }
 
-/* 当前选择显示 */
 .current-selection {
     padding: 15px;
     background-color: #f8f9fa;
@@ -3002,7 +2786,6 @@ const fetchPointsRules = async () => {
     white-space: nowrap;
 }
 
-/* 模态框底部 */
 .modal-footer {
     display: flex;
     gap: 12px;
@@ -3041,7 +2824,6 @@ const fetchPointsRules = async () => {
     transform: translateY(-1px);
 }
 
-/* 动画效果 */
 .fade-enter-active,
 .fade-leave-active {
     transition: opacity 0.3s;
@@ -3052,7 +2834,6 @@ const fetchPointsRules = async () => {
     opacity: 0;
 }
 
-/* 空状态样式 */
 .empty-carousel,
 .empty-business-list {
     display: flex;
@@ -3086,7 +2867,6 @@ const fetchPointsRules = async () => {
     color: #ccc;
 }
 
-/* 推荐方式样式 */
 .wrapper .recommendtype {
     width: 100%;
     height: 5vw;
@@ -3114,7 +2894,6 @@ const fetchPointsRules = async () => {
     background-color: #f0f8ff;
 }
 
-/* 筛选弹窗样式 */
 .filter-modal {
     position: fixed;
     top: 0;
@@ -3252,7 +3031,6 @@ const fetchPointsRules = async () => {
     transform: translateY(-1px);
 }
 
-/****************** 返回助手首页悬浮按钮 ******************/
 .back-home-fab {
     position: fixed;
     right: 20px;

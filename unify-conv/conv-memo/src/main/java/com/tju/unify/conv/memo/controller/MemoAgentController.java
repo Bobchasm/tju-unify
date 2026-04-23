@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * 与小智联动的备忘录上下文（路径固定 /agent/ 避免与 /{id} 冲突）。
- */
+
 @RestController
 @RequestMapping("/unify-api/memo/agent")
 @Tag(name = "备忘录-小智联动")

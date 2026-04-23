@@ -18,13 +18,12 @@ from utils.unify_api_context import unify_api_context
 
 app = FastAPI(title="小智 · 天津大学校园生活助手 API")
 
-# 配置 CORS 中间件
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # 允许所有来源，生产环境应该配置具体域名
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],  # 允许所有 HTTP 方法
-    allow_headers=["*"],  # 允许所有请求头
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 agent_instance = ReactAgent()
@@ -137,7 +136,6 @@ async def chat_stream(request: ChatRequest):
         messages_snapshot = [dict(m) for m in messages]
 
         async def generate():
-            # 首帧下发 session_id，便于前端多轮与摘要续上同一会话
             yield "data: " + json.dumps(
                 {"event": "session", "session_id": session_id}, ensure_ascii=False
             ) + "\n\n"
@@ -145,7 +143,6 @@ async def chat_stream(request: ChatRequest):
             with unify_api_context(request.bearer_token):
                 for chunk in agent_instance.execute_stream(agent_messages=agent_messages):
                     parts.append(chunk)
-                    # chunk 内可含换行；必须单行编码，否则会破坏 SSE，前端只能收到首行。
                     yield "data: " + json.dumps(chunk, ensure_ascii=False) + "\n\n"
             assistant_full = "".join(parts)
             hist = messages_snapshot + [{"role": "assistant", "content": assistant_full}]

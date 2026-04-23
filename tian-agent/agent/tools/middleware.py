@@ -5,7 +5,6 @@ from langchain.tools.tool_node import ToolCallRequest
 from langchain_core.messages import ToolMessage
 from langgraph.runtime import Runtime
 from langgraph.types import Command
-# from utils.logger_handler import logger
 from utils.logger_handler import logger
 from utils.prompt_loader import load_system_prompt, load_report_prompt
 from utils.runtime_history import set_history
@@ -55,12 +54,9 @@ def monitor_tool(
 @before_model
 def log_before_model(state:AgentState, runtime: Runtime) -> dict[str, Any] | None:
     logger.info(f"[log_before_model]: 即将调用模型，带有{len(state['messages'])}条消息，消息如下：")
-    # for message in state['messages']:
-    #     logger.info(f"[log_before_model][{type(message).__name__}]: {message.content.strip()}")
     logger.info(f"[log_before_model]: ----------省略已输出内容----------")
     logger.info(f"[log_before_model][{type(state['messages'][-1]).__name__}]: {state['messages'][-1].content.strip()}")
 
-    # 将本次图执行中的对话历史写入运行时上下文，供工具（如 rag_summarize）读取
     try:
         set_history(_extract_role_content_history(state.get("messages")))
     except Exception as e:

@@ -89,7 +89,6 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { toast } from '@/trade/utils/toast';
-// 导入你指定的 request 工具
 import request from '@/trade/utils/tradeRequest';
 
 const props = defineProps({
@@ -114,9 +113,7 @@ const userFromLocal = localStorage.getItem('userInfo') ? JSON.parse(localStorage
 const userFromSession = sessionStorage.getItem('userInfo') ? JSON.parse(sessionStorage.getItem('userInfo')) : null;
 const user = userFromLocal || userFromSession;
 
-// 手机号码格式校验函数
 const validatePhoneNumber = (phone) => {
-  // 中国大陆手机号码正则：11位数字，以1开头，第二位是3-9
   const phoneRegex = /^1[3-9]\d{9}$/;
   return phoneRegex.test(phone);
 };
@@ -125,7 +122,6 @@ onMounted(() => {
   loadAddresses();
 });
 
-// 加载地址列表的方法
 const loadAddresses = async () => {
   if (!props.id) {
     toast.warning('用户未登录，无法获取地址列表');
@@ -136,11 +132,6 @@ const loadAddresses = async () => {
   try {
     const response = await request.get('/api/addresses/listDeliveryAddressByUserId', { params: { userId: props.id} });
     addresses.value = response.data;
-    // 如果接口返回的数据中包含了省市区和详细地址的组合，这里不需要再进行处理
-    // addresses.value = addresses.value.map(addr => ({
-    //   ...addr,
-    //   address: `${addr.address}`
-    // }));
   } catch (error) {
     console.error('获取地址列表失败:', error);
     toast.error('获取地址列表失败，请重试！');
@@ -183,13 +174,11 @@ const closeDeleteModal = () => {
 const submitAddress = async () => {
   const form = addressForm.value;
   
-  // 基础字段校验
   if (!form.contactName || !form.contactTel || !form.address) {
     toast.warning('请填写完整的地址信息！');
     return;
   }
 
-  // 手机号格式校验
   if (!validatePhoneNumber(form.contactTel)) {
     toast.warning('请输入正确的手机号码格式（11位数字，以1开头）！');
     return;
@@ -197,7 +186,6 @@ const submitAddress = async () => {
 
   try {
     if (isEditing.value) {
-      // 使用 request.post 方法发送 POST 请求
       await request.post('/api/addresses/updateDeliveryAddress', { ...form });
       toast.success('地址修改成功！');
     } else {
@@ -214,7 +202,6 @@ const submitAddress = async () => {
     loadAddresses();
   } catch (error) {
     console.error('操作失败:', error);
-    // 根据错误信息提供更具体的提示
     if (error.response && error.response.data && error.response.data.message) {
       toast.error(`操作失败：${error.response.data.message}`);
     } else {
@@ -350,7 +337,6 @@ const confirmDelete = async () => {
 </style>
 
 <style>
-/* 全局样式，不scoped */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -377,7 +363,6 @@ const confirmDelete = async () => {
   animation: modalSlideIn 0.3s ease-out;
 }
 
-/* 删除确认弹窗的特定样式 */
 .modal-overlay .modal-content {
   background: white;
   border-radius: 12px;
@@ -491,7 +476,6 @@ const confirmDelete = async () => {
   margin-right: 5px; /* 单选按钮和文字的间距 */
 }
 
-/* AdminUser风格的确认弹窗样式 */
 .modal-header {
   display: flex;
   justify-content: space-between;

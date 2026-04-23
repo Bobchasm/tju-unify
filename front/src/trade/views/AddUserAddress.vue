@@ -51,7 +51,6 @@
 
 <script>
 import { ref, onMounted } from 'vue';
-// import Footer from '../components/Footer.vue';
 import { useRouter,useRoute } from 'vue-router';
 import { toast } from '@/trade/utils/toast';
 import request from '@/trade/utils/tradeRequest';
@@ -59,7 +58,6 @@ import BackButton from '../components/BackButton.vue';
 export default {
 	name: 'AddUserAddress',
 	components: {
-		// Footer,
 		BackButton
 	},
 	setup() {
@@ -135,10 +133,8 @@ export default {
 </script>
 
 <style scoped>
-/* 引入 Font Awesome (如果需要，请在你的 index.html 中引入) */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
 
-/*************** 总容器 ***************/
 .wrapper {
   width: 100%;
   height: 100vh;
@@ -147,7 +143,6 @@ export default {
   flex-direction: column;
 }
 
-/*************** header ***************/
 .header {
 	width: 100%;
   height: 12vw;
@@ -172,7 +167,6 @@ export default {
   font-size: 5.5vw;
 }
 
-/*************** 表单信息 ***************/
 .form-box {
   width: 100%;
   box-sizing: border-box;
@@ -221,7 +215,6 @@ export default {
 }
 
 .form-box li .gender-select {
-  /* 调整性别选项的对齐方式和间距 */
   justify-content: flex-start;
   gap: 6vw;
 }
@@ -232,7 +225,6 @@ export default {
 }
 
 .form-box li .gender-select input[type="radio"] {
-  /* 恢复为默认的圆形单选框 */
   appearance: auto;
   -webkit-appearance: auto;
   -moz-appearance: auto;
@@ -247,7 +239,6 @@ export default {
   cursor: pointer;
 }
 
-/*************** 按钮部分 ***************/
 .button-add {
   width: 100%;
   box-sizing: border-box;

@@ -31,10 +31,7 @@ from utils.prompt_loader import load_conversation_summary_prompt, load_system_pr
 from utils.config_handler import agent_conf
 from utils.conversation_memory import build_memory_window
 
-"""
-    用户输入 → 2. Agent处理 → 3. 工具调用 → 4. 响应生成
 
-"""
 def _text_from_ai_message(msg: AIMessage) -> str:
     """提取 AIMessage 的纯文本；兼容字符串与新版块列表结构。"""
     content = getattr(msg, "content", None)
@@ -156,19 +153,12 @@ class ReactAgent(object):
             input_dict, stream_mode="values", context={"report": False}
         ):
             latest_message = chunk["messages"][-1]
-            # 不向用户流式透出 ToolMessage 等；仅输出模型最终自然语言，避免误传大段 JSON。
             if not isinstance(latest_message, AIMessage):
                 continue
             text = _text_from_ai_message(latest_message).strip()
             if not text:
                 continue
-            # stream_mode=values 可能对同一轮次重复推送同一条 AIMessage，去重避免前端重复的整段文本。
             if text == last_sent:
                 continue
             last_sent = text
             yield text + "\n"
-
-if __name__ == '__main__':
-    agent = ReactAgent()
-    for chunk in agent.execute_stream(query="北洋园校区和卫津路校区各有什么特点？"):
-        print(chunk, end="", flush=True)

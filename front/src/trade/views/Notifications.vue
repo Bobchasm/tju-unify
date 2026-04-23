@@ -74,37 +74,25 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue';
 import request from '@/trade/utils/tradeRequest';
 import { toast } from '@/trade/utils/toast';
-//import BackButton from "@/trade/components/BackButton.vue";
+import BackButton from '@/trade/components/BackButton.vue';
 
-// 状态管理
 const messages = ref([]);
 const loading = ref(true);
 const error = ref('');
 const webSocket = ref(null);
 const isConnected = ref(false);
 
-// 消息类型常量 (根据 API 文档)
-const MESSAGE_TYPE = {
-  MERCHANT_AUDIT: 0, // 商家申请审核
-  STORE_AUDIT: 1,    // 开店申请审核
-  SCORE_EXPIRY: 2    // 积分过期预警
-};
-
-// 获取当前用户信息
 const userFromLocal = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
 const userFromSession = sessionStorage.getItem('userInfo') ? JSON.parse(sessionStorage.getItem('userInfo')) : null;
 const user = userFromLocal || userFromSession;
-// 确保 currentUserId 在用户未登录时为 null
-const currentUserId = user ? user.id : null; 
+const currentUserId = user ? user.id : null;
 
-// 计算未读消息数量
 const unreadCount = computed(() => {
   return messages.value.filter(msg => msg.unread).length;
 });
 
-// 初始化：加载历史消息并连接WebSocket
 onMounted(() => {
-  if (currentUserId) { // 只有在获取到用户ID时才执行初始化操作
+  if (currentUserId) {
     fetchHistoryMessages();
     initWebSocket();
   } else {
@@ -113,19 +101,15 @@ onMounted(() => {
   }
 });
 
-// 组件卸载时关闭WebSocket连接
 onUnmounted(() => {
   if (webSocket.value) {
     webSocket.value.close();
   }
 });
 
-/**
- * 加载历史消息
- */
 const fetchHistoryMessages = async () => {
   loading.value = true;
-  error.value = ''; // 清除之前的错误
+  error.value = '';
   try {
     if (!currentUserId) {
         error.value = '用户未登录';
@@ -135,17 +119,15 @@ const fetchHistoryMessages = async () => {
 
     const res = await request.get('/api/notifications', {
       params: {
-        userId: currentUserId // 传递当前用户的 ID
+        userId: currentUserId
       }
     });
 
     if (res.success) {
       messages.value = res.data.map(msg => ({
         ...msg,
-        // 确保 notificationType 字段被正确接收
-        notificationType: msg.notificationType, 
-        // isRead=0 → 未读 → unread=true；isRead=1 → 已读 → unread=false
-        unread: msg.isRead !== 1, 
+        notificationType: msg.notificationType,
+        unread: msg.isRead !== 1,
       }));
     } else {
         throw new Error(res.message || '获取消息列表失败');
@@ -159,39 +141,30 @@ const fetchHistoryMessages = async () => {
   }
 };
 
-/**
- * 初始化WebSocket连接
- */
 const initWebSocket = () => {
-  // 清除之前的连接
   if (webSocket.value) {
     webSocket.value.close();
   }
 
   error.value = '';
-  // 不设置 loading=true，避免覆盖 fetchHistoryMessages 的状态
 
   try {
     if (!currentUserId) {
       error.value = '请先登录以接收消息通知';
       return;
     }
-    
-    // 创建WebSocket连接 - 使用userId作为连接标识
+
     const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     const wsUrl = `${wsProtocol}//localhost:8086/ws/${currentUserId}`; 
     
     webSocket.value = new WebSocket(wsUrl);
 
-    // 连接成功
     webSocket.value.onopen = () => {
       console.log('WebSocket连接成功');
       isConnected.value = true;
       error.value = '';
-      // toast.success('已连接消息通知');
     };
 
-    // 接收消息
     webSocket.value.onmessage = (event) => {
       try {
         const message = JSON.parse(event.data);
@@ -201,20 +174,16 @@ const initWebSocket = () => {
       }
     };
 
-    // 连接关闭
     webSocket.value.onclose = (event) => {
       console.log('WebSocket连接关闭，代码:', event.code);
       isConnected.value = false;
-      
-      // 不是手动关闭的连接，尝试重连
+
       if (event.code !== 1000) {
         error.value = '消息连接已断开，正在尝试重连...';
-        // 3秒后重连
         setTimeout(initWebSocket, 3000);
       }
     };
 
-    // 连接错误
     webSocket.value.onerror = (err) => {
       console.error('WebSocket错误:', err);
       isConnected.value = false;
@@ -226,47 +195,37 @@ const initWebSocket = () => {
   }
 };
 
-/**
- * 处理新接收的消息
- */
 const handleNewMessage = (message) => {
   console.log('Notifications收到WebSocket消息:', message);
-  
-  // 处理订单相关消息(不显示toast,由订单页面处理)
+
   if (message.type === 'order_update' || message.type === 'new_order') {
     console.log('订单消息,不在通知页面显示toast');
-    return; // 订单消息由OrderList/MerchantOrders页面处理
+    return;
   }
-  
-  // 处理钱包消息(不显示toast,由钱包页面处理)
+
   if (message.type === 'wallet_opened') {
     console.log('钱包消息,不在通知页面显示toast');
-    return; // 钱包消息由Wallet页面处理
+    return;
   }
-  
-  // 1. 检查是否为当前用户的消息
+
   if (message.userId && message.userId !== currentUserId) {
     return;
   }
 
-  // 2. 验证消息合法性
   const isValidMessage = message.notificationType !== undefined && message.notificationContent;
   if (!isValidMessage) {
     console.warn('收到无效的WebSocket消息:', message);
     return;
   }
-  
-  // 3. 显示即时提示(仅显示"您有新消息啦")
+
   toast.info('您有新消息啦');
 
-  // 4. 延迟调用接口重新拉取消息列表（保证数据一致性）
   setTimeout(async () => {
     try {
       const res = await request.get('/api/notifications', {
          params: { userId: currentUserId }
       });
       if (res.success) {
-        // 5. 重新映射消息状态，确保 notificationType 被保留
         messages.value = res.data.map(msg => ({
           ...msg,
           notificationType: msg.notificationType, 
@@ -281,17 +240,12 @@ const handleNewMessage = (message) => {
   }, 300);
 };
 
-/**
- * 标记消息为已读
- */
 const markAsRead = async (message) => {
   if (!message.unread) return;
 
   try {
-    // 调用接口标记为已读
     await request.put(`/api/notifications/${message.id}/read`);
-    
-    // 更新本地状态
+
     message.unread = false;
   } catch (err) {
     console.error('标记消息为已读失败:', err);
@@ -299,9 +253,6 @@ const markAsRead = async (message) => {
   }
 };
 
-/**
- * 格式化时间显示
- */
 const formatTime = (timeStr) => {
   if (!timeStr) return '';
   
@@ -373,7 +324,6 @@ const formatTime = (timeStr) => {
   font-weight: bold;
 }
 
-/* 留出固定头部和返回按钮的空间 */
 .notification-list {
   padding: 0;
   margin-top: calc(50px + 10vw); /* 50px 是 header 高度 */
@@ -413,9 +363,7 @@ const formatTime = (timeStr) => {
   background-color: #c9e2ff; /* 针对未读消息的更深的蓝色 */
 }
 
-/* --- 积分过期预警样式 --- */
 
-/* 针对积分预警的图标背景 */
 .icon-wrapper.expiry-warning {
   background-color: #fffbe6; /* 浅黄色背景 */
 }
@@ -426,7 +374,6 @@ const formatTime = (timeStr) => {
   color: #1a73e8; /* 默认图标蓝色 */
 }
 
-/* 针对积分预警图标本身的颜色 (Font Awesome) */
 .icon.fa-hourglass-half {
   color: #faad14; /* 警告黄色 */
   font-size: 1.1rem; /* 调整 Font Awesome 图标大小 */
@@ -449,12 +396,10 @@ const formatTime = (timeStr) => {
   color: #1a73e8; /* 未读消息文本蓝色 */
 }
 
-/* 针对积分预警文本的颜色，让它更醒目 */
 .message-text.warning-text {
   color: #d46b08; /* 偏深的警告色 */
 }
 
-/* 如果是未读的积分预警，可以更突出 */
 .message-text.bold.warning-text {
   font-weight: 700;
   color: #cf1322; /* 红色强调 */
@@ -475,7 +420,6 @@ const formatTime = (timeStr) => {
   flex-shrink: 0;
 }
 
-/* 空状态样式 */
 .empty-state {
   display: flex;
   flex-direction: column;
@@ -495,7 +439,6 @@ const formatTime = (timeStr) => {
   font-size: 1.1rem;
 }
 
-/* 加载状态样式 */
 .loading-state {
   display: flex;
   flex-direction: column;
@@ -520,7 +463,6 @@ const formatTime = (timeStr) => {
   100% { transform: rotate(360deg); }
 }
 
-/* 错误状态样式 */
 .error-state {
   display: flex;
   flex-direction: column;
