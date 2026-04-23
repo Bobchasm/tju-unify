@@ -12,6 +12,8 @@
 
 - 新闻推送
 
+- 校园跑腿（起点/终点、小费、期望时间、联系方式；大厅接单）
+
 - 校园电商平台*
   
   该服务也是一个微服务架构的后端
@@ -36,6 +38,7 @@ tju-unify/
 │   ├── conv-news          # 新闻推送模块
 │   ├── conv-gateway       # 应用网关
 │   ├── conv-transaction   # 二手交易模块
+│   ├── conv-errand        # 校园跑腿模块
 │   ├── pom.xml            # 父工程依赖
 │   └── sql                # 数据库建库sql文件
 ├── .gitignore
@@ -64,6 +67,8 @@ tju-unify/
 - `conv-news` 新闻推送服务  
 
 - `conv-transaction`  二手平台服务  
+
+- `conv-errand`  校园跑腿服务  
 
 - 后续追加服务......  
 

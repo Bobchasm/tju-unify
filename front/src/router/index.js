@@ -8,6 +8,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Profile from '../views/Profile.vue'
 import Memo from '../views/Memo.vue'
+import Errand from '../views/Errand.vue'
 import { tradeRoute } from '../trade/tradeRoutes.js'
 
 const routes = [
@@ -55,6 +56,11 @@ const routes = [
     path: '/memo',
     name: 'Memo',
     component: Memo
+  },
+  {
+    path: '/errand',
+    name: 'Errand',
+    component: Errand
   },
   tradeRoute
 ]

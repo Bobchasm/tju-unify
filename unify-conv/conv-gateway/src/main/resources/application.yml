@@ -45,6 +45,11 @@ spring:
           predicates:
             - Path=/unify-api/memo/**
 
+        - id: unify-errand
+          uri: lb://unify-errand
+          predicates:
+            - Path=/unify-api/errand/**
+
 unify:
   auth:
     excludePaths:
