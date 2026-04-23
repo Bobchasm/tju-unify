@@ -67,7 +67,7 @@
         <!-- 课程表 -->
         <div class="tool-card tool-placeholder" @click="handleToolClick('comingSoon')">
           <i class="fa-solid fa-table" style="color: rgb(46, 116, 172);"></i>
-          <div class="tool-name">课程表*</div>
+          <div class="tool-name">跑腿</div>
         </div>
         <!-- 一卡通 -->
         <div class="tool-card tool-placeholder" @click="handleToolClick('comingSoon')">
