@@ -31,6 +31,7 @@
 ```
 tju-unify/
 ├── docs/                  # 一些文档
+├── front/                 # 前端源码
 ├── tian-agent/            # 智能体源码
 ├── unify-conv/            # Spring部分后端 (包含整个应用网关)
 │   ├── conv-api           # Feign 客户端模块
