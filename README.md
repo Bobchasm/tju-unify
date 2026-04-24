@@ -18,7 +18,7 @@
   
   该服务也是一个微服务架构的后端
   
-  仓库：https://gitee.com/dai-mingjing/frontend-comprehension.git
+  仓库：[https://gitee.com/dai-mingjing/frontend-comprehension](https://gitee.com/dai-mingjing/frontend-comprehension)
 
 ---
 
@@ -38,6 +38,7 @@ tju-unify/
 │   ├── conv-news          # 新闻推送模块
 │   ├── conv-gateway       # 应用网关
 │   ├── conv-transaction   # 二手交易模块
+│   ├── conv-conv-memo     # 备忘录模块
 │   ├── conv-errand        # 校园跑腿模块
 │   ├── pom.xml            # 父工程依赖
 │   └── sql                # 数据库建库sql文件
@@ -46,13 +47,47 @@ tju-unify/
 └── README.md
 ```
 
-# 2 开发说明
+# 2 快速启动
 
-## 2.1 Spring 部分后端
+## 2.1 前端部分
+
+**环境准备**
+
+- 保证npm可用
+  
+  可参见 [VUE安装及环境配置（完整版）-CSDN博客](https://blog.csdn.net/qq_52611686/article/details/142653081?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522b9220596f6cbffa1a2f0eb8c533005ed%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=b9220596f6cbffa1a2f0eb8c533005ed&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-142653081-null-null.142%5Ev102%5Epc_search_result_base7&utm_term=vue%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE&spm=1018.2226.3001.4187)
+
+- node
+  
+  可参见 [Node.js安装与配置（详细步骤）_nodejs安装及环境配置-CSDN博客](https://blog.csdn.net/qq_42006801/article/details/124830995?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522363c66d0a867fcac896383171b678743%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=363c66d0a867fcac896383171b678743&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-124830995-null-null.142%5Ev102%5Epc_search_result_base7&utm_term=%E9%85%8D%E7%BD%AEnode&spm=1018.2226.3001.4187)
+
+**快速启动**
+
+```bash
+cd 
+# 安装依赖
+cnpm i
+# 启动
+npm run dev
+```
+
+## 2.2 Spring 后端部分
+
+若出现启动报错，尝试按顺序使用 `maven` 对 `conv-common` `api-common` 进行 `install` 再重启，其他不再详述。
+
+## 2.3 智能体
+
+
+
+---
+
+# 3 开发说明
+
+## 3.1 Spring 部分后端
 
 `unify-conv` ：基于Spring系列实现的均在这个模块下管理。主要管理：整个unify的网关(包括外接服务请求处理如电商平台)、新闻推送服务、二手平台服务、后续基于该框架的扩展服务  
 
-### 2.1.1 结构
+### 3.1.1 结构
 
  `unify-conv` 为这部分的父工程，在这里做依赖版本管理等。  
 
@@ -72,10 +107,9 @@ tju-unify/
 
 - `conv-errand`  校园跑腿服务  
 
-
 - 后续追加服务......  
 
-### 2.1.2 一些说明
+### 3.1.2 一些说明
 
 关于电商平台，目前直接调用饿了吧那边的接口  
 
@@ -85,7 +119,7 @@ tju-unify/
 
 **现在网关的鉴权与转发逻辑**  
 
-### 2.1.3 加入新服务流程
+### 3.1.3 加入新服务流程
 
 **情况一：添加新服务模块实现**
 
@@ -162,7 +196,7 @@ tju-unify/
 
 如果想要进行一些处理，可以新建一个模块作为一个包装微服务
 
-### 2.1.4 服务间调用
+### 3.1.4 服务间调用
 
 引入`api` 模块的依赖
 
@@ -174,11 +208,11 @@ tju-unify/
   
   可以在`unify-api` 模块的`src/main/java/com/tju/unify/conv/api/client/outer` 中写调用的逻辑，当然也可以直接在模块里写
 
-## 2.2 智能体
+## 3.2 智能体
 
 智能体能力由独立服务 **`tian-agent`**（Python / FastAPI）提供，在校园统一登录的前提下，可把「自然语言对话」与网关后的业务接口串起来使用。
 
-### 2.2.1 功能说明
+### 3.2.1 功能说明
 
 - **多轮对话**：用户可连续追问，助手结合上文作答，适合办事步骤拆解、反复澄清需求等场景。  
 
@@ -192,7 +226,7 @@ tju-unify/
 
 - **与新闻信息联动**：用户可以询问天大今日新闻，小智助手将调用新闻相关接口，并将今日新闻展示给用户
 
-### 2.2.2 相关技术
+### 3.2.2 相关技术
 
 **`tian-agent`** 的技术栈：检索、ReAct、记忆，以及 **HTTP 接入、模型与配置、校园工具调用、提示词与 RAG 编排、日志观测** 等，整体关系：**网关鉴权上下文 → FastAPI 会话与流式 → Agent 循环 → 工具（校园 API / RAG / 演示工具）→ 记忆**。
 
@@ -250,35 +284,36 @@ tju-unify/
 
 ---
 
-# 3 一些说明
+# 4 一些说明
 
 欢迎贡献代码、报告问题或提出建议！
 
-### 3.1 提交问题
+### 4.1 提交问题
 
 - 描述问题现象
 - 提供复现步骤
 - 附上错误日志
 - 说明环境信息
 
-### 3.2 提交代码
+### 4.2 提交代码
 
 1. Fork本仓库
 2. 创建功能分支
 3. 提交代码并编写测试
 4. 提交Pull Request
 
-### 3.3 未来畅想
+### 4.3 未来畅想
 
 欢迎fork本仓库，并提交新的工具业务，乐意接收！   
 例如 ：
+
 - 课程评价
 - 跑腿业务（目前已完成）感谢 @ZacheryPole666 
 - 宿舍保修
 - 失物招领
 - 成绩查询
 
-### 3.4 联系方式
+### 4.4 联系方式
 
 如有问题或建议，请通过以下方式联系：
 
