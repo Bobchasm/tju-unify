@@ -43,7 +43,7 @@ springdoc:
 
 logging:
   level:
-    com.tju.elm: debug
+    com.tju.unify.conv.news: debug
   pattern:
     dateformat: HH:mm:ss:SSS
   file:

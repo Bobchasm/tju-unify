@@ -23,12 +23,13 @@
 
     <modules>
         <module>conv-common</module>
+        <module>conv-api</module>
         <module>conv-gateway</module>
         <module>conv-news</module>
         <module>conv-transaction</module>
         <module>conv-memo</module>
         <module>conv-errand</module>
-        <module>conv-api</module>
+
     </modules>
 
     <properties>

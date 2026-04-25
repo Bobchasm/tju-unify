@@ -1,19 +1,3 @@
-/*
- Navicat Premium Dump SQL
-
- Source Server         : TXCloud1
- Source Server Type    : MySQL
- Source Server Version : 80044 (8.0.44)
- Source Host           : 101.42.109.48:3306
- Source Schema         : nacos_config
-
- Target Server Type    : MySQL
- Target Server Version : 80044 (8.0.44)
- File Encoding         : 65001
-
- Date: 01/04/2026 23:16:14
-*/
-
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

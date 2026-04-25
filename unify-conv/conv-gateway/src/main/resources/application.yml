@@ -57,6 +57,6 @@ jwt:
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
-    com.tju.elm.gateway: DEBUG
+    com.tju.unify.conv.gateway: DEBUG
     org.springframework.web.reactive: DEBUG
     reactor.netty: DEBUG

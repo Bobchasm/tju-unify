@@ -50,7 +50,7 @@ springdoc:
 
 logging:
   level:
-    com.tju.elm: debug
+    com.tju.unify.conv.transaction: debug
   pattern:
     dateformat: HH:mm:ss:SSS
   file:
