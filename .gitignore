@@ -14,4 +14,9 @@
 /front/dist/
 /front/node_modules/
 
-
+# Tian-Agent
+tian-agent/.env
+tian-agent/data/chat_history/
+tian-agent/data/conversation_memory/
+tian-agent/logs/
+tian-agent/chroma_db/
