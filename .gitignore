@@ -13,3 +13,5 @@
 **/logs/
 /front/dist/
 /front/node_modules/
+
+tian-agent/.env
