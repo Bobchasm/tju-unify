@@ -61,8 +61,8 @@ public class PostService {
     }
 
     public List<Post> searchPosts(String keyword) {
-        if (keyword == null || keyword.isBlank()) {
-            return List.of();
+        if (keyword == null || keyword.isEmpty()) {
+            return postMapper.selectList(null);
         }
         return postMapper.searchPostsByKeyword(keyword.trim());
     }

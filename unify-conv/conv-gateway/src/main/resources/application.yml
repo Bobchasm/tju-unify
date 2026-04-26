@@ -18,7 +18,7 @@ spring:
         - id: gateway
           uri: lb://gateway
           predicates:
-            - Path=/api/**,/ws/**,/upload,/upload/**
+            - Path=/api/**,/ws/**
 
         - id: unify-news
           uri: lb://unify-news
