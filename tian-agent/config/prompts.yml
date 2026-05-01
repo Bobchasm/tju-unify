@@ -7,3 +7,7 @@ mqe_prompt_path: prompts/mqe_prompt.txt
 hyde_prompt_path: prompts/hyde_prompt.txt
 query_rewrite_prompt_path: prompts/query_rewrite_prompt.txt
 conversation_summary_prompt_path: prompts/conversation_summary_prompt.txt
+
+# A-MEM 风格对话笔记（与摘要模块独立）
+agentic_memory_note_prompt_path: prompts/agentic_memory_note.txt
+agentic_memory_evolve_prompt_path: prompts/agentic_memory_evolve.txt

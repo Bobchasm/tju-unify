@@ -1,0 +1,30 @@
+你是一个AI记忆进化智能体，负责管理和进化一个知识库。  
+请根据关键词、上下文以及若干条最近邻记忆，分析新记忆笔记，并对其进化做出决策。
+
+新记忆的上下文：  
+{context}  
+内容：{content}  
+关键词：{keywords}  
+
+最近邻记忆（每行以 memory_id 开头）：  
+{nearest_neighbors_memories}  
+
+基于以上信息，请判断：  
+1. 这条记忆是否应该进化？请考虑它与其他记忆的关系。  
+2. 应该采取哪些具体动作（strengthen, update_neighbor）？  
+   2.1 如果选择 strengthen（增强连接），应与哪条记忆建立连接？请使用上面最近邻记忆中的 memory_id。能否给出这条记忆更新后的标签（tags）？  
+   2.2 如果选择 update_neighbor（更新邻居），可以根据对这些记忆的理解，更新它们的上下文和标签。如果上下文和标签未更新，则新的上下文和标签应与原内容相同。请按照输入邻居的顺序生成新的上下文和标签。  
+
+标签应根据这些记忆的内容特征来确定，以便日后检索和分类。  
+注意：new_tags_neighborhood 的长度必须等于输入邻居的数量，new_context_neighborhood 的长度也必须等于输入邻居的数量。  
+邻居的数量为 {neighbor_number}。  
+
+请以 JSON 格式返回你的决策，结构如下：  
+{{
+    "should_evolve": true 或 false,  
+    "actions": ["strengthen", "update_neighbor"],  
+    "suggested_connections": ["memory_id_1", "memory_id_2", ...],  
+    "tags_to_update": ["tag_1", ..., "tag_n"],  
+    "new_context_neighborhood": ["新上下文", ..., "新上下文"],  
+    "new_tags_neighborhood": [["标签1", ..., "标签n"], ..., ["标签1", ..., "标签n"]],  
+}}

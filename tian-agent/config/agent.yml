@@ -1,16 +1,23 @@
 #external_data_path: data/external/records.csv
 
-# 传入模型的对话记忆窗口（按轮次计：1轮通常为 1 条 user + 1 条 assistant）
-conversation_window_rounds: 10
+# ===================== A-MEM 风格「对话记忆」（替代原滑动窗口+摘要；与备忘录等业务无关）=====================
+agentic_memory_enabled: true
+agentic_memory_persist_dir: data/agentic_memory
+agentic_chroma_persist_dir: data/agentic_chroma
+agentic_chroma_collection: episodic_mem
+# 新笔记用向量在「本会话」内建链：取最相关的 K 条旧笔记 id 写入 links
+agentic_link_k: 5
+# 用户当前问句向量检索
+agentic_retrieve_k: 8
+# 除检索出的笔记外，仍保留最近若干轮原文（1 轮≈1 user+1 assistant）
+agentic_recent_rounds: 4
+# 与 A-mem-sys process_memory 中 find_related 的 k 一致：参与演进决策的近邻条数
+agentic_evolution_neighbor_k: 5
+# 一次注入上下文的最多笔记条数（含链接扩展）
+agentic_max_expand_total: 20
 
-# 是否启用较早历史的摘要压缩
-conversation_summary_enabled: true
-
-# 是否将摘要记忆持久化到磁盘（跨刷新/重启保留）
-conversation_summary_persist_enabled: true
-
-# 摘要记忆存储目录（相对 tian-agent 工程根目录）
-conversation_summary_store_dir: data/conversation_memory
+# 兼容：仅当未配置 agentic_recent_rounds 时不再使用（沿用旧键名作兜底）
+conversation_window_rounds: 4
 
 # 完整对话消息列表（按 session_id 存 JSON，供换设备/清 localStorage 后仍可从服务端拉取）
 chat_history_store_dir: data/chat_history

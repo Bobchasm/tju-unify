@@ -12,9 +12,9 @@ from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Optional
 from agent.react_agent import ReactAgent
 from utils.config_handler import agent_conf
-from utils.conversation_summary_store import load_summary, save_summary
 from utils import chat_history_store
 from utils.unify_api_context import unify_api_context
+from utils.agentic_memory import AgenticMemoryService, delete_episodic_session_data
 
 app = FastAPI(title="小智 · 天津大学校园生活助手 API")
 
@@ -47,8 +47,30 @@ class ChatResponse(BaseModel):
 sessions: Dict[str, Dict[str, Any]] = {}
 
 
+def _agentic_enabled() -> bool:
+    return bool((agent_conf or {}).get("agentic_memory_enabled", True))
+
+
+def _session_memory(session_id: str) -> Optional[AgenticMemoryService]:
+    """按 session 缓存 AgenticMemoryService（A-MEM 式对话记忆）。"""
+    if not _agentic_enabled():
+        return None
+    if session_id not in sessions:
+        sessions[session_id] = {}
+    if "agentic" not in sessions[session_id]:
+        sessions[session_id]["agentic"] = AgenticMemoryService(session_id)
+    return sessions[session_id]["agentic"]
+
+
 def _chat_history_dir() -> str:
     return str((agent_conf or {}).get("chat_history_store_dir", "data/chat_history"))
+
+
+def _last_user_content(msgs: List[Dict[str, Any]]) -> str:
+    for m in reversed(msgs):
+        if m.get("role") == "user" and isinstance(m.get("content"), str):
+            return m["content"].strip()
+    return ""
 
 
 @app.get("/")
@@ -63,34 +85,25 @@ async def health_check():
 async def chat(request: ChatRequest) -> ChatResponse:
     try:
         session_id = request.session_id or str(uuid.uuid4())
-        
+
         if session_id not in sessions:
-            sessions[session_id] = {
-                "conversation_summary": "",
-                "persist_enabled": bool((agent_conf or {}).get("conversation_summary_persist_enabled", True)),
-                "store_dir": (agent_conf or {}).get("conversation_summary_store_dir", "data/conversation_memory")
-            }
-            
-            if sessions[session_id]["persist_enabled"]:
-                stored_summary = load_summary(sessions[session_id]["store_dir"], session_id)
-                sessions[session_id]["conversation_summary"] = stored_summary
-        
+            sessions[session_id] = {}
+        mem = _session_memory(session_id)
+
         messages = [{"role": msg.role, "content": msg.content} for msg in request.messages]
-        
-        agent_messages, updated_summary = agent_instance.build_agent_input(
+
+        agent_messages = agent_instance.build_agent_input(
             messages=messages,
-            conversation_summary=sessions[session_id]["conversation_summary"]
+            memory=mem,
         )
-        
-        sessions[session_id]["conversation_summary"] = updated_summary
-        
-        if sessions[session_id]["persist_enabled"]:
-            save_summary(sessions[session_id]["store_dir"], session_id, updated_summary)
-        
+
         full_response = ""
         with unify_api_context(request.bearer_token):
             for chunk in agent_instance.execute_stream(agent_messages=agent_messages):
                 full_response += chunk
+
+        if mem is not None:
+            mem.add_round(_last_user_content(messages), full_response)
 
         hist = list(messages) + [{"role": "assistant", "content": full_response}]
         try:
@@ -109,30 +122,18 @@ async def chat(request: ChatRequest) -> ChatResponse:
 async def chat_stream(request: ChatRequest):
     try:
         session_id = request.session_id or str(uuid.uuid4())
-        
+
         if session_id not in sessions:
-            sessions[session_id] = {
-                "conversation_summary": "",
-                "persist_enabled": bool((agent_conf or {}).get("conversation_summary_persist_enabled", True)),
-                "store_dir": (agent_conf or {}).get("conversation_summary_store_dir", "data/conversation_memory")
-            }
-            
-            if sessions[session_id]["persist_enabled"]:
-                stored_summary = load_summary(sessions[session_id]["store_dir"], session_id)
-                sessions[session_id]["conversation_summary"] = stored_summary
-        
+            sessions[session_id] = {}
+        mem = _session_memory(session_id)
+
         messages = [{"role": msg.role, "content": msg.content} for msg in request.messages]
-        
-        agent_messages, updated_summary = agent_instance.build_agent_input(
+
+        agent_messages = agent_instance.build_agent_input(
             messages=messages,
-            conversation_summary=sessions[session_id]["conversation_summary"]
+            memory=mem,
         )
-        
-        sessions[session_id]["conversation_summary"] = updated_summary
-        
-        if sessions[session_id]["persist_enabled"]:
-            save_summary(sessions[session_id]["store_dir"], session_id, updated_summary)
-        
+
         messages_snapshot = [dict(m) for m in messages]
 
         async def generate():
@@ -145,13 +146,15 @@ async def chat_stream(request: ChatRequest):
                     parts.append(chunk)
                     yield "data: " + json.dumps(chunk, ensure_ascii=False) + "\n\n"
             assistant_full = "".join(parts)
+            if mem is not None:
+                mem.add_round(_last_user_content(messages_snapshot), assistant_full)
             hist = messages_snapshot + [{"role": "assistant", "content": assistant_full}]
             try:
                 chat_history_store.save_messages(_chat_history_dir(), session_id, hist)
             except Exception:
                 pass
             yield f"data: [DONE]\n\n"
-        
+
         return StreamingResponse(
             generate(), media_type="text/event-stream")
     except Exception as e:
@@ -160,15 +163,14 @@ async def chat_stream(request: ChatRequest):
 
 @app.get("/api/chat/sessions")
 async def list_chat_sessions(limit: int = 50):
-    """列出本机 tian-agent 已持久化的会话（按最近更新时间倒序）。"""
     lim = limit if 1 <= limit <= 200 else 50
-    sessions = chat_history_store.list_sessions(_chat_history_dir(), limit=lim)
-    return {"sessions": sessions}
+    items = chat_history_store.list_sessions(_chat_history_dir(), limit=lim)
+    return {"sessions": items}
 
 
 @app.get("/api/chat/history")
 async def get_chat_history(session_id: str = ""):
-    """按 session_id 拉取已持久化的完整对话（换浏览器/清缓存后仍可恢复）。"""
+    
     sid = (session_id or "").strip()
     if not sid:
         return {"session_id": "", "messages": []}
@@ -177,12 +179,14 @@ async def get_chat_history(session_id: str = ""):
 
 
 @app.delete("/api/chat/history")
-async def delete_chat_history(session_id: str = ""):
-    """删除某会话的完整对话记录文件。"""
+async def delete_chat_history(session_id: str = ""):# 删对话的 Amem用
     sid = (session_id or "").strip()
     if not sid:
         return {"ok": False, "detail": "session_id required"}
     chat_history_store.delete_messages(_chat_history_dir(), sid)
+    if _agentic_enabled():
+        delete_episodic_session_data(sid)
+    sessions.pop(sid, None)
     return {"ok": True, "session_id": sid}
 
 
