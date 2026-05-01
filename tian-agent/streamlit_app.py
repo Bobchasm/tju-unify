@@ -6,7 +6,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import streamlit as st
 from agent.react_agent import ReactAgent
 from utils.config_handler import agent_conf
-from utils.conversation_summary_store import load_summary, save_summary
+from utils.agentic_memory import AgenticMemoryService
 
 st.title("小智 · 天津大学校园生活助手")
 st.divider()
@@ -20,12 +20,9 @@ if "agent" not in st.session_state:
 if "session_id" not in st.session_state:
     st.session_state["session_id"] = str(uuid.uuid4())
 
-if "conversation_summary" not in st.session_state:
-    persist_enabled = bool((agent_conf or {}).get("conversation_summary_persist_enabled", True))
-    store_dir = (agent_conf or {}).get("conversation_summary_store_dir", "data/conversation_memory")
-    st.session_state["conversation_summary"] = (
-        load_summary(store_dir, st.session_state["session_id"]) if persist_enabled else ""
-    )
+_agentic_on = bool((agent_conf or {}).get("agentic_memory_enabled", True))
+if _agentic_on and "agentic" not in st.session_state:
+    st.session_state["agentic"] = AgenticMemoryService(st.session_state["session_id"])
 
 for message in st.session_state["message"]:
     st.chat_message(message["role"]).write(message["content"])
@@ -36,15 +33,11 @@ if prompt:
     st.chat_message("user").write(prompt)
     st.session_state["message"].append({"role": "user", "content": prompt})
 
-    agent_messages, updated_summary = st.session_state["agent"].build_agent_input(
+    mem = st.session_state.get("agentic") if _agentic_on else None
+    agent_messages = st.session_state["agent"].build_agent_input(
         messages=st.session_state["message"],
-        conversation_summary=st.session_state["conversation_summary"],
+        memory=mem,
     )
-    st.session_state["conversation_summary"] = updated_summary
-    persist_enabled = bool((agent_conf or {}).get("conversation_summary_persist_enabled", True))
-    if persist_enabled:
-        store_dir = (agent_conf or {}).get("conversation_summary_store_dir", "data/conversation_memory")
-        save_summary(store_dir, st.session_state["session_id"], updated_summary)
 
     response_messages = []
     with st.spinner("小智正在思考…"):
@@ -62,4 +55,6 @@ if prompt:
         st.chat_message("assistant").write_stream(capture(res_stream, response_messages))
         full_reply = "".join(response_messages)
         st.session_state["message"].append({"role": "assistant", "content": full_reply})
+        if mem is not None:
+            mem.add_round(prompt, full_reply)
         st.rerun()

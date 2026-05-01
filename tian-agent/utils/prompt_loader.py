@@ -37,6 +37,32 @@ def load_report_prompt():
         raise e
 
 
+def load_agentic_note_prompt() -> str:
+    try:
+        p = get_abs_path(prompts_conf["agentic_memory_note_prompt_path"])
+    except KeyError as e:
+        logger.error("[agentic_memory_note_prompt_path] 未配置。")
+        raise e
+    try:
+        return open(p, "r", encoding="utf-8").read()
+    except FileNotFoundError as e:
+        logger.error(f"[agentic_memory_note_prompt_path] 文件不存在: {p}")
+        raise e
+
+
+def load_agentic_evolve_prompt() -> str:
+    try:
+        p = get_abs_path(prompts_conf["agentic_memory_evolve_prompt_path"])
+    except KeyError as e:
+        logger.error("[agentic_memory_evolve_prompt_path] 未配置。")
+        raise e
+    try:
+        return open(p, "r", encoding="utf-8").read()
+    except FileNotFoundError as e:
+        logger.error(f"[agentic_memory_evolve_prompt_path] 文件不存在: {p}")
+        raise e
+
+
 def load_conversation_summary_prompt():
     try:
         summary_prompt_path = get_abs_path(prompts_conf["conversation_summary_prompt_path"])
