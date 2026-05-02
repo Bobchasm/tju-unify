@@ -20,3 +20,4 @@ tian-agent/data/chat_history/
 tian-agent/data/conversation_memory/
 tian-agent/logs/
 tian-agent/chroma_db/
+/unify-conv/.idea/
