@@ -1,9 +1,0 @@
-com\tju\unify\conv\common\utils\ObjectCopyUtil.class
-com\tju\unify\conv\common\exception\GlobalExceptionHandler.class
-com\tju\unify\conv\common\result\ResultCodeEnum.class
-com\tju\unify\conv\common\result\HttpResult.class
-com\tju\unify\conv\common\config\TestCofig.class
-com\tju\unify\conv\common\exception\APIException.class
-com\tju\unify\conv\common\filters\UsernameFilter.class
-com\tju\unify\conv\common\exception\HttpUtilException.class
-com\tju\unify\conv\common\utils\UserContext.class

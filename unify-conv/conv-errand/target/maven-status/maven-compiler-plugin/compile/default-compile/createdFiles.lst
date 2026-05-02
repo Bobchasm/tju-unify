@@ -1,8 +1,0 @@
-com\tju\unify\conv\errand\mapper\ErrandOrderMapper.class
-com\tju\unify\conv\errand\ConvErrandApplication.class
-com\tju\unify\conv\errand\pojo\dto\ErrandPublishRequest.class
-com\tju\unify\conv\errand\service\ErrandOrderService.class
-com\tju\unify\conv\errand\pojo\entity\ErrandOrder.class
-com\tju\unify\conv\errand\config\SwaggerOpenApiConfig.class
-com\tju\unify\conv\errand\controller\ErrandOrderController.class
-com\tju\unify\conv\errand\service\ErrandCurrentUserService.class
