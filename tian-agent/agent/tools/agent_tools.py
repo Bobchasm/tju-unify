@@ -19,8 +19,8 @@ student_data = {}
 
 @tool(
     description=(
-        "从向量库检索天津大学相关公开资料原文（校园生活、校务、综测政策等）。"
-        "涉及分值时须结合模块/结构/占比说明，不可把表格数字说成总评直接加这么多。"
+            "从向量库检索天津大学相关公开资料原文（校园生活、校务、综测政策等）。"
+            "涉及分值时须结合模块/结构/占比说明，不可把表格数字说成总评直接加这么多。"
     )
 )
 def rag_summarize(
@@ -81,11 +81,11 @@ def generate_student_data():
                 leadership_bonus = random.uniform(0, 3)
                 deduction = random.uniform(0, 1)
                 total_score = (base_score * 0.2 + moral_score * 0.2 + academic_score * 0.3 +
-                             physical_score * 0.1 + aesthetic_score * 0.1 + labor_score * 0.1 +
-                             competition_bonus + research_bonus + volunteer_bonus +
-                             leadership_bonus - deduction)
+                               physical_score * 0.1 + aesthetic_score * 0.1 + labor_score * 0.1 +
+                               competition_bonus + research_bonus + volunteer_bonus +
+                               leadership_bonus - deduction)
                 rank = random.randint(1, 150)
-                
+
                 student_data[user_id][semester] = {
                     "基础分": f"{base_score:.2f}",
                     "德育分": f"{moral_score:.2f}",
@@ -130,23 +130,23 @@ def fetch_student_data(user_id: str, semester: str) -> str:
 
 @tool(description="按演示权重计算综合素质测评总分，输入各分项，返回计算过程（示例算法）")
 def calculate_score(
-    base_score: float = 90.0,
-    moral_score: float = 90.0,
-    academic_score: float = 85.0,
-    physical_score: float = 85.0,
-    aesthetic_score: float = 85.0,
-    labor_score: float = 90.0,
-    competition_bonus: float = 0.0,
-    research_bonus: float = 0.0,
-    volunteer_bonus: float = 0.0,
-    leadership_bonus: float = 0.0,
-    deduction: float = 0.0
+        base_score: float = 90.0,
+        moral_score: float = 90.0,
+        academic_score: float = 85.0,
+        physical_score: float = 85.0,
+        aesthetic_score: float = 85.0,
+        labor_score: float = 90.0,
+        competition_bonus: float = 0.0,
+        research_bonus: float = 0.0,
+        volunteer_bonus: float = 0.0,
+        leadership_bonus: float = 0.0,
+        deduction: float = 0.0
 ) -> str:
-    total_score = (base_score * 0.2 + moral_score * 0.2 + academic_score * 0.3 + 
-                  physical_score * 0.1 + aesthetic_score * 0.1 + labor_score * 0.1 +
-                  competition_bonus + research_bonus + volunteer_bonus + 
-                  leadership_bonus - deduction)
-    
+    total_score = (base_score * 0.2 + moral_score * 0.2 + academic_score * 0.3 +
+                   physical_score * 0.1 + aesthetic_score * 0.1 + labor_score * 0.1 +
+                   competition_bonus + research_bonus + volunteer_bonus +
+                   leadership_bonus - deduction)
+
     result = f"综合素质测评分数计算结果（示例公式）：\n"
     result += f"基础分({base_score}) × 20% = {base_score * 0.2:.2f}\n"
     result += f"德育分({moral_score}) × 20% = {moral_score * 0.2:.2f}\n"
@@ -160,7 +160,7 @@ def calculate_score(
     result += f"学生干部加分：{leadership_bonus:.2f}\n"
     result += f"扣分：-{deduction:.2f}\n"
     result += f"综测总分（示例）：{total_score:.2f}分"
-    
+
     return result
 
 

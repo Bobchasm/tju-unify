@@ -1,0 +1,57 @@
+server:
+  port: 7771
+
+spring:
+  application:
+    name: unify-transaction
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://bobchasm.cn:3306/unify_transaction
+    username: elm_app
+    password: ElmApp@2026!
+    hikari: # 配置连接池读已提交
+      transaction-isolation: TRANSACTION_READ_COMMITTED
+  cloud:
+    nacos:
+      discovery:
+        server-addr: bobchasm.cn
+        namespace: public
+        group: DEFAULT_GROUP
+        username: nacos
+        password: nacos
+        ip: 127.0.0.1
+        port: ${server.port}  # 服务端口
+        enabled: true  # 明确启用
+        register-enabled: true  # 允许注册
+        # 网络配置
+        metadata:
+          version: 1.0
+        # 健康检查
+        heartbeat:
+          interval: 5000  # 心跳间隔（毫秒）
+
+mybatis-plus: # mp配置
+  mapper-locations: classpath:mapper/*.xml # xml文件路径
+  configuration: # 开启驼峰命名
+    map-underscore-to-camel-case: true
+
+# swagger
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui
+  packages-to-scan:
+    - com.tju.unify.conv.transaction.controller
+  paths-to-match:
+    - /unify-api/**
+
+logging:
+  level:
+    com.tju.unify.conv.transaction: debug
+  pattern:
+    dateformat: HH:mm:ss:SSS
+  file:
+    path: "logs/${spring.application.name}"

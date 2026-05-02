@@ -1,0 +1,28 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="protobuf" />
+          <option value="typing-extensions" />
+          <option value="requests" />
+          <option value="packaging" />
+          <option value="grpcio" />
+          <option value="langchain" />
+          <option value="langchain-community" />
+          <option value="langchain-core" />
+          <option value="langchain-chroma" />
+          <option value="dashscope" />
+          <option value="chromadb" />
+          <option value="pypdf" />
+          <option value="pandas" />
+          <option value="openpyxl" />
+          <option value="tiktoken" />
+          <option value="python-dotenv" />
+          <option value="streamlit" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

@@ -1,0 +1,62 @@
+server:
+  port: 7772
+
+spring:
+  application:
+    name: unify-news
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://bobchasm.cn:3306/unify_news
+    username: elm_app
+    password: ElmApp@2026!
+    hikari:
+      transaction-isolation: TRANSACTION_READ_COMMITTED
+  cloud:
+    nacos:
+      discovery:
+        server-addr: bobchasm.cn
+        namespace: public
+        group: DEFAULT_GROUP
+        username: nacos
+        password: nacos
+        ip: 127.0.0.1
+        port: ${server.port}
+        enabled: true
+        register-enabled: true
+        metadata:
+          version: 1.0
+        heartbeat:
+          interval: 5000
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui
+
+logging:
+  level:
+    com.tju.unify.conv.news: debug
+  pattern:
+    dateformat: HH:mm:ss:SSS
+  file:
+    path: "logs/${spring.application.name}"
+
+tju:
+  news:
+    category:
+      - https://news.tju.edu.cn/xw/xsx.htm
+      - https://news.tju.edu.cn/xw/fmxw.htm
+      - https://news.tju.edu.cn/xw/zhxw.htm
+      - https://news.tju.edu.cn/xw/xsky.htm
+    crawler:
+      enabled: true
+      initial-delay-ms: 5000
+      fixed-delay-ms: 600000

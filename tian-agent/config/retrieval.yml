@@ -6,15 +6,15 @@ retrieval:
     # Chroma 距离：越小越相似。设为 null 表示不按距离过滤；若设值则为允许的最大距离
     score_threshold: null
 
-  # 多查询扩展(MQE)配置（知识库仅两份政策时建议关闭，避免扩展查询偏离原文）
+  # 多查询扩展(MQE)配置
   mqe:
-    enabled: false
+    enabled: true
     expansions: 3  # 生成的扩展查询数量
     prompt_path: "prompts/mqe_prompt.txt"
 
-  # 假设文档嵌入(HyDE)配置（易引入与原文不符的假设句，小库建议关闭）
+  # 假设文档嵌入(HyDE)配置
   hyde:
-    enabled: false
+    enabled: true
     prompt_path: "prompts/hyde_prompt.txt"
 
   # 扩展检索框架配置

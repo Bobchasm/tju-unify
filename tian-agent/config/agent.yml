@@ -1,6 +1,4 @@
-#external_data_path: data/external/records.csv
 
-# ===================== A-MEM 风格「对话记忆」（替代原滑动窗口+摘要；与备忘录等业务无关）=====================
 agentic_memory_enabled: true
 agentic_memory_persist_dir: data/agentic_memory
 agentic_chroma_persist_dir: data/agentic_chroma
