@@ -197,3 +197,270 @@ Using generated security password: 86f44fa4-bd77-4a68-bfbd-f38110c5c31b
 2026-05-02 19:17:31.338 [nacos-grpc-client-executor-bobchasm.cn-13] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Ack server push request, request = NotifySubscriberRequest, requestId = 516
 2026-05-02 19:17:32.472 [http-nio-7771-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3880a6c
 2026-05-02 19:17:32.488 [http-nio-7771-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-02 19:21:53.474 [parallel-3] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://127.0.0.1:7070/unify-api/memo/add, Path: /unify-api/memo/add
+2026-05-02 19:21:53.489 [parallel-3] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://127.0.0.1:7070/unify-api/memo/add
+2026-05-02 19:21:53.530 [boundedElastic-2] INFO  com.alibaba.nacos.client.naming - [SUBSCRIBE-SERVICE] service:unify-memo, group:DEFAULT_GROUP, clusters: 
+2026-05-02 19:21:53.546 [boundedElastic-2] INFO  com.alibaba.nacos.client.naming - init new ips(1) service: DEFAULT_GROUP@@unify-memo -> [{"instanceId":"127.0.0.1#7773#DEFAULT#DEFAULT_GROUP@@unify-memo","ip":"127.0.0.1","port":7773,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@unify-memo","metadata":{"preserved.register.source":"SPRING_CLOUD","version":"1.0"},"ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]
+2026-05-02 19:21:53.546 [boundedElastic-2] INFO  com.alibaba.nacos.client.naming - current ips:(1) service: DEFAULT_GROUP@@unify-memo -> [{"instanceId":"127.0.0.1#7773#DEFAULT#DEFAULT_GROUP@@unify-memo","ip":"127.0.0.1","port":7773,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@unify-memo","metadata":{"preserved.register.source":"SPRING_CLOUD","version":"1.0"},"ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]
+2026-05-02 19:21:53.657 [http-nio-7773-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-02 19:21:53.657 [http-nio-7773-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-02 19:21:53.657 [http-nio-7773-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-05-02 19:21:53.673 [http-nio-7773-exec-1] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:21:53.673 [http-nio-7773-exec-1] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:21:53.766 [http-nio-7773-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-02 19:21:54.082 [nacos-grpc-client-executor-bobchasm.cn-71] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Receive server push request, request = NotifySubscriberRequest, requestId = 529
+2026-05-02 19:21:54.082 [nacos-grpc-client-executor-bobchasm.cn-71] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Ack server push request, request = NotifySubscriberRequest, requestId = 529
+2026-05-02 19:21:54.443 [http-nio-7773-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@11cebc6f
+2026-05-02 19:21:54.459 [http-nio-7773-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-02 19:27:12.123 [parallel-5] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/news/schoolNews/getByFlag?flag=0&page=1&size=8, Path: /unify-api/news/schoolNews/getByFlag
+2026-05-02 19:27:12.123 [parallel-6] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:27:12.123 [parallel-6] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:27:12.123 [parallel-5] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 路径 /unify-api/news/schoolNews/getByFlag 在白名单中,跳过认证
+2026-05-02 19:27:12.163 [boundedElastic-4] INFO  com.alibaba.nacos.client.naming - [SUBSCRIBE-SERVICE] service:gateway, group:DEFAULT_GROUP, clusters: 
+2026-05-02 19:27:12.189 [boundedElastic-3] INFO  com.alibaba.nacos.client.naming - [SUBSCRIBE-SERVICE] service:unify-news, group:DEFAULT_GROUP, clusters: 
+2026-05-02 19:27:12.288 [boundedElastic-4] INFO  com.alibaba.nacos.client.naming - init new ips(1) service: DEFAULT_GROUP@@gateway -> [{"instanceId":"101.42.109.48#8080#DEFAULT#DEFAULT_GROUP@@gateway","ip":"101.42.109.48","port":8080,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@gateway","metadata":{"management.endpoints.web.base-path":"/actuator","preserved.register.source":"SPRING_CLOUD","version":"1.0"},"ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]
+2026-05-02 19:27:12.288 [boundedElastic-4] INFO  com.alibaba.nacos.client.naming - current ips:(1) service: DEFAULT_GROUP@@gateway -> [{"instanceId":"101.42.109.48#8080#DEFAULT#DEFAULT_GROUP@@gateway","ip":"101.42.109.48","port":8080,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@gateway","metadata":{"management.endpoints.web.base-path":"/actuator","preserved.register.source":"SPRING_CLOUD","version":"1.0"},"ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]
+2026-05-02 19:27:12.289 [boundedElastic-3] INFO  com.alibaba.nacos.client.naming - init new ips(1) service: DEFAULT_GROUP@@unify-news -> [{"instanceId":"127.0.0.1#7772#DEFAULT#DEFAULT_GROUP@@unify-news","ip":"127.0.0.1","port":7772,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@unify-news","metadata":{"preserved.register.source":"SPRING_CLOUD","version":"1.0"},"ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]
+2026-05-02 19:27:12.289 [boundedElastic-3] INFO  com.alibaba.nacos.client.naming - current ips:(1) service: DEFAULT_GROUP@@unify-news -> [{"instanceId":"127.0.0.1#7772#DEFAULT#DEFAULT_GROUP@@unify-news","ip":"127.0.0.1","port":7772,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@unify-news","metadata":{"preserved.register.source":"SPRING_CLOUD","version":"1.0"},"ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]
+2026-05-02 19:27:12.406 [http-nio-7772-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-02 19:27:12.406 [http-nio-7772-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-02 19:27:12.406 [http-nio-7772-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-05-02 19:27:12.757 [http-nio-7772-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-02 19:27:12.791 [parallel-9] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:27:12.791 [parallel-9] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:27:12.874 [nacos-grpc-client-executor-bobchasm.cn-136] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Receive server push request, request = NotifySubscriberRequest, requestId = 537
+2026-05-02 19:27:12.882 [nacos-grpc-client-executor-bobchasm.cn-136] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Ack server push request, request = NotifySubscriberRequest, requestId = 537
+2026-05-02 19:27:12.891 [nacos-grpc-client-executor-bobchasm.cn-137] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Receive server push request, request = NotifySubscriberRequest, requestId = 536
+2026-05-02 19:27:12.891 [nacos-grpc-client-executor-bobchasm.cn-137] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Ack server push request, request = NotifySubscriberRequest, requestId = 536
+2026-05-02 19:27:13.707 [http-nio-7772-exec-2] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3ce90523
+2026-05-02 19:27:13.723 [http-nio-7772-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-02 19:27:14.305 [parallel-10] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:27:14.305 [parallel-10] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:27:14.614 [parallel-11] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/news/schoolNews/getByFlag?flag=0&page=1&size=8, Path: /unify-api/news/schoolNews/getByFlag
+2026-05-02 19:27:14.614 [parallel-11] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 路径 /unify-api/news/schoolNews/getByFlag 在白名单中,跳过认证
+2026-05-02 19:27:17.099 [parallel-12] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:27:17.099 [parallel-12] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:27:24.008 [parallel-13] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://127.0.0.1:7070/unify-api/memo/agent/snapshot, Path: /unify-api/memo/agent/snapshot
+2026-05-02 19:27:24.022 [parallel-13] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://127.0.0.1:7070/unify-api/memo/agent/snapshot
+2026-05-02 19:27:24.034 [http-nio-7773-exec-8] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:27:24.038 [http-nio-7773-exec-8] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:28:04.351 [parallel-15] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/news/schoolNews/getByFlag?flag=0&page=1&size=8, Path: /unify-api/news/schoolNews/getByFlag
+2026-05-02 19:28:04.351 [parallel-15] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 路径 /unify-api/news/schoolNews/getByFlag 在白名单中,跳过认证
+2026-05-02 19:28:04.656 [parallel-17] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:28:04.656 [parallel-17] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:28:07.474 [parallel-19] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:28:07.474 [parallel-19] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:28:08.708 [parallel-20] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:28:08.708 [parallel-20] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:28:09.011 [parallel-1] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/news/schoolNews/getByFlag?flag=0&page=1&size=8, Path: /unify-api/news/schoolNews/getByFlag
+2026-05-02 19:28:09.013 [parallel-1] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 路径 /unify-api/news/schoolNews/getByFlag 在白名单中,跳过认证
+2026-05-02 19:29:02.383 [parallel-2] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/post/list?pageNo=1, Path: /unify-api/transaction/post/list
+2026-05-02 19:29:02.397 [parallel-2] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/post/list?pageNo=1
+2026-05-02 19:29:02.397 [http-nio-7771-exec-7] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:29:02.397 [http-nio-7771-exec-7] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:29:23.726 [parallel-4] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/contact/getByUserId?userId=13, Path: /unify-api/transaction/contact/getByUserId
+2026-05-02 19:29:23.729 [parallel-4] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/contact/getByUserId?userId=13
+2026-05-02 19:29:23.729 [http-nio-7771-exec-4] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:29:23.737 [http-nio-7771-exec-4] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:29:42.515 [parallel-5] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/post/list?pageNo=1, Path: /unify-api/transaction/post/list
+2026-05-02 19:29:42.523 [parallel-5] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/post/list?pageNo=1
+2026-05-02 19:29:42.529 [http-nio-7771-exec-5] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:29:42.530 [http-nio-7771-exec-5] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:29:43.155 [parallel-7] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/post/detail?id=11, Path: /unify-api/transaction/post/detail
+2026-05-02 19:29:43.165 [parallel-7] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/post/detail?id=11
+2026-05-02 19:29:43.172 [http-nio-7771-exec-6] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:29:43.172 [http-nio-7771-exec-6] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:29:43.514 [parallel-8] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/request/list?postId=11, Path: /unify-api/transaction/request/list
+2026-05-02 19:29:43.514 [parallel-8] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/request/list?postId=11
+2026-05-02 19:29:43.528 [http-nio-7771-exec-3] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:29:43.528 [http-nio-7771-exec-3] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:29:43.773 [parallel-9] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/comment/list?postId=11, Path: /unify-api/transaction/comment/list
+2026-05-02 19:29:43.779 [parallel-9] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/comment/list?postId=11
+2026-05-02 19:29:43.784 [http-nio-7771-exec-8] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:29:43.784 [http-nio-7771-exec-8] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:29:53.487 [parallel-10] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/post/list?pageNo=1, Path: /unify-api/transaction/post/list
+2026-05-02 19:29:53.496 [parallel-10] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/post/list?pageNo=1
+2026-05-02 19:29:53.504 [http-nio-7771-exec-9] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:29:53.504 [http-nio-7771-exec-9] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:29:55.945 [parallel-11] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/post/detail?id=13, Path: /unify-api/transaction/post/detail
+2026-05-02 19:29:55.957 [parallel-11] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/post/detail?id=13
+2026-05-02 19:29:55.963 [http-nio-7771-exec-10] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:29:55.966 [http-nio-7771-exec-10] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:29:56.207 [parallel-12] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/request/list?postId=13, Path: /unify-api/transaction/request/list
+2026-05-02 19:29:56.221 [parallel-12] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/request/list?postId=13
+2026-05-02 19:29:56.223 [http-nio-7771-exec-1] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:29:56.223 [http-nio-7771-exec-1] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:29:56.302 [parallel-13] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/comment/list?postId=13, Path: /unify-api/transaction/comment/list
+2026-05-02 19:29:56.302 [parallel-13] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/comment/list?postId=13
+2026-05-02 19:29:56.318 [http-nio-7771-exec-2] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:29:56.318 [http-nio-7771-exec-2] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:29:57.377 [parallel-14] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/post/list?pageNo=1, Path: /unify-api/transaction/post/list
+2026-05-02 19:29:57.385 [parallel-14] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/post/list?pageNo=1
+2026-05-02 19:29:57.391 [http-nio-7771-exec-7] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:29:57.391 [http-nio-7771-exec-7] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:30:00.853 [parallel-15] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/post/detail?id=14, Path: /unify-api/transaction/post/detail
+2026-05-02 19:30:00.868 [parallel-15] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/post/detail?id=14
+2026-05-02 19:30:00.868 [http-nio-7771-exec-4] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:30:00.868 [http-nio-7771-exec-4] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:30:01.122 [parallel-16] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/request/list?postId=14, Path: /unify-api/transaction/request/list
+2026-05-02 19:30:01.126 [parallel-16] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/request/list?postId=14
+2026-05-02 19:30:01.131 [http-nio-7771-exec-5] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:30:01.131 [http-nio-7771-exec-5] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:30:01.234 [parallel-17] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/comment/list?postId=14, Path: /unify-api/transaction/comment/list
+2026-05-02 19:30:01.240 [parallel-17] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/comment/list?postId=14
+2026-05-02 19:30:01.244 [http-nio-7771-exec-6] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:30:01.244 [http-nio-7771-exec-6] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:30:23.071 [parallel-18] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/comment/add, Path: /unify-api/transaction/comment/add
+2026-05-02 19:30:23.073 [parallel-18] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/comment/add
+2026-05-02 19:30:23.081 [http-nio-7771-exec-3] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:30:23.081 [http-nio-7771-exec-3] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:31:01.159 [parallel-20] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/transaction/post/list?pageNo=1, Path: /unify-api/transaction/post/list
+2026-05-02 19:31:01.164 [parallel-20] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/transaction/post/list?pageNo=1
+2026-05-02 19:31:01.169 [http-nio-7771-exec-8] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:31:01.169 [http-nio-7771-exec-8] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:31:02.659 [parallel-2] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/news/schoolNews/getByFlag?flag=0&page=1&size=8, Path: /unify-api/news/schoolNews/getByFlag
+2026-05-02 19:31:02.659 [parallel-2] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 路径 /unify-api/news/schoolNews/getByFlag 在白名单中,跳过认证
+2026-05-02 19:31:02.659 [parallel-3] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:31:02.659 [parallel-3] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:31:03.979 [parallel-6] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/memo/category/list, Path: /unify-api/memo/category/list
+2026-05-02 19:31:03.984 [parallel-6] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://localhost:7070/unify-api/memo/category/list
+2026-05-02 19:31:03.990 [http-nio-7773-exec-5] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:31:03.990 [http-nio-7773-exec-5] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:31:10.706 [parallel-8] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/news/schoolNews/getByFlag?flag=0&page=1&size=8, Path: /unify-api/news/schoolNews/getByFlag
+2026-05-02 19:31:10.706 [parallel-8] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 路径 /unify-api/news/schoolNews/getByFlag 在白名单中,跳过认证
+2026-05-02 19:31:11.013 [parallel-9] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:31:11.013 [parallel-9] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:31:11.848 [parallel-10] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:31:11.848 [parallel-10] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:31:13.221 [parallel-11] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/news/schoolNews/getByFlag?flag=0&page=1&size=8, Path: /unify-api/news/schoolNews/getByFlag
+2026-05-02 19:31:13.221 [parallel-11] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 路径 /unify-api/news/schoolNews/getByFlag 在白名单中,跳过认证
+2026-05-02 19:31:13.532 [parallel-12] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:31:13.532 [parallel-12] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:31:59.461 [parallel-13] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:31:59.461 [parallel-13] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:32:00.690 [parallel-15] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:32:00.690 [parallel-15] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:32:01.007 [parallel-16] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/news/schoolNews/getByFlag?flag=0&page=1&size=8, Path: /unify-api/news/schoolNews/getByFlag
+2026-05-02 19:32:01.007 [parallel-16] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 路径 /unify-api/news/schoolNews/getByFlag 在白名单中,跳过认证
+2026-05-02 19:32:02.925 [parallel-18] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:32:02.925 [parallel-18] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 19:32:04.871 [parallel-19] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/unify-api/news/schoolNews/getByFlag?flag=0&page=1&size=8, Path: /unify-api/news/schoolNews/getByFlag
+2026-05-02 19:32:04.871 [parallel-19] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 路径 /unify-api/news/schoolNews/getByFlag 在白名单中,跳过认证
+2026-05-02 19:32:05.178 [parallel-20] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://localhost:7070/api/person, Path: /api/person
+2026-05-02 19:32:05.180 [parallel-20] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 检测到电商集群接口路径: /api/person, 跳过鉴权
+2026-05-02 22:42:47.420 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registering from Nacos Server now...
+2026-05-02 22:42:47.421 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - [DEREGISTER-SERVICE] public deregistering service unify-gateway with instance: Instance{instanceId='null', ip='172.18.139.66', port=7070, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+2026-05-02 22:42:47.441 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registering from Nacos Server now...
+2026-05-02 22:42:47.443 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - [DEREGISTER-SERVICE] public deregistering service unify-memo with instance: Instance{instanceId='null', ip='127.0.0.1', port=7773, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+2026-05-02 22:42:47.457 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registering from Nacos Server now...
+2026-05-02 22:42:47.457 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registration finished.
+2026-05-02 22:42:47.458 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown begin
+2026-05-02 22:42:47.458 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+2026-05-02 22:42:47.458 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - [DEREGISTER-SERVICE] public deregistering service unify-transaction with instance: Instance{instanceId='null', ip='127.0.0.1', port=7771, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+2026-05-02 22:42:47.459 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+2026-05-02 22:42:47.459 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown stop
+2026-05-02 22:42:47.459 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown begin
+2026-05-02 22:42:47.459 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown begin
+2026-05-02 22:42:47.459 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown stop
+2026-05-02 22:42:47.459 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown begin
+2026-05-02 22:42:47.459 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown stop
+2026-05-02 22:42:47.460 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown begin
+2026-05-02 22:42:47.460 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown stop
+2026-05-02 22:42:47.460 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown rpc client, set status to shutdown
+2026-05-02 22:42:47.460 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@359d8ea9[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+2026-05-02 22:42:47.461 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Close current connection 1777720628701_202.113.184.68_3124
+2026-05-02 22:42:47.465 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registering from Nacos Server now...
+2026-05-02 22:42:47.466 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - [DEREGISTER-SERVICE] public deregistering service unify-news with instance: Instance{instanceId='null', ip='127.0.0.1', port=7772, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+2026-05-02 22:42:47.476 [SpringApplicationShutdownHook] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@524d4a31[Running, pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 2476]
+2026-05-02 22:42:47.476 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - Shutdown grpc redo service executor java.util.concurrent.ScheduledThreadPoolExecutor@659e0e98[Running, pool size = 1, active threads = 0, queued tasks = 1, completed tasks = 4101]
+2026-05-02 22:42:47.476 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - [null] CredentialWatcher is stopped
+2026-05-02 22:42:47.477 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialService - [null] CredentialService is freed
+2026-05-02 22:42:47.477 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown stop
+2026-05-02 22:42:47.491 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registering from Nacos Server now...
+2026-05-02 22:42:47.493 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registration finished.
+2026-05-02 22:42:47.493 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - [DEREGISTER-SERVICE] public deregistering service unify-errand with instance: Instance{instanceId='null', ip='127.0.0.1', port=7774, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+2026-05-02 22:42:47.494 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registration finished.
+2026-05-02 22:42:47.494 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown begin
+2026-05-02 22:42:47.494 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+2026-05-02 22:42:47.494 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registration finished.
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown begin
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown stop
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown begin
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown begin
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown stop
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown begin
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown stop
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown begin
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown stop
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown rpc client, set status to shutdown
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown stop
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown begin
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown begin
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@2ddc0c4e[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown stop
+2026-05-02 22:42:47.495 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown begin
+2026-05-02 22:42:47.496 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Close current connection 1777720603034_202.113.184.68_6443
+2026-05-02 22:42:47.496 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown begin
+2026-05-02 22:42:47.496 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+2026-05-02 22:42:47.496 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown stop
+2026-05-02 22:42:47.496 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown begin
+2026-05-02 22:42:47.496 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown stop
+2026-05-02 22:42:47.496 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+2026-05-02 22:42:47.496 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown stop
+2026-05-02 22:42:47.496 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown rpc client, set status to shutdown
+2026-05-02 22:42:47.497 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown begin
+2026-05-02 22:42:47.497 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown begin
+2026-05-02 22:42:47.497 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@74e6ef1e[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+2026-05-02 22:42:47.497 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown stop
+2026-05-02 22:42:47.497 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown begin
+2026-05-02 22:42:47.497 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown stop
+2026-05-02 22:42:47.497 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Close current connection 1777720611421_202.113.184.68_33189
+2026-05-02 22:42:47.497 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown begin
+2026-05-02 22:42:47.497 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown stop
+2026-05-02 22:42:47.498 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown rpc client, set status to shutdown
+2026-05-02 22:42:47.498 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@73aafd4f[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+2026-05-02 22:42:47.498 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Close current connection 1777720619437_202.113.184.68_3091
+2026-05-02 22:42:47.510 [SpringApplicationShutdownHook] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@1e11ee83[Running, pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 2483]
+2026-05-02 22:42:47.510 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - Shutdown grpc redo service executor java.util.concurrent.ScheduledThreadPoolExecutor@6173971c[Running, pool size = 1, active threads = 0, queued tasks = 1, completed tasks = 4108]
+2026-05-02 22:42:47.511 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - [null] CredentialWatcher is stopped
+2026-05-02 22:42:47.511 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialService - [null] CredentialService is freed
+2026-05-02 22:42:47.511 [SpringApplicationShutdownHook] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@cde335a[Running, pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 2488]
+2026-05-02 22:42:47.511 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - Shutdown grpc redo service executor java.util.concurrent.ScheduledThreadPoolExecutor@349dfa54[Running, pool size = 1, active threads = 0, queued tasks = 1, completed tasks = 4104]
+2026-05-02 22:42:47.511 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown stop
+2026-05-02 22:42:47.511 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - [null] CredentialWatcher is stopped
+2026-05-02 22:42:47.512 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialService - [null] CredentialService is freed
+2026-05-02 22:42:47.512 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown stop
+2026-05-02 22:42:47.513 [SpringApplicationShutdownHook] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@2ab54968[Running, pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 2484]
+2026-05-02 22:42:47.514 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - Shutdown grpc redo service executor java.util.concurrent.ScheduledThreadPoolExecutor@167fc6c9[Running, pool size = 1, active threads = 0, queued tasks = 1, completed tasks = 4103]
+2026-05-02 22:42:47.514 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-02 22:42:47.514 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-02 22:42:47.514 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - [null] CredentialWatcher is stopped
+2026-05-02 22:42:47.514 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialService - [null] CredentialService is freed
+2026-05-02 22:42:47.515 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown stop
+2026-05-02 22:42:47.515 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registration finished.
+2026-05-02 22:42:47.516 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown begin
+2026-05-02 22:42:47.516 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+2026-05-02 22:42:47.517 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+2026-05-02 22:42:47.517 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown stop
+2026-05-02 22:42:47.517 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown begin
+2026-05-02 22:42:47.517 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown begin
+2026-05-02 22:42:47.517 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown stop
+2026-05-02 22:42:47.517 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown begin
+2026-05-02 22:42:47.517 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown stop
+2026-05-02 22:42:47.517 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown begin
+2026-05-02 22:42:47.517 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown stop
+2026-05-02 22:42:47.517 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown rpc client, set status to shutdown
+2026-05-02 22:42:47.518 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@7e35ccf5[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+2026-05-02 22:42:47.518 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Close current connection 1777720595620_202.113.184.68_6416
+2026-05-02 22:42:47.518 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-02 22:42:47.529 [SpringApplicationShutdownHook] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@575afd92[Running, pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 2483]
+2026-05-02 22:42:47.529 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - Shutdown grpc redo service executor java.util.concurrent.ScheduledThreadPoolExecutor@14f2750d[Running, pool size = 1, active threads = 0, queued tasks = 1, completed tasks = 4112]
+2026-05-02 22:42:47.530 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - [null] CredentialWatcher is stopped
+2026-05-02 22:42:47.530 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialService - [null] CredentialService is freed
+2026-05-02 22:42:47.530 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown stop
+2026-05-02 22:42:47.624 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-02 22:42:47.627 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-02 22:42:47.628 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

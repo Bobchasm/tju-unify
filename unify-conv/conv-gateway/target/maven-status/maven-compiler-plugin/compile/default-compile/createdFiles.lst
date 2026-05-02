@@ -1,7 +1,0 @@
-com\tju\unify\conv\gateway\security\TokenProvider.class
-com\tju\unify\conv\gateway\ConvGatewayApplication.class
-com\tju\unify\conv\gateway\exception\GlobalErrorWebExceptionHandler.class
-com\tju\unify\conv\gateway\config\AuthProperties.class
-com\tju\unify\conv\gateway\filters\AuthGlobalFilter.class
-com\tju\unify\conv\gateway\config\SecurityConfig.class
-com\tju\unify\conv\gateway\config\GatewayConfig.class
