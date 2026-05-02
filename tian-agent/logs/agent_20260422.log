@@ -1,0 +1,18 @@
+2026-04-22 14:04:27 - agent - INFO - middleware.py:57 - [log_before_model]: 即将调用模型，带有2条消息，消息如下：
+2026-04-22 14:04:27 - agent - INFO - middleware.py:60 - [log_before_model]: ----------省略已输出内容----------
+2026-04-22 14:04:27 - agent - INFO - middleware.py:61 - [log_before_model][HumanMessage]: 提醒我4月25日下午去北京
+2026-04-22 14:04:33 - agent - INFO - middleware.py:40 - [tool monitor]执行工具: unify_memo_create_with_reminder
+2026-04-22 14:04:33 - agent - INFO - middleware.py:41 - [tool monitor]参数: {'title': '去北京', 'content': '', 'remind_at_iso': '2026-04-25T15:00:00', 'subtasks_json': '[]'}
+2026-04-22 14:04:33 - agent - INFO - unify_campus_tools.py:178 - [unify_memo_create_with_reminder] POST /memo/add body keys=['title', 'content', 'pinned', 'sortOrder', 'tasks', 'remindAt']
+2026-04-22 14:04:33 - agent - INFO - middleware.py:44 - [tool monitor]工具unify_memo_create_with_reminder调用成功
+2026-04-22 14:04:33 - agent - INFO - middleware.py:57 - [log_before_model]: 即将调用模型，带有4条消息，消息如下：
+2026-04-22 14:04:33 - agent - INFO - middleware.py:60 - [log_before_model]: ----------省略已输出内容----------
+2026-04-22 14:04:33 - agent - INFO - middleware.py:61 - [log_before_model][ToolMessage]: {
+  "success": true,
+  "code": "OK",
+  "data": 4,
+  "message": null
+}
+2026-04-22 14:41:59 - agent - INFO - middleware.py:57 - [log_before_model]: 即将调用模型，带有2条消息，消息如下：
+2026-04-22 14:41:59 - agent - INFO - middleware.py:60 - [log_before_model]: ----------省略已输出内容----------
+2026-04-22 14:41:59 - agent - INFO - middleware.py:61 - [log_before_model][HumanMessage]: 你好

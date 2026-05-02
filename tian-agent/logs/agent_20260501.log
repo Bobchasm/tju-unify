@@ -1,0 +1,29 @@
+2026-05-01 15:37:15 - agent - INFO - middleware.py:56 - [log_before_model]: 即将调用模型，带有4条消息，消息如下：
+2026-05-01 15:37:15 - agent - INFO - middleware.py:57 - [log_before_model]: ----------省略已输出内容----------
+2026-05-01 15:37:15 - agent - INFO - middleware.py:58 - [log_before_model][HumanMessage]: 天大有几个校区，怎么样
+2026-05-01 15:37:16 - agent - INFO - middleware.py:39 - [tool monitor]执行工具: rag_summarize
+2026-05-01 15:37:16 - agent - INFO - middleware.py:40 - [tool monitor]参数: {'query': '天津大学 校区'}
+2026-05-01 15:37:17 - agent - INFO - advanced_retrieval.py:342 - [ExpandedSearch] 原始查询: '天津大学 校区', 扩展数: 1, 候选池: 32, 返回: 8 条
+2026-05-01 15:37:23 - agent - INFO - rag_service.py:182 - [RAG] 查询: '天津大学 校区...', 策略: auto, 检索到: 8 篇文档
+2026-05-01 15:37:23 - agent - INFO - middleware.py:43 - [tool monitor]工具rag_summarize调用成功
+2026-05-01 15:37:23 - agent - INFO - middleware.py:56 - [log_before_model]: 即将调用模型，带有6条消息，消息如下：
+2026-05-01 15:37:23 - agent - INFO - middleware.py:57 - [log_before_model]: ----------省略已输出内容----------
+2026-05-01 15:37:23 - agent - INFO - middleware.py:58 - [log_before_model][ToolMessage]: 根据参考资料，天津大学设有以下三个校区：
+
+1. **卫津路校区**  
+   - 法定住所为天津市南开区卫津路92号（依据【参考资料7】第五条）。  
+   - 占地总面积为128.85万平方米（依据【参考资料3】）；另有一处记载为182万平方米（依据【参考资料1】），但以【参考资料3】中明确列出的三校区数据为准。  
+
+2. **北洋园校区**  
+   - 占地总面积为243.6万平方米（依据【参考资料3】）。  
+
+3. **滨海工业研究院校区**  
+   - 占地总面积为30.9万平方米（依据【参考资料3】）。  
+
+以上信息均来自已入库文件《天津大学简介》和《天津大学章程》。
+2026-05-01 15:43:55 - agent - INFO - middleware.py:56 - [log_before_model]: 即将调用模型，带有7条消息，消息如下：
+2026-05-01 15:43:55 - agent - INFO - middleware.py:57 - [log_before_model]: ----------省略已输出内容----------
+2026-05-01 15:43:55 - agent - INFO - middleware.py:58 - [log_before_model][HumanMessage]: 你觉得哪个好
+2026-05-01 15:45:04 - agent - INFO - middleware.py:56 - [log_before_model]: 即将调用模型，带有9条消息，消息如下：
+2026-05-01 15:45:04 - agent - INFO - middleware.py:57 - [log_before_model]: ----------省略已输出内容----------
+2026-05-01 15:45:04 - agent - INFO - middleware.py:58 - [log_before_model][HumanMessage]: 滨海在哪里啊

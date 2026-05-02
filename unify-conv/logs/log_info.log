@@ -1,0 +1,199 @@
+2026-05-02 19:16:34.761 [main] INFO  com.tju.unify.conv.errand.ConvErrandApplication - Starting ConvErrandApplication using Java 17.0.18 with PID 20752 (E:\cydd_own_products\tju-unify-new\tju-unify\unify-conv\conv-errand\target\classes started by Administrator in E:\cydd_own_products\tju-unify-new\tju-unify\unify-conv)
+2026-05-02 19:16:34.764 [main] INFO  com.tju.unify.conv.errand.ConvErrandApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-02 19:16:35.798 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=79bd7346-ed37-3645-94ed-3bb96cdfd5fb
+2026-05-02 19:16:35.871 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.tju.unify.conv.api.client.inner.UnifyNewsClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-05-02 19:16:35.873 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.tju.unify.conv.api.client.inner.UnifyTransactionClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-05-02 19:16:36.228 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7774 (http)
+2026-05-02 19:16:36.237 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-02 19:16:36.237 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-05-02 19:16:36.379 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-02 19:16:36.379 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1533 ms
+2026-05-02 19:16:37.453 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 7774 (http) with context path ''
+2026-05-02 19:16:37.460 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ans.namespace attribute : null
+2026-05-02 19:16:37.461 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ALIBABA_ALIWARE_NAMESPACE attribute :null
+2026-05-02 19:16:37.461 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from namespace attribute :null
+2026-05-02 19:16:37.487 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848
+2026-05-02 19:16:37.488 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000
+2026-05-02 19:16:37.488 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0
+2026-05-02 19:16:37.492 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2026-05-02 19:16:37.492 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2026-05-02 19:16:37.721 [main] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found
+2026-05-02 19:16:37.736 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of ca5b23fb-7ad1-4dc9-95ec-0bd6d2cc286e
+2026-05-02 19:16:37.763 [main] INFO  com.alibaba.nacos.common.remote.client - [ca5b23fb-7ad1-4dc9-95ec-0bd6d2cc286e] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+2026-05-02 19:16:37.763 [main] INFO  com.alibaba.nacos.common.remote.client - [ca5b23fb-7ad1-4dc9-95ec-0bd6d2cc286e] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+2026-05-02 19:16:37.763 [main] INFO  com.alibaba.nacos.common.remote.client - [ca5b23fb-7ad1-4dc9-95ec-0bd6d2cc286e] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+2026-05-02 19:16:37.765 [main] INFO  com.alibaba.nacos.common.remote.client - [ca5b23fb-7ad1-4dc9-95ec-0bd6d2cc286e] Try to connect to server on start up, server: {serverIp = 'bobchasm.cn', server main port = 8848}
+2026-05-02 19:16:37.788 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:bobchasm.cn ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2026-05-02 19:16:38.761 [main] INFO  com.alibaba.nacos.common.remote.client - [ca5b23fb-7ad1-4dc9-95ec-0bd6d2cc286e] Success to connect to server [bobchasm.cn:8848] on start up, connectionId = 1777720595620_202.113.184.68_6416
+2026-05-02 19:16:38.762 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [ca5b23fb-7ad1-4dc9-95ec-0bd6d2cc286e] Notify connected event to listeners.
+2026-05-02 19:16:38.762 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.naming - Grpc connection connect
+2026-05-02 19:16:38.763 [main] INFO  com.alibaba.nacos.common.remote.client - [ca5b23fb-7ad1-4dc9-95ec-0bd6d2cc286e] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2026-05-02 19:16:38.763 [main] INFO  com.alibaba.nacos.common.remote.client - [ca5b23fb-7ad1-4dc9-95ec-0bd6d2cc286e] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$1030/0x000001c9a06b4cb8
+2026-05-02 19:16:38.765 [main] INFO  com.alibaba.nacos.client.naming - [REGISTER-SERVICE] public registering service unify-errand with instance Instance{instanceId='null', ip='127.0.0.1', port=7774, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={preserved.register.source=SPRING_CLOUD, version=1.0}}
+2026-05-02 19:16:38.795 [main] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - nacos registry, DEFAULT_GROUP unify-errand 127.0.0.1:7774 register finished
+2026-05-02 19:16:38.902 [main] INFO  com.tju.unify.conv.errand.ConvErrandApplication - Started ConvErrandApplication in 4.988 seconds (process running for 5.638)
+2026-05-02 19:16:42.413 [main] INFO  com.tju.unify.conv.memo.ConvMemoApplication - Starting ConvMemoApplication using Java 17.0.18 with PID 21184 (E:\cydd_own_products\tju-unify-new\tju-unify\unify-conv\conv-memo\target\classes started by Administrator in E:\cydd_own_products\tju-unify-new\tju-unify\unify-conv)
+2026-05-02 19:16:42.415 [main] INFO  com.tju.unify.conv.memo.ConvMemoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-02 19:16:43.560 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=50ebd0bc-0a8c-3bf0-b430-0fe67147d237
+2026-05-02 19:16:43.640 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.tju.unify.conv.api.client.inner.UnifyNewsClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-05-02 19:16:43.642 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.tju.unify.conv.api.client.inner.UnifyTransactionClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-05-02 19:16:43.979 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7773 (http)
+2026-05-02 19:16:43.988 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-02 19:16:43.988 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-05-02 19:16:44.106 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-02 19:16:44.106 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1627 ms
+2026-05-02 19:16:45.231 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 7773 (http) with context path ''
+2026-05-02 19:16:45.237 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ans.namespace attribute : null
+2026-05-02 19:16:45.238 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ALIBABA_ALIWARE_NAMESPACE attribute :null
+2026-05-02 19:16:45.238 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from namespace attribute :null
+2026-05-02 19:16:45.260 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848
+2026-05-02 19:16:45.260 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000
+2026-05-02 19:16:45.261 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0
+2026-05-02 19:16:45.264 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2026-05-02 19:16:45.264 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2026-05-02 19:16:45.266 [main] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found
+2026-05-02 19:16:45.425 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 11341531-c438-4a0f-8e64-2731622ba802
+2026-05-02 19:16:45.440 [main] INFO  com.alibaba.nacos.common.remote.client - [11341531-c438-4a0f-8e64-2731622ba802] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+2026-05-02 19:16:45.440 [main] INFO  com.alibaba.nacos.common.remote.client - [11341531-c438-4a0f-8e64-2731622ba802] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+2026-05-02 19:16:45.441 [main] INFO  com.alibaba.nacos.common.remote.client - [11341531-c438-4a0f-8e64-2731622ba802] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+2026-05-02 19:16:45.442 [main] INFO  com.alibaba.nacos.common.remote.client - [11341531-c438-4a0f-8e64-2731622ba802] Try to connect to server on start up, server: {serverIp = 'bobchasm.cn', server main port = 8848}
+2026-05-02 19:16:45.462 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:bobchasm.cn ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2026-05-02 19:16:46.165 [main] INFO  com.alibaba.nacos.common.remote.client - [11341531-c438-4a0f-8e64-2731622ba802] Success to connect to server [bobchasm.cn:8848] on start up, connectionId = 1777720603034_202.113.184.68_6443
+2026-05-02 19:16:46.166 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [11341531-c438-4a0f-8e64-2731622ba802] Notify connected event to listeners.
+2026-05-02 19:16:46.167 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.naming - Grpc connection connect
+2026-05-02 19:16:46.167 [main] INFO  com.alibaba.nacos.common.remote.client - [11341531-c438-4a0f-8e64-2731622ba802] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2026-05-02 19:16:46.168 [main] INFO  com.alibaba.nacos.common.remote.client - [11341531-c438-4a0f-8e64-2731622ba802] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$1033/0x0000020f236b8440
+2026-05-02 19:16:46.169 [main] INFO  com.alibaba.nacos.client.naming - [REGISTER-SERVICE] public registering service unify-memo with instance Instance{instanceId='null', ip='127.0.0.1', port=7773, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={preserved.register.source=SPRING_CLOUD, version=1.0}}
+2026-05-02 19:16:46.213 [main] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - nacos registry, DEFAULT_GROUP unify-memo 127.0.0.1:7773 register finished
+2026-05-02 19:16:46.341 [main] INFO  com.tju.unify.conv.memo.ConvMemoApplication - Started ConvMemoApplication in 4.725 seconds (process running for 5.177)
+2026-05-02 19:16:51.109 [main] INFO  com.tju.unify.conv.news.ConvNewsApplication - Starting ConvNewsApplication using Java 17.0.18 with PID 22056 (E:\cydd_own_products\tju-unify-new\tju-unify\unify-conv\conv-news\target\classes started by Administrator in E:\cydd_own_products\tju-unify-new\tju-unify\unify-conv)
+2026-05-02 19:16:51.110 [main] INFO  com.tju.unify.conv.news.ConvNewsApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-02 19:16:52.089 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=44fd1ea7-4e92-33e1-844f-8a5a8a070553
+2026-05-02 19:16:52.438 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7772 (http)
+2026-05-02 19:16:52.445 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-02 19:16:52.445 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-05-02 19:16:52.542 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-02 19:16:52.543 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1369 ms
+2026-05-02 19:16:53.564 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 7772 (http) with context path ''
+2026-05-02 19:16:53.570 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ans.namespace attribute : null
+2026-05-02 19:16:53.572 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ALIBABA_ALIWARE_NAMESPACE attribute :null
+2026-05-02 19:16:53.573 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from namespace attribute :null
+2026-05-02 19:16:53.588 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848
+2026-05-02 19:16:53.589 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000
+2026-05-02 19:16:53.589 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0
+2026-05-02 19:16:53.592 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2026-05-02 19:16:53.593 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2026-05-02 19:16:53.744 [main] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found
+2026-05-02 19:16:53.752 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 0b7a75a7-d031-4daa-ae31-343636549356
+2026-05-02 19:16:53.768 [main] INFO  com.alibaba.nacos.common.remote.client - [0b7a75a7-d031-4daa-ae31-343636549356] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+2026-05-02 19:16:53.768 [main] INFO  com.alibaba.nacos.common.remote.client - [0b7a75a7-d031-4daa-ae31-343636549356] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+2026-05-02 19:16:53.768 [main] INFO  com.alibaba.nacos.common.remote.client - [0b7a75a7-d031-4daa-ae31-343636549356] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+2026-05-02 19:16:53.770 [main] INFO  com.alibaba.nacos.common.remote.client - [0b7a75a7-d031-4daa-ae31-343636549356] Try to connect to server on start up, server: {serverIp = 'bobchasm.cn', server main port = 8848}
+2026-05-02 19:16:53.793 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:bobchasm.cn ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2026-05-02 19:16:54.583 [main] INFO  com.alibaba.nacos.common.remote.client - [0b7a75a7-d031-4daa-ae31-343636549356] Success to connect to server [bobchasm.cn:8848] on start up, connectionId = 1777720611421_202.113.184.68_33189
+2026-05-02 19:16:54.584 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [0b7a75a7-d031-4daa-ae31-343636549356] Notify connected event to listeners.
+2026-05-02 19:16:54.584 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.naming - Grpc connection connect
+2026-05-02 19:16:54.584 [main] INFO  com.alibaba.nacos.common.remote.client - [0b7a75a7-d031-4daa-ae31-343636549356] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2026-05-02 19:16:54.584 [main] INFO  com.alibaba.nacos.common.remote.client - [0b7a75a7-d031-4daa-ae31-343636549356] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$1030/0x000002e3816b7dd8
+2026-05-02 19:16:54.585 [main] INFO  com.alibaba.nacos.client.naming - [REGISTER-SERVICE] public registering service unify-news with instance Instance{instanceId='null', ip='127.0.0.1', port=7772, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={preserved.register.source=SPRING_CLOUD, version=1.0}}
+2026-05-02 19:16:54.611 [main] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - nacos registry, DEFAULT_GROUP unify-news 127.0.0.1:7772 register finished
+2026-05-02 19:16:54.701 [main] INFO  com.tju.unify.conv.news.ConvNewsApplication - Started ConvNewsApplication in 4.416 seconds (process running for 4.919)
+2026-05-02 19:16:58.857 [main] INFO  c.t.u.conv.transaction.ConvTransactionApplication - Starting ConvTransactionApplication using Java 17.0.18 with PID 20588 (E:\cydd_own_products\tju-unify-new\tju-unify\unify-conv\conv-transaction\target\classes started by Administrator in E:\cydd_own_products\tju-unify-new\tju-unify\unify-conv)
+2026-05-02 19:16:58.857 [main] INFO  c.t.u.conv.transaction.ConvTransactionApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-02 19:16:59.732 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2026-05-02 19:16:59.748 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2026-05-02 19:16:59.899 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=e8d313c6-94ed-3372-8e39-3cacb86f30fb
+2026-05-02 19:16:59.966 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.tju.unify.conv.api.client.inner.UnifyNewsClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-05-02 19:16:59.968 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'com.tju.unify.conv.api.client.inner.UnifyTransactionClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-05-02 19:17:00.269 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 7771 (http)
+2026-05-02 19:17:00.279 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-02 19:17:00.280 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-05-02 19:17:00.390 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-02 19:17:00.391 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1470 ms
+2026-05-02 19:17:01.627 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 7771 (http) with context path ''
+2026-05-02 19:17:01.634 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ans.namespace attribute : null
+2026-05-02 19:17:01.634 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ALIBABA_ALIWARE_NAMESPACE attribute :null
+2026-05-02 19:17:01.635 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from namespace attribute :null
+2026-05-02 19:17:01.652 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848
+2026-05-02 19:17:01.652 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000
+2026-05-02 19:17:01.653 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0
+2026-05-02 19:17:01.655 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2026-05-02 19:17:01.656 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2026-05-02 19:17:01.658 [main] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found
+2026-05-02 19:17:01.816 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 1fb48384-1a8b-47a5-a188-fd14e904d8d8
+2026-05-02 19:17:01.829 [main] INFO  com.alibaba.nacos.common.remote.client - [1fb48384-1a8b-47a5-a188-fd14e904d8d8] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+2026-05-02 19:17:01.830 [main] INFO  com.alibaba.nacos.common.remote.client - [1fb48384-1a8b-47a5-a188-fd14e904d8d8] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+2026-05-02 19:17:01.830 [main] INFO  com.alibaba.nacos.common.remote.client - [1fb48384-1a8b-47a5-a188-fd14e904d8d8] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+2026-05-02 19:17:01.832 [main] INFO  com.alibaba.nacos.common.remote.client - [1fb48384-1a8b-47a5-a188-fd14e904d8d8] Try to connect to server on start up, server: {serverIp = 'bobchasm.cn', server main port = 8848}
+2026-05-02 19:17:01.853 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:bobchasm.cn ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2026-05-02 19:17:02.575 [main] INFO  com.alibaba.nacos.common.remote.client - [1fb48384-1a8b-47a5-a188-fd14e904d8d8] Success to connect to server [bobchasm.cn:8848] on start up, connectionId = 1777720619437_202.113.184.68_3091
+2026-05-02 19:17:02.576 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [1fb48384-1a8b-47a5-a188-fd14e904d8d8] Notify connected event to listeners.
+2026-05-02 19:17:02.577 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.naming - Grpc connection connect
+2026-05-02 19:17:02.577 [main] INFO  com.alibaba.nacos.common.remote.client - [1fb48384-1a8b-47a5-a188-fd14e904d8d8] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2026-05-02 19:17:02.577 [main] INFO  com.alibaba.nacos.common.remote.client - [1fb48384-1a8b-47a5-a188-fd14e904d8d8] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$1078/0x0000027881714ac0
+2026-05-02 19:17:02.578 [main] INFO  com.alibaba.nacos.client.naming - [REGISTER-SERVICE] public registering service unify-transaction with instance Instance{instanceId='null', ip='127.0.0.1', port=7771, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={preserved.register.source=SPRING_CLOUD, version=1.0}}
+2026-05-02 19:17:02.607 [main] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - nacos registry, DEFAULT_GROUP unify-transaction 127.0.0.1:7771 register finished
+2026-05-02 19:17:02.714 [main] INFO  c.t.u.conv.transaction.ConvTransactionApplication - Started ConvTransactionApplication in 4.924 seconds (process running for 5.38)
+2026-05-02 19:17:08.368 [main] INFO  com.tju.unify.conv.gateway.ConvGatewayApplication - Starting ConvGatewayApplication using Java 17.0.18 with PID 18772 (E:\cydd_own_products\tju-unify-new\tju-unify\unify-conv\conv-gateway\target\classes started by Administrator in E:\cydd_own_products\tju-unify-new\tju-unify\unify-conv)
+2026-05-02 19:17:08.369 [main] INFO  com.tju.unify.conv.gateway.ConvGatewayApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-02 19:17:09.216 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=91bad00b-c627-3ba2-b797-d0d9d1e60b51
+2026-05-02 19:17:09.297 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-05-02 19:17:09.298 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-05-02 19:17:09.299 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2026-05-02 19:17:09.648 [main] INFO  o.s.b.a.s.r.ReactiveUserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 86f44fa4-bd77-4a68-bfbd-f38110c5c31b
+
+2026-05-02 19:17:10.296 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [After]
+2026-05-02 19:17:10.297 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Before]
+2026-05-02 19:17:10.297 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Between]
+2026-05-02 19:17:10.297 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Cookie]
+2026-05-02 19:17:10.297 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Header]
+2026-05-02 19:17:10.297 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Host]
+2026-05-02 19:17:10.297 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Method]
+2026-05-02 19:17:10.297 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Path]
+2026-05-02 19:17:10.297 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Query]
+2026-05-02 19:17:10.298 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [ReadBody]
+2026-05-02 19:17:10.298 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [RemoteAddr]
+2026-05-02 19:17:10.298 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2026-05-02 19:17:10.298 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [Weight]
+2026-05-02 19:17:10.298 [main] INFO  o.s.c.gateway.route.RouteDefinitionRouteLocator - Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2026-05-02 19:17:10.750 [main] INFO  o.s.boot.web.embedded.netty.NettyWebServer - Netty started on port 7070
+2026-05-02 19:17:10.930 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ans.namespace attribute : null
+2026-05-02 19:17:10.931 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ALIBABA_ALIWARE_NAMESPACE attribute :null
+2026-05-02 19:17:10.931 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from namespace attribute :null
+2026-05-02 19:17:10.949 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848
+2026-05-02 19:17:10.949 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000
+2026-05-02 19:17:10.950 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0
+2026-05-02 19:17:10.954 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2026-05-02 19:17:10.954 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2026-05-02 19:17:11.112 [main] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found
+2026-05-02 19:17:11.118 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of e9b89492-0cf6-482c-b114-b8482aa1e582
+2026-05-02 19:17:11.129 [main] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+2026-05-02 19:17:11.130 [main] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+2026-05-02 19:17:11.130 [main] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+2026-05-02 19:17:11.131 [main] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Try to connect to server on start up, server: {serverIp = 'bobchasm.cn', server main port = 8848}
+2026-05-02 19:17:11.152 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:bobchasm.cn ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2026-05-02 19:17:11.820 [main] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Success to connect to server [bobchasm.cn:8848] on start up, connectionId = 1777720628701_202.113.184.68_3124
+2026-05-02 19:17:11.821 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Notify connected event to listeners.
+2026-05-02 19:17:11.822 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.naming - Grpc connection connect
+2026-05-02 19:17:11.822 [main] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2026-05-02 19:17:11.822 [main] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$893/0x0000021c137045f8
+2026-05-02 19:17:11.823 [main] INFO  com.alibaba.nacos.client.naming - [REGISTER-SERVICE] public registering service unify-gateway with instance Instance{instanceId='null', ip='172.18.139.66', port=7070, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={IPv6=[2403:ac00:a201:1840:6140:d2b:1c63:6fe9], preserved.register.source=SPRING_CLOUD}}
+2026-05-02 19:17:11.849 [main] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - nacos registry, DEFAULT_GROUP unify-gateway 172.18.139.66:7070 register finished
+2026-05-02 19:17:11.910 [main] INFO  com.tju.unify.conv.gateway.ConvGatewayApplication - Started ConvGatewayApplication in 4.351 seconds (process running for 4.8)
+2026-05-02 19:17:30.264 [parallel-1] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 网关收到请求 URI: http://127.0.0.1:7070/unify-api/transaction/post/list?pageNo=1, Path: /unify-api/transaction/post/list
+2026-05-02 19:17:30.349 [parallel-1] INFO  c.tju.unify.conv.gateway.filters.AuthGlobalFilter - 用户 '11111' 认证成功, uri: http://127.0.0.1:7070/unify-api/transaction/post/list?pageNo=1
+2026-05-02 19:17:30.679 [boundedElastic-1] INFO  com.alibaba.nacos.client.naming - [SUBSCRIBE-SERVICE] service:unify-transaction, group:DEFAULT_GROUP, clusters: 
+2026-05-02 19:17:30.719 [boundedElastic-1] INFO  com.alibaba.nacos.client.naming - init new ips(1) service: DEFAULT_GROUP@@unify-transaction -> [{"instanceId":"127.0.0.1#7771#DEFAULT#DEFAULT_GROUP@@unify-transaction","ip":"127.0.0.1","port":7771,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@unify-transaction","metadata":{"preserved.register.source":"SPRING_CLOUD","version":"1.0"},"ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]
+2026-05-02 19:17:30.719 [boundedElastic-1] INFO  com.alibaba.nacos.client.naming - current ips:(1) service: DEFAULT_GROUP@@unify-transaction -> [{"instanceId":"127.0.0.1#7771#DEFAULT#DEFAULT_GROUP@@unify-transaction","ip":"127.0.0.1","port":7771,"weight":1.0,"healthy":true,"enabled":true,"ephemeral":true,"clusterName":"DEFAULT","serviceName":"DEFAULT_GROUP@@unify-transaction","metadata":{"preserved.register.source":"SPRING_CLOUD","version":"1.0"},"ipDeleteTimeout":30000,"instanceHeartBeatTimeOut":15000,"instanceHeartBeatInterval":5000}]
+2026-05-02 19:17:31.097 [http-nio-7771-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-02 19:17:31.099 [http-nio-7771-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-02 19:17:31.101 [http-nio-7771-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-02 19:17:31.105 [http-nio-7771-exec-1] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: username=11111
+2026-05-02 19:17:31.105 [http-nio-7771-exec-1] INFO  com.tju.unify.conv.common.filters.UsernameFilter - 设置用户上下文: token=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTExMSIsImF1dGgiOiJVU0VSIiwiZXhwIjoxNzc4MDMxNjA0fQ.ucrya37Lb2R-Hk_6jshNUe8KFlm9SnUKR7rnV_B187wIp_cX0-IYegayCHEpyqPOGT4NJFOqnOQhPpkZc1UfjQ
+2026-05-02 19:17:31.228 [http-nio-7771-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-02 19:17:31.338 [nacos-grpc-client-executor-bobchasm.cn-13] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Receive server push request, request = NotifySubscriberRequest, requestId = 516
+2026-05-02 19:17:31.338 [nacos-grpc-client-executor-bobchasm.cn-13] INFO  com.alibaba.nacos.common.remote.client - [e9b89492-0cf6-482c-b114-b8482aa1e582] Ack server push request, request = NotifySubscriberRequest, requestId = 516
+2026-05-02 19:17:32.472 [http-nio-7771-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3880a6c
+2026-05-02 19:17:32.488 [http-nio-7771-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.

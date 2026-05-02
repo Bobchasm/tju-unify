@@ -46,7 +46,6 @@ class RagSummarizeService:
         return prompt_text
 
     def _policy_query_variants(self, query: str) -> List[str]:
-        """职务/加分类问题：原文中「班长」在组织机构与加分表多处出现，单查询易召回错误片段。"""
         q = query.strip()
         out: List[str] = [q]
         triggers = (

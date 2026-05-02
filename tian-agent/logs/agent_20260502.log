@@ -1,0 +1,149 @@
+2026-05-02 16:41:25 - agent - INFO - middleware.py:56 - [log_before_model]: 即将调用模型，带有2条消息，消息如下：
+2026-05-02 16:41:25 - agent - INFO - middleware.py:57 - [log_before_model]: ----------省略已输出内容----------
+2026-05-02 16:41:25 - agent - INFO - middleware.py:58 - [log_before_model][HumanMessage]: 天津大学有几个校区啊，怎么样
+2026-05-02 16:41:28 - agent - INFO - middleware.py:39 - [tool monitor]执行工具: rag_summarize
+2026-05-02 16:41:28 - agent - INFO - middleware.py:40 - [tool monitor]参数: {'query': '天津大学 校区'}
+2026-05-02 16:41:30 - agent - INFO - advanced_retrieval.py:146 - [MQE] 原始查询: '天津大学 校区' -> 扩展查询: ['天津大学 各校区 分布 地址', '北洋园校区 卫津路校区 区别 对比', '天津大学 校区 交通 出行方式']
+2026-05-02 16:41:38 - agent - INFO - advanced_retrieval.py:178 - [HyDE] 生成假设文档: '天津大学现设有卫津路校区、北洋园校区和滨海工业研究院校区，各校区功能定位明确、资源统筹协同。卫津路校区位于天津市南开区卫津路92号，主要承担部分高年级本科生、研究生教学科研任务及重点实验室运行；北洋园...'
+2026-05-02 16:41:39 - agent - INFO - advanced_retrieval.py:342 - [ExpandedSearch] 原始查询: '天津大学 校区', 扩展数: 5, 候选池: 32, 返回: 8 条
+2026-05-02 16:41:48 - agent - INFO - rag_service.py:181 - [RAG] 查询: '天津大学 校区...', 策略: auto, 检索到: 8 篇文档
+2026-05-02 16:41:48 - agent - INFO - middleware.py:43 - [tool monitor]工具rag_summarize调用成功
+2026-05-02 16:41:48 - agent - INFO - middleware.py:56 - [log_before_model]: 即将调用模型，带有4条消息，消息如下：
+2026-05-02 16:41:48 - agent - INFO - middleware.py:57 - [log_before_model]: ----------省略已输出内容----------
+2026-05-02 16:41:48 - agent - INFO - middleware.py:58 - [log_before_model][ToolMessage]: 根据提供的参考资料，天津大学设有以下三个校区：
+
+1. **卫津路校区**  
+   - 法定住所为天津市南开区卫津路92号（参考资料8）。  
+   - 占地总面积在不同资料中有两种表述：128.85万平方米（参考资料1）和182万平方米（参考资料2、5）；建筑面积为142.5万平方米（参考资料2、5）。  
+   - 校园环境整洁，景色优美，被誉为花园式学校，每年4月中旬的海棠季吸引大量市民参观（参考资料5）。  
+
+2. **北洋园校区**  
+   - 占地总面积243.6万平方米（参考资料1、5），总建筑面积130万平方米（参考资料5）。  
+   - 选址于天津市津南区海河教育园区中部，距离卫津路校区约23公里（参考资料5）。  
+   - 一期建设面积90万余平方米，2015年基本建成，教学科研主体功能向该校区集中（参考资料5）。  
+
+3. **滨海工业研究院校区**  
+   - 占地总面积30.9万平方米（参考资料1）。  
+
+以上信息依据《天津大学简介》《天津大学校区介绍》《天津大学章程》等已入库文件整理。
+2026-05-02 19:17:27 - agent - INFO - middleware.py:56 - [log_before_model]: 即将调用模型，带有5条消息，消息如下：
+2026-05-02 19:17:27 - agent - INFO - middleware.py:57 - [log_before_model]: ----------省略已输出内容----------
+2026-05-02 19:17:27 - agent - INFO - middleware.py:58 - [log_before_model][HumanMessage]: 查一下二手信息
+2026-05-02 19:17:29 - agent - INFO - middleware.py:39 - [tool monitor]执行工具: unify_list_secondhand_posts
+2026-05-02 19:17:29 - agent - INFO - middleware.py:40 - [tool monitor]参数: {'page_no': 1}
+2026-05-02 19:17:32 - agent - INFO - middleware.py:43 - [tool monitor]工具unify_list_secondhand_posts调用成功
+2026-05-02 19:17:32 - agent - INFO - middleware.py:56 - [log_before_model]: 即将调用模型，带有7条消息，消息如下：
+2026-05-02 19:17:32 - agent - INFO - middleware.py:57 - [log_before_model]: ----------省略已输出内容----------
+2026-05-02 19:17:32 - agent - INFO - middleware.py:58 - [log_before_model][ToolMessage]: {
+  "success": true,
+  "code": "OK",
+  "data": [
+    {
+      "id": 11,
+      "userId": 7,
+      "title": "羽毛球拍",
+      "description": "耐用型羽毛球拍子，适合新手！",
+      "price": 20.0,
+      "images": "https://txcloud-cos1-1375850795.cos.accelerate.myqcloud.com/a74e2fcb-d973-4e51-baba-4772245d9b4c.png",
+      "status": 0,
+      "updateTime": "2026-04-23T13:03:14",
+      "isDeleted": false
+    },
+    {
+      "id": 8,
+      "userId": 7,
+      "title": "天津",
+      "description": "天津",
+      "price": 10000.0,
+      "images": "https://txcloud-cos1-1375850795.cos.accelerate.myqcloud.com/0537b73f-b27e-4f79-a06f-e7e5353f7643.png",
+      "status": 0,
+      "updateTime": null,
+      "isDeleted": false
+    },
+    {
+      "id": 12,
+      "userId": 13,
+      "title": "篮球 斯伯丁篮球",
+      "description": "使用半年，品相良好，送打气筒球针。适合室内外通用。",
+      "price": 50.0,
+      "images": "https://txcloud-cos1-1375850795.cos.accelerate.myqcloud.com/dd8ffc53-2b08-4c3d-bae0-f836ace26194.png",
+      "status": 0,
+      "updateTime": null,
+      "isDeleted": false
+    },
+    {
+      "id": 13,
+      "userId": 13,
+      "title": "全新未拆封 iPad Pro 12.9寸",
+      "description": "新款，M2芯片，256G，朋友送的闲置。包装完好，没有拆封，支持验机。北洋园校区优先。",
+      "price": 699.0,
+      "images": "https://txcloud-cos1-1375850795.cos.accelerate.myqcloud.com/6921e366-094d-4e44-a27b-cb6534b697f7.png",
+      "status": 0,
+      "updateTime": null,
+      "isDeleted": false
+    },
+    {
+      "id": 14,
+      "userId": 13,
+      "title": "高等数学上",
+      "description": "高数课本，有笔记，卫津路优先",
+      "price": 5.0,
+      "images": "https://txcloud-cos1-1375850795.cos.accelerate.myqcloud.com/7c26ff86-1ebb-43a0-b403-9fbdbeafe38a.png",
+      "status": 0,
+      "updateTime": null,
+      "isDeleted": false
+    },
+    {
+      "id": 15,
+      "userId": 13,
+      "title": "二手卫衣",
+      "description": "闲置二手卫衣，肩宽54",
+      "price": 15.0,
+      "images": "https://txcloud-cos1-1375850795.cos.accelerate.myqcloud.com/743abd35-3216-4724-afc6-6a3474d36707.png",
+      "status": 0,
+      "updateTime": null,
+      "isDeleted": false
+    },
+    {
+      "id": 16,
+      "userId": 7,
+      "title": "乒乓球拍",
+      "description": "全新",
+      "price": 100.0,
+      "images": "https://txcloud-cos1-1375850795.cos.accelerate.myqcloud.com/428682e0-bf23-4177-a84c-d1943e5a4734.jpg",
+      "status": 0,
+      "updateTime": null,
+      "isDeleted": false
+    }
+  ],
+  "message": null
+}
+2026-05-02 19:21:49 - agent - INFO - middleware.py:56 - [log_before_model]: 即将调用模型，带有7条消息，消息如下：
+2026-05-02 19:21:49 - agent - INFO - middleware.py:57 - [log_before_model]: ----------省略已输出内容----------
+2026-05-02 19:21:49 - agent - INFO - middleware.py:58 - [log_before_model][HumanMessage]: 帮我备忘，明天下午三点，要交一个高数作业
+2026-05-02 19:21:53 - agent - INFO - middleware.py:39 - [tool monitor]执行工具: unify_memo_create_with_reminder
+2026-05-02 19:21:53 - agent - INFO - middleware.py:40 - [tool monitor]参数: {'title': '交高数作业', 'content': '高数作业提交截止', 'remind_at_iso': '2026-05-03T15:00:00', 'subtasks_json': '[]'}
+2026-05-02 19:21:53 - agent - INFO - unify_campus_tools.py:184 - [unify_memo_create_with_reminder] POST /memo/add body keys=['title', 'content', 'pinned', 'sortOrder', 'tasks', 'remindAt']
+2026-05-02 19:21:54 - agent - INFO - middleware.py:43 - [tool monitor]工具unify_memo_create_with_reminder调用成功
+2026-05-02 19:21:54 - agent - INFO - middleware.py:56 - [log_before_model]: 即将调用模型，带有9条消息，消息如下：
+2026-05-02 19:21:54 - agent - INFO - middleware.py:57 - [log_before_model]: ----------省略已输出内容----------
+2026-05-02 19:21:54 - agent - INFO - middleware.py:58 - [log_before_model][ToolMessage]: {
+  "success": false,
+  "code": "WITHOUT_ERROR_CODE",
+  "data": null,
+  "message": "用户不存在"
+}
+2026-05-02 19:27:21 - agent - INFO - middleware.py:56 - [log_before_model]: 即将调用模型，带有9条消息，消息如下：
+2026-05-02 19:27:21 - agent - INFO - middleware.py:57 - [log_before_model]: ----------省略已输出内容----------
+2026-05-02 19:27:21 - agent - INFO - middleware.py:58 - [log_before_model][HumanMessage]: 现在呢
+2026-05-02 19:27:23 - agent - INFO - middleware.py:39 - [tool monitor]执行工具: unify_memo_get_agent_snapshot
+2026-05-02 19:27:23 - agent - INFO - middleware.py:40 - [tool monitor]参数: {}
+2026-05-02 19:27:24 - agent - INFO - middleware.py:43 - [tool monitor]工具unify_memo_get_agent_snapshot调用成功
+2026-05-02 19:27:24 - agent - INFO - middleware.py:56 - [log_before_model]: 即将调用模型，带有11条消息，消息如下：
+2026-05-02 19:27:24 - agent - INFO - middleware.py:57 - [log_before_model]: ----------省略已输出内容----------
+2026-05-02 19:27:24 - agent - INFO - middleware.py:58 - [log_before_model][ToolMessage]: {
+  "success": false,
+  "code": "WITHOUT_ERROR_CODE",
+  "data": null,
+  "message": "用户不存在"
+}

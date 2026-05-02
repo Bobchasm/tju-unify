@@ -1,0 +1,37 @@
+{
+  "groups": [
+    {
+      "name": "tju.news",
+      "type": "com.tju.unify.conv.news.config.SchoolNewsConfig",
+      "sourceType": "com.tju.unify.conv.news.config.SchoolNewsConfig"
+    },
+    {
+      "name": "unit",
+      "type": "com.tju.unify.conv.news.config.UnitConfig",
+      "sourceType": "com.tju.unify.conv.news.config.UnitConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "tju.news.category",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.tju.unify.conv.news.config.SchoolNewsConfig"
+    },
+    {
+      "name": "unit.api-key",
+      "type": "java.lang.String",
+      "sourceType": "com.tju.unify.conv.news.config.UnitConfig"
+    },
+    {
+      "name": "unit.secret-key",
+      "type": "java.lang.String",
+      "sourceType": "com.tju.unify.conv.news.config.UnitConfig"
+    },
+    {
+      "name": "unit.url",
+      "type": "java.lang.String",
+      "sourceType": "com.tju.unify.conv.news.config.UnitConfig"
+    }
+  ],
+  "hints": []
+}

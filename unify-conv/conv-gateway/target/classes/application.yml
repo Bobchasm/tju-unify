@@ -1,0 +1,62 @@
+server:
+  port: 7070
+
+spring:
+  application:
+    name: unify-gateway
+  codec:
+    max-in-memory-size: 10MB
+  cloud:
+    nacos:
+      server-addr: bobchasm.cn:8848
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+    gateway:
+      routes:
+        - id: gateway
+          uri: lb://gateway
+          predicates:
+            - Path=/api/**,/ws/**
+
+        - id: unify-news
+          uri: lb://unify-news
+          predicates:
+            - Path=/unify-api/news/**
+
+        - id: unify-transaction
+          uri: lb://unify-transaction
+          predicates:
+            - Path=/unify-api/transaction/**
+
+        - id: unify-memo
+          uri: lb://unify-memo
+          predicates:
+            - Path=/unify-api/memo/**
+
+        - id: unify-errand
+          uri: lb://unify-errand
+          predicates:
+            - Path=/unify-api/errand/**
+
+unify:
+  auth:
+    excludePaths:
+      - /api/**
+      - /ws/**
+      - /unify-api/news/schoolNews/**
+
+# JWT配置
+jwt:
+  secret: abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrstuvwxyz123456
+  token-validity-in-seconds: 86400
+  token-validity-in-seconds-for-remember-me: 108000
+
+# 日志配置
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    com.tju.unify.conv.gateway: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.netty: DEBUG

@@ -212,7 +212,7 @@ def main():
     print("（建库请运行 rag/vectore_store 的 load_document，并视情况清空 chroma_db 与 md5.text）")
 
 if __name__ == "__main__":
-    # 首先尝试使用opendataloader-pdf（如果Java已安装）
+    # 首先尝试使用opendataloader-pdf
     try:
         import opendataloader_pdf
 
